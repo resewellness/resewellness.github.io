@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>document.documentElement.classList.add("js")</script>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rese Wellness | Physician-Guided Weight &amp; Wellness Care for Women</title>
+<meta name="description" content="Physician-guided GLP-1 weight and wellness care for women. Flat monthly pricing, no consult fees, honest answers either way — from a family-run team in Queen Creek, AZ.">
+<meta name="theme-color" content="#FFFAF5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rese Wellness">
+<meta property="og:title" content="Rese Wellness | Physician-Guided Weight &amp; Wellness Care for Women">
+<meta property="og:description" content="Real medication, guided programs, flat monthly pricing. Physician-guided weight and wellness care for women.">
+<meta property="og:image" content="assets/rese-logo.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalBusiness","name":"Rese Wellness","description":"Physician-guided weight and wellness care for women. GLP-1 weight programs with flat monthly pricing.","address":{"@type":"PostalAddress","addressLocality":"Queen Creek","addressRegion":"AZ","addressCountry":"US"},"logo":"assets/rese-logo.png"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is this cheating?","acceptedAnswer":{"@type":"Answer","text":"No. Needing insulin isn't cheating at diabetes, and quieting food noise isn't cheating at health. Your biology changed; your tools are allowed to change too."}},
+{"@type":"Question","name":"Who actually prescribes it?","acceptedAnswer":{"@type":"Answer","text":"A licensed provider in your state reviews your full health history and makes the call — a real clinician, not an algorithm. All clinical decisions are made by our licensed provider network."}},
+{"@type":"Question","name":"What's the catch?","acceptedAnswer":{"@type":"Answer","text":"We ask for a three-month commitment when you start, because that's how long the medicine takes to work — you're still billed monthly. After that, month-to-month, cancel in one step. Pricing is public and your program price covers everything in it."}}]}
+</script>
+<style>
+  :root{
+    --cream:#FFFAF5; --olive:#72744E; --olive-deep:#5C5E3E; --ink:#141410; --white:#FFFFFF; --sage:#E9ECDD;
+    --serif:'Lora',Georgia,'Times New Roman',serif;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .concept-bar{background:#141410;color:#FFF;font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:7px 14px}
+  .wrap{max-width:520px;margin:0 auto;padding:0 20px}
+  a{color:var(--olive)}
+
+  /* subtle paper grain */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.3;z-index:1;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.44 0 0 0 0 0.36 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+  main,header,footer,.sticky-cta{position:relative;z-index:2}
+
+  /* ===== THE GROWING STEM — the logo's thesis as the page's spine =====
+     The Rx-leaf mark is a prescription symbol, growing. The page does the same:
+     a thin stem grows down the left edge as she scrolls, sprouting a leaf at each
+     section she reaches. Skimmers feel progress without reading a word. */
+  #stem{position:fixed;left:4px;top:0;bottom:0;width:22px;z-index:3;pointer-events:none}
+  #stem svg{height:100%;width:100%}
+  #stemPath{stroke:var(--olive);stroke-width:1.6;fill:none;opacity:.55}
+  .stem-leaf{opacity:0;transform:scale(.4);transform-origin:center;transition:opacity .5s ease,transform .5s ease;fill:none;stroke:var(--olive);stroke-width:1.4}
+  .stem-leaf.on{opacity:.8;transform:scale(1)}
+  @media(max-width:389px){#stem{display:none}}
+
+  /* reveal system */
+  html.js .rv{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+  html.js .rv.in{opacity:1;transform:none}
+  .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}
+  @media (prefers-reduced-motion: reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+    *{animation:none!important;transition:none!important}
+    #stem{display:none}
+  }
+
+  /* ===== header with logo ===== */
+  header{position:sticky;top:0;background:rgba(255,250,245,.95);backdrop-filter:blur(8px);border-bottom:1px solid #eee3d6;z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;max-width:520px;margin:0 auto}
+  .logo{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:var(--ink)}
+  .logo .note{font-size:7px;letter-spacing:.08em;color:#b3a58c;text-transform:uppercase;margin-top:2px}
+  .nav .fr{color:var(--olive);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+  .nav-right{display:flex;align-items:center;gap:16px}
+  .menu-btn{background:none;border:none;cursor:pointer;padding:8px;margin:-8px;display:flex;flex-direction:column;gap:5px;align-items:flex-end}
+  .menu-btn span{display:block;height:1.8px;background:var(--ink);border-radius:2px;transition:transform .3s ease,opacity .3s ease,width .3s ease}
+  .menu-btn span:nth-child(1){width:22px}
+  .menu-btn span:nth-child(2){width:16px}
+  .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(3.4px) rotate(45deg);width:22px}
+  .menu-btn[aria-expanded="true"] span:nth-child(2){transform:translateY(-3.4px) rotate(-45deg);width:22px}
+  .drawer{position:fixed;left:0;right:0;top:0;bottom:0;background:var(--cream);z-index:9;padding:96px 28px 32px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .3s ease}
+  .drawer.open{opacity:1;pointer-events:auto}
+  .drawer a.pg{font-family:var(--serif);font-weight:500;font-size:27px;color:var(--ink);text-decoration:none;padding:14px 0;border-bottom:1px solid #eee3d6;display:flex;justify-content:space-between;align-items:center;opacity:0;transform:translateY(12px);transition:opacity .35s ease,transform .35s ease}
+  .drawer.open a.pg{opacity:1;transform:none}
+  .drawer.open a.pg:nth-child(2){transition-delay:.05s}
+  .drawer.open a.pg:nth-child(3){transition-delay:.1s}
+  .drawer.open a.pg:nth-child(4){transition-delay:.15s}
+  .drawer.open a.pg:nth-child(5){transition-delay:.2s}
+  .drawer.open a.pg:nth-child(6){transition-delay:.25s}
+  .drawer a.pg small{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive)}
+  .drawer .fr-row{margin-top:auto;padding-top:24px;border-top:1px solid #eee3d6;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+  .drawer .fr-row a{color:var(--olive);text-decoration:none}
+  .drawer .btn{margin-top:18px;text-align:center}
+  @media (prefers-reduced-motion: reduce){.drawer,.drawer a.pg,.menu-btn span{transition:none}}
+
+  /* ===== hero ===== */
+  .hero{padding:36px 0 8px}
+  .hero-logo{display:flex;justify-content:center;margin-bottom:26px}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(33px,8.6vw,42px);line-height:1.14;letter-spacing:-.01em;text-align:center;margin-bottom:12px}
+  .hero .sub{font-size:16px;color:#3a3a34;text-align:center;max-width:30ch;margin:0 auto 24px}
+  .cta-wrap{text-align:center}
+  .btn-leaf{display:inline-flex;align-items:center;gap:9px}
+  .btn{display:inline-block;background:var(--olive);color:#FFF;text-decoration:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:18px 40px;border-radius:2px;transition:transform .18s ease,box-shadow .18s ease}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(92,94,62,.28)}
+  .btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+  /* skim chips — the whole promise in 3 glances */
+  .chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+  .chip{background:var(--sage);border:1px solid #d8d2be;border-radius:100px;font-size:12px;letter-spacing:.02em;padding:8px 14px;color:#2e2f22;display:flex;gap:6px;align-items:center}
+  .chip svg{flex:none}
+
+  /* hero image */
+  .hero-frame{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/5;margin-top:30px;
+    background:
+      radial-gradient(120% 90% at 75% 12%, #F6E7CE 0%, transparent 55%),
+      radial-gradient(90% 70% at 20% 85%, #8A8C63 0%, transparent 60%),
+      linear-gradient(160deg,#E8DCC6 0%,#CBC3A4 42%,#9FA077 78%,#72744E 100%)}
+  .hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,20,16,.18),transparent 40%)}
+  .ph-label{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;color:#FFF;font-size:10px;letter-spacing:.12em;text-transform:uppercase;line-height:1.6;opacity:.9}
+  .ph-label b{display:block;font-size:9px;letter-spacing:.24em;color:#F3EBD9}
+  .sun{position:absolute;top:11%;right:14%;width:92px;height:92px;border-radius:50%;background:radial-gradient(circle,#FFF6E4,#F9E3B8 60%,transparent 72%);filter:blur(2px);animation:breathe 7s ease-in-out infinite}
+  @keyframes breathe{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.06);opacity:1}}
+
+  /* ===== sections — built to be read by headline alone ===== */
+  section{padding:52px 0 8px}
+  .eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:12px}
+  .big{font-family:var(--serif);font-weight:500;font-size:clamp(25px,6.8vw,32px);line-height:1.22;margin-bottom:14px}
+  .support{font-size:15px;color:#3a3a34;max-width:34ch}
+
+  /* the mirror line — one skimmable emotional beat */
+  .mirror{background:#FFF;border:1px solid #eee3d6;border-radius:12px;overflow:hidden;margin-top:22px}
+  .mirror .ph{position:relative;aspect-ratio:4/3.8;background:radial-gradient(80% 80% at 30% 25%,#F2E4CD,transparent 60%),linear-gradient(150deg,#E3D6BE,#B3AC8B 60%,#8A8C63)}
+  .mirror .ph .ph-label{color:#4c4d38}
+  .mirror .txt{padding:24px 22px}
+  .mirror .txt p{font-family:var(--serif);font-size:19px;line-height:1.5;font-style:italic}
+  .mirror .txt .ans{font-family:var(--sans);font-style:normal;font-size:14px;color:#555;margin-top:12px}
+
+  /* steps — swipeless vertical, one line each, icon-led */
+  .stp{display:flex;gap:16px;align-items:center;background:#FFF;border:1px solid #eee3d6;border-radius:12px;padding:18px;margin-top:12px}
+  .stp .icon{flex:none;width:48px;height:48px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center}
+  .stp h3{font-size:15.5px;margin-bottom:2px}
+  .stp p{font-size:13.5px;color:#555}
+
+  /* program cards — name the medicine, sell the program */
+  .prog{background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:22px;margin-top:14px;position:relative}
+  .prog .med{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:6px}
+  .prog h3{font-family:var(--serif);font-weight:500;font-size:21px;margin-bottom:6px}
+  .prog p{font-size:14px;color:#444;max-width:40ch}
+  .prog .pline{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #eee3d6;margin-top:16px;padding-top:14px}
+  .prog .pline .amt{font-family:var(--serif);font-size:26px;font-weight:500}
+  .prog .pline .amt small{font-family:var(--sans);font-size:12px;color:#555}
+  .prog .pline .flat{font-size:11.5px;color:#555;text-align:right;max-width:16ch}
+  .prog.soon{background:transparent;border-style:dashed;text-align:center;padding:16px}
+  .prog.soon p{font-size:12.5px;color:#777;max-width:none}
+  .prov-note{background:var(--sage);border-radius:12px;padding:16px 18px;margin-top:14px;font-size:14px;color:#1c1c18;display:flex;gap:12px;align-items:flex-start}
+  .prov-note svg{flex:none;margin-top:2px}
+
+  /* supporting programs — swipeable shelf, benefit-led, no vials */
+  .shelf-label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--olive);font-weight:600;margin:34px 0 4px}
+  .shelf-sub{font-size:13.5px;color:#555;margin-bottom:14px}
+  .shelf{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 20px 14px;margin:0 -20px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .shelf::-webkit-scrollbar{display:none}
+  .shelf-card{flex:0 0 72%;max-width:250px;scroll-snap-align:start;background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:20px;position:relative;display:flex;flex-direction:column}
+  .shelf-card .cat{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:4px}
+  .shelf-card h3{font-family:var(--serif);font-weight:500;font-size:19px;margin-bottom:4px}
+  .shelf-card p{font-size:12.5px;color:#555;margin-bottom:14px}
+  .shelf-card .ico{height:56px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+  .shelf-card .ico svg{width:100%;height:100%}
+  .shelf-card .go{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);text-decoration:none;font-weight:600;margin-top:auto}
+  .shelf-card.soon{border-style:dashed;background:transparent}
+  .shelf-card.soon .go{color:#999}
+  .shelf-hint{display:flex;gap:5px;justify-content:center;margin-top:2px}
+  .shelf-hint i{width:5px;height:5px;border-radius:50%;background:#d8d2be}
+  .shelf-hint i:first-child{background:var(--olive)}
+
+  /* the number — the skimmer's anchor */
+  .pricecard{background:var(--sage);border-radius:14px;padding:32px 26px;margin-top:22px;position:relative;overflow:hidden}
+  .pricecard .sprig{position:absolute;right:-18px;top:-16px;opacity:.45}
+  .pricecard .num{font-family:var(--serif);font-size:56px;line-height:1;font-weight:500}
+  .pricecard .num small{font-family:var(--sans);font-size:13px;color:#3a3a34;letter-spacing:.02em}
+  .ticks{list-style:none;margin-top:18px}
+  .ticks li{font-size:15px;line-height:1.5;padding:12px 0 12px 32px;position:relative;border-bottom:1px solid #cdd2b8}
+  .ticks li:last-child{border-bottom:none}
+  .ticks li::before{content:"";position:absolute;left:0;top:15px;width:16px;height:16px;
+    background:no-repeat center/contain url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%235C5E3E" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>')}
+  .honest-line{margin-top:18px;padding-top:16px;border-top:1px solid #cdd2b8;font-size:14px;color:#1c1c18}
+  .honest-line strong{font-family:var(--serif);font-weight:400;font-size:17px;display:block;margin-bottom:6px}
+
+  /* plateau promise — one card, one promise */
+  .plateau{background:#FFF;border:1px solid #eee3d6;border-left:4px solid var(--olive);border-radius:12px;padding:22px;margin-top:22px}
+  .plateau h3{font-family:var(--serif);font-weight:500;font-size:19px;margin-bottom:8px}
+  .plateau p{font-size:14.5px;color:#333}
+
+  /* founders — faces first, words second */
+  .founders{text-align:center;margin-top:22px}
+  .frow{display:flex;justify-content:center;margin-bottom:14px}
+  .fp{width:88px;height:88px;border-radius:50%;border:4px solid var(--cream);position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
+  .fp:nth-child(1){background:linear-gradient(150deg,#E9DCC4,#B9AE8C);z-index:3}
+  .fp:nth-child(2){background:linear-gradient(150deg,#DCD2B8,#9FA077);margin-left:-16px;z-index:2}
+  .fp:nth-child(3){background:linear-gradient(150deg,#E4D8BF,#ADA482);margin-left:-16px;z-index:1}
+  .fp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .founders p{font-size:15px;max-width:34ch;margin:0 auto 6px}
+  .founders a{font-size:13.5px}
+
+  /* faq */
+  details{border-bottom:1px solid #eee3d6;padding:15px 0}
+  summary{font-size:15.5px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;font-weight:500}
+  summary::after{content:"+";color:var(--olive);font-size:20px;flex:none;transition:transform .25s ease;line-height:1}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{font-size:14.5px;color:#333;padding-top:10px}
+
+  /* journal */
+  .post{background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:22px;margin-top:14px}
+  .post time{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--olive);font-weight:600}
+  .post h3{font-family:var(--serif);font-weight:500;font-size:20px;margin:6px 0 4px}
+  .post p{font-size:14px;color:#444}
+  .post a{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600;display:inline-block;margin-top:10px}
+
+  /* final band */
+  .final{background:linear-gradient(165deg,var(--olive),var(--olive-deep));color:#FFF;text-align:center;padding:64px 22px;margin-top:56px;position:relative;overflow:hidden}
+  .final .watermark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:.1}
+  .final h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.8vw,36px);margin-bottom:8px;position:relative}
+  .final p{font-size:15px;color:#e9ecdd;margin-bottom:24px;position:relative}
+  .final .btn{background:#FFF;color:var(--ink)}
+
+  footer{padding:32px 20px 96px;font-size:12px;color:#555;max-width:520px;margin:0 auto}
+  footer .seal{display:inline-block;border:1px solid #d8ceba;border-radius:3px;padding:5px 10px;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#777;margin-bottom:12px}
+
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .steps{display:grid;gap:12px;margin-top:12px}
+  .steps .stp{margin-top:0}
+  .progs{display:grid;gap:14px;margin-top:14px}
+  .progs .prog{margin-top:0}
+  .posts{display:grid;gap:14px;margin-top:14px}
+  .posts .post{margin-top:0}
+
+  /* ===== desktop ===== */
+  @media(min-width:1000px){
+    .wrap,.nav,footer{max-width:1080px}
+    section{padding:76px 0 8px}
+    .nav{padding:14px 20px;gap:28px}
+    .nav-links{display:flex;gap:28px;flex-wrap:nowrap;white-space:nowrap}
+    .nav-links a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+    .nav-links a:hover{color:var(--olive)}
+    .nav-cta{display:inline-block;padding:11px 20px;font-size:11px}
+    .menu-btn{display:none}
+    .hero{display:grid;grid-template-columns:1.02fr .98fr;column-gap:64px;align-items:center;padding:64px 0 8px}
+    .hero > *{grid-column:1}
+    .hero h1{text-align:left;font-size:48px;max-width:none}
+    .hero .sub{text-align:left;margin:0 0 28px;max-width:none;font-size:17px}
+    .hero .sub br{display:inline}
+    .cta-wrap{text-align:left}
+    .chips{justify-content:flex-start}
+    .hero-frame{grid-column:2;grid-row:1/5;margin-top:0;max-height:600px}
+    .big{font-size:34px}
+    .support{max-width:none}
+    .mirror{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+    .mirror .ph{aspect-ratio:auto;min-height:340px}
+    .mirror .txt{padding:40px 36px;display:flex;flex-direction:column;justify-content:center}
+    .steps{grid-template-columns:repeat(3,1fr);gap:14px}
+    .stp{flex-direction:column;align-items:flex-start;gap:14px;padding:24px}
+    .progs{grid-template-columns:1fr 1fr}
+    .shelf{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;margin:0;padding:2px 0 6px}
+    .shelf-card{max-width:none}
+    .shelf-hint{display:none}
+    .swipe-txt{display:none}
+    .pricecard{padding:40px 38px}
+    .pricecard{max-width:760px}
+    .posts{grid-template-columns:repeat(3,1fr)}
+    .plateau,.faq-wrap{max-width:760px}
+    .final{padding:88px 22px}
+    .sticky-cta{display:none}
+  }
+
+  /* sticky CTA */
+  .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(255,250,245,.97);backdrop-filter:blur(8px);border-top:1px solid #eee3d6;padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .4s ease}
+  .sticky-cta.show{transform:none}
+  .sticky-cta span{font-size:12px;color:#3a3a34;line-height:1.35}
+  .sticky-cta .btn{padding:13px 20px;font-size:12px;white-space:nowrap}
+</style>
+
+<template id="__bundler_thumbnail" data-bg-color="#FFFAF5">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FFFAF5"/>
+    <text x="600" y="430" text-anchor="middle" font-family="Georgia,serif" font-size="150" fill="#141410">Rese</text>
+    <text x="600" y="510" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="34" letter-spacing="14" fill="#72744E">WELLNESS</text>
+  </svg>
+</template>
+</head>
+<body>
+
+<!-- The growing stem: drawn as she scrolls, leaves sprout at each section reached -->
+<div id="stem" aria-hidden="true">
+  <svg preserveAspectRatio="none" viewBox="0 0 22 1000">
+    <path id="stemPath" d="M11 0 L11 1000"/>
+  </svg>
+</div>
+
+<header>
+  <nav class="nav" aria-label="Main">
+    <a class="logo" href="#" aria-label="Rese Wellness home">
+      <img src="assets/rese-logo.png" alt="Rese Wellness" style="display:block;height:42px;width:auto">
+    </a>
+    <div class="nav-links" aria-label="Sections">
+      <a href="#s2">How it works</a>
+      <a href="#s2b">Programs</a>
+      <a href="#s3">Pricing</a>
+      <a href="#journal">Journal</a>
+      <a href="#s6">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <a class="fr" href="First Responders.html">First Responders</a>
+      <a class="btn nav-cta" href="Assessment.html">Start your assessment</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <a class="pg" href="#s2">How it works <small>3 steps</small></a>
+  <a class="pg" href="#s2b">What we offer <small>Programs</small></a>
+  <a class="pg" href="#s3">Pricing <small>Public</small></a>
+  <a class="pg" href="Program - Weight.html">The Weight Program <small>Flat price</small></a>
+  <a class="pg" href="Our Story.html">Our story <small>The family</small></a>
+  <a class="pg" href="#journal">The Journal <small>Weekly</small></a>
+  <a class="pg" href="FAQ.html">FAQ <small>Honest answers</small></a>
+  <a class="pg" href="Contact.html">Contact <small>A founder answers</small></a>
+  <div class="fr-row"><a href="First Responders.html">First Responders — Dr. Smith's door →</a></div>
+  <a class="btn" href="Assessment.html">Start your assessment</a>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <!-- HERO: if she reads nothing else, she reads this screen -->
+    <section class="hero" aria-labelledby="h1">
+      <h1 id="h1" class="rv">Your body changed.<br>Your care should too.</h1>
+      <p class="sub rv d1">Physician-guided weight &amp; wellness care for women.</p>
+      <div class="cta-wrap rv d1"><a class="btn" href="Assessment.html">Start your assessment</a></div>
+
+      <!-- Skim chips: the three answers to "what's the catch," readable in 3 seconds -->
+      <div class="chips rv d2" aria-label="At a glance">
+        <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>Physician-guided</span>
+        <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>One flat price per program</span>
+        <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>3-month commitment, billed monthly</span>
+      </div>
+
+      <div class="hero-frame rv d2">
+        <img src="assets/hero.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      </div>
+    </section>
+
+    <!-- BEAT 1: she feels seen (one quote, one answer) -->
+    <section aria-labelledby="s1">
+      <p class="eyebrow rv">Sound familiar?</p>
+      <h2 class="big rv d1" id="s1">“Why was this easy ten years ago?”</h2>
+      <div class="mirror rv d2">
+        <div class="ph">
+          <img src="assets/mirror.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="txt">
+          <p>“I did the points. The macros. The 5am classes. My body just stopped answering.”</p>
+          <p class="ans">You haven't done anything wrong. Your biology changed — your tools are allowed to change too.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEAT 2: how it works (icon-led, one line each) -->
+    <section aria-labelledby="s2">
+      <p class="eyebrow rv">How it works</p>
+      <h2 class="big rv d1" id="s2">Three honest steps</h2>
+      <div class="steps">
+      <div class="stp rv d1">
+        <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="1.6"><path d="M8 3h8l3 3v15H5V3h3z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div>
+        <div><h3>10-minute assessment</h3><p>Your history, from your couch.</p></div>
+      </div>
+      <div class="stp rv d2">
+        <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></div>
+        <div><h3>A licensed clinician decides</h3><p>A provider in your state reviews your health history and approves your plan — or honestly declines it.<br>Declined = full refund.</p></div>
+      </div>
+      <div class="stp rv d2">
+        <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="1.6"><path d="M3 9l9-6 9 6v11H3V9z"/><path d="M9 20v-7h6v7"/></svg></div>
+        <div><h3>Delivered to your door</h3><p>A plain box, on purpose. Then regular check-ins — and real people whenever you need us.</p></div>
+      </div>
+      </div>
+    </section>
+
+    <!-- BEAT 2.5: what we offer — medications named in plain English, program is the product -->
+    <section aria-labelledby="s2b">
+      <p class="eyebrow rv">What we offer</p>
+      <h2 class="big rv d1" id="s2b">Real medication.<br>One guided program.</h2>
+      <p class="support rv d1">Rese Weight Care includes GLP-1 medication — the same class as the brand names you've heard of — plus provider care, at one flat price per program.</p>
+
+      <div class="progs">
+      <div class="prog rv d2">
+        <div class="med">Semaglutide program</div>
+        <h3>Rese Weight Care</h3>
+        <p>The most-studied GLP-1. One simple weekly dose that quiets the food noise, titrated gradually by your provider.</p>
+        <div class="pline">
+          <span class="amt">$185<small>/mo</small></span>
+          <span class="flat">Flat — never rises with your dose</span>
+        </div>
+        <a href="Program - Weight.html" style="display:inline-block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600;margin-top:14px">See the full program →</a>
+      </div>
+
+      <div class="prog rv d2">
+        <div class="med">Tirzepatide program</div>
+        <h3>Rese Weight Care+</h3>
+        <p>A dual-action GLP-1 some patients respond to more strongly. If it's not the right fit, your provider will say so.</p>
+        <div class="pline">
+          <span class="amt">$299<small>/mo</small></span>
+          <span class="flat">Flat — never rises with your dose</span>
+        </div>
+        <a href="Program - Weight.html" style="display:inline-block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600;margin-top:14px">See the full program →</a>
+      </div>
+      </div>
+
+      <div class="prov-note rv d2">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+        <span><strong>Tell us what you'd like to try — a licensed provider makes the final call.</strong> If it's not right for you, they'll say so, and you get a full refund. And you'll know your exact price before you pay a dollar.</span>
+      </div>
+
+      <p class="shelf-label rv d2">More ways we care</p>
+      <p class="shelf-sub rv d2">Provider-guided, like everything at Rese. <span class="swipe-txt">Swipe to explore.</span></p>
+      <div class="shelf rv d2" role="list" aria-label="Additional programs">
+        <div class="shelf-card" role="listitem">
+          <div class="cat">NAD+</div>
+          <h3>Restore energy</h3>
+          <div class="ico" aria-hidden="true"><svg viewBox="0 0 200 56" fill="none" stroke="#82845E" stroke-width="1.3" stroke-linecap="round" preserveAspectRatio="xMidYMid meet"><path d="M34 36 H166"/><path d="M85 36 a15 15 0 0 1 30 0"/><line x1="100" y1="13" x2="100" y2="17"/><line x1="86" y1="17" x2="88.5" y2="20"/><line x1="114" y1="17" x2="111.5" y2="20"/><path d="M52 36 C52 30 55 26.5 60 25.5 C60.8 31 57.7 34.8 52 36 Z"/><path d="M148 36 C148 30 145 26.5 140 25.5 C139.2 31 142.3 34.8 148 36 Z"/></svg></div>
+          <p>Cellular energy support for the tired-behind-the-eyes kind of tired.</p>
+          <a class="go" href="Program - Peptides.html">Explore →</a>
+        </div>
+        <div class="shelf-card" role="listitem">
+          <div class="cat">Peptides</div>
+          <h3>Recover &amp; rebuild</h3>
+          <div class="ico" aria-hidden="true"><svg viewBox="0 0 200 56" fill="none" stroke="#82845E" stroke-width="1.3" stroke-linecap="round" preserveAspectRatio="xMidYMid meet"><path d="M32 38 C80 34 124 28 168 16"/><path d="M92 32.5 C90 25 93 18.5 100 15 C102.8 22.5 99 29.8 92 32.5 Z"/><path d="M130 26 C133 32.5 131.5 39 126 43.5 C122 37.5 123.5 30.8 130 26 Z"/></svg></div>
+          <p>Provider-recommended support for muscle, recovery, and repair.</p>
+          <a class="go" href="Program - Peptides.html">Explore →</a>
+        </div>
+        <div class="shelf-card" role="listitem">
+          <div class="cat">Longevity</div>
+          <h3>Age gracefully</h3>
+          <div class="ico" aria-hidden="true"><svg viewBox="0 0 200 56" fill="none" stroke="#82845E" stroke-width="1.3" stroke-linecap="round" preserveAspectRatio="xMidYMid meet"><path d="M28 28 H158"/><circle cx="169" cy="28" r="4.5"/><path d="M70 28 C70 22 73 18.5 78 17.5 C78.8 23 75.7 26.8 70 28 Z"/><path d="M70 28 C70 34 73 37.5 78 38.5 C78.8 33 75.7 29.2 70 28 Z"/><path d="M114 28 C114 23 116.5 20 121 19 C121.8 24 119 27 114 28 Z"/><path d="M114 28 C114 33 116.5 36 121 37 C121.8 32 119 29 114 28 Z"/></svg></div>
+          <p>Glutathione and longevity support, curated — never a catalog.</p>
+          <a class="go" href="Program - Peptides.html">Explore →</a>
+        </div>
+        <div class="shelf-card soon" role="listitem">
+          <div class="cat">Coming soon</div>
+          <h3>Hormone support</h3>
+          <div class="ico" aria-hidden="true"><svg viewBox="0 0 200 56" fill="none" stroke="#82845E" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" preserveAspectRatio="xMidYMid meet"><path d="M32 42 C88 42 128 37 154 24"/><path d="M116 36 C114 29.5 116.5 23.5 123 20.5 C125.5 27 122.5 33.5 116 36 Z"/><circle cx="162" cy="20" r="4"/></svg></div>
+          <p>Midlife hormone care is next. Founding Members get first access.</p>
+          <a class="go" href="Hormone Waitlist.html">Join the list →</a>
+        </div>
+      </div>
+      <div class="shelf-hint" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </section>
+
+    <!-- BEAT 3: what every membership includes (welded to the honesty framing) -->
+    <section aria-labelledby="s3">
+      <p class="eyebrow rv">Every weight-care membership</p>
+      <h2 class="big rv d1" id="s3">Your program price covers it all.</h2>
+      <div class="pricecard rv d2">
+        <svg class="sprig" width="110" height="110" viewBox="0 0 100 100" fill="none" stroke="#72744E" stroke-width="1.2" aria-hidden="true">
+          <path d="M50 95 C50 60 55 35 70 12"/>
+          <path d="M56 70 C46 62 42 52 44 40 C54 44 60 52 60 64"/>
+          <path d="M62 48 C74 46 82 38 84 26 C72 26 64 32 61 42"/>
+        </svg>
+        <ul class="ticks">
+          <li>Your medication, shipped free — plain box, on purpose</li>
+          <li>Provider visits &amp; ongoing check-ins</li>
+          <li>Questions between visits answered by real humans, not bots</li>
+          <li>The Plateau Protocol at week eight</li>
+          <li>No consult fees. No dose-based price increases. Ever.</li>
+        </ul>
+        <div class="honest-line">
+          <strong>The three-month start is a real commitment.</strong>
+          You're billed monthly — we just ask you to commit to three months, because that's honestly how long the medicine takes to work. Meaningful results in the first month alone aren't realistic, and we won't pretend otherwise. After three months: month-to-month, cancel in one step.
+        </div>
+        <div class="honest-line">
+          <strong>If our provider says it's not right for you</strong>
+          Full refund. That's not the system failing — that's the system working.
+        </div>
+        <a href="Program - Weight.html" style="display:inline-block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600;margin-top:16px">Everything about the Weight Program →</a>
+      </div>
+    </section>
+
+    <!-- BEAT 4: the promise nobody else makes -->
+    <section aria-labelledby="s4">
+      <p class="eyebrow rv">The part others go quiet on</p>
+      <h2 class="big rv d1" id="s4">We check in at week eight.</h2>
+      <div class="plateau rv d2">
+        <h3>The Plateau Protocol</h3>
+        <p>Most bodies adapt somewhere around weeks 8–12, and the scale slows. It's not failure — it's biology, and we plan for it. We reach out around week eight, <em>before</em> frustration peaks — and if it's time for a dose conversation, we help you set one up. Nobody else in this category will even tell you the plateau exists.</p>
+        <p style="margin-top:10px"><a href="Program - Weight.html" style="font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600">Built into the Weight Program →</a></p>
+      </div>
+    </section>
+
+    <!-- BEAT 5: faces (the highest-converting pixels on the page) -->
+    <section aria-labelledby="s5">
+      <p class="eyebrow rv" style="text-align:center">Who's behind this</p>
+      <h2 class="big rv d1" id="s5" style="text-align:center">One family, caring for yours.</h2>
+      <div class="founders rv d2">
+        <div class="frow">
+          <div class="fp"><img src="assets/founder-sabrina.jpg" alt="Sabrina, co-founder of Rese Wellness"></div>
+          <div class="fp"><img src="assets/founder-drsmith.jpg" alt="Dr. Smith, co-founder and physician at Rese Wellness"></div>
+          <div class="fp"><img src="assets/founder-tera.jpg" alt="Tera, co-founder of Rese Wellness"></div>
+        </div>
+        <p>A women's health nurse who's walked the journey. Her dad — a physician of 25 years. And her mom — the one who answers when you reach out.</p>
+        <a href="Our Story.html">Read our story</a>
+      </div>
+    </section>
+
+    <!-- BEAT 6: three fears, answered -->
+    <section aria-labelledby="s6">
+      <p class="eyebrow rv">Fair questions</p>
+      <h2 class="big rv d1" id="s6">Asked and answered</h2>
+      <div class="rv d2">
+        <details><summary>Is this cheating?</summary><p>No. Needing insulin isn't cheating at diabetes, and quieting food noise isn't cheating at health. Your biology changed; your tools are allowed to change too.</p></details>
+        <details><summary>Who actually prescribes it?</summary><p>A licensed provider in your state reviews your full health history and makes the call — a real clinician, not an algorithm. In most states there's no appointment; a few require a quick video visit, and if yours does, we'll make it painless.</p></details>
+        <details><summary>What's the catch?</summary><p>The closest thing to one: we ask for a three-month commitment when you start, because that's how long the medicine takes to work — and we'd rather tell you here than in checkout fine print. You're still billed monthly. After three months: month-to-month, cancel in one step. Pricing is public and your program price covers everything in it.</p></details>
+        <p style="margin-top:14px"><a href="FAQ.html" style="font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600">See every question, answered →</a></p>
+      </div>
+    </section>
+
+    <!-- THE JOURNAL: edit weekly — duplicate the top card, update date/title/text -->
+    <section aria-labelledby="s7" id="journal">
+      <p class="eyebrow rv">The Rese Journal</p>
+      <h2 class="big rv d1" id="s7">Notes from our clinicians, weekly</h2>
+      <p class="support rv d1">Plain-English answers to the questions patients actually ask. A new note every week — members get it delivered straight to their inbox.</p>
+      <div class="posts">
+      <article class="post rv d2">
+        <time datetime="2026-07-14">July 14, 2026</time>
+        <h3>Why the scale slows around week eight</h3>
+        <p>Almost every body adapts somewhere between weeks eight and twelve. It isn't failure — it's biology, and it's the reason we build the Plateau Protocol into every program.</p>
+        <a href="Journal - Week Eight Plateau.html">Read the note →</a>
+      </article>
+      <article class="post rv d2">
+        <time datetime="2026-07-07">July 7, 2026</time>
+        <h3>“Food noise,” explained by a physician</h3>
+        <p>That constant background hum of thinking about food isn't a willpower problem. Here's what GLP-1 medication actually does to quiet it — and what it doesn't do.</p>
+        <a href="Journal - Food Noise.html">Read the note →</a>
+      </article>
+      <article class="post rv d2">
+        <time datetime="2026-06-30">June 30, 2026</time>
+        <h3>Protein first: how to eat in your first month</h3>
+        <p>When your appetite shrinks, every bite matters more. Three simple rules our providers give every new patient — no macro math required.</p>
+        <a href="Journal - Protein First.html">Read the note →</a>
+      </article>
+      </div>
+    </section>
+  </div>
+
+  <section class="final">
+    <svg class="watermark" width="260" height="260" viewBox="0 0 100 100" fill="none" stroke="#FFFAF5" stroke-width="1" aria-hidden="true">
+      <path d="M50 96 C50 55 58 28 78 6"/>
+      <path d="M58 68 C44 60 38 46 40 30 C54 36 62 48 62 62"/>
+      <path d="M64 42 C80 40 90 30 92 14 C76 14 66 22 63 36"/>
+    </svg>
+    <h2>Medicine, humanized.</h2>
+    <p>Ten minutes. An honest answer either way.</p>
+    <a class="btn" href="Assessment.html">Start your assessment</a>
+  </section>
+</main>
+
+<footer>
+  <p>Prescribed only if a licensed provider determines it's appropriate for you. Compounded medications explained in plain English before checkout.</p>
+  <nav aria-label="Legal" style="display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:14px;font-size:11.5px">
+    <a href="FAQ.html" style="color:#555">FAQ</a>
+    <a href="Legal.html#privacy" style="color:#555">Privacy Policy</a>
+    <a href="Legal.html#terms" style="color:#555">Terms of Service</a>
+    <a href="Legal.html#telehealth" style="color:#555">Telehealth Consent</a>
+    <a href="Legal.html#hipaa" style="color:#555">HIPAA Notice</a>
+    <a href="Legal.html#cancellation" style="color:#555">Cancellation Policy</a>
+  </nav>
+  <p style="margin-top:14px;font-size:11px;color:#777">If you are experiencing a medical emergency, call 911 or go to the nearest emergency room immediately. This service is not for emergencies. All treatments require a licensed provider consultation and prescription. Results vary by individual. These services are not intended to diagnose, treat, cure, or prevent any disease. Statements on this page have not been evaluated by the Food and Drug Administration. This is not medical advice. Consult your healthcare provider before starting any treatment program.</p>
+  <p style="margin-top:12px">© 2026 Rese Wellness, LLC · Queen Creek, AZ · Digital-first, never digital-only · First Responders</p>
+</footer>
+
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <span><strong style="font-family:var(--serif);font-weight:400">Ready when you are.</strong><br>Honest answer either way.</span>
+  <a class="btn" href="Assessment.html">Start your assessment</a>
+</div>
+
+<script>
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reveals
+  if(!reduced){
+    const io = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.15});
+    document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  } else document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+
+  // The growing stem — geometry rebuilt to the real viewport so the line and leaves land correctly on every phone
+  const stemPath = document.getElementById('stemPath');
+  if(stemPath && !reduced){
+    const svg = stemPath.ownerSVGElement, NS = 'http://www.w3.org/2000/svg';
+    let L = 0, leaves = [], ticking = false;
+    const update = ()=>{
+      const p = Math.min(1, scrollY / (document.body.scrollHeight - innerHeight));
+      stemPath.style.strokeDashoffset = L * (1 - p);
+      leaves.forEach(g=>g.classList.toggle('on', p >= +g.dataset.at));
+      ticking = false;
+    };
+    const build = ()=>{
+      const h = Math.max(innerHeight, 480);
+      svg.setAttribute('viewBox', '0 0 22 ' + h);
+      leaves.forEach(g=>g.remove()); leaves = [];
+      stemPath.setAttribute('d', 'M11 0 C13 ' + (h*.16) + ' 9 ' + (h*.33) + ' 11 ' + (h*.5) + ' C13 ' + (h*.67) + ' 9 ' + (h*.84) + ' 11 ' + h);
+      [.18,.38,.58,.78].forEach((at,i)=>{
+        const y = h*at, s = i%2 ? 1 : -1;
+        const g = document.createElementNS(NS,'g');
+        g.setAttribute('class','stem-leaf'); g.dataset.at = at;
+        const p = document.createElementNS(NS,'path');
+        p.setAttribute('d','M11 '+y+' C'+(11+5*s)+' '+(y-5)+' '+(11+6*s)+' '+(y-12)+' '+(11+3*s)+' '+(y-17)+' C'+(11-2*s)+' '+(y-14)+' '+(11-3*s)+' '+(y-7)+' 11 '+y+' Z');
+        g.appendChild(p); svg.appendChild(g); leaves.push(g);
+      });
+      L = stemPath.getTotalLength();
+      stemPath.style.strokeDasharray = L;
+      update();
+    };
+    addEventListener('scroll',()=>{ if(!ticking){requestAnimationFrame(update);ticking=true;} },{passive:true});
+    addEventListener('resize',build);
+    build();
+  }
+
+  // Menu drawer
+  const menuBtn=document.getElementById('menuBtn'), drawer=document.getElementById('drawer');
+  const setMenu=(open)=>{
+    drawer.classList.toggle('open',open);
+    drawer.setAttribute('aria-hidden',!open);
+    menuBtn.setAttribute('aria-expanded',open);
+    menuBtn.setAttribute('aria-label',open?'Close menu':'Open menu');
+    document.body.style.overflow=open?'hidden':'';
+  };
+  menuBtn.addEventListener('click',()=>setMenu(!drawer.classList.contains('open')));
+  drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false);});
+
+  // Sticky CTA after hero
+  const hero=document.querySelector('.hero'), sticky=document.getElementById('stickyCta');
+  new IntersectionObserver(([e])=>{
+    sticky.classList.toggle('show',!e.isIntersecting);
+    sticky.setAttribute('aria-hidden', e.isIntersecting?'true':'false');
+  },{threshold:0}).observe(hero);
+</script>
+</body>
+</html>

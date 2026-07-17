@@ -62,7 +62,7 @@
   .final h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.8vw,36px);margin-bottom:8px;text-wrap:balance}
   .final p{font-size:16px;color:#e9ecdd;margin-bottom:24px}
   .final .btn{background:#FFF;color:var(--ink)}
-  footer{padding:32px 20px 44px;font-size:13px;color:#555;max-width:520px;margin:0 auto}
+  footer{padding:32px 20px 96px;font-size:13px;color:#555;max-width:520px;margin:0 auto}
   @media(min-width:1000px){
     .wrap,.nav,footer{max-width:1080px}
     section{padding:76px 0 8px}
@@ -78,6 +78,11 @@
     .steps-wrap .stp{margin-top:0;flex-direction:column}
     .final{padding:88px 22px}
   }
+  .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(255,250,245,.97);backdrop-filter:blur(8px);border-top:1px solid #eee3d6;padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .4s ease}
+  .sticky-cta.show{transform:none}
+  .sticky-cta span{font-size:12px;color:#3a3a34;line-height:1.35}
+  .sticky-cta .btn{padding:13px 20px;font-size:12px;white-space:nowrap}
+  @media(min-width:1000px){.sticky-cta{display:none}}
 </style>
 
 <template id="__bundler_thumbnail" data-bg-color="#FFFAF5">
@@ -176,12 +181,22 @@
   <p style="margin-top:12px">© 2026 Rese Wellness, LLC · Gilbert, AZ · Digital-first, never digital-only</p>
 </footer>
 
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <span><strong style="font-family:var(--serif);font-weight:400">Opening soon.</strong><br>Founding members go first.</span>
+  <a class="btn" href="Hormone Waitlist.html">Join the founding list</a>
+</div>
+
 <script>
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!reduced){
     const io = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.15});
     document.querySelectorAll('.rv').forEach(el=>io.observe(el));
   } else document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+  const hero=document.querySelector('.hero'), sticky=document.getElementById('stickyCta');
+  if(hero&&sticky)new IntersectionObserver(([e])=>{
+    sticky.classList.toggle('show',!e.isIntersecting);
+    sticky.setAttribute('aria-hidden', e.isIntersecting?'true':'false');
+  },{threshold:0}).observe(hero);
 </script>
 </body>
 </html>

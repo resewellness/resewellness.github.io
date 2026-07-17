@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Start Your Assessment | Rese Wellness</title>
-<meta name="description" content="A 10-minute online health assessment reviewed by a licensed provider in your state. Price stated before you pay. Declined = full refund.">
+<meta name="description" content="A 10-minute online health assessment reviewed by an independent licensed physician in our partner network. Price stated before you pay. Not approved = never charged.">
 <meta name="theme-color" content="#FFFAF5">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
     --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.3;z-index:1;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.44 0 0 0 0 0.36 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
   header,main,footer{position:relative;z-index:2}
@@ -26,13 +26,13 @@
   header{position:sticky;top:0;background:rgba(255,250,245,.95);backdrop-filter:blur(8px);border-bottom:1px solid #eee3d6;z-index:10}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;max-width:640px;margin:0 auto}
   .logo{display:flex;text-decoration:none}
-  .nav .back{color:var(--olive);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+  .nav .back{color:var(--olive);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
   a{color:var(--olive)}
 
   .progress{max-width:640px;margin:0 auto;padding:0 20px}
   .pbar{height:4px;background:var(--sand);border-radius:100px;margin:14px 0 0;overflow:hidden}
   .pbar i{display:block;height:100%;width:0;background:var(--olive);border-radius:100px;transition:width .45s ease}
-  .pstep{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#8a8467;margin-top:8px}
+  .pstep{font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#5c5844;font-weight:700;margin-top:8px}
 
   main{flex:1;width:100%;max-width:640px;margin:0 auto;padding:26px 20px 60px}
   .screen{display:none;animation:fadeUp .45s ease}
@@ -40,9 +40,9 @@
   @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
   @media (prefers-reduced-motion: reduce){.screen{animation:none}*{transition:none!important}}
 
-  .kicker{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:8px}
-  h1,.q{font-family:var(--serif);font-weight:500;font-size:clamp(25px,6.6vw,32px);line-height:1.22;margin-bottom:10px}
-  .note{font-size:14px;color:#4a4a40;margin-bottom:20px;max-width:52ch}
+  .kicker{font-size:13.5px;letter-spacing:.3em;text-transform:uppercase;color:#F7F4E8;font-weight:600;display:inline-block;background:var(--olive);border:1px solid var(--olive-deep);padding:6px 13px;border-radius:100px;margin-bottom:10px}
+  h1,.q{font-family:var(--serif);font-weight:500;font-size:clamp(25px,6.6vw,32px);line-height:1.22;margin-bottom:10px;text-wrap:pretty}
+  .note{font-size:15px;color:#4a4a40;margin-bottom:20px;max-width:52ch}
 
   .opts{display:grid;gap:10px}
   .opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#FFF;border:1.5px solid #e5d9c8;border-radius:12px;padding:17px 18px;font-family:var(--sans);font-size:15px;color:var(--ink);cursor:pointer;transition:border-color .15s ease,background .15s ease;min-height:56px}
@@ -51,37 +51,61 @@
   .opt .tick{flex:none;width:22px;height:22px;border-radius:50%;border:1.5px solid #cfc6ad;display:flex;align-items:center;justify-content:center;background:#FFF}
   .opt[aria-pressed="true"] .tick{background:var(--olive);border-color:var(--olive)}
   .opt[aria-pressed="true"] .tick::after{content:"";width:10px;height:6px;border-left:2px solid #FFF;border-bottom:2px solid #FFF;transform:rotate(-45deg) translate(0,-1px)}
-  .opt small{display:block;font-size:12.5px;color:#666;line-height:1.45;margin-top:2px}
+  .opt small{display:block;font-size:13.5px;color:#666;line-height:1.45;margin-top:2px}
+  .yn{grid-template-columns:1fr 1fr}
+  .yn .opt{justify-content:center;text-align:center;font-weight:500}
 
   .fields{display:grid;gap:14px;max-width:420px}
   .frow2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5c5844;font-weight:600;display:block;margin-bottom:6px}
+  label{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#5c5844;font-weight:600;display:block;margin-bottom:6px}
   input,select,textarea{width:100%;font-family:var(--sans);font-size:16px;color:var(--ink);background:#FFF;border:1.5px solid #e5d9c8;border-radius:10px;padding:14px 14px;outline:none;transition:border-color .15s ease}
   input:focus,select:focus,textarea:focus{border-color:var(--olive)}
   textarea{resize:vertical;min-height:96px}
+  .checkrow{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#4a4a40;max-width:420px}
+  .checkrow input{width:auto;margin-top:3px;accent-color:var(--olive)}
+
   .spLeaf,.spBloom{fill:#72744E;transform-origin:60px 126px;transition:opacity .4s ease,transform .5s cubic-bezier(.34,1.4,.5,1)}
   #sprig.wilt path#spStem{stroke:#b3ac8b}
 
-  .feedback{background:var(--sage);border-radius:12px;padding:16px 18px;font-size:14px;color:#2c2f1d;margin-top:16px;display:none;max-width:420px}
+  .feedback{background:var(--sage);border-radius:12px;padding:16px 18px;font-size:15px;color:#2c2f1d;margin-top:16px;display:none;max-width:420px}
   .feedback.show{display:block}
-  .feedback strong{font-family:var(--serif);font-weight:500;font-size:17px;display:block;margin-bottom:3px}
+  .feedback strong{font-family:var(--serif);font-weight:500;font-size:18px;display:block;margin-bottom:3px}
 
   .ctas{display:flex;gap:12px;align-items:center;margin-top:26px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--olive);color:#FFF;border:none;text-decoration:none;font-family:var(--sans);font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:16px 36px;border-radius:2px;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease;min-height:52px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--olive);color:#FFF;border:none;text-decoration:none;font-family:var(--sans);font-size:15px;letter-spacing:.12em;text-transform:uppercase;padding:16px 36px;border-radius:2px;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease;min-height:52px}
   .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(92,94,62,.28)}
   .btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
   .btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-  .btn-ghost{background:transparent;color:var(--olive-deep);border:none;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);padding:10px 8px}
-  .reassure{font-size:12.5px;color:#666;margin-top:14px;display:flex;gap:8px;align-items:flex-start;max-width:52ch}
+  .btn-ghost{background:transparent;color:var(--olive-deep);border:none;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);padding:10px 8px}
+  .reassure{font-size:13.5px;color:#666;margin-top:14px;display:flex;gap:8px;align-items:flex-start;max-width:52ch}
   .reassure svg{flex:none;margin-top:3px}
 
   .trust{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 2px}
-  .chip{background:var(--sage);border:1px solid #d8d2be;border-radius:100px;font-size:12px;padding:8px 14px;color:#2e2f22}
+  .chip{background:var(--sage);border:1px solid #d8d2be;border-radius:100px;font-size:13px;padding:8px 14px;color:#2e2f22}
+
+  .plan{border-width:1.5px;flex-direction:column;align-items:flex-start}
+  .plan .med{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--olive);font-weight:600}
+  .plan .pname{font-family:var(--serif);font-size:21px;font-weight:500;margin:2px 0}
+  .plan .amt{font-family:var(--serif);font-size:24px}
+  .plan .amt small{font-family:var(--sans);font-size:13px;color:#555}
+  .plan ul{margin:8px 0 0 18px;font-size:13.5px;color:#444;display:grid;gap:3px}
+  .rx-line{font-size:12px;color:#777;margin-top:10px;line-height:1.5}
+
+  .timeline{display:grid;gap:0;margin-top:20px;max-width:460px}
+  .tl{display:flex;gap:16px}
+  .tl .dot{flex:none;width:38px;display:flex;flex-direction:column;align-items:center}
+  .tl .dot i{width:34px;height:34px;border-radius:50%;background:var(--sage);border:1.5px solid var(--olive);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:16px;color:var(--olive-deep);font-style:normal}
+  .tl .dot::after{content:"";flex:1;width:2px;background:#d8d2be;margin:4px 0}
+  .tl:last-child .dot::after{display:none}
+  .tl p{font-size:15px;color:#333;padding-bottom:22px}
+  .tl p strong{display:block;font-family:var(--serif);font-weight:500;font-size:17px}
 
   .done-card{background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:28px 24px;margin-top:20px}
-  .done-card ol{margin:12px 0 0 20px;font-size:14.5px;color:#333;display:grid;gap:8px}
 
-  footer{padding:22px 20px calc(22px + env(safe-area-inset-bottom));font-size:11.5px;color:#777;max-width:640px;margin:0 auto;width:100%}
+  footer{padding:22px 20px calc(22px + env(safe-area-inset-bottom));font-size:12.5px;color:#777;max-width:640px;margin:0 auto;width:100%}
+  footer .seal{display:inline-block;border:1px solid #d8ceba;border-radius:3px;padding:5px 10px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#777;margin-bottom:10px}
+  footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px;font-size:12.5px}
+  footer nav a{color:#555}
 </style>
 
 <template id="__bundler_thumbnail" data-bg-color="#FFFAF5">
@@ -99,7 +123,7 @@
     <a class="logo" href="Rese Wellness Site v2.html" aria-label="Rese Wellness home">
       <img src="assets/rese-logo.png" alt="Rese Wellness" style="display:block;height:36px;width:auto">
     </a>
-    <a class="back" href="Rese Wellness Site v2.html">Save &amp; exit</a>
+    <span style="display:flex;gap:16px;align-items:center"><button type="button" class="back" id="startOver" style="background:none;border:none;cursor:pointer;font-family:inherit;color:#8a8467;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:0">Start over</button><a class="back" href="Rese Wellness Site v2.html">Save &amp; exit</a></span>
   </nav>
   <div class="progress" aria-hidden="true">
     <div class="pbar"><i id="pfill"></i></div>
@@ -109,37 +133,24 @@
 
 <main>
 
-  <!-- 0 · welcome -->
+  <!-- welcome -->
   <section class="screen active" data-label="Getting started">
     <p class="kicker">Your assessment</p>
     <h1>Ten minutes. An honest answer either way.</h1>
-    <p class="note">One question at a time — the same information a clinician would ask in an exam room. A licensed provider in your state reviews your answers personally. You'll see your exact price before you pay a dollar.</p>
+    <p class="note">One question at a time — the same information a clinician would ask in an exam room. An independent licensed physician in our partner network reviews your answers personally. You'll see your exact price before you pay a dollar.</p>
     <div class="trust">
       <span class="chip">No sales call</span>
       <span class="chip">Price before you pay</span>
-      <span class="chip">Declined = full refund</span>
+      <span class="chip">Not approved = never charged</span>
     </div>
-    <div class="ctas"><button class="btn" data-next>Begin</button></div>
+    <div class="ctas" style="justify-content:center"><button class="btn" data-next>Begin</button></div>
     <p class="reassure"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>Your answers are protected health information under HIPAA. We never contact your employer.</p>
   </section>
 
-  <!-- 1 · goal -->
-  <section class="screen" data-label="About your goal">
-    <p class="q">What brings you in?</p>
-    <p class="note">Pick the one closest — your provider sees the full picture either way.</p>
-    <div class="opts" data-single="goal">
-      <button class="opt" data-val="weight" aria-pressed="false"><span class="tick"></span><span>Weight<small>GLP-1 programs — semaglutide or tirzepatide, flat monthly price</small></span></button>
-      <button class="opt" data-val="energy" aria-pressed="false"><span class="tick"></span><span>Energy &amp; recovery<small>Peptide protocols and NAD+ for the tired that sleep doesn't fix</small></span></button>
-      <button class="opt" data-val="mens" aria-pressed="false"><span class="tick"></span><span>Men's health<small>Testosterone evaluation, sexual health, hair loss</small></span></button>
-      <button class="opt" data-val="unsure" aria-pressed="false"><span class="tick"></span><span>I'm not sure yet<small>Tell us how you're feeling — the provider will point you right</small></span></button>
-    </div>
-    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
-  </section>
-
-  <!-- 2 · state -->
+  <!-- state -->
   <section class="screen" data-label="Where you live">
-    <p class="q">Which state do you live in?</p>
-    <p class="note">Care is provided by a provider licensed in your state — this tells us who reviews your assessment.</p>
+    <p class="q">We care for patients in all 50 states. Which one is yours?</p>
+    <p class="note">An independent licensed physician in your state reviews your assessment — this tells us whose desk it lands on.</p>
     <div class="fields">
       <div><label for="state">State</label>
       <select id="state" data-field="state" required>
@@ -150,23 +161,31 @@
     <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
   </section>
 
-  <!-- 3 · basics -->
-  <section class="screen" data-label="About you">
-    <p class="q">A little about you.</p>
-    <div class="fields">
-      <div class="frow2">
-        <div><label for="dob">Date of birth</label><input id="dob" data-field="dob" type="date" required></div>
-        <div><label for="sex">Sex at birth</label><select id="sex" data-field="sex" required><option value="">Select…</option><option>Female</option><option>Male</option></select></div>
-      </div>
+  <!-- program selection -->
+  <section class="screen" data-label="What brings you in">
+    <p class="q">What brings you to Rese?</p>
+    <p class="note">Select all that apply — your physician sees the full picture either way.</p>
+    <div class="opts" data-multi="goal">
+      <button class="opt" data-val="weight" aria-pressed="false"><span class="tick"></span><span>Weight management<small>Physician-reviewed GLP-1 programs at a flat monthly price</small></span></button>
+      <button class="opt" data-val="hormone" aria-pressed="false"><span class="tick"></span><span>Hormone health<small>Labs-first hormone care — starting with your baseline</small></span></button>
+      <button class="opt" data-val="energy" aria-pressed="false"><span class="tick"></span><span>Energy, recovery &amp; wellness<small>Peptide protocols and NAD+ for the tired sleep doesn't fix</small></span></button>
+      <button class="opt" data-val="unsure" aria-pressed="false"><span class="tick"></span><span>I'm not sure yet<small>We'll walk the most common path and your physician will point you right</small></span></button>
     </div>
-    <p class="reassure" id="ageNote" style="display:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16.5" r=".5"/></svg>Rese treats adults 18 and over.</p>
     <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
   </section>
 
-  <!-- 4 · height/weight -->
-  <section class="screen" data-label="Height &amp; weight">
-    <p class="q">Height and weight.</p>
-    <p class="note">Used the same way a clinic uses it — as one input among many, not a judgment.</p>
+  <!-- hormone note -->
+  <section class="screen" data-label="Hormone health" data-when="goal:hormone">
+    <p class="kicker">Hormone health</p>
+    <h1>Hormone health starts with understanding your baseline.</h1>
+    <p class="note">We don't guess with hormones. When hormone care opens, it begins with a comprehensive lab panel, a physician review of your results, and a personalized plan only if treatment is appropriate. It's almost ready — <a href="Hormone Waitlist.html">join the founding list</a> and finish this assessment so your answers carry over.</p>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next>Continue</button></div>
+  </section>
+
+  <!-- body basics -->
+  <section class="screen" data-label="Body basics">
+    <p class="q">A few body basics.</p>
+    <p class="note">Your physician uses this to understand your starting point — one input among many, not a judgment.</p>
     <div class="fields">
       <div class="frow2">
         <div><label for="hft">Height (ft)</label><input id="hft" data-field="hft" type="number" inputmode="numeric" min="3" max="7" placeholder="5" required></div>
@@ -183,17 +202,17 @@
         <div style="position:relative;height:8px;border-radius:100px;background:linear-gradient(to right,#d8d2be 0 18%,#a9b183 18% 42%,#d9c48a 42% 58%,#c9a06a 58% 100%)">
           <span id="bmiDot" style="position:absolute;top:50%;left:0;width:16px;height:16px;border-radius:50%;background:#5C5E3E;border:3px solid #FFFAF5;transform:translate(-50%,-50%);transition:left .3s ease"></span>
         </div>
-        <div style="display:flex;justify-content:space-between;font-size:10.5px;color:#6b6650;margin-top:5px;letter-spacing:.04em"><span>15</span><span>18.5</span><span>25</span><span>30</span><span>45</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11.5px;color:#6b6650;margin-top:5px;letter-spacing:.04em"><span>15</span><span>18.5</span><span>25</span><span>30</span><span>45</span></div>
       </div>
       <span id="bmiMsg"></span>
-      <p style="font-size:12.5px;color:#55583d;margin-top:10px">For context: weight programs are typically considered at BMI 30+, or 27+ alongside a weight-related condition like high blood pressure, high cholesterol, sleep apnea, or prediabetes. BMI is one input — your provider weighs your history and everything you tell us here.</p>
+      <p style="font-size:13.5px;color:#55583d;margin-top:10px">For context: weight programs are typically considered at BMI 30+, or 27+ alongside a weight-related condition. BMI is one input — your physician weighs your history and everything you tell us here.</p>
     </div>
     <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
   </section>
 
-  <!-- 4b · projection (weight path) -->
-  <section class="screen" data-label="Your projection" data-when="goal:weight" id="projScreen">
-    <p class="kicker" id="projKicker">Your projection</p>
+  <!-- projection -->
+  <section class="screen" data-label="Your outlook" data-when="branch:weight" id="projScreen">
+    <p class="kicker" id="projKicker">Your outlook</p>
     <h1 id="projHead" style="color:var(--olive-deep)"></h1>
     <div style="background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:22px 18px 14px;margin-top:8px">
       <svg viewBox="0 0 340 190" width="100%" aria-hidden="true" style="display:block">
@@ -203,16 +222,173 @@
         <text id="projStartW" x="22" y="16" font-family="Montserrat,sans-serif" font-size="12" fill="#5C5E3E" font-weight="600"></text>
         <line x1="316" y1="168" x2="316" y2="186" stroke="#cfc6ad" stroke-width="1.5"/>
         <circle cx="316" cy="168" r="9" fill="#E9ECDD"/><circle cx="316" cy="168" r="5.5" fill="#FFFAF5" stroke="#5C5E3E" stroke-width="3"/>
-        <g><rect x="216" y="126" rx="12" width="96" height="26" fill="#FFF" stroke="#eee3d6"/><text id="projDate" x="264" y="143" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" fill="#141410" font-weight="600"></text></g>
+        
         <text id="projEndW" x="308" y="114" text-anchor="end" font-family="Montserrat,sans-serif" font-size="12" fill="#5C5E3E" font-weight="600"></text>
       </svg>
-      <p style="font-size:11.5px;color:#777;margin-top:10px">*Based on clinical averages for GLP-1 medications. Individual results vary — your provider sets realistic expectations with you.</p>
+      <p style="font-size:12.5px;color:#777;margin-top:10px">*Based on clinical averages for GLP-1 medications. Individual results vary — your physician sets realistic expectations with you. Never a promise.</p>
     </div>
     <div class="feedback show" style="max-width:none;margin-top:14px"><strong id="projSub"></strong><span id="projGoalMsg"></span></div>
     <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next>Continue</button></div>
   </section>
 
-  <!-- 4c · energy check -->
+  <!-- interstitial: flat price -->
+  <section class="screen" data-label="Good to know" data-when="branch:weight">
+    <p class="kicker">Good to know</p>
+    <h1>One flat price. It never rises with your dose.</h1>
+    <p class="note">Other companies charge more as your dose titrates up — which punishes you for the medicine working as designed. Rese doesn't. Your program price covers the medication, your physician's ongoing review, check-ins with real people, and shipping.</p>
+    <div class="trust"><span class="chip">Semaglutide $185/mo</span><span class="chip">Tirzepatide $299/mo</span><span class="chip">Every dose, same price</span></div>
+    <p class="rx-line">Prescription required. Available only if an independent licensed physician determines it's appropriate for you.</p>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next>Continue</button></div>
+  </section>
+
+  <!-- context: how long -->
+  <section class="screen" data-label="Your story" data-when="branch:weight">
+    <p class="q">How long has this been on your mind?</p>
+    <div class="opts" data-single="howlong">
+      <button class="opt" data-val="lt1" aria-pressed="false"><span class="tick"></span><span>Less than a year</span></button>
+      <button class="opt" data-val="1to5" aria-pressed="false"><span class="tick"></span><span>1–5 years</span></button>
+      <button class="opt" data-val="life" aria-pressed="false"><span class="tick"></span><span>Most of my life</span></button>
+    </div>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
+  </section>
+
+  <!-- tried before -->
+  <section class="screen" data-label="Your history">
+    <p class="q">What have you tried before?</p>
+    <p class="note">Select all that apply. There's no wrong answer here.</p>
+    <div class="opts" data-multi="history">
+      <button class="opt" data-val="diet" aria-pressed="false"><span class="tick"></span><span>Diet changes</span></button>
+      <button class="opt" data-val="exercise" aria-pressed="false"><span class="tick"></span><span>Exercise programs</span></button>
+      <button class="opt" data-val="rx" aria-pressed="false"><span class="tick"></span><span>Prescription medication</span></button>
+      <button class="opt" data-val="nothing" aria-pressed="false"><span class="tick"></span><span>Nothing formal yet</span></button>
+    </div>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
+  </section>
+
+  <!-- email capture -->
+  <section class="screen" data-label="Save your progress">
+    <p class="q">Let's save your progress.</p>
+    <p class="note">So your answers are waiting for your physician — and for you, if life interrupts.</p>
+    <div class="fields">
+      <div><label for="email">Email</label><input id="email" data-field="email" type="email" autocomplete="email" required></div>
+      <div><label for="phone">Mobile (optional)</label><input id="phone" data-field="phone" type="tel" autocomplete="tel"></div>
+      <label class="checkrow" style="text-transform:none;letter-spacing:0;font-weight:400"><input type="checkbox" data-field="sms">I agree to receive text updates from Rese Wellness. Msg &amp; data rates may apply. Reply STOP to opt out.</label>
+    </div>
+    <p class="reassure"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>Private and secure. We never sell your information.</p>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
+  </section>
+
+  <!-- dob + sex -->
+  <section class="screen" data-label="About you">
+    <p class="q">A little about you.</p>
+    <div class="fields">
+      <div class="frow2">
+        <div><label for="dob">Date of birth</label><input id="dob" data-field="dob" type="date" required></div>
+        <div><label for="sex">Sex at birth</label><select id="sex" data-field="sex" required><option value="">Select…</option><option>Female</option><option>Male</option></select></div>
+      </div>
+    </div>
+    <p class="reassure" id="ageNote" style="display:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16.5" r=".5"/></svg>Rese treats adults 18 and over.</p>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
+  </section>
+
+  <!-- pregnancy -->
+  <section class="screen" data-label="Health &amp; safety" data-when="preg">
+    <p class="q">Are you currently pregnant, breastfeeding, or trying to conceive?</p>
+    <p class="note">GLP-1 medication isn't safe during pregnancy or breastfeeding — this one matters.</p>
+    <div class="opts yn" data-single="pregnant">
+      <button class="opt" data-val="yes" data-exit="true" aria-pressed="false"><span>Yes</span></button>
+      <button class="opt" data-val="no" aria-pressed="false"><span>No</span></button>
+    </div>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
+  </section>
+
+  <!-- contraindication: thyroid -->
+  <section class="screen" data-label="Health &amp; safety" data-when="branch:weight">
+    <p class="q">Any personal or family history of medullary thyroid carcinoma or MEN-2?</p>
+    <p class="note">A physician who asks is a physician doing their job — this is one of the few absolute rules for GLP-1 medication.</p>
+    <div class="opts yn" data-single="thyroid">
+      <button class="opt" data-val="yes" data-exit="true" aria-pressed="false"><span>Yes</span></button>
+      <button class="opt" data-val="no" aria-pressed="false"><span>No</span></button>
+    </div>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
+  </section>
+
+  <!-- contraindication: pancreatitis -->
+  <section class="screen" data-label="Health &amp; safety" data-when="branch:weight">
+    <p class="q">Any history of pancreatitis?</p>
+    <div class="opts yn" data-single="pancreatitis">
+      <button class="opt" data-val="yes" data-exit="true" aria-pressed="false"><span>Yes</span></button>
+      <button class="opt" data-val="no" aria-pressed="false"><span>No</span></button>
+    </div>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
+  </section>
+
+  <!-- health history -->
+  <section class="screen" data-label="Health history" data-when="branch:weight">
+    <p class="q">Do any of these apply to you?</p>
+    <p class="note">Select all that apply. Most of these don't rule anything out — they help your physician build a safe plan.</p>
+    <div class="opts" data-multi="conditions" data-none="none">
+      <button class="opt" data-val="t1d" aria-pressed="false"><span class="tick"></span><span>Type 1 diabetes</span></button>
+      <button class="opt" data-val="t2d" aria-pressed="false"><span class="tick"></span><span>Type 2 diabetes</span></button>
+      <button class="opt" data-val="gallbladder" aria-pressed="false"><span class="tick"></span><span>Gallbladder disease</span></button>
+      <button class="opt" data-val="kidney" aria-pressed="false"><span class="tick"></span><span>Kidney disease</span></button>
+      <button class="opt" data-val="gi" aria-pressed="false"><span class="tick"></span><span>Severe GI condition or gastroparesis</span></button>
+      <button class="opt" data-val="retinopathy" aria-pressed="false"><span class="tick"></span><span>Diabetic retinopathy</span></button>
+      <button class="opt" data-val="bariatric" aria-pressed="false"><span class="tick"></span><span>Bariatric surgery</span></button>
+      <button class="opt" data-val="ed" aria-pressed="false"><span class="tick"></span><span>History of an eating disorder</span></button>
+      <button class="opt" data-val="bp" aria-pressed="false"><span class="tick"></span><span>High blood pressure</span></button>
+      <button class="opt" data-val="chol" aria-pressed="false"><span class="tick"></span><span>High cholesterol</span></button>
+      <button class="opt" data-val="apnea" aria-pressed="false"><span class="tick"></span><span>Sleep apnea</span></button>
+      <button class="opt" data-val="pcos" aria-pressed="false"><span class="tick"></span><span>PCOS</span></button>
+      <button class="opt" data-val="none" aria-pressed="false"><span class="tick"></span><span>None of these</span></button>
+    </div>
+    <div class="feedback" id="condNote"><strong>Good to know — keep going.</strong>This doesn't automatically rule anything out. Your physician will weigh it carefully and be straight with you.</div>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
+  </section>
+
+  <!-- medications & allergies -->
+  <section class="screen" data-label="Medications">
+    <p class="q">Current medications and allergies?</p>
+    <p class="note">Check any of these, then list anything else you take regularly. If none, leave it blank.</p>
+    <div class="opts" data-multi="medflags" style="max-width:420px">
+      <button class="opt" data-val="insulin" aria-pressed="false"><span class="tick"></span><span>Insulin</span></button>
+      <button class="opt" data-val="sulfonylurea" aria-pressed="false"><span class="tick"></span><span>Sulfonylurea (e.g. glipizide)</span></button>
+      <button class="opt" data-val="glp1" aria-pressed="false"><span class="tick"></span><span>Another GLP-1 medication</span></button>
+      <button class="opt" data-val="bloodthinner" aria-pressed="false"><span class="tick"></span><span>Blood thinner</span></button>
+    </div>
+    <div class="fields" style="margin-top:14px">
+      <div><label for="meds">Other medications or supplements</label><textarea id="meds" data-field="meds" placeholder="e.g. lisinopril 10mg daily, vitamin D…"></textarea></div>
+      <div><label for="allergies">Allergies</label><input id="allergies" data-field="allergies" type="text" placeholder="e.g. penicillin — or none"></div>
+    </div>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next>Continue</button></div>
+  </section>
+
+  <!-- GLP-1 before -->
+  <section class="screen" data-label="GLP-1 history" data-when="branch:weight">
+    <p class="q">Have you used a GLP-1 medication before?</p>
+    <div class="opts yn" data-single="glp1used">
+      <button class="opt" data-val="yes" aria-pressed="false"><span>Yes</span></button>
+      <button class="opt" data-val="no" aria-pressed="false"><span>No</span></button>
+    </div>
+    <div class="fields" id="glp1detail" style="display:none;margin-top:16px">
+      <div><label for="glp1which">Which one?</label><input id="glp1which" data-field="glp1which" type="text" placeholder="e.g. semaglutide, tirzepatide, a brand name"></div>
+      <div class="frow2">
+        <div><label for="glp1dose">Most recent dose</label><input id="glp1dose" data-field="glp1dose" type="text" placeholder="e.g. 0.5 mg weekly"></div>
+        <div><label for="glp1when">Last taken</label><input id="glp1when" data-field="glp1when" type="text" placeholder="e.g. 3 weeks ago"></div>
+      </div>
+    </div>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
+  </section>
+
+  <!-- interstitial: real clinician -->
+  <section class="screen" data-label="Good to know">
+    <p class="kicker">Good to know</p>
+    <h1>A real physician reads every word of this.</h1>
+    <p class="note">Your answers go to an independent licensed physician in your state — not an algorithm, not a queue. Prescriptions are filled by licensed U.S. pharmacies and arrive in discreet packaging. And your card is only preauthorized at checkout: if the answer is no, the hold is released and you're never charged.</p>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next>Continue</button></div>
+  </section>
+
+  <!-- energy sprig -->
   <section class="screen" data-label="Energy check">
     <p class="q">How's your energy lately?</p>
     <p class="note">Drag the slider to where a typical day lands. Watch the sprig — it knows.</p>
@@ -227,142 +403,200 @@
       </svg>
       <p id="energyLabel" style="font-family:var(--serif);font-size:19px;text-align:center;margin-bottom:18px;min-height:30px">Running on empty</p>
       <input id="energy" type="range" min="1" max="10" value="3" step="1" style="accent-color:var(--olive);padding:6px 0" aria-label="Energy level from 1 to 10">
-      <div style="display:flex;justify-content:space-between;font-size:11px;color:#8a8467;letter-spacing:.06em"><span>Running on empty</span><span>Ready for anything</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:#8a8467;letter-spacing:.06em"><span>Running on empty</span><span>Ready for anything</span></div>
     </div>
     <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next>Continue</button></div>
   </section>
 
-  <!-- 5 · history -->
-  <section class="screen" data-label="Your history">
-    <p class="q">What have you already tried?</p>
-    <p class="note">Select all that apply. There's no wrong answer here.</p>
-    <div class="opts" data-multi="history">
-      <button class="opt" data-val="lifestyle" aria-pressed="false"><span class="tick"></span><span>Diet and exercise changes</span></button>
-      <button class="opt" data-val="glp1" aria-pressed="false"><span class="tick"></span><span>GLP-1 medication before<small>Semaglutide, tirzepatide, or a brand-name version</small></span></button>
-      <button class="opt" data-val="othermeds" aria-pressed="false"><span class="tick"></span><span>Other prescriptions or supplements</span></button>
-      <button class="opt" data-val="nothing" aria-pressed="false"><span class="tick"></span><span>This is my first serious attempt</span></button>
+  <!-- peptide preference -->
+  <section class="screen" data-label="Your preference" data-when="goal:energy">
+    <p class="q">Which areas matter most to you?</p>
+    <p class="note">Select all that apply — your physician builds the protocol around what you pick.</p>
+    <div class="opts" data-multi="peppref">
+      <button class="opt" data-val="recovery" aria-pressed="false"><span class="tick"></span><span>Recovery &amp; repair<small>Peptide protocols for the wear the job and years put on a body</small></span></button>
+      <button class="opt" data-val="sleep" aria-pressed="false"><span class="tick"></span><span>Sleep that actually restores</span></button>
+      <button class="opt" data-val="nad" aria-pressed="false"><span class="tick"></span><span>NAD+ therapy<small>For the kind of tired sleep doesn't fix</small></span></button>
+      <button class="opt" data-val="provider" aria-pressed="false"><span class="tick"></span><span>Not sure — my physician's recommendation</span></button>
     </div>
+    <p class="rx-line">Prescription required. Available only if an independent licensed physician determines it's appropriate for you.</p>
     <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
   </section>
 
-  <!-- 6 · safety -->
-  <section class="screen" data-label="Safety questions">
-    <p class="q">Do any of these apply to you?</p>
-    <p class="note">These matter medically — a provider who asks is a provider doing their job. Select all that apply.</p>
-    <div class="opts" data-multi="safety" data-none="none">
-      <button class="opt" data-val="thyroid" aria-pressed="false"><span class="tick"></span><span>Personal or family history of medullary thyroid cancer or MEN-2</span></button>
-      <button class="opt" data-val="pancreatitis" aria-pressed="false"><span class="tick"></span><span>History of pancreatitis</span></button>
-      <button class="opt" data-val="pregnant" aria-pressed="false"><span class="tick"></span><span>Pregnant, breastfeeding, or planning pregnancy</span></button>
-      <button class="opt" data-val="t1d" aria-pressed="false"><span class="tick"></span><span>Type 1 diabetes</span></button>
-      <button class="opt" data-val="none" aria-pressed="false"><span class="tick"></span><span>None of these</span></button>
+  <!-- specific peptides -->
+  <section class="screen" data-label="Your preference" data-when="goal:energy">
+    <p class="q">Any specific treatments you're curious about?</p>
+    <p class="note">Optional — select any that caught your eye. Your physician builds the protocol and confirms the exact monthly total before you pay.</p>
+    <div class="opts" data-multi="pepmenu">
+      <button class="opt" data-val="wolverine" aria-pressed="false"><span class="tick"></span><span>Wolverine — $275<small>Our most-requested recovery stack: BPC-157 + TB-500 together</small></span></button>
+      <button class="opt" data-val="bpc157" aria-pressed="false"><span class="tick"></span><span>BPC-157 — $185<small>Soft-tissue and gut repair support</small></span></button>
+      <button class="opt" data-val="tb500" aria-pressed="false"><span class="tick"></span><span>TB-500 — $225<small>Tissue repair, flexibility, recovery from strain</small></span></button>
+      <button class="opt" data-val="sermorelin" aria-pressed="false"><span class="tick"></span><span>Sermorelin — $199<small>Supports your body's own growth-hormone release and deeper sleep</small></span></button>
+      <button class="opt" data-val="cjc" aria-pressed="false"><span class="tick"></span><span>CJC-1295 / Ipamorelin — $299<small>Paired protocol for sleep, recovery, and lean mass</small></span></button>
+      <button class="opt" data-val="nad" aria-pressed="false"><span class="tick"></span><span>NAD+ — from $159<small>Nasal spray or injectable, for cellular energy</small></span></button>
+      <button class="opt" data-val="glutathione" aria-pressed="false"><span class="tick"></span><span>Glutathione — $129<small>The body's master antioxidant</small></span></button>
+      <button class="opt" data-val="glow" aria-pressed="false"><span class="tick"></span><span>Glow — $275<small>Skin-first stack: GHK-Cu + BPC-157 + TB-500</small></span></button>
+      <button class="opt" data-val="provider" aria-pressed="false"><span class="tick"></span><span>Not sure — build it for me</span></button>
     </div>
-    <div class="feedback" id="safetyNote"><strong>Good to know — keep going.</strong>This doesn't automatically rule anything out. Your provider will weigh it carefully and be straight with you. If a treatment isn't safe for you, the answer is no — with a full refund.</div>
-    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
-  </section>
-
-  <!-- 7 · meds -->
-  <section class="screen" data-label="Medications">
-    <p class="q">Current medications or supplements?</p>
-    <p class="note">List anything you take regularly. If none, just say so — or leave it blank.</p>
-    <div class="fields">
-      <textarea data-field="meds" placeholder="e.g. lisinopril 10mg daily, vitamin D…" aria-label="Current medications"></textarea>
-    </div>
+    <p class="rx-line">Prescription required. Available only if an independent licensed physician determines it's appropriate for you.</p>
     <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next>Continue</button></div>
   </section>
-
-  <!-- 8 · in your words -->
   <section class="screen" data-label="In your words">
     <p class="q">What would "better" look like for you?</p>
-    <p class="note">Optional — but this is the part your provider reads most closely.</p>
+    <p class="note">Optional — but this is the part your physician reads most closely.</p>
     <div class="fields">
       <textarea data-field="goals" placeholder="Keeping up with my kids again… passing the physical without dreading it… feeling like myself." aria-label="Your goals in your own words"></textarea>
     </div>
     <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next>Continue</button></div>
   </section>
 
-  <!-- 8a · weight med preference -->
-  <section class="screen" data-label="Your preference" data-when="goal:weight">
-    <p class="q">Do you have a preference between the two?</p>
-    <p class="note">Both are flat monthly prices that never rise with your dose. Your provider makes the final call on what's safe and right for you — this just tells them where you're leaning.</p>
+  <!-- results / plans -->
+  <section class="screen" data-label="Your results" data-when="branch:weight">
+    <p class="kicker">Your results</p>
+    <h1>You may be a candidate.</h1>
+    <p class="note">Based on your answers, you may be a candidate for physician-reviewed weight-management therapy. An independent licensed physician in our partner network will review your full health history and decide whether treatment is appropriate. Prescriptions are never guaranteed. If you have a preference, tell them here:</p>
     <div class="opts" data-single="medpref">
-      <button class="opt" data-val="semaglutide" aria-pressed="false"><span class="tick"></span><span>Semaglutide — $185/mo<small>The well-established option most patients start with</small></span></button>
-      <button class="opt" data-val="tirzepatide" aria-pressed="false"><span class="tick"></span><span>Tirzepatide — $299/mo<small>Dual-action medication — often stronger appetite effects</small></span></button>
-      <button class="opt" data-val="provider" aria-pressed="false"><span class="tick"></span><span>No preference<small>Let my provider recommend</small></span></button>
+      <button class="opt plan" data-val="semaglutide" aria-pressed="false">
+        <span class="med">Semaglutide program</span>
+        <span class="pname">Rese Weight Care</span>
+        <span class="amt">$185<small>/mo — flat, never rises with your dose</small></span>
+        <ul><li>Physician review of your full history</li><li>Medication, if prescribed — shipped free, discreetly packaged</li><li>Ongoing check-ins with real people</li></ul>
+      </button>
+      <button class="opt plan" data-val="tirzepatide" aria-pressed="false">
+        <span class="med">Tirzepatide program</span>
+        <span class="pname">Rese Weight Care+</span>
+        <span class="amt">$299<small>/mo — flat, never rises with your dose</small></span>
+        <ul><li>Physician review of your full history</li><li>Medication, if prescribed — shipped free, discreetly packaged</li><li>Ongoing check-ins with real people</li></ul>
+      </button>
+      <button class="opt" data-val="provider" aria-pressed="false"><span class="tick"></span><span>No preference — let my physician recommend</span></button>
     </div>
+    <p class="rx-line">Prescription required. Available only if an independent licensed physician determines it's appropriate for you.</p>
     <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
   </section>
 
-  <!-- 8b · peptide preference -->
-  <section class="screen" data-label="Your preference" data-when="goal:energy">
-    <p class="q">Which areas matter most to you?</p>
-    <p class="note">Select all that apply — your provider builds the protocol around what you pick.</p>
-    <div class="opts" data-multi="peppref">
-      <button class="opt" data-val="recovery" aria-pressed="false"><span class="tick"></span><span>Recovery &amp; repair<small>Peptide protocols for the wear the job and years put on a body</small></span></button>
-      <button class="opt" data-val="sleep" aria-pressed="false"><span class="tick"></span><span>Sleep that actually restores</span></button>
-      <button class="opt" data-val="nad" aria-pressed="false"><span class="tick"></span><span>NAD+ therapy<small>For the kind of tired sleep doesn't fix</small></span></button>
-      <button class="opt" data-val="provider" aria-pressed="false"><span class="tick"></span><span>Not sure — provider's recommendation</span></button>
-    </div>
-    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
-  </section>
-
-  <!-- 9 · contact -->
+  <!-- contact + submit -->
   <section class="screen" data-label="Almost done">
-    <p class="q">Where should your provider's answer go?</p>
-    <p class="note">Your review typically comes back within 24–48 hours.</p>
+    <p class="q">Last step — who should the answer go to?</p>
+    <p class="note">Your review typically comes back within 24–72 hours.</p>
     <div class="fields">
       <div><label for="fname">First name</label><input id="fname" data-field="fname" type="text" autocomplete="given-name" required></div>
-      <div><label for="email">Email</label><input id="email" data-field="email" type="email" autocomplete="email" required></div>
-      <div><label for="phone">Mobile (optional)</label><input id="phone" data-field="phone" type="tel" autocomplete="tel"></div>
     </div>
-    <p class="reassure"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M3 9l9-6 9 6v11H3V9z"/></svg>No spam, no pressure. If anything ships, it ships in a plain box — nothing on the label.</p>
-    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Submit assessment</button></div>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next disabled>Continue</button></div>
   </section>
 
-  <!-- 10 · done -->
+  <!-- checkout (weight branch) -->
+  <section class="screen" data-label="Review &amp; submit" data-when="checkout:any" id="checkoutScreen">
+    <p class="kicker">Review &amp; submit</p>
+    <h1>Your plan, in plain sight.</h1>
+    <div class="done-card" style="margin-top:8px">
+      <div id="coWeightRow" style="display:flex;justify-content:space-between;gap:12px;align-items:baseline">
+        <div><div class="plan med" id="coMed" style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--olive);font-weight:600"></div>
+        <div style="font-family:var(--serif);font-size:21px" id="coName"></div></div>
+        <div style="font-family:var(--serif);font-size:24px;white-space:nowrap" id="coPrice"></div>
+      </div>
+      <div id="coPeps"></div>
+      <div id="coTotalRow" style="display:none;justify-content:space-between;gap:12px;border-top:2px solid var(--sage);margin-top:10px;padding-top:12px;font-weight:600">
+        <span>Monthly total</span><span id="coTotal" style="font-family:var(--serif);font-size:22px;font-weight:400"></span>
+      </div>
+      <p style="font-size:13.5px;color:#666;margin-top:6px">Flat monthly prices — never rise with your dose. Includes physician review, medication if prescribed, check-ins, and shipping.</p>
+    </div>
+    <div class="fields" style="margin-top:18px">
+      <div><label for="card">Card number</label><input id="card" data-field="card" type="text" inputmode="numeric" placeholder="1234 5678 9012 3456" autocomplete="cc-number"></div>
+      <div class="frow2">
+        <div><label for="exp">Expiry</label><input id="exp" data-field="exp" type="text" placeholder="MM / YY" autocomplete="cc-exp"></div>
+        <div><label for="cvc">CVC</label><input id="cvc" data-field="cvc" type="text" inputmode="numeric" placeholder="123" autocomplete="cc-csc"></div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:18px;font-size:14px;background:var(--sage);border-radius:10px;padding:12px 14px;max-width:420px">Payment does not guarantee a prescription. Your card is only preauthorized — if your physician determines treatment isn't appropriate, the hold is released and you're never charged. <a href="Legal.html#cancellation">Refund Policy</a></p>
+    <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next>Submit for physician review</button></div>
+    <p class="reassure">This is a design prototype — card fields aren't wired to a payment processor yet.</p>
+  </section>
+
+  <!-- confirmation -->
   <section class="screen" data-label="All set">
     <p class="kicker">All set</p>
-    <h1>That's it. A real person takes it from here.</h1>
+    <h1>You're in good hands.</h1>
     <div class="done-card">
-      <p style="font-size:14.5px;color:#333">What happens next:</p>
-      <ol>
-        <li>A licensed provider in your state reviews your assessment — typically within 24–48 hours.</li>
-        <li>You get an honest answer: a recommended plan with its exact monthly price, questions if something needs clarifying, or a straightforward no.</li>
-        <li>Nothing is charged until you've seen your price and said yes. Declined after payment = full refund.</li>
-      </ol>
+      <div class="timeline">
+        <div class="tl"><div class="dot"><i>1</i></div><p><strong>A physician reviews your health history</strong>An independent licensed physician in your state — typically within 24–72 hours.</p></div>
+        <div class="tl"><div class="dot"><i>2</i></div><p><strong>We message you with their decision</strong>A recommended plan with its exact monthly price, questions if something needs clarifying, or a straightforward no.</p></div>
+        <div class="tl"><div class="dot"><i>3</i></div><p><strong>If prescribed, your medication ships</strong>Temperature-controlled packaging, discreet packaging.</p></div>
+      </div>
     </div>
-    <p class="reassure" style="margin-top:18px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Questions in the meantime? Reach out — a founder answers.</p>
+    <p class="reassure" style="margin-top:18px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Questions in the meantime? <a href="mailto:support@resewellness.com">support@resewellness.com</a> — a real person answers, and anything clinical goes to your prescribing physician.</p>
     <div class="ctas"><a class="btn" href="Rese Wellness Site v2.html" style="background:var(--sage);color:var(--ink)">Back to Rese Wellness</a></div>
+  </section>
+
+  <!-- exit (disqualification) -->
+  <section class="screen" data-label="Thank you" id="exitScreen">
+    <h1>Thank you for being honest with us.</h1>
+    <p class="note">Based on your answers, this treatment isn't something the physicians in our partner network can safely support through telehealth. That's not a brush-off — it's the system doing its job. We'd encourage you to talk with your doctor in person; your answers here are a good starting point for that conversation.</p>
+    <p class="note">You haven't been charged anything, and you're welcome at Rese for anything else — energy and recovery care may still be a fit, and our <a href="FAQ.html">honest answers</a> are always open.</p>
+    <div class="ctas"><button class="btn-ghost" id="exitBack">← Go back and change my answer</button><a class="btn" href="Rese Wellness Site v2.html" style="background:var(--sage);color:var(--ink)">Back to Rese Wellness</a></div>
   </section>
 
 </main>
 
 <footer>
-  <p style="margin-top:8px">© 2026 Rese Wellness, LLC · Queen Creek, AZ</p>
+  <span class="seal">[LegitScript seal — once certified]</span>
+  <nav aria-label="Legal">
+    <a href="Legal.html#privacy">Privacy Policy</a>
+    <a href="Legal.html#terms">Terms of Service</a>
+    <a href="Legal.html#telehealth">Telehealth Consent</a>
+    <a href="Legal.html#cancellation">Refund &amp; Cancellation Policy</a>
+    <a href="Legal.html#hipaa">HIPAA Notice</a>
+  </nav>
+  <p>Rese Wellness is a wellness platform that connects patients with independent licensed physicians. Rese Wellness does not provide medical care or pharmacy services. Compounded medications are prepared by licensed U.S. compounding pharmacies and are not FDA-approved. A prescription is required for all medications, and payment does not guarantee a prescription.</p>
+  <p style="margin-top:8px">© 2026 Rese Wellness, LLC · Gilbert, AZ</p>
 </footer>
 
 <script>
   const screens=[...document.querySelectorAll('.screen')], pfill=document.getElementById('pfill'), plabel=document.getElementById('plabel');
-  const answers={}; let idx=0;
-  const visible=sc=>{const w=sc.dataset.when;if(!w)return true;const[k,v]=w.split(':');
-    if(k==='goal'&&v==='weight'){const wantsLoss=+answers.gwlb>0&&+answers.gwlb<+answers.wlb;return answers.goal==='weight'||(answers.goal==='unsure'&&wantsLoss);}
-    return answers[k]===v;};
+  const exitIdx=screens.indexOf(document.getElementById('exitScreen'));
+  const answers={}; let idx=0, beforeExit=0;
+  const weightBranch=()=>{const g=answers.goal||[];return g.includes('weight')||g.includes('unsure');};
+  const visible=sc=>{
+    if(screens.indexOf(sc)===exitIdx)return false; // only reachable via goExit
+    const w=sc.dataset.when;if(!w)return true;
+    if(w==='preg')return weightBranch()&&answers.sex==='Female';
+    const[k,v]=w.split(':');
+    if(k==='branch'&&v==='weight')return weightBranch();
+    if(k==='checkout')return weightBranch()||((answers.pepmenu||[]).length>0);
+    if(k==='goal')return (answers.goal||[]).includes(v);
+    return answers[k]===v;
+  };
   const show=i=>{
     const dir=i>idx?1:-1;
     let t=Math.max(0,Math.min(i,screens.length-1));
     while(t>0&&t<screens.length-1&&!visible(screens[t]))t+=dir;
+    if(t===exitIdx)t=exitIdx-1; // never land on exit via normal nav
     screens[idx].classList.remove('active'); idx=t;
     screens[idx].classList.add('active');
-    pfill.style.width=(idx/(screens.length-1)*100)+'%';
+    pfill.style.width=(idx/(screens.length-2)*100)+'%';
     plabel.textContent=screens[idx].dataset.label.replace('&amp;','&');
     if(screens[idx].id==='projScreen')renderProj();
+    if(screens[idx].id==='checkoutScreen')renderCheckout();
+    persist();
     scrollTo(0,0); validate(screens[idx]);
   };
+  const goExit=()=>{
+    beforeExit=idx;
+    screens[idx].classList.remove('active'); idx=exitIdx;
+    screens[idx].classList.add('active');
+    plabel.textContent='Thank you'; pfill.style.width='100%';
+    scrollTo(0,0);
+  };
+  document.getElementById('exitBack').addEventListener('click',()=>{
+    screens[idx].classList.remove('active'); idx=beforeExit;
+    screens[idx].classList.add('active');
+    plabel.textContent=screens[idx].dataset.label.replace('&amp;','&');
+    scrollTo(0,0); validate(screens[idx]);
+  });
   const validate=sc=>{
     const nxt=sc.querySelector('[data-next]'); if(!nxt) return;
     let ok=true;
     const single=sc.querySelector('[data-single]'), multi=sc.querySelector('[data-multi]');
     if(single) ok=!!answers[single.dataset.single];
-    if(multi) ok=(answers[multi.dataset.multi]||[]).length>0;
+    if(multi&&!sc.querySelector('[data-multi="medflags"]')) ok=(answers[multi.dataset.multi]||[]).length>0;
     sc.querySelectorAll('input[required],select[required]').forEach(f=>{if(!f.value||!f.checkValidity())ok=false;});
     nxt.disabled=!ok;
   };
@@ -392,8 +626,12 @@
       group.querySelectorAll('.opt').forEach(x=>x.setAttribute('aria-pressed','false'));
       o.setAttribute('aria-pressed','true');
       answers[group.dataset.single]=o.dataset.val;
+      if(group.dataset.single==='glp1used'){
+        document.getElementById('glp1detail').style.display=o.dataset.val==='yes'?'grid':'none';
+      }
       validate(group.closest('.screen'));
-      setTimeout(()=>show(idx+1),260);
+      if(o.dataset.exit==='true'){setTimeout(goExit,300);return;}
+      if(group.dataset.single!=='glp1used'&&group.dataset.single!=='medpref')setTimeout(()=>show(idx+1),260);
     }));
   });
   document.querySelectorAll('[data-multi]').forEach(group=>{
@@ -404,30 +642,75 @@
       else if(noneVal&&!pressed){const n=group.querySelector('[data-val="'+noneVal+'"]');if(n)n.setAttribute('aria-pressed','false');}
       o.setAttribute('aria-pressed',pressed?'false':'true');
       answers[key]=[...group.querySelectorAll('.opt[aria-pressed="true"]')].map(x=>x.dataset.val);
-      if(key==='safety'){const f=document.getElementById('safetyNote');f.classList.toggle('show',answers.safety.some(v=>v!=='none'));}
+      if(key==='conditions'){const f=document.getElementById('condNote');f.classList.toggle('show',answers.conditions.some(v=>v!=='none'));}
       validate(group.closest('.screen'));
     }));
   });
+  const renderCheckout=()=>{
+    const isW=weightBranch();
+    const wr=document.getElementById('coWeightRow');
+    let total=0,from=false,tbd=false;
+    wr.style.display=isW?'flex':'none';
+    if(isW){
+      const plans={semaglutide:['Semaglutide program','Rese Weight Care',185,false],tirzepatide:['Tirzepatide program','Rese Weight Care+',299,false],provider:['Physician\u2019s choice','Rese Weight Care',185,true]};
+      const pl=plans[answers.medpref]||plans.provider;
+      document.getElementById('coMed').textContent=pl[0];
+      document.getElementById('coName').textContent=pl[1];
+      document.getElementById('coPrice').textContent=(pl[3]?'from ':'')+'$'+pl[2]+'/mo';
+      total+=pl[2];if(pl[3])from=true;
+    }
+    const P={wolverine:['Wolverine \u2014 recovery stack',275],bpc157:['BPC-157',185],tb500:['TB-500',225],sermorelin:['Sermorelin',199],cjc:['CJC-1295 / Ipamorelin',299],nad:['NAD+',159,'from'],glutathione:['Glutathione',129],glow:['Glow \u2014 skin stack',275],provider:['Peptides \u2014 physician builds your protocol',0,'tbd']};
+    const peps=answers.pepmenu||[];
+    const box=document.getElementById('coPeps');box.innerHTML='';
+    peps.forEach(k=>{const it=P[k];if(!it)return;
+      const row=document.createElement('div');
+      row.style.cssText='display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-top:1px solid #f2ead9;margin-top:10px;padding-top:10px;font-size:15px';
+      if(it[2]==='tbd'){tbd=true;row.innerHTML='<span>'+it[0]+'</span><span style="color:#666;font-size:13.5px">priced by your provider</span>';}
+      else{if(it[2]==='from')from=true;total+=it[1];
+        row.innerHTML='<span>'+it[0]+'</span><span style="font-family:var(--serif);font-size:19px;white-space:nowrap">'+(it[2]==='from'?'from ':'')+'$'+it[1]+'/mo</span>';}
+      box.appendChild(row);});
+    const tr=document.getElementById('coTotalRow');
+    tr.style.display='flex';
+    document.getElementById('coTotal').textContent=(from?'from ':'')+'$'+total+'/mo'+(tbd?' +':'');
+  };
+  const persist=()=>{try{localStorage.setItem('reseAssess',JSON.stringify({answers,idx}))}catch(e){}};
+  const restore=()=>{
+    let s;try{s=JSON.parse(localStorage.getItem('reseAssess'))}catch(e){}
+    if(!s||!s.answers)return;
+    Object.assign(answers,s.answers);
+    document.querySelectorAll('[data-field]').forEach(f=>{
+      const v=answers[f.dataset.field];
+      if(v===undefined)return;
+      if(f.type==='checkbox')f.checked=!!v;else f.value=v;
+    });
+    document.querySelectorAll('[data-single]').forEach(g=>{
+      const v=answers[g.dataset.single];if(!v)return;
+      const o=g.querySelector('[data-val="'+v+'"]');if(o)o.setAttribute('aria-pressed','true');
+    });
+    document.querySelectorAll('[data-multi]').forEach(g=>{
+      (answers[g.dataset.multi]||[]).forEach(v=>{const o=g.querySelector('[data-val="'+v+'"]');if(o)o.setAttribute('aria-pressed','true');});
+    });
+    if(answers.glp1used==='yes')document.getElementById('glp1detail').style.display='grid';
+    if(s.idx>0&&s.idx<screens.length-2)show(s.idx);
+  };
   const renderProj=()=>{
     const lb=+answers.wlb||0, goal=+answers.gwlb||0;
     let proj=Math.round(lb*0.18); // upper end of clinical averages
     if(goal&&goal<lb) proj=Math.min(proj,lb-goal); // never project past their goal
-    const d=new Date(); d.setFullYear(d.getFullYear()+1);
     document.getElementById('projHead').textContent='−'+proj+' lbs projected';
-    document.getElementById('projSub').textContent='You could lose up to '+proj+' lbs in your first year.';
+    document.getElementById('projSub').textContent='Patients on these programs have averaged losses in this range — up to '+proj+' lbs for a starting point like yours.';
     document.getElementById('projStartW').textContent=lb+' lb';
     document.getElementById('projEndW').textContent=(lb-proj)+' lb';
-    document.getElementById('projDate').textContent=d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
     const g=document.getElementById('projGoalMsg');
     if(goal&&goal<lb){
       const delta=lb-goal;
       g.textContent=delta<=proj
         ?' Your goal of '+goal+' lb — losing '+delta+' lbs — sits inside what patients typically achieve on these programs.'
-        :' Your goal of '+goal+' lb is ambitious — your provider will map an honest path toward it, one phase at a time.';
-    } else g.textContent=' Based on your profile and clinical data for GLP-1 medications.';
+        :' Your goal of '+goal+' lb is ambitious — your physician will map an honest path toward it, one phase at a time.';
+    } else g.textContent=' Based on clinical averages for GLP-1 medications. Your physician sets expectations with you — never a promise.';
   };
   document.querySelectorAll('[data-field]').forEach(f=>f.addEventListener('input',()=>{
-    answers[f.dataset.field]=f.value; validate(f.closest('.screen'));
+    answers[f.dataset.field]=f.type==='checkbox'?f.checked:f.value; validate(f.closest('.screen'));
     if(f.dataset.field==='dob'){
       const a=(new Date()-new Date(f.value))/31557600000;
       document.getElementById('ageNote').style.display=(f.value&&a<18)?'flex':'none';
@@ -440,18 +723,25 @@
         const cat=bmi<18.5?'below the typical range':bmi<25?'in the range considered healthy weight':bmi<30?'in the overweight range':'in the range where weight programs are typically considered';
         document.getElementById('bmiVal').textContent='BMI '+bmi+' — '+cat;
         const msgs=[
-          [18.5,'GLP-1 weight programs aren\u2019t appropriate below this range — but energy, recovery, and other care may be. Your provider will point you honestly.'],
+          [18.5,'GLP-1 weight programs aren\u2019t appropriate below this range — but energy, recovery, and other care may be. Your physician will point you honestly.'],
           [25,'Weight medication typically isn\u2019t indicated here — and we\u2019ll tell you that rather than sell you something. Energy and recovery care may be the better fit.'],
-          [27,'On BMI alone this usually doesn\u2019t qualify for a GLP-1 program — your provider will look at the whole picture and be straight with you.'],
-          [30,'Many patients in this range qualify when a weight-related condition is present — your provider will ask about exactly that.'],
-          [99,'You\u2019re in the range where GLP-1 therapy is typically considered. Your provider still reviews everything — an honest yes or an honest no.']
+          [27,'On BMI alone this usually doesn\u2019t qualify for a GLP-1 program — your physician will look at the whole picture and be straight with you.'],
+          [30,'Many patients in this range qualify when a weight-related condition is present — your physician will ask about exactly that.'],
+          [99,'You\u2019re in the range where GLP-1 therapy is typically considered. Your physician still reviews everything — an honest yes or an honest no.']
         ];
         document.getElementById('bmiMsg').textContent=msgs.find(m=>bmi<m[0])[1];
         document.getElementById('bmiDot').style.left=Math.max(2,Math.min(98,(bmi-15)/30*100))+'%';
         card.classList.add('show');
       } else card.classList.remove('show');
     }
+    persist();
   }));
+  document.getElementById('startOver').addEventListener('click',()=>{
+    if(!confirm('Start over? Your answers so far will be cleared.'))return;
+    try{localStorage.removeItem('reseAssess')}catch(e){}
+    location.reload();
+  });
+  restore();
 </script>
 </body>
 </html>

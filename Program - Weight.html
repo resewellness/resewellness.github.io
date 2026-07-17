@@ -17,9 +17,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Why is the price flat when other programs charge by dose?","acceptedAnswer":{"@type":"Answer","text":"Because dose-based pricing punishes you for the medicine working as designed. Titration upward is normal and expected — your price is $185/mo for semaglutide or $299/mo for tirzepatide, at every dose, period."}},
-{"@type":"Question","name":"What's actually included?","acceptedAnswer":{"@type":"Answer","text":"Your medication and supplies, provider review and ongoing dose management, the week-eight Plateau Protocol, check-ins with real people, and shipping in a plain box. The program price is the whole price."}},
+{"@type":"Question","name":"What's actually included?","acceptedAnswer":{"@type":"Answer","text":"Your medication and supplies, provider review and ongoing dose management, the week-eight Plateau Protocol, check-ins with real people, and shipping in discreet packaging. The program price is the whole price."}},
 {"@type":"Question","name":"Why a three-month start?","acceptedAnswer":{"@type":"Answer","text":"Because that's how long the medicine takes to do its early work, and we'd rather tell you here than in checkout fine print. You're billed monthly. After three months it's month-to-month — cancel in one step."}},
-{"@type":"Question","name":"Which medication is right for me?","acceptedAnswer":{"@type":"Answer","text":"That's your provider's call, made from your health history. You can state a preference in your assessment, and your provider will tell you honestly if the other one fits better — or if neither is safe for you. Declined = full refund."}}]}
+{"@type":"Question","name":"Which medication is right for me?","acceptedAnswer":{"@type":"Answer","text":"That's your provider's call, made from your health history. You can state a preference in your assessment, and your provider will tell you honestly if the other one fits better — or if neither is safe for you. Not approved = never charged."}}]}
 </script>
 <style>
   :root{
@@ -48,16 +48,16 @@
   header{position:sticky;top:0;background:rgba(255,250,245,.95);backdrop-filter:blur(8px);border-bottom:1px solid #eee3d6;z-index:10}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;max-width:520px;margin:0 auto}
   .logo{display:flex;text-decoration:none}
-  .nav .back{color:var(--olive);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+  .nav .back{color:var(--olive);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
 
   .hero{padding:34px 0 8px}
-  .eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:8px}
+  .eyebrow{font-size:13.5px;letter-spacing:.3em;text-transform:uppercase;color:#F7F4E8;font-weight:600;display:inline-block;background:var(--olive);border:1px solid var(--olive-deep);padding:6px 13px;border-radius:100px;margin-bottom:8px}
   .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.6vw,38px);line-height:1.16;letter-spacing:-.01em;margin-bottom:10px}
-  .hero .sub{font-size:14.5px;line-height:1.55;color:#3a3a34;margin-bottom:16px;max-width:52ch}
-  .btn{display:inline-block;background:var(--olive);color:#FFF;text-decoration:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:16px 36px;border-radius:2px;transition:transform .18s ease,box-shadow .18s ease}
+  .hero .sub{font-size:15.5px;line-height:1.55;color:#3a3a34;margin-bottom:16px;max-width:52ch}
+  .btn{display:inline-block;background:var(--olive);color:#FFF;text-decoration:none;font-size:15px;letter-spacing:.12em;text-transform:uppercase;padding:16px 36px;border-radius:2px;transition:transform .18s ease,box-shadow .18s ease}
   .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(92,94,62,.28)}
   .btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-  .reassure{font-size:12.5px;color:#555;margin-top:8px}
+  .reassure{font-size:13.5px;color:#555;margin-top:8px}
   .cta-zone{text-align:center}
   @media(min-width:1000px){.cta-zone{text-align:left}}
 
@@ -68,18 +68,18 @@
   /* pricing */
   .plans{display:grid;gap:14px;margin-top:20px}
   .plan{background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:26px 24px}
-  .plan .med{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:6px}
+  .plan .med{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:6px}
   .plan h3{font-family:var(--serif);font-weight:500;font-size:24px;margin-bottom:2px}
   .plan .price{font-family:var(--serif);font-size:38px;font-weight:500;margin:10px 0 2px}
-  .plan .price small{font-family:var(--sans);font-size:13px;color:#666;font-weight:400}
-  .plan .flat{display:inline-block;background:var(--sage);border-radius:100px;font-size:11.5px;letter-spacing:.04em;padding:5px 12px;color:#2e2f22;margin:8px 0 14px}
-  .plan p{font-size:14px;color:#444}
+  .plan .price small{font-family:var(--sans);font-size:14px;color:#666;font-weight:400}
+  .plan .flat{display:inline-block;background:var(--sage);border-radius:100px;font-size:12.5px;letter-spacing:.04em;padding:5px 12px;color:#2e2f22;margin:8px 0 14px}
+  .plan p{font-size:15px;color:#444}
   .plan .btn{display:block;text-align:center;margin-top:18px;padding:15px 20px}
 
   .includes{background:var(--sage);border-radius:14px;padding:24px;margin-top:16px}
   .includes h3{font-family:var(--serif);font-weight:500;font-size:18px;margin-bottom:10px}
   .includes ul{list-style:none;display:grid;gap:9px}
-  .includes li{display:flex;gap:10px;font-size:14px;color:#2c2f1d;align-items:flex-start}
+  .includes li{display:flex;gap:10px;font-size:15px;color:#2c2f1d;align-items:flex-start}
   .includes li svg{flex:none;margin-top:4px}
 
   /* honesty */
@@ -89,32 +89,35 @@
 
   /* plateau */
   .plateau{border:1.5px solid var(--olive);border-radius:14px;padding:26px 24px;margin-top:18px;position:relative;background:#FFF}
-  .plateau .wk{position:absolute;top:-13px;left:22px;background:var(--olive);color:#FFF;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+  .plateau .wk{position:absolute;top:-13px;left:22px;background:var(--olive);color:#FFF;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
   .plateau h3{font-family:var(--serif);font-weight:500;font-size:20px;margin-bottom:8px}
-  .plateau p{font-size:14.5px;color:#333;margin-bottom:8px}
+  .plateau p{font-size:15.5px;color:#333;margin-bottom:8px}
 
   .stp{display:flex;gap:16px;align-items:flex-start;background:#FFF;border:1px solid #eee3d6;border-radius:12px;padding:18px;margin-top:12px}
   .stp .num{flex:none;width:40px;height:40px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;color:var(--olive-deep)}
-  .stp p{font-size:14.5px;color:#333}
+  .stp p{font-size:15.5px;color:#333}
 
   details{border-bottom:1px solid #eee3d6;padding:15px 0}
   summary{font-size:15.5px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;font-weight:500}
   summary::after{content:"+";color:var(--olive);font-size:20px;flex:none;transition:transform .25s ease;line-height:1}
   details[open] summary::after{transform:rotate(45deg)}
-  details p{font-size:14.5px;color:#333;padding-top:10px}
+  details p{font-size:15.5px;color:#333;padding-top:10px}
+  .vial{flex:none;width:118px;height:158px;margin:-8px -4px -8px 0;transition:transform .5s cubic-bezier(.34,1.3,.45,1)}
+  .vial-l{transform:rotate(-6deg)}.vial-r{transform:rotate(6deg)}
+  div:hover>.vial{transform:rotate(0deg)}
 
   .final{background:linear-gradient(165deg,var(--olive),var(--olive-deep));color:#FFF;text-align:center;padding:64px 22px;margin-top:56px}
   .final h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.8vw,36px);margin-bottom:8px}
   .final p{font-size:15px;color:#e9ecdd;margin-bottom:24px}
   .final .btn{background:#FFF;color:var(--ink)}
 
-  footer{padding:32px 20px 96px;font-size:12px;color:#555;max-width:520px;margin:0 auto}
-  footer .seal{display:inline-block;border:1px solid #d8ceba;border-radius:3px;padding:5px 10px;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#777;margin-bottom:12px}
+  footer{padding:32px 20px 96px;font-size:13px;color:#555;max-width:520px;margin:0 auto}
+  footer .seal{display:inline-block;border:1px solid #d8ceba;border-radius:3px;padding:5px 10px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#777;margin-bottom:12px}
 
   .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(255,250,245,.97);backdrop-filter:blur(8px);border-top:1px solid #eee3d6;padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .4s ease}
   .sticky-cta.show{transform:none}
-  .sticky-cta span{font-size:12px;color:#3a3a34;line-height:1.35}
-  .sticky-cta .btn{padding:13px 20px;font-size:12px;white-space:nowrap}
+  .sticky-cta span{font-size:13px;color:#3a3a34;line-height:1.35}
+  .sticky-cta .btn{padding:13px 20px;font-size:13px;white-space:nowrap}
 
   @media(min-width:900px){
     .wrap,.nav,footer{max-width:1080px}
@@ -132,6 +135,10 @@
     .final{padding:88px 22px}
     .sticky-cta{display:none}
   }
+  .plateau{padding:34px 28px!important}
+  .plateau h3{font-size:24px!important}
+  .plateau p{font-size:16px!important}
+  .plateau .wk{font-size:13px!important}
 </style>
 <script src="image-slot.js"></script>
 
@@ -163,7 +170,7 @@
       <p class="sub rv d1">Physician-guided GLP-1 care with your medication, provider, check-ins, and the week-eight Plateau Protocol included — at a price that never rises as your dose does.</p>
       <div class="rv d1 cta-zone">
         <a class="btn" href="Assessment.html">Start your assessment</a>
-        <p class="reassure">10 minutes. No sales call. Declined = full refund.</p>
+        <p class="reassure">10 minutes. No sales call. Not approved = never charged.</p>
       </div>
       <div class="rv d2" style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/10;margin-top:26px">
         <img src="assets/drop-weight-hero.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
@@ -180,12 +187,13 @@
               <div class="med">Semaglutide</div>
               <h3>The proven start</h3>
               <div class="price">$185<small> /month</small></div>
+              <span class="flat">Flat — never rises with your dose</span>
             </div>
-            <div style="flex:none;width:118px;height:158px;transform:rotate(-6deg);margin:-8px -4px -8px 0">
+            <div class="vial vial-l">
               <img src="assets/vial-sema-cut.png" alt="Rese Wellness semaglutide vial" style="width:100%;height:100%;object-fit:contain;display:block">
             </div>
           </div>
-          <span class="flat">Flat — never rises with your dose</span>
+          <details style="border-top:1px solid #f2ead9;border-bottom:none;margin-top:10px;padding:12px 0 2px"><summary>More about semaglutide</summary><p>The most-studied GLP-1 medication. It mimics a natural gut hormone that signals fullness — quieting food noise and slowing digestion. One weekly injection, titrated gradually by your provider; mild nausea around dose increases is the most common early side effect. Prescription required. Available only if an independent licensed physician determines it's appropriate for you.</p></details>
           <p>The well-established option most patients begin with. Weekly injection, gradual titration, steady results.</p>
           <a class="btn" href="Assessment.html">Check my eligibility</a>
         </div>
@@ -195,12 +203,13 @@
               <div class="med">Tirzepatide</div>
               <h3>The dual-action option</h3>
               <div class="price">$299<small> /month</small></div>
+              <span class="flat">Flat — never rises with your dose</span>
             </div>
-            <div style="flex:none;width:118px;height:158px;transform:rotate(6deg);margin:-8px -4px -8px 0">
+            <div class="vial vial-r">
               <img src="assets/vial-tirz-cut.png" alt="Rese Wellness tirzepatide vial" style="width:100%;height:100%;object-fit:contain;display:block">
             </div>
           </div>
-          <span class="flat">Flat — never rises with your dose</span>
+          <details style="border-top:1px solid #f2ead9;border-bottom:none;margin-top:10px;padding:12px 0 2px"><summary>More about tirzepatide</summary><p>A dual-action medication (GLP-1 + GIP) that some patients respond to more strongly, especially around appetite. One weekly injection, titrated gradually by your provider. Prescription required. Available only if an independent licensed physician determines it's appropriate for you.</p></details>
           <p>Acts on two hormone pathways at once — often stronger appetite effects. Your provider will tell you honestly which fits.</p>
           <a class="btn" href="Assessment.html">Check my eligibility</a>
         </div>
@@ -213,10 +222,10 @@
         <div>
         <h3>Your program price includes</h3>
         <ul>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Medication and supplies, shipped in a plain box</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Medication and supplies, shipped in discreet packaging</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Licensed provider review and ongoing dose management</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>The Plateau Protocol, starting week eight</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Check-ins with real people — a founder answers</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Check-ins with real people — clinical questions go to your prescribing provider</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>No consult fees. No membership fee on top. No surprises.</li>
         </ul>
         </div>
@@ -249,11 +258,11 @@
         </div>
         <div class="stp rv d2">
           <div class="num" aria-hidden="true">2</div>
-          <p>A licensed provider in your state reviews it and approves your plan — or honestly declines it. Declined = full refund.</p>
+          <p>A licensed provider in your state reviews it and approves your plan — or honestly declines it. Not approved = never charged.</p>
         </div>
         <div class="stp rv d2">
           <div class="num" aria-hidden="true">3</div>
-          <p>Delivered to your door in a plain box. Check-ins with real people, and the Plateau Protocol at week eight.</p>
+          <p>Delivered to your door in discreet packaging. Check-ins with real people, and the Plateau Protocol at week eight.</p>
         </div>
       </div>
     </section>
@@ -265,15 +274,15 @@
           <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;border:3px solid #FFF;position:relative;margin-left:-14px"><img src="assets/founder-drsmith.jpg" alt="Dr. Smith" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
           <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;border:3px solid #FFF;position:relative;margin-left:-14px"><img src="assets/founder-tera.jpg" alt="Tera" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
         </div>
-        <p style="font-size:14px;color:#333"><strong style="font-family:var(--serif);font-weight:500">Questions answered by real people.</strong> Message us any time during your program — a founder answers, not a ticket queue.</p>
+        <p style="font-size:15px;color:#333"><strong style="font-family:var(--serif);font-weight:500">Questions answered by real people.</strong> Message us any time during your program — a real person answers — anything clinical goes to your prescribing provider, not a ticket queue.</p>
       </div>
       <p class="eyebrow rv">Fair questions</p>
       <h2 class="big rv d1" id="s4">Asked and answered</h2>
       <div class="rv d2 faq-wrap">
         <details><summary>Why is the price flat when other programs charge by dose?</summary><p>Because dose-based pricing punishes you for the medicine working as designed. Titration upward is normal and expected — your price is $185/mo for semaglutide or $299/mo for tirzepatide, at every dose, period.</p></details>
-        <details><summary>What's actually included?</summary><p>Your medication and supplies, provider review and ongoing dose management, the week-eight Plateau Protocol, check-ins with real people, and shipping in a plain box. The program price is the whole price.</p></details>
+        <details><summary>What's actually included?</summary><p>Your medication and supplies, provider review and ongoing dose management, the week-eight Plateau Protocol, check-ins with real people, and shipping in discreet packaging. The program price is the whole price.</p></details>
         <details><summary>Why a three-month start?</summary><p>Because that's how long the medicine takes to do its early work, and we'd rather tell you here than in checkout fine print. You're billed monthly. After three months it's month-to-month — cancel in one step.</p></details>
-        <details><summary>Which medication is right for me?</summary><p>That's your provider's call, made from your health history. You can state a preference in your assessment, and your provider will tell you honestly if the other one fits better — or if neither is safe for you. Declined = full refund.</p></details>
+        <details><summary>Which medication is right for me?</summary><p>That's your provider's call, made from your health history. You can state a preference in your assessment, and your provider will tell you honestly if the other one fits better — or if neither is safe for you. Not approved = never charged.</p></details>
       </div>
     </section>
   </div>
@@ -287,7 +296,7 @@
 
 <footer>
   <p>Prescribed only if a licensed provider determines it's appropriate for you. Compounded medications explained in plain English before checkout. Individual results vary.</p>
-  <nav aria-label="Legal" style="display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:14px;font-size:11.5px">
+  <nav aria-label="Legal" style="display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:14px;font-size:12.5px">
     <a href="FAQ.html" style="color:#555">FAQ</a>
     <a href="Legal.html#privacy" style="color:#555">Privacy Policy</a>
     <a href="Legal.html#terms" style="color:#555">Terms of Service</a>
@@ -295,8 +304,8 @@
     <a href="Legal.html#hipaa" style="color:#555">HIPAA Notice</a>
     <a href="Legal.html#cancellation" style="color:#555">Cancellation Policy</a>
   </nav>
-  <p style="margin-top:14px;font-size:11px;color:#777">If you are experiencing a medical emergency, call 911 or go to the nearest emergency room immediately. This service is not for emergencies. All treatments require a licensed provider consultation and prescription. Results vary by individual. These services are not intended to diagnose, treat, cure, or prevent any disease. Statements on this page have not been evaluated by the Food and Drug Administration. This is not medical advice. Consult your healthcare provider before starting any treatment program.</p>
-  <p style="margin-top:12px">© 2026 Rese Wellness, LLC · Queen Creek, AZ · Digital-first, never digital-only</p>
+  <p style="margin-top:14px;font-size:12px;color:#777">If you are experiencing a medical emergency, call 911 or go to the nearest emergency room immediately. This service is not for emergencies. All treatments require a licensed provider consultation and prescription. Results vary by individual. These services are not intended to diagnose, treat, cure, or prevent any disease. Statements on this page have not been evaluated by the Food and Drug Administration. This is not medical advice. Consult your healthcare provider before starting any treatment program.</p>
+  <p style="margin-top:12px">© 2026 Rese Wellness, LLC · Gilbert, AZ · Digital-first, never digital-only</p>
 </footer>
 
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">

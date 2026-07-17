@@ -71,6 +71,7 @@
   .logo{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:var(--ink)}
   .logo .note{font-size:8px;letter-spacing:.08em;color:#b3a58c;text-transform:uppercase;margin-top:2px}
   .nav .fr{color:var(--olive);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+  @media(max-width:599px){.nav .fr{font-size:10.5px;letter-spacing:.06em}.nav-right{gap:12px}}
   .nav-right{display:flex;align-items:center;gap:16px}
   .menu-btn{background:none;border:none;cursor:pointer;padding:8px;margin:-8px;display:flex;flex-direction:column;gap:5px;align-items:flex-end}
   .menu-btn span{display:block;height:1.8px;background:var(--ink);border-radius:2px;transition:transform .3s ease,opacity .3s ease,width .3s ease}
@@ -314,6 +315,7 @@
       <a href="#s6">FAQ</a>
     </div>
     <div class="nav-right">
+      <a class="fr fr-mens" href="Program - Mens Health.html">Men's Health</a>
       <a class="fr" href="First Responders.html">First Responders</a>
       <a class="btn nav-cta" href="Assessment.html">Start your assessment</a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><span></span><span></span></button>
@@ -326,12 +328,13 @@
   <a class="pg" href="#s2">How it works <small>3 steps</small></a>
     <a class="pg" href="Program - Weight.html">The Weight Program <small>Flat price</small></a>
   <a class="pg" href="Program - Peptides.html">Peptides &amp; NAD+ <small>Full menu &amp; prices</small></a>
+  <a class="pg" href="Program - Mens Health.html">Men's Health <small>Open now</small></a>
   <a class="pg" href="Hormone Support.html">Hormone Support <small>Coming soon</small></a>
   <a class="pg" href="Our Story.html">Our story <small>The family</small></a>
   <a class="pg" href="Journal.html">The Rese Journal <small>Weekly</small></a>
   <a class="pg" href="FAQ.html">FAQ <small>Honest answers</small></a>
   <a class="pg" href="Contact.html">Contact <small>Real people answer</small></a>
-  <div class="fr-row"><a href="First Responders.html">First Responders — Dr. Smith's door →</a></div>
+  <div class="fr-row" style="display:flex;flex-direction:column;gap:12px"><a href="First Responders.html">First Responders — Dr. Smith's door →</a><a href="Program - Mens Health.html">Men's Health — handled discreetly →</a></div>
   <a class="btn" href="Assessment.html">Start your assessment</a>
 </div>
 </div>

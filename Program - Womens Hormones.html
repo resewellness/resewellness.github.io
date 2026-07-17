@@ -38,7 +38,8 @@
   .nav .back{color:var(--olive);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
   .hero{padding:22px 0 8px}
   .hero-frame{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/10;margin:14px 0 18px}
-  .eyebrow{font-size:13.5px;letter-spacing:.3em;text-transform:uppercase;color:#F7F4E8;font-weight:600;display:inline-block;background:var(--olive);border:1px solid var(--olive-deep);padding:6px 13px;border-radius:100px;margin-bottom:8px}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F7F4E8;font-weight:600;display:inline-block;background:var(--olive);border:1px solid var(--olive-deep);padding:6px 13px;border-radius:100px;margin-bottom:8px;white-space:nowrap}
+  @media(min-width:600px){.eyebrow{font-size:13.5px;letter-spacing:.3em}}
   .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.6vw,38px);line-height:1.16;letter-spacing:-.01em;margin-bottom:10px;text-wrap:balance}
   .hero .sub{font-size:15.5px;line-height:1.55;color:#3a3a34;margin-bottom:16px;max-width:52ch}
   .btn{display:inline-block;background:var(--olive);color:#FFF;text-decoration:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:16px 36px;border-radius:2px;transition:transform .18s ease,box-shadow .18s ease}
@@ -113,7 +114,7 @@
       <p class="rv" style="font-family:var(--serif);font-style:italic;font-size:clamp(22px,5.6vw,28px);color:var(--olive-deep);margin:10px 0 4px">Coming soon — and worth the wait.</p>
       <h1 id="h1" class="rv">The years nobody explains, finally treated properly.</h1>
       <div class="hero-frame rv d1">
-        <image-slot id="wh-hero" shape="rect" placeholder="Drop a hero photo — a woman in her 40s, morning light, unhurried and capable"></image-slot>
+        <img src="assets/drop-wh-hero.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
       </div>
       <p class="sub rv d1">Perimenopause and menopause are medicine — not something to white-knuckle. We're building hormone care the Rese way: labs first, honest prices, plain English.</p>
       <div class="rv d1 cta-zone">
@@ -139,7 +140,7 @@
         <p>Hormones are the one place where guessing is malpractice-adjacent — so we won't. Your provider orders bloodwork first, then builds your plan from real numbers: estrogen, progesterone, testosterone, thyroid, and the markers that explain how you actually feel.</p>
         <p>If your labs say hormones aren't the problem, your provider says that too — and points you at what is.</p>
         <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/9;margin-top:18px">
-          <image-slot id="wh-labs" shape="rect" placeholder="Drop a photo — lab vials or an at-home kit on a kitchen counter"></image-slot>
+          <img src="assets/drop-wh-labs.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
         </div>
       </div>
     </section>

@@ -80,14 +80,14 @@
   .menu-btn[aria-expanded="true"] span:nth-child(2){transform:translateY(-3.4px) rotate(-45deg);width:22px}
   .drawer{position:fixed;left:0;right:0;top:0;bottom:0;background:var(--cream);z-index:9;padding:96px 28px 32px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .3s ease;overflow-y:auto}
   .drawer.open{opacity:1;pointer-events:auto}
-  .drawer a.pg{font-family:var(--serif);font-weight:500;font-size:27px;color:var(--ink);text-decoration:none;padding:14px 0;border-bottom:1px solid #eee3d6;display:flex;justify-content:space-between;align-items:center;opacity:0;transform:translateY(12px);transition:opacity .35s ease,transform .35s ease}
+  .drawer a.pg{font-family:var(--serif);font-weight:500;font-size:21px;color:var(--ink);text-decoration:none;padding:15px 0;border-bottom:1px solid #eee3d6;display:flex;justify-content:space-between;align-items:center;gap:14px;opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease}
   .drawer.open a.pg{opacity:1;transform:none}
   .drawer.open a.pg:nth-child(2){transition-delay:.05s}
   .drawer.open a.pg:nth-child(3){transition-delay:.1s}
   .drawer.open a.pg:nth-child(4){transition-delay:.15s}
   .drawer.open a.pg:nth-child(5){transition-delay:.2s}
   .drawer.open a.pg:nth-child(6){transition-delay:.25s}
-  .drawer a.pg small{font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive)}
+  .drawer a.pg small{font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--olive);white-space:nowrap;flex:none;text-align:right}
   .drawer .fr-row{margin-top:auto;padding-top:24px;border-top:1px solid #eee3d6;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
   .drawer .fr-row a{color:var(--olive);text-decoration:none}
   .drawer .btn{margin-top:18px;text-align:center}
@@ -243,11 +243,10 @@
     .wrap,.nav,footer{max-width:1080px}
     section{padding:76px 0 8px}
     .nav{padding:14px 20px;gap:28px}
-    .nav-links{display:flex;gap:28px;flex-wrap:nowrap;white-space:nowrap}
-    .nav-links a{font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
-    .nav-links a:hover{color:var(--olive)}
+    .nav-links{display:none}
     .nav-cta{display:inline-block;padding:11px 20px;font-size:12px}
-    .menu-btn{display:none}
+    .drawer{padding:120px 0 48px}
+    .drawer .drawer-inner{max-width:520px;margin:0 auto;width:100%;padding:0 28px;display:flex;flex-direction:column;flex:1}
     .hero{display:grid;grid-template-columns:1.02fr .98fr;column-gap:64px;align-items:center;padding:64px 0 8px}
     .hero > *{grid-column:1}
     .hero h1{text-align:left;font-size:48px;max-width:none}
@@ -323,16 +322,18 @@
 </header>
 
 <div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-inner">
   <a class="pg" href="#s2">How it works <small>3 steps</small></a>
     <a class="pg" href="Program - Weight.html">The Weight Program <small>Flat price</small></a>
   <a class="pg" href="Program - Peptides.html">Peptides &amp; NAD+ <small>Full menu &amp; prices</small></a>
   <a class="pg" href="Hormone Support.html">Hormone Support <small>Coming soon</small></a>
   <a class="pg" href="Our Story.html">Our story <small>The family</small></a>
-  <a class="pg" href="Journal.html">The Journal <small>Weekly</small></a>
+  <a class="pg" href="Journal.html">The Rese Journal <small>Weekly</small></a>
   <a class="pg" href="FAQ.html">FAQ <small>Honest answers</small></a>
   <a class="pg" href="Contact.html">Contact <small>Real people answer</small></a>
   <div class="fr-row"><a href="First Responders.html">First Responders — Dr. Smith's door →</a></div>
   <a class="btn" href="Assessment.html">Start your assessment</a>
+</div>
 </div>
 
 <main>
@@ -627,11 +628,11 @@
   addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false);});
 
   // Sticky CTA after hero
-  const hero=document.querySelector('.hero'), sticky=document.getElementById('stickyCta');
+  const heroBtn=document.querySelector('.hero .btn')||document.querySelector('.hero'), sticky=document.getElementById('stickyCta');
   new IntersectionObserver(([e])=>{
     sticky.classList.toggle('show',!e.isIntersecting);
     sticky.setAttribute('aria-hidden', e.isIntersecting?'true':'false');
-  },{threshold:0}).observe(hero);
+  },{threshold:0}).observe(heroBtn);
 </script>
 </body>
 </html>

@@ -43,6 +43,7 @@
   .kicker{font-size:13.5px;letter-spacing:.3em;text-transform:uppercase;color:#F7F4E8;font-weight:600;display:inline-block;background:var(--olive);border:1px solid var(--olive-deep);padding:6px 13px;border-radius:100px;margin-bottom:10px}
   h1,.q{font-family:var(--serif);font-weight:500;font-size:clamp(25px,6.6vw,32px);line-height:1.22;margin-bottom:10px;text-wrap:pretty}
   .note{font-size:15px;color:#4a4a40;margin-bottom:20px;max-width:52ch}
+  .screen[style*="text-align:center"] .note{margin-left:auto;margin-right:auto}
 
   .opts{display:grid;gap:10px}
   .opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#FFF;border:1.5px solid #e5d9c8;border-radius:12px;padding:17px 18px;font-family:var(--sans);font-size:15px;color:var(--ink);cursor:pointer;transition:border-color .15s ease,background .15s ease;min-height:56px}
@@ -138,11 +139,11 @@
 <main>
 
   <!-- welcome -->
-  <section class="screen active" data-label="Getting started">
+  <section class="screen active" data-label="Getting started" style="text-align:center">
     <p class="kicker">Your assessment</p>
     <h1>Ten minutes. An honest answer either way.</h1>
     <p class="note">One question at a time — the same information a clinician would ask in an exam room. An independent licensed physician in our partner network reviews your answers personally. You'll see your exact price before you pay a dollar.</p>
-    <div class="trust">
+    <div class="trust" style="justify-content:center">
       <span class="chip">No sales call</span>
       <span class="chip">Price before you pay</span>
       <span class="chip">Not approved = never charged</span>

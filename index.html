@@ -139,8 +139,8 @@
   .sym{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;max-width:640px}
   .sym span{background:#FFF;border:1px solid #e2d9c6;border-radius:100px;font-size:13px;padding:7px 13px;color:#3a3a34;white-space:nowrap}
 
-  .cred{background:#FFF;border:1px solid #eee3d6;border-radius:14px;margin-top:16px;padding:22px;display:flex;gap:18px;align-items:flex-start}
-  .cred .ph{position:relative;flex:none;width:96px;height:96px;border-radius:50%;overflow:hidden;background:#EEE3D6}
+  .cred{background:#FFF;border:1px solid #eee3d6;border-radius:14px;margin-top:16px;padding:22px;display:block}
+  .cred .ph{position:relative;float:left;width:84px;height:84px;border-radius:50%;overflow:hidden;background:#EEE3D6;margin:0 16px 10px 0}
   .cred .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
   .cred .txt{padding:0}
   .cred h3{font-family:var(--serif);font-weight:500;font-size:21px;margin-bottom:4px}
@@ -218,14 +218,14 @@
     .nav .nav-cta{display:inline-block;padding:11px 20px;font-size:12px}
     .drawer{padding:120px 0 48px}
     .drawer .drawer-inner{max-width:520px;margin:0 auto;width:100%;padding:0 28px;display:flex;flex-direction:column;flex:1}
-    .hero{display:grid;grid-template-columns:1.02fr .98fr;column-gap:64px;align-items:center;padding:64px 0 8px}
+    .hero{display:grid;grid-template-columns:1.02fr .98fr;column-gap:64px;align-items:center;padding:40px 0 8px}
     .hero > *{grid-column:1}
-    .hero h1{text-align:left;font-size:46px}
-    .hero .sub{text-align:left;margin:0 0 24px;font-size:16.5px}
+    .hero h1{text-align:left;font-size:44px}
+    .hero .sub{text-align:left;margin:0 0 20px;font-size:16.5px}
     .cta-wrap{text-align:left}
     .reassure{text-align:left}
-    .trustbar{grid-template-columns:repeat(4,1fr)}
-    .hero-frame{grid-column:2;grid-row:1/6;margin-top:0;max-height:620px}
+    .trustbar{grid-template-columns:1fr 1fr;margin-top:18px}
+    .hero-frame{grid-column:2;grid-row:1/7;margin-top:0;max-height:560px}
     .big{font-size:34px}
     .steps{grid-template-columns:repeat(4,1fr)}
     .stp{flex-direction:column;gap:12px;padding:22px}
@@ -238,8 +238,8 @@
     .fit{grid-template-columns:1fr 1fr}
     .who{grid-template-columns:repeat(3,1fr)}
     .paths{grid-template-columns:repeat(4,1fr)}
-    .cred{max-width:760px;padding:28px}
-    .cred .ph{width:120px;height:120px}
+    .cred{max-width:760px;padding:28px;display:flex;gap:18px;align-items:flex-start}
+    .cred .ph{float:none;flex:none;width:120px;height:120px;margin:0}
     .posts{grid-template-columns:repeat(3,1fr)}
     .fnames{grid-template-columns:repeat(3,1fr);max-width:760px;margin-left:auto;margin-right:auto}
     .faq-wrap,.support{max-width:760px}
@@ -304,13 +304,13 @@
       <div class="cta-wrap rv d1">
         <a class="btn" href="Assessment.html">Explore your options</a>
       </div>
-      <p class="reassure rv d1">About 10 minutes · Exact pricing shown before purchase<br>No medication charge unless approved.</p>
+      <p class="reassure rv d1">About 10 minutes · Exact price before purchase<br>No medication charge unless approved.</p>
       <p class="reassure rv d1" style="margin-top:8px"><a href="#pricing" style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;text-decoration:none">Compare treatments ↓</a></p>
 
       <!-- 2. Trust & pricing highlights -->
       <div class="trustbar rv d2" aria-label="Pricing at a glance">
-        <a class="tb" href="#pricing"><b>$185/mo</b>Semaglutide program ↓</a>
-        <a class="tb" href="#pricing"><b>$299/mo</b>Tirzepatide program ↓</a>
+        <a class="tb" href="#pricing"><b>$185/mo</b>Semaglutide program&nbsp;↓</a>
+        <a class="tb" href="#pricing"><b>$299/mo</b>Tirzepatide program&nbsp;↓</a>
         <div class="tb"><b>Flat price</b>No dose-based increases</div>
         <div class="tb"><b>Not approved?</b>No medication charge</div>
       </div>
@@ -455,7 +455,7 @@
           <h3>Gary A. Smith, MD, MMM, DABFM</h3>
           <p>Few telehealth companies have a physician as a co-founder — Rese does. Board-certified family physician, 25+ years as an ER and family doctor, hospital CMO, and professor, with accredited CME/CE training in peptide therapy in clinical practice. He shapes the standards Rese holds itself to.</p>
           <div style="display:flex;align-items:center;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid #f2ead9">
-            <img src="assets/peptide-badge.png" alt="Advera badge — Clinically Trained in Peptide Therapy" style="flex:none;width:54px;height:54px;border-radius:50%">
+            <img src="assets/peptide-badge.png" alt="Advera badge — Clinically Trained in Peptide Therapy" style="flex:none;width:100px;height:100px;border-radius:50%">
             <span style="font-size:12.5px;color:#555;line-height:1.45">Clinically trained in peptide therapy<br>Accredited CME/CE · Issued by Advera</span>
           </div>
         </div>
@@ -470,7 +470,7 @@
     <!-- 9. FOUNDER STORY -->
     <section aria-labelledby="fam">
       <p class="eyebrow rv" style="text-align:center">Who's behind this</p>
-      <h2 class="big rv d1" id="fam" style="text-align:center">One family, caring for yours.</h2>
+      <h2 class="big rv d1" id="fam" style="text-align:center">One family, caring for&nbsp;yours.</h2>
       <div class="founders rv d2">
         <div class="frow">
           <div class="fp"><img src="assets/founder-sabrina.jpg" alt="Sabrina, co-founder of Rese Wellness"></div>
@@ -618,7 +618,7 @@
 </footer>
 
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
-  <span><strong style="font-family:var(--serif);font-weight:400">Ready when you are.</strong><br>Exact price before you pay.</span>
+  <span><strong style="font-family:var(--serif);font-weight:400">Ready when you&nbsp;are.</strong><br>Exact price before you&nbsp;pay.</span>
   <a class="btn" href="Assessment.html">Explore your options</a>
 </div>
 

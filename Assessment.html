@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Start Your Assessment | Rese Wellness</title>
+<title>Explore Your Options | Rese Wellness</title>
 <meta name="description" content="A 10-minute online health assessment reviewed by an independent licensed physician in our partner network. Price stated before you pay. Not approved = never charged.">
 <meta name="theme-color" content="#FFFAF5">
 <meta name="robots" content="noindex">
@@ -125,10 +125,10 @@
 
 <header>
   <nav class="nav" aria-label="Main">
-    <a class="logo" href="Rese Wellness Site v2.html" aria-label="Rese Wellness home">
+    <a class="logo" href="index.html" aria-label="Rese Wellness home">
       <img src="assets/rese-logo.png" alt="Rese Wellness" style="display:block;height:36px;width:auto">
     </a>
-    <span style="display:flex;gap:16px;align-items:center"><button type="button" class="back" id="startOver" style="background:none;border:none;cursor:pointer;font-family:inherit;color:#8a8467;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:0">Start over</button><a class="back" href="Rese Wellness Site v2.html">Save &amp; exit</a></span>
+    <span style="display:flex;gap:16px;align-items:center"><button type="button" class="back" id="startOver" style="background:none;border:none;cursor:pointer;font-family:inherit;color:#8a8467;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:0">Start over</button><a class="back" href="index.html">Save &amp; exit</a></span>
   </nav>
   <div class="progress" aria-hidden="true">
     <div class="pbar"><i id="pfill"></i></div>
@@ -462,13 +462,13 @@
     <div class="opts" data-single="medpref">
       <button class="opt plan" data-val="semaglutide" aria-pressed="false">
         <span class="med">Semaglutide program</span>
-        <span class="pname">Rese Weight Care</span>
+        <span class="pname">Rese Semaglutide Program</span>
         <span class="amt">$185<small>/mo — flat, never rises with your dose</small></span>
         <ul><li>Physician review of your full history</li><li>Medication, if prescribed — shipped free, discreetly packaged</li><li>Ongoing check-ins with real people</li></ul>
       </button>
       <button class="opt plan" data-val="tirzepatide" aria-pressed="false">
         <span class="med">Tirzepatide program</span>
-        <span class="pname">Rese Weight Care+</span>
+        <span class="pname">Rese Tirzepatide Program</span>
         <span class="amt">$299<small>/mo — flat, never rises with your dose</small></span>
         <ul><li>Physician review of your full history</li><li>Medication, if prescribed — shipped free, discreetly packaged</li><li>Ongoing check-ins with real people</li></ul>
       </button>
@@ -524,11 +524,11 @@
       <div class="timeline">
         <div class="tl"><div class="dot"><i>1</i></div><p><strong>A physician reviews your health history</strong>An independent licensed physician in your state — typically within 24–72 hours.</p></div>
         <div class="tl"><div class="dot"><i>2</i></div><p><strong>We message you with their decision</strong>A recommended plan with its exact monthly price, questions if something needs clarifying, or a straightforward no.</p></div>
-        <div class="tl"><div class="dot"><i>3</i></div><p><strong>If prescribed, your medication ships</strong>Temperature-controlled packaging, discreet packaging.</p></div>
+        <div class="tl"><div class="dot"><i>3</i></div><p><strong>If prescribed, your medication ships</strong>Temperature-controlled, discreet packaging — nothing on the label.</p></div>
       </div>
     </div>
     <p class="reassure" style="margin-top:18px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Questions in the meantime? <a href="mailto:support@resewellness.com">support@resewellness.com</a> — a real person answers, and anything clinical goes to your prescribing physician.</p>
-    <div class="ctas"><a class="btn" href="Rese Wellness Site v2.html" style="background:var(--sage);color:var(--ink)">Back to Rese Wellness</a></div>
+    <div class="ctas"><a class="btn" href="index.html" style="background:var(--sage);color:var(--ink)">Back to Rese Wellness</a></div>
   </section>
 
   <!-- exit (disqualification) -->
@@ -536,7 +536,7 @@
     <h1>Thank you for being honest with us.</h1>
     <p class="note">Based on your answers, this treatment isn't something the physicians in our partner network can safely support through telehealth. That's not a brush-off — it's the system doing its job. We'd encourage you to talk with your doctor in person; your answers here are a good starting point for that conversation.</p>
     <p class="note">You haven't been charged anything, and you're welcome at Rese for anything else — energy and recovery care may still be a fit, and our <a href="FAQ.html">honest answers</a> are always open.</p>
-    <div class="ctas"><button class="btn-ghost" id="exitBack">← Go back and change my answer</button><a class="btn" href="Rese Wellness Site v2.html" style="background:var(--sage);color:var(--ink)">Back to Rese Wellness</a></div>
+    <div class="ctas"><button class="btn-ghost" id="exitBack">← Go back and change my answer</button><a class="btn" href="index.html" style="background:var(--sage);color:var(--ink)">Back to Rese Wellness</a></div>
   </section>
 
 </main>
@@ -657,7 +657,7 @@
     let total=0,from=false,tbd=false;
     wr.style.display=isW?'flex':'none';
     if(isW){
-      const plans={semaglutide:['Semaglutide program','Rese Weight Care',185,false],tirzepatide:['Tirzepatide program','Rese Weight Care+',299,false],provider:['Physician\u2019s choice','Rese Weight Care',185,true]};
+      const plans={semaglutide:['Semaglutide program','Rese Semaglutide Program',185,false],tirzepatide:['Tirzepatide program','Rese Tirzepatide Program',299,false],provider:['Physician\u2019s choice','Rese Semaglutide Program',185,true]};
       const pl=plans[answers.medpref]||plans.provider;
       document.getElementById('coMed').textContent=pl[0];
       document.getElementById('coName').textContent=pl[1];

@@ -21,7 +21,7 @@
 {"@type":"Question","name":"Will my department find out?","acceptedAnswer":{"@type":"Answer","text":"No. Discreet packaging. Your health information is protected under HIPAA, and we never contact your department or employer — ever."}},
 {"@type":"Question","name":"Is this legit?","acceptedAnswer":{"@type":"Answer","text":"Licensed providers, prescription medication through licensed pharmacies, and you’re never charged if you’re declined. Born from a real clinic in Gilbert, AZ — not a pitch deck."}},
 {"@type":"Question","name":"What does it cost?","acceptedAnswer":{"@type":"Answer","text":"It depends on your treatment plan — every price is stated before you pay a dollar. Weight programs are flat: semaglutide $185/mo, tirzepatide $299/mo. No consult fees, no dose-based increases."}},
-{"@type":"Question","name":"What if the provider says no?","acceptedAnswer":{"@type":"Answer","text":"Full refund. That's the system working."}},
+{"@type":"Question","name":"What if the provider says no?","acceptedAnswer":{"@type":"Answer","text":"Your card is only preauthorized — if the provider decides treatment isn't appropriate, the hold is released and you're never charged. That's the system working."}},
 {"@type":"Question","name":"I'm a female first responder — is this for me too?","acceptedAnswer":{"@type":"Answer","text":"Yes. Same door, same care."}}]}
 </script>
 <style>
@@ -144,7 +144,8 @@
     .cta-zone{text-align:left}
     .chips{display:flex;flex-wrap:wrap}
     .tcards{grid-template-columns:repeat(2,1fr)}
-    .steps-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .steps-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .fit-grid{grid-template-columns:1fr 1fr}
     .steps-wrap .stp{margin-top:0;flex-direction:column}
     .discretion{padding:44px 40px}
     .doc{display:grid;grid-template-columns:.65fr 1.55fr;align-items:stretch}
@@ -168,10 +169,10 @@
 
 <header>
   <nav class="nav" aria-label="Main">
-    <a class="logo" href="Rese Wellness Site v2.html" aria-label="Rese Wellness home">
+    <a class="logo" href="index.html" aria-label="Rese Wellness home">
       <img src="assets/rese-logo.png" alt="Rese Wellness" style="display:block;height:36px;width:auto">
     </a>
-    <a class="back" href="Rese Wellness Site v2.html">← Main site</a>
+    <a class="back" href="index.html">← Main site</a>
   </nav>
 </header>
 
@@ -181,20 +182,26 @@
     <section class="hero" aria-labelledby="h1">
       <p class="eyebrow rv">For First Responders</p>
       <h1 id="h1" class="rv">Worn down, no matter how much you rest. There's a reason — and it's treatable.</h1>
-      <div class="hero-frame rv d1">
-        <img src="assets/fr-hero.jpg" alt="Firefighters, paramedics, and police officers talking outside a station">
+      <div class="sub rv d1" style="display:flex;gap:12px;align-items:center">
+        <img src="assets/peptide-badge.png" alt="Advera badge — Clinically Trained in Peptide Therapy" style="flex:none;width:58px;height:58px;border-radius:50%">
+        <p style="margin:0">Shift work and years of wear do real damage — "tough it out" isn't medicine. Built by Dr. Smith: firefighter/paramedic, then physician for 25+ years, clinically trained in peptide therapy.</p>
       </div>
-      <p class="sub rv d1">Shift work and years of wear do real damage — "tough it out" isn't medicine. Built by Dr. Smith: firefighter/paramedic, then physician for 25+ years.</p>
       <div class="rv d1 cta-zone">
-        <a class="btn" href="Assessment.html">Start your assessment</a>
+        <a class="btn" href="Assessment.html">Explore your options</a>
         <p class="reassure">10 minutes. No sales call. An honest answer either way.</p>
       </div>
       <div class="chips rv d2" aria-label="At a glance">
         <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>Licensed providers in your state</span>
-        <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Price stated before you pay</span>
         <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M3 9l9-6 9 6v11H3V9z"/></svg>Discreet packaging</span>
-        <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Not approved = never charged</span>
       </div>
+      <div class="rv d2" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px" aria-label="Pricing at a glance">
+        <a href="Program - Peptides.html" style="background:var(--sage);border:1px solid #d8d2be;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.45;color:#2e2f22;text-decoration:none"><b style="display:block;font-family:var(--serif);font-weight:500;font-size:18px;color:var(--ink)">From $129</b>Recovery peptides, all priced</a>
+        <a href="Program - Weight.html" style="background:var(--sage);border:1px solid #d8d2be;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.45;color:#2e2f22;text-decoration:none"><b style="display:block;font-family:var(--serif);font-weight:500;font-size:18px;color:var(--ink)">From $185/mo</b>Weight programs, flat price</a>
+      </div>
+      <div class="hero-frame rv d2" style="margin-top:14px">
+        <img src="assets/fr-hero.jpg" alt="Firefighters, paramedics, and police officers talking outside a station">
+      </div>
+
     </section>
 
     <section aria-labelledby="s1">
@@ -223,15 +230,15 @@
           </div>
         </div>
       </div>
-      <div class="shared-line rv d2">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
-        <span>Everything here is prescribed and supervised by a licensed provider — or it isn't offered.</span>
+      <div class="shared-line rv d2" style="align-items:center">
+        <img src="assets/peptide-badge.png" alt="Advera badge — Clinically Trained in Peptide Therapy, completed accredited CME/CE education" style="flex:none;width:74px;height:74px;border-radius:50%">
+        <span>Everything here is prescribed and supervised by a licensed provider — or it isn't offered. No gray-market vials, no guesswork. Our Chief Medical Officer, Gary A. Smith, MD, MMM, DABFM, has completed accredited CME/CE training in peptide therapy in clinical practice.</span>
       </div>
     </section>
 
     <section aria-labelledby="s2">
       <p class="eyebrow rv">How it works</p>
-      <h2 class="big rv d1" id="s2">Three steps. No runaround.</h2>
+      <h2 class="big rv d1" id="s2">Four steps. No runaround.</h2>
       <div class="steps-wrap">
         <div class="stp rv d1">
           <div class="num" aria-hidden="true">1</div>
@@ -239,12 +246,25 @@
         </div>
         <div class="stp rv d2">
           <div class="num" aria-hidden="true">2</div>
-          <p>A licensed provider in your state reviews it and approves your plan — or honestly declines it.<br>Not approved = never charged.</p>
+          <p>A licensed provider in your state reviews it and approves your plan — or honestly declines it.</p>
         </div>
         <div class="stp rv d2">
           <div class="num" aria-hidden="true">3</div>
+          <p>Review your plan and exact price — nothing is charged unless your provider approves and prescribes.</p>
+        </div>
+        <div class="stp rv d2">
+          <div class="num" aria-hidden="true">4</div>
           <p>Delivered to your door in discreet packaging. Check-ins with real people, not bots.</p>
         </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="s-seen">
+      <p class="eyebrow rv">Sound familiar?</p>
+      <h2 class="big rv d1" id="s-seen">"I sleep all day after a 48 and still wake up tired."</h2>
+      <div class="rv d2" style="background:#FFF;border:1px solid #eee3d6;border-radius:12px;padding:24px 22px">
+        <p style="font-family:var(--serif);font-size:19px;line-height:1.5;font-style:italic">"Twenty years of tones at 2am, lifting patients, eating at the station. My body keeps score — and lately it's winning."</p>
+        <p style="font-size:15px;color:#555;margin-top:12px">That's not weakness — it's the physiology of the job. Shift work, interrupted sleep, and cumulative strain are treatable, and "tough it out" isn't a treatment plan.</p>
       </div>
     </section>
 
@@ -258,17 +278,48 @@
     </section>
 
     <section aria-labelledby="s4">
-      <p class="eyebrow rv">The doc</p>
+      <p class="eyebrow rv">Our co-founder</p>
       <h2 class="big rv d1" id="s4">He's been on your side of the call.</h2>
       <div class="doc rv d2">
         <div class="ph">
-          <img src="assets/founder-drsmith.jpg" alt="Dr. Smith">
+          <img src="assets/founder-drsmith.jpg?v=2" alt="Dr. Smith">
         </div>
         <div class="txt">
+          <p style="font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:6px">Co-founder · Chairman &amp; Chief Medical Officer</p>
+          <h3 style="font-family:var(--serif);font-weight:500;font-size:21px;margin-bottom:10px">Gary A. Smith, MD, MMM, DABFM</h3>
           <p>Firefighter/paramedic. Then ER and family physician — 25+ years and counting, still practicing at East Valley Wellness Center in Gilbert, AZ, where he does first-responder physicals to this day.</p>
-          <p>At Rese he's Chairman and Chief Medical Officer. All clinical decisions — your review, prescription, and ongoing care — are made by licensed providers in our partner network, personally.</p>
+          <p>At Rese he's Chairman and Chief Medical Officer, clinically trained in peptide therapy through accredited CME/CE education. All clinical decisions — your review, prescription, and ongoing care — are made by licensed providers in our partner network, personally.</p>
           <p class="quote">"I've done your physicals for years. This is the care I wished I could hand you sooner — built the way I'd want it done."</p>
-          <a class="go" href="Assessment.html">Start your assessment →</a>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid #f2ead9">
+            <img src="assets/peptide-badge.png" alt="Advera badge — Clinically Trained in Peptide Therapy" style="flex:none;width:60px;height:60px;border-radius:50%">
+            <span style="font-size:12.5px;color:#555;line-height:1.45">Clinically trained in peptide therapy<br>Accredited CME/CE · Issued by Advera</span>
+          </div>
+          <a class="go" href="Assessment.html">Explore your options →</a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="s-fit">
+      <p class="eyebrow rv">Self-check</p>
+      <h2 class="big rv d1" id="s-fit">Is Rese right for you?</h2>
+      <div style="display:grid;gap:12px" class="fit-grid">
+        <div class="rv d1" style="background:#FFF;border:1px solid #eee3d6;border-top:4px solid var(--olive);border-radius:14px;padding:22px">
+          <h3 style="font-family:var(--serif);font-weight:500;font-size:19px;margin-bottom:10px">Rese may be a strong fit if…</h3>
+          <ul style="list-style:none;font-size:14px;color:#333;display:grid;gap:8px">
+            <li>✓ &nbsp;Recovery, sleep, or weight has changed and rest isn't fixing it</li>
+            <li>✓ &nbsp;You want it handled by a clinician, not a locker-room supplement stack</li>
+            <li>✓ &nbsp;You want every price public before you commit</li>
+            <li>✓ &nbsp;You want care that stays completely off the department's radar</li>
+          </ul>
+        </div>
+        <div class="rv d2" style="background:#FFF;border:1px solid #eee3d6;border-top:4px solid #cfc6ad;border-radius:14px;padding:22px">
+          <h3 style="font-family:var(--serif);font-weight:500;font-size:19px;margin-bottom:10px">Rese may not be the right fit if…</h3>
+          <ul style="list-style:none;font-size:14px;color:#333;display:grid;gap:8px">
+            <li>— &nbsp;You want a guaranteed prescription</li>
+            <li>— &nbsp;You're seeking urgent or emergency care</li>
+            <li>— &nbsp;You're shopping for gray-market vials at gray-market prices</li>
+            <li>— &nbsp;You aren't able to complete required follow-up</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -280,7 +331,7 @@
         <details><summary>Will my department find out?</summary><p>No. Discreet packaging. Your health information is protected under HIPAA, and we never contact your department or employer — ever.</p></details>
         <details><summary>Is this legit?</summary><p>Licensed providers, prescription medication through licensed pharmacies, and you’re never charged if you’re declined. Born from a real clinic in Gilbert, AZ — not a pitch deck.</p></details>
         <details><summary>What does it cost?</summary><p>It depends on your treatment plan — every price is stated before you pay a dollar. Weight programs are flat: semaglutide $185/mo, tirzepatide $299/mo. No consult fees, no dose-based increases.</p></details>
-        <details><summary>What if the provider says no?</summary><p>Full refund. That's the system working.</p></details>
+        <details><summary>What if the provider says no?</summary><p>You're never charged — your card is only preauthorized, and the hold is simply released. That's the system working.</p></details>
         <details><summary>I'm a female first responder — is this for me too?</summary><p>Yes. Same door, same care.</p></details>
       </div>
     </section>
@@ -289,7 +340,8 @@
   <section class="final">
     <h2>Ready when you are.</h2>
     <p>Ten minutes. An honest answer either way.</p>
-    <a class="btn" href="Assessment.html">Start your assessment</a>
+    <a class="btn" href="Assessment.html">Explore your options</a>
+    <p style="font-size:13px;color:#dfe3cd;margin-top:14px;line-height:1.6">About 10 minutes · Exact pricing shown before purchase · No medication charge unless approved</p>
   </section>
 </main>
 
@@ -309,7 +361,7 @@
 
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
   <span><strong style="font-family:var(--serif);font-weight:400">Ready when you are.</strong><br>Honest answer either way.</span>
-  <a class="btn" href="Assessment.html">Start your assessment</a>
+  <a class="btn" href="Assessment.html">Explore your options</a>
 </div>
 
 <script>

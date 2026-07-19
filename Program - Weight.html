@@ -18,7 +18,7 @@
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Why is the price flat when other programs charge by dose?","acceptedAnswer":{"@type":"Answer","text":"Because dose-based pricing punishes you for the medicine working as designed. Titration upward is normal and expected — your price is $185/mo for semaglutide or $299/mo for tirzepatide, at every dose, period."}},
 {"@type":"Question","name":"What's actually included?","acceptedAnswer":{"@type":"Answer","text":"Your medication and supplies, provider review and ongoing dose management, the week-eight Plateau Protocol, check-ins with real people, and shipping in discreet packaging. The program price is the whole price."}},
-{"@type":"Question","name":"Why a three-month start?","acceptedAnswer":{"@type":"Answer","text":"Because that's how long the medicine takes to do its early work, and we'd rather tell you here than in checkout fine print. You're billed monthly. After three months it's month-to-month — cancel in one step."}},
+{"@type":"Question","name":"Why a three-month start?","acceptedAnswer":{"@type":"Answer","text":"It gives your provider time to start treatment safely and evaluate your response — and we'd rather tell you here than in checkout fine print. You're billed monthly. After three months it's month-to-month — cancel in one step."}},
 {"@type":"Question","name":"Which medication is right for me?","acceptedAnswer":{"@type":"Answer","text":"That's your provider's call, made from your health history. You can state a preference in your assessment, and your provider will tell you honestly if the other one fits better — or if neither is safe for you. Not approved = never charged."}}]}
 </script>
 <style>
@@ -140,6 +140,7 @@
   .plateau p{font-size:16px!important}
   .plateau .wk{font-size:13px!important}
 </style>
+<script src="image-slot.js"></script>
 
 <template id="__bundler_thumbnail" data-bg-color="#FFFAF5">
   <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
@@ -153,10 +154,10 @@
 
 <header>
   <nav class="nav" aria-label="Main">
-    <a class="logo" href="Rese Wellness Site v2.html" aria-label="Rese Wellness home">
+    <a class="logo" href="index.html" aria-label="Rese Wellness home">
       <img src="assets/rese-logo.png" alt="Rese Wellness" style="display:block;height:36px;width:auto">
     </a>
-    <a class="back" href="Rese Wellness Site v2.html">← Main site</a>
+    <a class="back" href="index.html">← Main site</a>
   </nav>
 </header>
 
@@ -168,11 +169,15 @@
       <h1 id="h1" class="rv">One flat price. Every dose. That's the whole trick.</h1>
       <p class="sub rv d1">Physician-guided GLP-1 care with your medication, provider, check-ins, and the week-eight Plateau Protocol included — at a price that never rises as your dose does.</p>
       <div class="rv d1 cta-zone">
-        <a class="btn" href="Assessment.html">Start your assessment</a>
+        <a class="btn" href="Assessment.html">Explore your options</a>
         <p class="reassure">10 minutes. No sales call. Not approved = never charged.</p>
       </div>
-      <div class="rv d2" style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/10;margin-top:26px">
-        <img src="assets/drop-weight-hero.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <div class="rv d2" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px" aria-label="Pricing at a glance">
+        <a href="#s1" style="background:var(--sage);border:1px solid #d8d2be;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.45;color:#2e2f22;text-decoration:none"><b style="display:block;font-family:var(--serif);font-weight:500;font-size:18px;color:var(--ink)">$185/mo</b>Semaglutide ↓</a>
+        <a href="#s1" style="background:var(--sage);border:1px solid #d8d2be;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.45;color:#2e2f22;text-decoration:none"><b style="display:block;font-family:var(--serif);font-weight:500;font-size:18px;color:var(--ink)">$299/mo</b>Tirzepatide ↓</a>
+      </div>
+      <div class="rv d2" style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/10;margin-top:14px">
+        <image-slot id="weight-hero" shape="rect" placeholder="Drop a hero photo — e.g. a woman mid-stride on a morning walk, or a kitchen-table moment"></image-slot>
       </div>
     </section>
 
@@ -183,7 +188,7 @@
         <div class="plan rv d1">
           <div style="display:flex;gap:16px;justify-content:space-between;align-items:flex-start">
             <div>
-              <div class="med">Semaglutide</div>
+              <div class="med">Rese Semaglutide Program</div>
               <h3>The proven start</h3>
               <div class="price">$185<small> /month</small></div>
               <span class="flat">Flat — never rises with your dose</span>
@@ -199,7 +204,7 @@
         <div class="plan rv d2">
           <div style="display:flex;gap:16px;justify-content:space-between;align-items:flex-start">
             <div>
-              <div class="med">Tirzepatide</div>
+              <div class="med">Rese Tirzepatide Program</div>
               <h3>The dual-action option</h3>
               <div class="price">$299<small> /month</small></div>
               <span class="flat">Flat — never rises with your dose</span>
@@ -216,7 +221,7 @@
       <div class="includes rv d2">
         <div style="display:grid;gap:18px">
         <div style="border-radius:10px;overflow:hidden;aspect-ratio:16/10">
-          <img src="assets/drop-weight-box.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover">
+          <image-slot id="weight-box" shape="rect" fit="contain" placeholder="Drop a photo of the plain shipping box / unboxing"></image-slot>
         </div>
         <div>
         <h3>Your program price includes</h3>
@@ -236,7 +241,7 @@
       <p class="eyebrow rv">The fine print, out loud</p>
       <div class="honest rv d1">
         <h2 id="s2">We ask for three months. Here's why.</h2>
-        <p>The medicine titrates gradually — that's how it's designed, and it's why the early weeks are about building, not sprinting. A three-month start is how long it takes to do its early work honestly.</p>
+        <p>The medicine titrates gradually — that's how it's designed. A three-month start gives your provider time to begin safely, evaluate your response and tolerability, and adjust thoughtfully.</p>
         <p>You're still billed monthly. After three months: month-to-month, cancel in one step. We'd rather tell you this here than in checkout fine print — that's the whole point of us.</p>
       </div>
       <div class="plateau rv d2" style="margin-top:26px">
@@ -249,7 +254,7 @@
 
     <section aria-labelledby="s3">
       <p class="eyebrow rv">How it works</p>
-      <h2 class="big rv d1" id="s3">Three steps. No runaround.</h2>
+      <h2 class="big rv d1" id="s3">Four steps. No runaround.</h2>
       <div class="steps-wrap">
         <div class="stp rv d1">
           <div class="num" aria-hidden="true">1</div>
@@ -261,6 +266,10 @@
         </div>
         <div class="stp rv d2">
           <div class="num" aria-hidden="true">3</div>
+          <p>Review your plan and exact monthly price — nothing is charged unless your provider approves and prescribes.</p>
+        </div>
+        <div class="stp rv d2">
+          <div class="num" aria-hidden="true">4</div>
           <p>Delivered to your door in discreet packaging. Check-ins with real people, and the Plateau Protocol at week eight.</p>
         </div>
       </div>
@@ -270,17 +279,27 @@
       <div style="display:flex;gap:16px;align-items:center;background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:18px;margin-bottom:34px" class="rv">
         <div style="flex:none;display:flex">
           <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;border:3px solid #FFF;position:relative"><img src="assets/founder-sabrina.jpg" alt="Sabrina" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
-          <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;border:3px solid #FFF;position:relative;margin-left:-14px"><img src="assets/founder-drsmith.jpg" alt="Dr. Smith" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+          <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;border:3px solid #FFF;position:relative;margin-left:-14px"><img src="assets/founder-drsmith.jpg?v=2" alt="Dr. Smith" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top"></div>
           <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;border:3px solid #FFF;position:relative;margin-left:-14px"><img src="assets/founder-tera.jpg" alt="Tera" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
         </div>
         <p style="font-size:15px;color:#333"><strong style="font-family:var(--serif);font-weight:500">Questions answered by real people.</strong> Message us any time during your program — a real person answers — anything clinical goes to your prescribing provider, not a ticket queue.</p>
+      </div>
+      <p class="eyebrow rv">Medical oversight</p>
+      <div style="background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:22px;display:flex;gap:18px;align-items:flex-start;margin-bottom:34px" class="rv d1">
+        <div style="position:relative;flex:none;width:88px;height:88px;border-radius:50%;overflow:hidden;background:#EEE3D6"><img src="assets/founder-drsmith.jpg?v=2" alt="Gary A. Smith, MD, MMM, DABFM" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top"></div>
+        <div>
+          <p style="font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:6px">Co-founder · Chairman &amp; Chief Medical Officer</p>
+          <h3 style="font-family:var(--serif);font-weight:500;font-size:20px;margin-bottom:4px">Gary A. Smith, MD, MMM, DABFM</h3>
+          <p style="font-size:14.5px;color:#333">Board-certified family physician — 25+ years as an ER and family doctor, hospital CMO, and professor. He built this program to the standard he holds for his own patients. Licensed providers in our independent partner network handle your review, prescription, and ongoing care personally — Rese runs the program, pricing, and support, and never makes medical decisions.</p>
+        </div>
       </div>
       <p class="eyebrow rv">Fair questions</p>
       <h2 class="big rv d1" id="s4">Asked and answered</h2>
       <div class="rv d2 faq-wrap">
         <details><summary>Why is the price flat when other programs charge by dose?</summary><p>Because dose-based pricing punishes you for the medicine working as designed. Titration upward is normal and expected — your price is $185/mo for semaglutide or $299/mo for tirzepatide, at every dose, period.</p></details>
         <details><summary>What's actually included?</summary><p>Your medication and supplies, provider review and ongoing dose management, the week-eight Plateau Protocol, check-ins with real people, and shipping in discreet packaging. The program price is the whole price.</p></details>
-        <details><summary>Why a three-month start?</summary><p>Because that's how long the medicine takes to do its early work, and we'd rather tell you here than in checkout fine print. You're billed monthly. After three months it's month-to-month — cancel in one step.</p></details>
+        <details><summary>Why a three-month start?</summary><p>It gives your provider time to start treatment safely and evaluate your response — and we'd rather tell you here than in checkout fine print. You're billed monthly. After three months it's month-to-month — cancel in one step.</p></details>
+        <details><summary>What about side effects?</summary><p>The most common is mild nausea around dose increases — usually temporary, and manageable with the protein-first, hydration-forward guidance your provider gives you. Your program includes side-effect support: message your clinical team any time, and your provider adjusts your titration if needed. Serious side effects are rare; your provider screens your health history for them before ever prescribing.</p></details>
         <details><summary>Which medication is right for me?</summary><p>That's your provider's call, made from your health history. You can state a preference in your assessment, and your provider will tell you honestly if the other one fits better — or if neither is safe for you. Not approved = never charged.</p></details>
       </div>
     </section>
@@ -289,7 +308,8 @@
   <section class="final">
     <h2 style="text-wrap:balance">See your price before you pay a dollar.</h2>
     <p>Ten minutes. An honest answer either way.</p>
-    <a class="btn" href="Assessment.html">Start your assessment</a>
+    <a class="btn" href="Assessment.html">Explore your options</a>
+    <p style="font-size:13px;color:#dfe3cd;margin-top:14px;line-height:1.6">About 10 minutes · Exact pricing shown before purchase · No medication charge unless approved</p>
   </section>
 </main>
 
@@ -309,7 +329,7 @@
 
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
   <span><strong style="font-family:var(--serif);font-weight:400">Flat price, every dose.</strong><br>Honest answer either way.</span>
-  <a class="btn" href="Assessment.html">Start your assessment</a>
+  <a class="btn" href="Assessment.html">Explore your options</a>
 </div>
 
 <script>

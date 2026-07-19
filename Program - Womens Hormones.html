@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hormone Support for Women | Labs-First Care, Coming Soon | Rese Wellness</title>
+<title>Your Body Changed the Rules — Hormone Support for Women, Coming Soon | Rese Wellness</title>
 <meta name="description" content="Physician-managed hormone replacement for women — perimenopause, menopause, and the years nobody explains. Built labs-first. Founding members get first access.">
 <meta name="theme-color" content="#FFFAF5">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,16 +37,15 @@
   .logo{display:flex;text-decoration:none}
   .nav .back{color:var(--olive);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
   .hero{padding:22px 0 8px}
-  .hero-frame{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/10;margin:14px 0 18px}
+  .hero-frame{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/10;margin:18px 0 0}
   .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F7F4E8;font-weight:600;display:inline-block;background:var(--olive);border:1px solid var(--olive-deep);padding:6px 13px;border-radius:100px;margin-bottom:8px;white-space:nowrap}
   @media(min-width:600px){.eyebrow{font-size:13.5px;letter-spacing:.3em}}
-  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.6vw,38px);line-height:1.16;letter-spacing:-.01em;margin-bottom:10px;text-wrap:balance}
-  .hero .sub{font-size:15.5px;line-height:1.55;color:#3a3a34;margin-bottom:16px;max-width:52ch}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(26px,7vw,38px);line-height:1.16;letter-spacing:-.01em;margin-bottom:8px;text-wrap:balance}
+  .hero .sub{font-size:15px;line-height:1.5;color:#3a3a34;margin-bottom:14px;max-width:52ch}
   .btn{display:inline-block;background:var(--olive);color:#FFF;text-decoration:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:16px 36px;border-radius:2px;transition:transform .18s ease,box-shadow .18s ease}
   .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(92,94,62,.28)}
   .btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
   .reassure{font-size:13.5px;color:#555;margin-top:8px}
-  .cta-zone{text-align:center}
   section{padding:52px 0 8px}
   .big{font-family:var(--serif);font-weight:500;font-size:clamp(25px,6.8vw,32px);line-height:1.22;margin-bottom:14px}
   .support{font-size:16px;color:#3a3a34}
@@ -59,6 +58,17 @@
   .stp{display:flex;gap:16px;align-items:flex-start;background:#FFF;border:1px solid #eee3d6;border-radius:12px;padding:18px;margin-top:12px}
   .stp .num{flex:none;width:40px;height:40px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;color:var(--olive-deep)}
   .stp p{font-size:15.5px;color:#333}
+  .tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;max-width:440px}
+  .cta-zone{text-align:center}.cta-zone .tiles{margin-left:auto;margin-right:auto}
+  @media(min-width:1000px){.cta-zone .tiles{margin-left:0}}
+  .tile{display:block;background:#FFF;border:1px solid #eee3d6;border-radius:12px;padding:12px 14px;text-decoration:none;font-size:12.5px;color:#555;line-height:1.45;text-align:left}
+  .tile strong{display:block;font-family:var(--serif);font-weight:500;font-size:15px;color:var(--ink);margin-bottom:2px}
+  .faq details{background:#FFF;border:1px solid #eee3d6;border-radius:12px;padding:0;margin-top:10px;overflow:hidden}
+  .faq summary{cursor:pointer;font-family:var(--serif);font-weight:500;font-size:16.5px;padding:16px 18px;list-style:none;position:relative;padding-right:40px}
+  .faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-family:var(--sans);color:var(--olive);font-size:20px}
+  .faq details[open] summary::after{content:"–"}
+  .faq details p{font-size:14.5px;color:#444;padding:0 18px 16px}
+  .faq details a{color:var(--olive)}
   .final{background:linear-gradient(165deg,var(--olive),var(--olive-deep));color:#FFF;text-align:center;padding:64px 22px;margin-top:56px}
   .final h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.8vw,36px);margin-bottom:8px;text-wrap:balance}
   .final p{font-size:16px;color:#e9ecdd;margin-bottom:24px}
@@ -75,7 +85,7 @@
     .cta-zone{text-align:left}
     .symp{grid-template-columns:repeat(2,1fr)}
     .labs{max-width:760px;padding:44px 40px}
-    .steps-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .steps-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
     .steps-wrap .stp{margin-top:0;flex-direction:column}
     .final{padding:88px 22px}
   }
@@ -93,15 +103,16 @@
     <text x="600" y="510" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="30" letter-spacing="12" fill="#72744E">HORMONE SUPPORT</text>
   </svg>
 </template>
+<script src="image-slot.js"></script>
 </head>
 <body>
 
 <header>
   <nav class="nav" aria-label="Main">
-    <a class="logo" href="Rese Wellness Site v2.html" aria-label="Rese Wellness home">
+    <a class="logo" href="index.html" aria-label="Rese Wellness home">
       <img src="assets/rese-logo.png" alt="Rese Wellness" style="display:block;height:36px;width:auto">
     </a>
-    <a class="back" href="Rese Wellness Site v2.html">← Main site</a>
+    <a class="back" href="index.html">← Main site</a>
   </nav>
 </header>
 
@@ -110,23 +121,27 @@
 
     <section class="hero" aria-labelledby="h1">
       <p class="eyebrow rv">Hormone Support for Women</p>
-      <p class="rv" style="font-family:var(--serif);font-style:italic;font-size:clamp(22px,5.6vw,28px);color:var(--olive-deep);margin:10px 0 4px">Coming soon — and worth the wait.</p>
-      <h1 id="h1" class="rv">The years nobody explains, finally treated properly.</h1>
-      <div class="hero-frame rv d1">
-        <img src="assets/drop-wh-hero.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-      </div>
-      <p class="sub rv d1">Perimenopause and menopause are medicine — not something to white-knuckle. We're building hormone care the Rese way: labs first, honest prices, plain English.</p>
+      <p class="rv" style="font-family:var(--serif);font-style:italic;font-size:clamp(19px,4.8vw,26px);color:var(--olive-deep);margin:6px 0 4px">Coming soon — and worth the wait.</p>
+      <h1 id="h1" class="rv">Your body changed the rules. Let's change them back.</h1>
+      <p class="sub rv d1">The sleep, the moods, the fog, the weight — your hormones changed, and that's medicine, not a character flaw. We're building your hormone care the Rese way: labs first, honest prices, plain English.</p>
       <div class="rv d1 cta-zone">
         <a class="btn" href="Hormone Waitlist.html">Join the founding list</a>
         <p class="reassure">First access when it opens. No spam, unsubscribe anytime.</p>
+        <div class="tiles">
+          <a class="tile" href="#s2"><strong>Labs first, always</strong>Plans built from bloodwork ↓</a>
+          <a class="tile" href="#faq"><strong>Flat, public pricing</strong>Answers to fair questions ↓</a>
+        </div>
+      </div>
+      <div class="hero-frame rv d2">
+        <image-slot id="wh-hero" shape="rect" placeholder="Drop a hero photo — a woman in her 40s, morning light, unhurried and capable"></image-slot>
       </div>
     </section>
 
     <section aria-labelledby="s1">
       <p class="eyebrow rv">Sound familiar?</p>
-      <h2 class="big rv d1" id="s1">If any of this is you, you're who we're building for.</h2>
+      <h2 class="big rv d1" id="s1">Any of this hitting close to home?</h2>
       <div class="symp">
-        <div class="sitem rv d1"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#72744E" stroke-width="1.8"><path d="M118 12 A18 18 0 1 0 138 36" transform="scale(.12)"/><path d="M14.1 1.4A8.5 8.5 0 1 0 16.6 17 10.2 10.2 0 0 1 14.1 1.4Z"/></svg>Waking at 3 a.m. — hot, wired, wide awake</div>
+        <div class="sitem rv d1"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#72744E" stroke-width="1.8"><path d="M14.1 1.4A8.5 8.5 0 1 0 16.6 17 10.2 10.2 0 0 1 14.1 1.4Z"/></svg>Waking at 3 a.m. — hot, wired, wide awake</div>
         <div class="sitem rv d1"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#72744E" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1.2 2.2 1.8 3.5 1.8s2.5-.6 3.5-1.8" transform="rotate(180 12 15)"/></svg>Moods and irritability that don't feel like you</div>
         <div class="sitem rv d2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#72744E" stroke-width="1.8"><path d="M12 3a7 7 0 0 1 7 7c0 3-2 4.5-2 7H7c0-2.5-2-4-2-7a7 7 0 0 1 7-7Z"/><path d="M9.5 21h5"/></svg>Brain fog in the middle of a sentence</div>
         <div class="sitem rv d2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#72744E" stroke-width="1.8"><path d="M4 17c3-1 5-8 8-8s5 5 8 4"/></svg>Energy, libido, or weight that shifted without permission</div>
@@ -139,19 +154,30 @@
         <p>Hormones are the one place where guessing is malpractice-adjacent — so we won't. Your provider orders bloodwork first, then builds your plan from real numbers: estrogen, progesterone, testosterone, thyroid, and the markers that explain how you actually feel.</p>
         <p>If your labs say hormones aren't the problem, your provider says that too — and points you at what is.</p>
         <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/9;margin-top:18px">
-          <img src="assets/drop-wh-labs.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <image-slot id="wh-labs" shape="rect" placeholder="Drop a photo — lab vials or an at-home kit on a kitchen counter"></image-slot>
         </div>
       </div>
     </section>
 
     <section aria-labelledby="s3">
       <p class="eyebrow rv">How it will work</p>
-      <h2 class="big rv d1" id="s3">Labs. Plan. Ongoing care.</h2>
+      <h2 class="big rv d1" id="s3">Four steps. No guessing.</h2>
       <div class="steps-wrap">
-        <div class="stp rv d1"><div class="num" aria-hidden="true">1</div><p>Your assessment plus provider-ordered bloodwork — numbers first, never symptoms alone.</p></div>
-        <div class="stp rv d2"><div class="num" aria-hidden="true">2</div><p>A licensed provider builds your plan from your labs and explains every piece in plain English — with its exact price, before you pay.</p></div>
-        <div class="stp rv d2"><div class="num" aria-hidden="true">3</div><p>Ongoing monitoring and adjustments, with check-ins from real people who know your file.</p></div>
+        <div class="stp rv d1"><div class="num" aria-hidden="true">1</div><p>Complete your online assessment — your history, your symptoms, your goals.</p></div>
+        <div class="stp rv d1"><div class="num" aria-hidden="true">2</div><p>A licensed provider orders your bloodwork — numbers first, never symptoms alone.</p></div>
+        <div class="stp rv d2"><div class="num" aria-hidden="true">3</div><p>Review your plan, in plain English, with its exact price — before anything is charged.</p></div>
+        <div class="stp rv d2"><div class="num" aria-hidden="true">4</div><p>Ongoing monitoring and adjustments, with check-ins from real people who know your file.</p></div>
       </div>
+    </section>
+
+    <section id="faq" aria-labelledby="s5" class="faq">
+      <p class="eyebrow rv">Fair questions</p>
+      <h2 class="big rv d1" id="s5">Asked and answered.</h2>
+      <details class="rv d1"><summary>When does it open?</summary><p>Soon — and founding-list members are invited first, in order. Joining takes one step, costs nothing, and doesn't commit you to anything.</p></details>
+      <details class="rv d1"><summary>What will it cost?</summary><p>A flat, public price — like every Rese program. Exact pricing is announced when doors open, and you'll see your total before you're ever asked to pay. No consult fees, no dose-based increases.</p></details>
+      <details class="rv d2"><summary>What will it treat?</summary><p>Perimenopause, menopause, and everything they touch — sleep, hot flashes, mood, brain fog, energy, libido, weight. Your plan is built from your labs by a licensed provider, not from a symptom checklist.</p></details>
+      <details class="rv d2"><summary>Why labs first?</summary><p>Because hormones are the one place guessing isn't good enough. Bloodwork comes before any prescription — and if your labs say hormones aren't the problem, your provider says that too.</p></details>
+      <details class="rv d2"><summary>Is there anything I can start today?</summary><p>Yes — <a href="Program - Peptides.html">energy, sleep, and recovery care</a> and <a href="Program - Weight.html">the weight program</a> are open now. Your assessment answers carry over when hormone care opens.</p></details>
     </section>
 
     <section aria-labelledby="s4">
@@ -163,7 +189,7 @@
 
   <section class="final">
     <h2>Be first through the door.</h2>
-    <p>Founding members get first access — and real people answer your questions in the meantime — anything clinical goes to a licensed provider.</p>
+    <p>Founding members get first access — and in the meantime, real people answer your questions.</p>
     <a class="btn" href="Hormone Waitlist.html">Join the founding list</a>
   </section>
 </main>

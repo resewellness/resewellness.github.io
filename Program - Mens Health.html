@@ -72,6 +72,39 @@
   .tcard h3{font-family:var(--serif);font-weight:500;font-size:20px;margin-bottom:6px}
   .tcard p{font-size:15px;color:#444}
 
+  .xlinks{display:grid;gap:14px;margin-top:18px}
+  .xlink{display:flex;flex-direction:column;background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:24px 22px;text-decoration:none;color:var(--ink);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+  .xlink:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(92,94,62,.13);border-color:var(--olive)}
+  .xlink .cat{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:6px}
+  .xlink h3{font-family:var(--serif);font-weight:500;font-size:20px;margin-bottom:6px}
+  .xlink p{font-size:15px;color:#444;margin-bottom:14px}
+  .xlink .go{margin-top:auto;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);font-weight:600}
+  .mtrust{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}
+  .mtrust .tb{background:var(--sage);border:1px solid #d8d2be;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.45;color:#2e2f22;text-decoration:none}
+  .mtrust .tb b{display:block;font-family:var(--serif);font-weight:500;font-size:18px;color:var(--ink)}
+  .mtrust a.tb{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .mtrust a.tb:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(92,94,62,.16);border-color:var(--olive)}
+  .msteps{display:grid;gap:12px;margin-top:12px}
+  .mstp{display:flex;gap:16px;align-items:flex-start;background:#FFF;border:1px solid #eee3d6;border-radius:12px;padding:18px}
+  .mstp .num{flex:none;width:40px;height:40px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;color:var(--olive-deep)}
+  .mstp h3{font-size:15.5px;margin-bottom:2px}
+  .mstp p{font-size:14.5px;color:#555}
+  .doc-card{background:#FFF;border:1px solid #eee3d6;border-radius:14px;margin-top:16px;padding:22px;display:flex;gap:18px;align-items:flex-start}
+  .doc-card .ph{position:relative;flex:none;width:96px;height:96px;border-radius:50%;overflow:hidden;background:#EEE3D6}
+  .doc-card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+  .doc-card .role{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:6px}
+  .doc-card h3{font-family:var(--serif);font-weight:500;font-size:21px;margin-bottom:4px}
+  .doc-card p{font-size:14.5px;color:#333}
+  .fit{display:grid;gap:12px;margin-top:16px}
+  .fit .col{background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:22px}
+  .fit .col.yes{border-top:4px solid var(--olive)}
+  .fit .col.no{border-top:4px solid #cfc6ad}
+  .fit h3{font-family:var(--serif);font-weight:500;font-size:19px;margin-bottom:10px}
+  .fit ul{list-style:none}
+  .fit li{font-size:14px;color:#333;padding:7px 0 7px 26px;position:relative}
+  .fit .yes li::before{content:"";position:absolute;left:0;top:11px;width:14px;height:14px;
+    background:no-repeat center/contain url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%235C5E3E" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>')}
+  .fit .no li::before{content:"—";position:absolute;left:2px;top:7px;color:#b3a58c;font-weight:600}
   .shared-line{background:var(--sage);border-radius:12px;padding:16px 18px;margin-top:14px;font-size:15px;color:#1c1c18;display:flex;gap:12px;align-items:flex-start}
   .shared-line svg{flex:none;margin-top:2px}
 
@@ -115,8 +148,15 @@
     .hero-frame{grid-column:2;grid-row:1/6;margin:0;align-self:center}
     .hero h1{font-size:40px}
     .big{font-size:34px}
-    .tcards{grid-template-columns:repeat(3,1fr)}
+    .tcards{grid-template-columns:repeat(2,1fr)}
     .menu,.honest{max-width:760px}
+    .xlinks{grid-template-columns:1fr 1fr}
+    .mtrust{grid-template-columns:repeat(4,1fr)}
+    .msteps{grid-template-columns:repeat(4,1fr)}
+    .mstp{flex-direction:column;gap:12px;padding:22px}
+    .doc-card{max-width:760px;padding:28px}
+    .fit{grid-template-columns:1fr 1fr}
+    .doc-card .ph{width:120px;height:120px}
     .honest{padding:44px 40px}
     .faq-wrap{max-width:760px}
     .final{padding:88px 22px}
@@ -132,6 +172,7 @@
   .prow[open] summary>span:first-child::after{background:var(--olive);color:#FFF;border-color:var(--olive-deep)}
   .prow .info{font-size:14px;color:#3c3e2c;background:var(--sage);border-radius:10px;padding:10px 14px!important;margin:2px 0 12px;line-height:1.55}
 </style>
+<script src="image-slot.js"></script>
 
 <template id="__bundler_thumbnail" data-bg-color="#FFFAF5">
   <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
@@ -145,10 +186,10 @@
 
 <header>
   <nav class="nav" aria-label="Main">
-    <a class="logo" href="Rese Wellness Site v2.html" aria-label="Rese Wellness home">
+    <a class="logo" href="index.html" aria-label="Rese Wellness home">
       <img src="assets/rese-logo.png" alt="Rese Wellness" style="display:block;height:36px;width:auto">
     </a>
-    <span style="display:flex;gap:16px;align-items:center"><a class="back" href="First Responders.html">First Responders</a><a class="back" href="Rese Wellness Site v2.html">← Main site</a></span>
+    <span style="display:flex;gap:16px;align-items:center"><a class="back" href="First Responders.html">First Responders</a><a class="back" href="index.html">← Main site</a></span>
   </nav>
 </header>
 
@@ -157,20 +198,26 @@
 
     <section class="hero" aria-labelledby="h1">
       <p class="eyebrow rv">Rese Men's Health</p>
-      <h1 id="h1" class="rv">Handled by a physician. Not a pop-up ad.</h1>
-      <div class="hero-frame rv d1">
-        <img src="assets/drop-mens-hero.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-      </div>
-      <p class="sub rv d1">Sexual health and hair loss, treated like the medicine it is — every price in plain sight, shipped discreetly. Testosterone evaluation is next.</p>
+      <h1 id="h1" class="rv">Not feeling like the guy you were? That’s treatable.</h1>
+      <p class="sub rv d1">Sexual health and hair loss, handled by a physician — not a pop-up ad. Every price in plain sight, shipped discreetly. Testosterone evaluation is next.</p>
       <div class="rv d1 cta-zone">
-        <a class="btn" href="Assessment.html">Start your assessment</a>
+        <a class="btn" href="Assessment.html">Explore your options</a>
         <p class="reassure">10 minutes. No sales call. Not approved = never charged.</p>
+      </div>
+      <div class="mtrust rv d2" aria-label="Pricing at a glance">
+        <a class="tb" href="#s2"><b>From $5/dose</b>Sexual health ↓</a>
+        <a class="tb" href="#s2"><b>From $2/dose</b>Hair loss ↓</a>
+        <div class="tb"><b>Every price</b>Public, before you pay</div>
+        <div class="tb"><b>Not approved?</b>No medication charge</div>
+      </div>
+      <div class="hero-frame rv d2">
+        <image-slot id="mens-hero" shape="rect" placeholder="Drop a hero photo — e.g. a man mid-40s, early morning, quietly capable"></image-slot>
       </div>
     </section>
 
     <section aria-labelledby="s1">
       <p class="eyebrow rv">What we treat</p>
-      <h2 class="big rv d1" id="s1">Three things men put off. Handled.</h2>
+      <h2 class="big rv d1" id="s1">The things men put off. Handled.</h2>
       <div class="tcards">
         <div class="tcard rv d1">
           <div class="cat">Testosterone · Coming soon</div>
@@ -187,10 +234,27 @@
           <h3>Keep what you have</h3>
           <p>The medications with actual evidence behind them — oral and topical, chosen with your provider based on where you are.</p>
         </div>
+        <a class="tcard rv d2" href="Program - Peptides.html" style="display:block;text-decoration:none;color:var(--ink);border-color:var(--olive)">
+          <div class="cat">Peptides &amp; recovery</div>
+          <h3>Train, recover, sleep, repair</h3>
+          <p>Wolverine — our most-requested recovery stack — plus BPC-157, sermorelin, NAD+ and more. Every peptide listed with its price.</p>
+          <span style="display:inline-block;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-top:10px;color:var(--olive)">See the peptide menu →</span>
+        </a>
       </div>
       <div class="shared-line rv d2">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="1.8"><path d="M3 9l9-6 9 6v11H3V9z"/></svg>
         <span>Discreet packaging. HIPAA-protected. We never contact your employer — ever.</span>
+      </div>
+    </section>
+
+    <section aria-labelledby="s-how">
+      <p class="eyebrow rv">How it works</p>
+      <h2 class="big rv d1" id="s-how">Four steps. No waiting room.</h2>
+      <div class="msteps">
+        <div class="mstp rv d1"><div class="num" aria-hidden="true">1</div><div><h3>Tell us what's going on</h3><p>A secure online assessment — about 10 minutes, from your phone.</p></div></div>
+        <div class="mstp rv d1"><div class="num" aria-hidden="true">2</div><div><h3>A licensed provider reviews it</h3><p>A real clinician in your state makes the call — not an algorithm.</p></div></div>
+        <div class="mstp rv d2"><div class="num" aria-hidden="true">3</div><div><h3>See your exact price</h3><p>Your plan and total, confirmed before anything is charged.</p></div></div>
+        <div class="mstp rv d2"><div class="num" aria-hidden="true">4</div><div><h3>Shipped discreetly</h3><p>Plain, discreet packaging to your door — with a clinical team you can message.</p></div></div>
       </div>
     </section>
 
@@ -226,6 +290,57 @@
       </div>
     </section>
 
+    <section aria-labelledby="s-more">
+      <p class="eyebrow rv">Also from Rese</p>
+      <h2 class="big rv d1" id="s-more">Weight care, too.</h2>
+      <div class="xlinks">
+        <a class="xlink rv d2" href="Program - Weight.html">
+          <div class="cat">The Weight Program</div>
+          <h3>GLP-1 care at one flat price</h3>
+          <p>Semaglutide and tirzepatide for men too — physician-reviewed, at a flat monthly price that never rises with your dose.</p>
+          <span class="go">Explore the program →</span>
+        </a>
+      </div>
+    </section>
+
+    <section aria-labelledby="s-doc">
+      <p class="eyebrow rv">The physician behind it</p>
+      <h2 class="big rv d1" id="s-doc">You might already know our co-founder.</h2>
+      <div class="doc-card rv d2">
+        <div class="ph"><img src="assets/founder-drsmith.jpg?v=2" alt="Gary A. Smith, MD, MMM, DABFM, co-founder and Chief Medical Officer of Rese Wellness"></div>
+        <div>
+          <p class="role">Co-founder · Chairman &amp; Chief Medical Officer</p>
+          <h3>Gary A. Smith, MD, MMM, DABFM</h3>
+          <p>Firefighter/paramedic, then board-certified family physician — 25+ years as an ER and family doctor, hospital CMO, and professor, still practicing in Gilbert, AZ. He built Rese's men's health program to the standard he holds for his own patients; licensed providers in our partner network handle your review and care personally.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="s-fit">
+      <p class="eyebrow rv">Self-check</p>
+      <h2 class="big rv d1" id="s-fit">Is Rese right for you?</h2>
+      <div class="fit">
+        <div class="col yes rv d1">
+          <h3>Rese may be a strong fit if…</h3>
+          <ul>
+            <li>Something's changed — drive, energy, hair, recovery — and you want it handled properly</li>
+            <li>You want every price public before you commit</li>
+            <li>You want online convenience with a real clinician making the call</li>
+            <li>You'd rather hear an honest no than get sold a yes</li>
+          </ul>
+        </div>
+        <div class="col no rv d2">
+          <h3>Rese may not be the right fit if…</h3>
+          <ul>
+            <li>You want a guaranteed prescription</li>
+            <li>You're seeking urgent or emergency care</li>
+            <li>You're shopping only for the lowest introductory price</li>
+            <li>You aren't able to complete required follow-up</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section aria-labelledby="s4">
       <p class="eyebrow rv">Fair questions</p>
       <h2 class="big rv d1" id="s4">Asked and answered</h2>
@@ -241,7 +356,8 @@
   <section class="final">
     <h2>Ten minutes. Then it's handled.</h2>
     <p>An honest answer either way.</p>
-    <a class="btn" href="Assessment.html">Start your assessment</a>
+    <a class="btn" href="Assessment.html">Explore your options</a>
+    <p style="font-size:13px;color:#dfe3cd;margin-top:14px;line-height:1.6">About 10 minutes · Exact pricing shown before purchase · No medication charge unless approved</p>
   </section>
 </main>
 
@@ -261,7 +377,7 @@
 
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
   <span><strong style="font-family:var(--serif);font-weight:400">Handled, discreetly.</strong><br>Honest answer either way.</span>
-  <a class="btn" href="Assessment.html">Start your assessment</a>
+  <a class="btn" href="Assessment.html">Explore your options</a>
 </div>
 
 <script>

@@ -17,7 +17,7 @@
 <meta property="og:image" content="assets/rese-logo.png">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"AboutPage","name":"Our Story — Rese Wellness","mainEntity":{"@type":"MedicalBusiness","name":"Rese Wellness","address":{"@type":"PostalAddress","addressLocality":"Gilbert","addressRegion":"AZ"},"founder":[{"@type":"Person","name":"Sabrina Mortensen, RN, BSN","jobTitle":"Co-founder, CEO"},{"@type":"Person","name":"Gary A. Smith, MD","jobTitle":"Co-founder, Chairman & Chief Medical Officer"},{"@type":"Person","name":"Tera Smith","jobTitle":"Co-founder, COO & CFO"}]}}
+{"@context":"https://schema.org","@type":"AboutPage","name":"Our Story — Rese Wellness","mainEntity":{"@type":"MedicalBusiness","name":"Rese Wellness","address":{"@type":"PostalAddress","addressLocality":"Gilbert","addressRegion":"AZ"},"founder":[{"@type":"Person","name":"Sabrina Mortensen, RN, BSN","jobTitle":"Co-founder, CEO"},{"@type":"Person","name":"Gary A. Smith, MD, MMM, DABFM","jobTitle":"Co-founder, Chairman & Chief Medical Officer"},{"@type":"Person","name":"Tera Smith","jobTitle":"Co-founder, COO & CFO"}]}}
 </script>
 <style>
   :root{
@@ -58,7 +58,7 @@
   .fp:nth-child(2){z-index:2;width:104px;height:104px}
   .fp:nth-child(3){z-index:1}
   .fp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .fp img[src*="drsmith"]{object-position:center 22%}
+  .fp img[src*="drsmith"]{object-position:center top}
 
   section{padding:52px 0 8px}
   .big{font-family:var(--serif);font-weight:500;font-size:clamp(25px,6.8vw,32px);line-height:1.22;margin-bottom:14px}
@@ -133,10 +133,10 @@
 
 <header>
   <nav class="nav" aria-label="Main">
-    <a class="logo" href="Rese Wellness Site v2.html" aria-label="Rese Wellness home">
+    <a class="logo" href="index.html" aria-label="Rese Wellness home">
       <img src="assets/rese-logo.png" alt="Rese Wellness" style="display:block;height:36px;width:auto">
     </a>
-    <a class="back" href="Rese Wellness Site v2.html">← Main site</a>
+    <a class="back" href="index.html">← Main site</a>
   </nav>
 </header>
 
@@ -149,7 +149,7 @@
       <p class="sub rv d1">A nurse, a physician, and an operator — a daughter, her father, and her mother. Rese is what happened when they decided to build the care they kept wishing existed.</p>
       <div class="frow rv d2" aria-hidden="true">
         <div class="fp"><img src="assets/founder-sabrina.jpg" alt=""></div>
-        <div class="fp"><img src="assets/founder-drsmith.jpg" alt=""></div>
+        <div class="fp"><img src="assets/founder-drsmith.jpg?v=2" alt=""></div>
         <div class="fp"><img src="assets/founder-tera.jpg" alt=""></div>
       </div>
     </section>
@@ -178,12 +178,16 @@
           </div>
         </div>
         <div class="person rv d1">
-          <div class="ph"><img src="assets/founder-drsmith.jpg" alt="Dr. Smith, co-founder and Chief Medical Officer of Rese Wellness"></div>
+          <div class="ph"><img src="assets/founder-drsmith.jpg?v=2" alt="Dr. Smith, co-founder and Chief Medical Officer of Rese Wellness"></div>
           <div class="txt">
             <div class="role">Co-founder · Chairman &amp; Chief Medical Officer</div>
-            <h3>Gary A. Smith, MD</h3>
-            <p>Firefighter/paramedic, then board-certified family physician — 25+ years as an ER and family doctor, hospital CMO, and professor. At Rese, licensed providers in our partner network make every clinical decision — the individual review, prescribing, and ongoing care for each patient. As Chairman and CMO, he's the practice's medical conscience.</p>
+            <h3>Gary A. Smith, MD, MMM, DABFM</h3>
+            <p>Firefighter/paramedic, then board-certified family physician — 25+ years as an ER and family doctor, hospital CMO, and professor — with accredited CME/CE training in peptide therapy in clinical practice. At Rese, licensed providers in our partner network make every clinical decision — the individual review, prescribing, and ongoing care for each patient. As Chairman and CMO, he's the practice's medical conscience.</p>
             <p class="quote">"Our standard is simple: we offer only the care I would trust for my own family."</p>
+            <div style="display:flex;align-items:center;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid #f2ead9">
+              <img src="assets/peptide-badge.png" alt="Advera badge — Clinically Trained in Peptide Therapy" style="flex:none;width:60px;height:60px;border-radius:50%">
+              <span style="font-size:12.5px;color:#555;line-height:1.45">Clinically trained in peptide therapy<br>Accredited CME/CE · Issued by Advera</span>
+            </div>
           </div>
         </div>
         <div class="person rv d2">
@@ -240,8 +244,9 @@
 
   <section class="final">
     <h2>Now you know who we are.</h2>
-    <p>A licensed provider reviews your assessment — and when you have a question, a real person answers — anything clinical goes to your prescribing provider.</p>
-    <a class="btn" href="Assessment.html">Start your assessment</a>
+    <p>Tell us what has changed. A licensed provider reviews your assessment — and whenever you have a question, a real person answers.</p>
+    <a class="btn" href="Assessment.html">Explore your options</a>
+    <p style="font-size:13px;color:#dfe3cd;margin-top:14px;line-height:1.6">About 10 minutes · Exact pricing shown before purchase · No medication charge unless approved</p>
   </section>
 </main>
 
@@ -261,7 +266,7 @@
 
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
   <span><strong style="font-family:var(--serif);font-weight:400">Ready when you are.</strong><br>Honest answer either way.</span>
-  <a class="btn" href="Assessment.html">Start your assessment</a>
+  <a class="btn" href="Assessment.html">Explore your options</a>
 </div>
 
 <script>

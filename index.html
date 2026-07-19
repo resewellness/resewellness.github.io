@@ -80,7 +80,7 @@
   .reassure{font-size:13px;color:#555;text-align:center;margin-top:12px;line-height:1.6}
 
   .trustbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:22px}
-  .trustbar .tb{background:var(--sage);border:1px solid #d8d2be;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.45;color:#2e2f22}
+  .trustbar .tb{background:var(--sage);border:1px solid #d8d2be;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.45;color:#2e2f22;text-align:center}
   .trustbar .tb b{display:block;font-family:var(--serif);font-weight:500;font-size:18px;color:var(--ink)}
   .trustbar a.tb{text-decoration:none;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
   .trustbar a.tb:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(92,94,62,.16);border-color:var(--olive)}
@@ -246,6 +246,9 @@
     .final{padding:88px 22px}
     .sticky-cta{display:none}
   }
+
+  h1,h2,h3{text-wrap:balance}
+  p,li,summary,.sub,.support{text-wrap:pretty}
 </style>
 
 <template id="__bundler_thumbnail" data-bg-color="#FFFAF5">
@@ -309,8 +312,8 @@
 
       <!-- 2. Trust & pricing highlights -->
       <div class="trustbar rv d2" aria-label="Pricing at a glance">
-        <a class="tb" href="#pricing"><b>$185/mo</b>Semaglutide program&nbsp;↓</a>
-        <a class="tb" href="#pricing"><b>$299/mo</b>Tirzepatide program&nbsp;↓</a>
+        <a class="tb" href="#pricing"><b>$185/mo</b>Semaglutide&nbsp;↓</a>
+        <a class="tb" href="#pricing"><b>$299/mo</b>Tirzepatide&nbsp;↓</a>
         <div class="tb"><b>Flat price</b>No dose-based increases</div>
         <div class="tb"><b>Not approved?</b>No medication charge</div>
       </div>
@@ -528,17 +531,17 @@
     <section aria-labelledby="more">
       <p class="eyebrow rv">Beyond weight</p>
       <h2 class="big rv d1" id="more">Care that goes beyond weight.</h2>
-      <p class="support rv d1">Rese cares for men too — many of our first patients come from Dr. Smith's own practice.</p>
+      <p class="support rv d1">Peptides for recovery and energy, hormone care on the way — and yes, Rese cares for men too.</p>
       <div class="paths">
+        <a class="path rv d1" href="Program - Peptides.html">
+          <span class="cat">Open now</span><h3>Peptide Therapy</h3>
+          <p>A provider-reviewed menu for recovery, sleep, and energy — for women and men, explained without hype.</p>
+          <span class="go">See the menu →</span>
+        </a>
         <a class="path rv d1" href="Hormone Waitlist.html">
           <span class="cat">Coming soon</span><h3>Women's Hormone Care</h3>
           <p>Physician-guided, labs-first hormone care. Be the first to know when it opens.</p>
           <span class="go">Join the priority list →</span>
-        </a>
-        <a class="path rv d1" href="Program - Peptides.html">
-          <span class="cat">Open now</span><h3>Peptide Therapy</h3>
-          <p>A carefully selected, provider-reviewed menu for recovery, sleep, and energy — explained without hype.</p>
-          <span class="go">See the menu →</span>
         </a>
         <a class="path rv d2" href="Program - Mens Health.html">
           <span class="cat">Open now</span><h3>Men's Health</h3>
@@ -598,7 +601,7 @@
   <section class="final">
     <h2>You don't have to figure this out alone.</h2>
     <p>Tell us what has changed. A licensed provider will review your health history and determine whether one of our treatment pathways may be appropriate.</p>
-    <a class="btn" href="Assessment.html">Explore my treatment options</a>
+    <a class="btn" href="Assessment.html">Explore my options</a>
     <p class="reassure" style="margin-top:14px">About 10 minutes · Exact pricing shown before purchase · No medication charge unless approved</p>
   </section>
 </main>

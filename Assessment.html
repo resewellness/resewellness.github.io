@@ -222,7 +222,7 @@
   <section class="screen" data-label="Your outlook" data-when="branch:weight" id="projScreen">
     <p class="kicker" id="projKicker">Your outlook</p>
     <h1 id="projHead" style="color:var(--olive-deep)"></h1>
-    <div style="background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:22px 18px 14px;margin-top:8px">
+    <div id="projCard" style="background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:22px 18px 14px;margin-top:8px">
       <svg viewBox="0 0 340 190" width="100%" aria-hidden="true" style="display:block">
         <defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#72744E" stop-opacity=".28"/><stop offset="1" stop-color="#72744E" stop-opacity="0"/></linearGradient></defs>
         <path d="M14 18 C 60 110, 120 145, 200 158 C 250 165, 290 167, 316 168 L 316 186 L 14 186 Z" fill="url(#pg)"/>
@@ -705,6 +705,17 @@
     const lb=+answers.wlb||0, goal=+answers.gwlb||0;
     let proj=Math.round(lb*0.18); // upper end of clinical averages
     if(goal&&goal<lb) proj=Math.min(proj,lb-goal); // never project past their goal
+    // never project below a healthy weight (BMI 18.5) for their height
+    const hin=(+answers.hft||0)*12+(+answers.hin||0);
+    if(hin>0){const healthyFloor=Math.ceil(18.5*hin*hin/703); if(lb-proj<healthyFloor) proj=Math.max(0,lb-healthyFloor);}
+    const healthyAlready=hin>0&&lb>0&&lb<=Math.ceil(18.5*hin*hin/703);
+    document.getElementById('projCard').style.display=healthyAlready?'none':'';
+    if(healthyAlready){
+      document.getElementById('projHead').textContent='Let\u2019s find the right care';
+      document.getElementById('projSub').textContent='Your current weight is already in the healthy range for your height, so a GLP-1 weight program isn\u2019t the right tool — and we\u2019ll always tell you that straight.';
+      document.getElementById('projGoalMsg').textContent=' Energy, recovery, and other care may be a better fit. Keep going — your provider will look at the whole picture and point you honestly.';
+      return;
+    }
     document.getElementById('projHead').textContent='−'+proj+' lbs projected';
     document.getElementById('projSub').textContent='Patients on these programs have averaged losses in this range — up to '+proj+' lbs for a starting point like yours.';
     document.getElementById('projStartW').textContent=lb+' lb';
@@ -714,7 +725,7 @@
       const delta=lb-goal;
       g.textContent=delta<=proj
         ?' Your goal of '+goal+' lb — losing '+delta+' lbs — sits inside what patients typically achieve on these programs.'
-        :' Your goal of '+goal+' lb is ambitious — your physician will map an honest path toward it, one phase at a time.';
+        :' Your goal of '+goal+' lb goes beyond these early averages — plenty of patients get there in phases, and your physician will map that path with you.';
     } else g.textContent=' Based on clinical averages for GLP-1 medications. Your physician sets expectations with you — never a promise.';
   };
   document.querySelectorAll('[data-field]').forEach(f=>f.addEventListener('input',()=>{

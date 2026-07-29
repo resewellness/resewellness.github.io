@@ -108,7 +108,7 @@
   .done-card{background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:28px 24px;margin-top:20px}
 
   footer{padding:22px 20px calc(22px + env(safe-area-inset-bottom));font-size:12.5px;color:#777;max-width:640px;margin:0 auto;width:100%}
-  footer .seal{display:inline-block;border:1px solid #d8ceba;border-radius:3px;padding:5px 10px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#777;margin-bottom:10px}
+  footer .seal{display:inline-block;border:1px solid #d8ceba;border-radius:3px;padding:5px 10px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#777;margin-bottom:10px}
   footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px;font-size:12.5px}
   footer nav a{color:#555}
 
@@ -210,7 +210,7 @@
         <div style="position:relative;height:8px;border-radius:100px;background:linear-gradient(to right,#d8d2be 0 18%,#a9b183 18% 42%,#d9c48a 42% 58%,#c9a06a 58% 100%)">
           <span id="bmiDot" style="position:absolute;top:50%;left:0;width:16px;height:16px;border-radius:50%;background:#5C5E3E;border:3px solid #FFFAF5;transform:translate(-50%,-50%);transition:left .3s ease"></span>
         </div>
-        <div style="display:flex;justify-content:space-between;font-size:11.5px;color:#6b6650;margin-top:5px;letter-spacing:.04em"><span>15</span><span>18.5</span><span>25</span><span>30</span><span>45</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12.5px;color:#6b6650;margin-top:5px;letter-spacing:.04em"><span>15</span><span>18.5</span><span>25</span><span>30</span><span>45</span></div>
       </div>
       <span id="bmiMsg"></span>
       <p style="font-size:13.5px;color:#55583d;margin-top:10px">For context: weight programs are typically considered at BMI 30+, or 27+ alongside a weight-related condition. BMI is one input — your physician weighs your history and everything you tell us here.</p>
@@ -244,7 +244,7 @@
     <p class="kicker">Good to know</p>
     <h1>One flat price. It never rises with your dose.</h1>
     <p class="note">Other companies charge more as your dose titrates up — which punishes you for the medicine working as designed. Rese doesn't. Your program price covers the medication, your physician's ongoing review, check-ins with real people, and shipping.</p>
-    <div class="trust"><span class="chip">Semaglutide $185/mo</span><span class="chip">Tirzepatide $299/mo</span><span class="chip">Every dose, same price</span></div>
+    <div class="trust"><span class="chip">Compounded Semaglutide $185/mo</span><span class="chip">Compounded Tirzepatide $299/mo</span><span class="chip">Every dose, same price</span></div>
     <p class="rx-line">Prescription required. Available only if an independent licensed physician determines it's appropriate for you.</p>
     <div class="ctas"><button class="btn-ghost" data-back>← Back</button><button class="btn" data-next>Continue</button></div>
   </section>
@@ -435,14 +435,12 @@
     <p class="q">Any specific treatments you're curious about?</p>
     <p class="note">Optional — select any that caught your eye. Your physician builds the protocol and confirms the exact monthly total before you pay.</p>
     <div class="opts" data-multi="pepmenu">
-      <button class="opt" data-val="wolverine" aria-pressed="false"><span class="tick"></span><span>Wolverine — $275<small>Our most-requested recovery stack: BPC-157 + TB-500 together</small></span></button>
-      <button class="opt" data-val="bpc157" aria-pressed="false"><span class="tick"></span><span>BPC-157 — $185<small>Soft-tissue and gut repair support</small></span></button>
-      <button class="opt" data-val="tb500" aria-pressed="false"><span class="tick"></span><span>TB-500 — $225<small>Tissue repair, flexibility, recovery from strain</small></span></button>
+      <button class="opt" data-val="tesamorelin" aria-pressed="false"><span class="tick"></span><span>Tesamorelin — $295<small>Supports lean mass and healthier body composition</small></span></button>
+      <button class="opt" data-val="ghkcu" aria-pressed="false"><span class="tick"></span><span>GHK-Cu — from $149<small>Copper peptide for skin renewal, collagen, and healing</small></span></button>
       <button class="opt" data-val="sermorelin" aria-pressed="false"><span class="tick"></span><span>Sermorelin — $199<small>Supports your body's own growth-hormone release and deeper sleep</small></span></button>
       <button class="opt" data-val="cjc" aria-pressed="false"><span class="tick"></span><span>CJC-1295 / Ipamorelin — $299<small>Paired protocol for sleep, recovery, and lean mass</small></span></button>
       <button class="opt" data-val="nad" aria-pressed="false"><span class="tick"></span><span>NAD+ — from $159<small>Nasal spray or injectable, for cellular energy</small></span></button>
       <button class="opt" data-val="glutathione" aria-pressed="false"><span class="tick"></span><span>Glutathione — $129<small>The body's master antioxidant</small></span></button>
-      <button class="opt" data-val="glow" aria-pressed="false"><span class="tick"></span><span>Glow — $275<small>Skin-first stack: GHK-Cu + BPC-157 + TB-500</small></span></button>
       <button class="opt" data-val="provider" aria-pressed="false"><span class="tick"></span><span>Not sure — build it for me</span></button>
     </div>
     <p class="rx-line">Prescription required. Available only if an independent licensed physician determines it's appropriate for you.</p>
@@ -464,14 +462,14 @@
     <p class="note">Based on your answers, you may be a candidate for physician-reviewed weight-management therapy. An independent licensed physician in our partner network will review your full health history and decide whether treatment is appropriate. Prescriptions are never guaranteed. If you have a preference, tell them here:</p>
     <div class="opts" data-single="medpref">
       <button class="opt plan" data-val="semaglutide" aria-pressed="false">
-        <span class="med">Semaglutide program</span>
-        <span class="pname">Rese Semaglutide Program</span>
+        <span class="med">Compounded Semaglutide program</span>
+        <span class="pname">Rese Compounded Semaglutide Program</span>
         <span class="amt">$185<small>/mo — flat, never rises with your dose</small></span>
         <ul><li>Physician review of your full history</li><li>Medication, if prescribed — shipped free, discreetly packaged</li><li>Ongoing check-ins with real people</li></ul>
       </button>
       <button class="opt plan" data-val="tirzepatide" aria-pressed="false">
-        <span class="med">Tirzepatide program</span>
-        <span class="pname">Rese Tirzepatide Program</span>
+        <span class="med">Compounded Tirzepatide program</span>
+        <span class="pname">Rese Compounded Tirzepatide Program</span>
         <span class="amt">$299<small>/mo — flat, never rises with your dose</small></span>
         <ul><li>Physician review of your full history</li><li>Medication, if prescribed — shipped free, discreetly packaged</li><li>Ongoing check-ins with real people</li></ul>
       </button>
@@ -660,14 +658,14 @@
     let total=0,from=false,tbd=false;
     wr.style.display=isW?'flex':'none';
     if(isW){
-      const plans={semaglutide:['Semaglutide program','Rese Semaglutide Program',185,false],tirzepatide:['Tirzepatide program','Rese Tirzepatide Program',299,false],provider:['Physician\u2019s choice','Rese Semaglutide Program',185,true]};
+      const plans={semaglutide:['Compounded Semaglutide program','Rese Compounded Semaglutide Program',185,false],tirzepatide:['Compounded Tirzepatide program','Rese Compounded Tirzepatide Program',299,false],provider:['Physician\u2019s choice','Rese Compounded Semaglutide Program',185,true]};
       const pl=plans[answers.medpref]||plans.provider;
       document.getElementById('coMed').textContent=pl[0];
       document.getElementById('coName').textContent=pl[1];
       document.getElementById('coPrice').textContent=(pl[3]?'from ':'')+'$'+pl[2]+'/mo';
       total+=pl[2];if(pl[3])from=true;
     }
-    const P={wolverine:['Wolverine \u2014 recovery stack',275],bpc157:['BPC-157',185],tb500:['TB-500',225],sermorelin:['Sermorelin',199],cjc:['CJC-1295 / Ipamorelin',299],nad:['NAD+',159,'from'],glutathione:['Glutathione',129],glow:['Glow \u2014 skin stack',275],provider:['Peptides \u2014 physician builds your protocol',0,'tbd']};
+    const P={tesamorelin:['Tesamorelin',295],ghkcu:['GHK-Cu',149,'from'],sermorelin:['Sermorelin',199],cjc:['CJC-1295 / Ipamorelin',299],nad:['NAD+',159,'from'],glutathione:['Glutathione',129],provider:['Peptides \u2014 physician builds your protocol',0,'tbd']};
     const peps=answers.pepmenu||[];
     const box=document.getElementById('coPeps');box.innerHTML='';
     peps.forEach(k=>{const it=P[k];if(!it)return;

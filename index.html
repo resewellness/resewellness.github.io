@@ -63,9 +63,9 @@
   .menu-btn[aria-expanded="true"] span:nth-child(2){transform:translateY(-3.4px) rotate(-45deg);width:22px}
   .drawer{position:fixed;inset:0;background:var(--cream);z-index:9;padding:96px 28px 32px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .3s ease;overflow-y:auto}
   .drawer.open{opacity:1;pointer-events:auto}
-  .drawer .grp{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#b3a58c;font-weight:600;padding:18px 0 4px}
+  .drawer .grp{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:#b3a58c;font-weight:600;padding:18px 0 4px}
   .drawer a.pg{font-family:var(--serif);font-weight:500;font-size:20px;color:var(--ink);text-decoration:none;padding:13px 0;border-bottom:1px solid #eee3d6;display:flex;justify-content:space-between;align-items:center;gap:14px}
-  .drawer a.pg small{font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--olive);white-space:nowrap;flex:none;text-align:right}
+  .drawer a.pg small{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--olive);white-space:nowrap;flex:none;text-align:right}
   .drawer .btn{margin-top:22px;text-align:center}
   @media (prefers-reduced-motion: reduce){.drawer,.menu-btn span{transition:none}}
 
@@ -130,7 +130,7 @@
 
   .m90{display:grid;gap:12px;margin-top:16px}
   .m90 .mo{background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:22px}
-  .m90 .mo .tag{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);font-weight:700}
+  .m90 .mo .tag{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);font-weight:700}
   .m90 .mo h3{font-family:var(--serif);font-weight:500;font-size:20px;margin:6px 0 8px}
   .m90 .mo ul{list-style:none}
   .m90 .mo li{font-size:14px;color:#444;padding:5px 0 5px 24px;position:relative}
@@ -144,7 +144,7 @@
   .cred .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
   .cred .txt{padding:0}
   .cred h3{font-family:var(--serif);font-weight:500;font-size:21px;margin-bottom:4px}
-  .cred .role{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:8px}
+  .cred .role{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:8px}
   .cred p{font-size:14.5px;color:#333}
 
   .fit{display:grid;gap:12px;margin-top:16px}
@@ -166,18 +166,19 @@
   .paths{display:grid;gap:12px;margin-top:16px}
   .path{display:flex;flex-direction:column;background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:22px;text-decoration:none;color:var(--ink);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
   .path:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(92,94,62,.13);border-color:var(--olive)}
-  .path .cat{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:6px}
+  .path .cat{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:6px}
   .path h3{font-family:var(--serif);font-weight:500;font-size:19px;margin-bottom:6px}
   .path p{font-size:14px;color:#444;margin-bottom:12px}
   .path .go{white-space:nowrap;margin-top:auto;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);font-weight:600}
 
   .founders{text-align:center;margin-top:22px}
-  .fnames{display:grid;gap:14px;margin-top:6px}
+  .fnames{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px;align-items:start}
+  .fnames .fn{display:flex;flex-direction:column;align-items:center}
+  .fnames .fn .fp{margin-bottom:11px}
   .fnames .fn b{display:block;font-family:var(--serif);font-weight:500;font-size:17px}
-  .fnames .fn span{font-size:13.5px;color:#555;line-height:1.5;display:block;max-width:30ch;margin:0 auto}
+  .fnames .fn span{font-size:13.5px;color:#555;line-height:1.5;display:block;margin:3px auto 0;text-wrap:pretty}
   .frow{display:flex;justify-content:center;margin-bottom:14px}
   .fp{width:88px;height:88px;border-radius:50%;border:4px solid var(--cream);position:relative;overflow:hidden;background:#E4D8BF}
-  .fp+.fp{margin-left:-16px}
   .fp:nth-child(2){z-index:2}
   .fp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .fp img[src*="drsmith"]{object-position:center top}
@@ -241,10 +242,9 @@
     .cred{max-width:760px;padding:28px;display:flex;gap:18px;align-items:flex-start}
     .cred .ph{float:none;flex:none;width:120px;height:120px;margin:0}
     .posts{grid-template-columns:repeat(3,1fr)}
-    .fnames{grid-template-columns:repeat(3,1fr);max-width:760px;margin-left:auto;margin-right:auto}
-    .frow{display:grid;grid-template-columns:repeat(3,1fr);max-width:760px;margin-left:auto;margin-right:auto;justify-items:center}
-    .fp{width:104px;height:104px}
-    .fp+.fp{margin-left:0}
+    .fnames{gap:44px;max-width:660px;margin-left:auto;margin-right:auto}
+    .fnames .fn span{font-size:14.5px}
+    .fp{width:112px;height:112px}
     .faq-wrap,.support{max-width:760px}
     .final{padding:88px 22px}
     .sticky-cta{display:none}
@@ -315,8 +315,8 @@
 
       <!-- 2. Trust & pricing highlights -->
       <div class="trustbar rv d2" aria-label="Pricing at a glance">
-        <a class="tb" href="#pricing"><b>$185/mo</b>Semaglutide&nbsp;↓</a>
-        <a class="tb" href="#pricing"><b>$299/mo</b>Tirzepatide&nbsp;↓</a>
+        <a class="tb" href="#pricing"><b>$185/mo</b>Compounded Semaglutide&nbsp;↓</a>
+        <a class="tb" href="#pricing"><b>$299/mo</b>Compounded Tirzepatide&nbsp;↓</a>
         <div class="tb"><b>Flat price</b>No dose-based increases</div>
         <div class="tb"><b>Not approved?</b>No medication charge</div>
       </div>
@@ -358,8 +358,8 @@
       <div class="diff rv d2">
         <div class="d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Transparent monthly pricing</b>Every price is public, and your total is confirmed before you pay.</span></div>
         <div class="d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>No dose-based increases</b>Your monthly price doesn't rise simply because your prescribed dose changes.</span></div>
-        <div class="d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>No medication charge if declined</b>If the provider says no, your card's hold is simply released.</span></div>
-        <div class="d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Weight and hormones, considered together</b>Built from women's-health experience — the full picture, not one number.</span></div>
+        <div class="d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>No medication charge unless approved</b>If treatment isn't right for you, the hold on your card is simply released.</span></div>
+        <div class="d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Weight and hormones, considered&nbsp;together</b>Built from women's-health experience — the full picture, not one number.</span></div>
       </div>
     </section>
 
@@ -370,7 +370,7 @@
       <div class="progs">
         <div class="prog rv d2">
           <div class="med">Weight management</div>
-          <h3>Rese Semaglutide Program</h3>
+          <h3>Rese Compounded Semaglutide Program</h3>
           <p>The most-studied GLP-1 medication, titrated gradually by your provider.</p>
           <span class="amt">$185<small>/mo</small></span>
           <span class="flat">Flat — never rises with your dose</span>
@@ -386,7 +386,7 @@
         </div>
         <div class="prog rv d2">
           <div class="med">Weight management</div>
-          <h3>Rese Tirzepatide Program</h3>
+          <h3>Rese Compounded Tirzepatide Program</h3>
           <p>A dual-action medication some patients respond to more strongly.</p>
           <span class="amt">$299<small>/mo</small></span>
           <span class="flat">Flat — never rises with your dose</span>
@@ -478,17 +478,17 @@
       <p class="eyebrow rv" style="text-align:center">Who's behind this</p>
       <h2 class="big rv d1" id="fam" style="text-align:center">One family, caring for&nbsp;yours.</h2>
       <div class="founders rv d2">
-        <div class="frow">
-          <div class="fp"><img src="assets/founder-sabrina.jpg" alt="Sabrina, co-founder of Rese Wellness"></div>
-          <div class="fp"><img src="assets/founder-drsmith.jpg?v=2" alt="Dr. Smith, co-founder and physician at Rese Wellness"></div>
-          <div class="fp"><img src="assets/founder-tera.jpg" alt="Tera, co-founder of Rese Wellness"></div>
-        </div>
         <div class="fnames">
-          <div class="fn"><b>Sabrina, RN, BSN</b><span>Co-founder &amp; CEO. 15+ years in women's health — she's been the patient too.</span></div>
-          <div class="fn"><b>Gary A. Smith, MD,&nbsp;MMM,&nbsp;DABFM</b><span>Co-founder · Chairman &amp; CMO. Her dad — physician for 25+ years.</span></div>
-          <div class="fn"><b>Tera</b><span>Co-founder · COO. Her mom — the one who answers when you reach out.</span></div>
+          <div class="fn">
+            <div class="fp"><img src="assets/founder-sabrina.jpg" alt="Sabrina, co-founder of Rese Wellness"></div>
+            <b>Sabrina Mortensen, RN,&nbsp;BSN</b><span>Co-founder &amp; CEO · 15+ years in women's health, and she's been the patient too.</span>
+          </div>
+          <div class="fn">
+            <div class="fp"><img src="assets/founder-drsmith.jpg?v=2" alt="Dr. Smith, co-founder and physician at Rese Wellness"></div>
+            <b>Gary A. Smith, MD,&nbsp;MMM,&nbsp;DABFM</b><span>Co-founder · Chairman &amp; CMO · Sabrina's dad, a physician for 25+ years.</span>
+          </div>
         </div>
-        <p class="fline">Four generations of women have carried the name Rese. Now it's the company they built together.</p>
+        <p class="fline">Four generations of women in our family have carried the name Rese. Now it's the name on the care we built for you.</p>
         <a href="Our Story.html">Read our story&nbsp;→</a>
       </div>
     </section>
@@ -513,7 +513,7 @@
             <li>You want a guaranteed prescription</li>
             <li>You're seeking emergency or urgent care</li>
             <li>You want only the lowest introductory medication price</li>
-            <li>You aren't able to complete required follow-up</li>
+            <li>You aren't able to complete required&nbsp;follow-up</li>
           </ul>
         </div>
       </div>
@@ -526,7 +526,7 @@
       <div class="who">
         <div class="w rv d1"><b>Clinical questions</b><p>Treatment, side effects, or dose concerns go to your clinical care team — answered by your prescribing provider's team, not a call center.</p></div>
         <div class="w rv d2"><b>Orders &amp; billing</b><p>Shipping, account, and billing questions go to Rese support. <a href="Contact.html">Contact us&nbsp;→</a></p></div>
-        <div class="w rv d2"><b>Urgent symptoms</b><p>If you're experiencing a medical emergency, call 911 or go to the nearest emergency room. Telehealth is not for emergencies.</p></div>
+        <div class="w rv d2"><b>Urgent symptoms</b><p>If you're experiencing a medical&nbsp;emergency, call 911 or go to the nearest emergency room. Telehealth is not for emergencies.</p></div>
       </div>
     </section>
 
@@ -544,7 +544,7 @@
         <a class="path rv d1" href="Hormone Waitlist.html">
           <span class="cat">Coming soon</span><h3>Women's Hormone Care</h3>
           <p>Physician-guided, labs-first hormone care. Be the first to know when it opens.</p>
-          <span class="go">Join the list&nbsp;→</span>
+          <span class="go">Join the interest list&nbsp;→</span>
         </a>
         <a class="path rv d2" href="Program - Mens Health.html">
           <span class="cat">Open now</span><h3>Men's Health</h3>
@@ -565,7 +565,7 @@
       <h2 class="big rv d1" id="faq">Asked and answered</h2>
       <div class="rv d2 faq-wrap">
         <details><summary>Is a prescription guaranteed?</summary><p>No. A licensed provider reviews your health history and decides — and if the answer is no, they'll say so plainly and your card's preauthorization is released. You're never charged for medication that isn't approved.</p></details>
-        <details><summary>What will I pay today?</summary><p>Nothing is charged unless a licensed provider approves and prescribes treatment. At checkout your card is preauthorized for your program's flat monthly price — $185/mo semaglutide, $299/mo tirzepatide — and you see that exact number first. You may see a temporary pending authorization from your bank; that is not a completed charge. If treatment isn't approved, the authorization is released — timing varies by bank. [Confirm final wording with payment processor.]</p></details>
+        <details><summary>What will I pay today?</summary><p>Nothing is charged unless a licensed provider approves and prescribes treatment. At checkout your card is preauthorized for your program's flat monthly price — $185/mo compounded semaglutide, $299/mo compounded tirzepatide — and you see that exact number first. You may see a temporary pending authorization from your bank; that is not a completed charge. If treatment isn't approved, the authorization is released — timing varies by bank. [Confirm final wording with payment processor.]</p></details>
         <details><summary>Why is there a three-month care period?</summary><p>It gives your provider time to start treatment safely, evaluate your response and tolerability, and adjust thoughtfully. You're billed monthly, and after three months it's month-to-month with one-step cancellation.</p></details>
         <details><summary>Who reviews my information?</summary><p>A licensed provider in your state — a real clinician, not an algorithm. All clinical decisions are made by our licensed provider network.</p></details>
         <p style="margin-top:14px"><a href="FAQ.html" style="font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600">See every question, answered&nbsp;→</a></p>
@@ -578,19 +578,19 @@
       <h2 class="big rv d1" id="learn">Learn before you decide.</h2>
       <div class="posts">
         <article class="post rv d2">
-          <time datetime="2026-07-14">July 14, 2026</time>
+          <time datetime="2026-07-27">July 27, 2026</time>
           <h3>Why the scale slows around week eight</h3>
           <p>Almost every body adapts between weeks eight and twelve. It isn't failure — it's biology, and it's why plateau review is built into every program.</p>
           <a href="Journal - Week Eight Plateau.html">Read the note&nbsp;→</a>
         </article>
         <article class="post rv d2">
-          <time datetime="2026-07-07">July 7, 2026</time>
+          <time datetime="2026-07-20">July 20, 2026</time>
           <h3>“Food noise,” explained by a physician</h3>
           <p>That constant background hum of thinking about food isn't a willpower problem. What GLP-1 medication actually does to quiet it.</p>
           <a href="Journal - Food Noise.html">Read the note&nbsp;→</a>
         </article>
         <article class="post rv d2">
-          <time datetime="2026-06-30">June 30, 2026</time>
+          <time datetime="2026-07-13">July 13, 2026</time>
           <h3>Protein first: how to eat in your first month</h3>
           <p>When your appetite shrinks, every bite matters more. Three simple rules for new patients — no macro math required.</p>
           <a href="Journal - Protein First.html">Read the note&nbsp;→</a>

@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hormone Support — Coming Soon | Join the List | Rese Wellness</title>
-<meta name="description" content="Physician-managed hormone care is next at Rese Wellness — built labs-first. Join the founding-member list for first access.">
+<meta name="description" content="Physician-managed hormone care is next at Rese Wellness — built labs-first. Join the hormone interest list for first access.">
 <meta name="theme-color" content="#FFFAF5">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rese Wellness">
 <meta property="og:title" content="Hormone Support — Coming Soon | Rese Wellness">
-<meta property="og:description" content="Built labs-first. Founding members get first access.">
+<meta property="og:description" content="Built labs-first. Get first access when it opens.">
 <style>
   :root{
     --cream:#FFFAF5; --olive:#72744E; --olive-deep:#5C5E3E; --ink:#141410; --sage:#E9ECDD; --sand:#EEE3D6;
@@ -74,7 +74,7 @@
 <main>
   <p class="kicker">Coming soon</p>
   <h1>Hormone support is next.</h1>
-  <p class="sub">Midlife hormone care — physician-managed, built the Rese way: honest, personal, and priced in plain sight. We're finishing it properly rather than rushing it out.</p>
+  <p class="sub">Hormone care — physician-managed, built the Rese way: honest, personal, and priced in plain sight. We're finishing it properly rather than rushing it out.</p>
   <div class="labs">
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="1.8"><path d="M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3"/><line x1="8" y1="3" x2="16" y2="3"/></svg>
     <span><strong>It starts with labs.</strong> Your provider orders bloodwork first, then builds your plan from real numbers — never from symptoms alone.</span>
@@ -84,8 +84,14 @@
        The script POSTs JSON {email, source:"hormone-waitlist"} to it.
        Leave it empty and submissions fall back to a pre-addressed email instead. -->
   <form class="capture" id="waitlist" data-capture-endpoint="">
-    <h2>Founding members get first access.</h2>
+    <h2>Get first access when it opens.</h2>
     <p>Leave your email and you'll hear the day it opens — plus early access before the public. No spam, unsubscribe anytime.</p>
+    <div class="row" style="margin-bottom:10px">
+      <select id="wlWho" aria-label="Which hormone care interests you" style="flex:1;min-width:200px;font-family:var(--sans);font-size:16px;color:var(--ink);background:#FFF;border:1.5px solid #e5d9c8;border-radius:10px;padding:14px;outline:none">
+        <option value="women">Women's hormone care</option>
+        <option value="men">Men's hormone care</option>
+      </select>
+    </div>
     <div class="row">
       <input type="email" id="wlEmail" placeholder="you@example.com" autocomplete="email" required aria-label="Email address">
       <button type="submit">Join the list</button>
@@ -110,13 +116,13 @@
     const endpoint=form.dataset.captureEndpoint;
     if(endpoint){
       try{
-        await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'hormone-waitlist'})});
+        await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,interest:document.getElementById('wlWho').value,source:'hormone-waitlist'})});
         done.textContent="You're on the list. We'll email you the day hormone care opens.";
       }catch(err){
         done.textContent="Something went wrong — email us at support@resewellness.com and we'll add you by hand.";
       }
     } else {
-      location.href='mailto:support@resewellness.com?subject='+encodeURIComponent('Hormone care waitlist')+'&body='+encodeURIComponent('Please add me to the hormone support founding-member list: '+email);
+      location.href='mailto:support@resewellness.com?subject='+encodeURIComponent('Hormone care waitlist')+'&body='+encodeURIComponent('Please add me to the hormone interest list ('+document.getElementById('wlWho').value+'): '+email);
       done.textContent="Your email app should have opened — hit send and you're on the list.";
     }
     done.style.display='block';

@@ -7,6 +7,9 @@
 <title>Hormone Support — Coming Soon | Join the List | Rese Wellness</title>
 <meta name="description" content="Physician-managed hormone care is next at Rese Wellness — built labs-first. Join the hormone interest list for first access.">
 <meta name="theme-color" content="#FFFAF5">
+<!-- GOOGLE ANALYTICS 4 -->
+<!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
+<!-- META PIXEL - MARKETING PAGES ONLY -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -64,10 +67,10 @@
 
 <header>
   <nav class="nav" aria-label="Main">
-    <a class="logo" href="index.html" aria-label="Rese Wellness home">
+    <a class="logo" href="Rese Wellness Site v2.html" aria-label="Rese Wellness home">
       <img src="assets/rese-logo.png" alt="Rese Wellness" style="display:block;height:36px;width:auto">
     </a>
-    <a class="back" href="index.html">← Main site</a>
+    <a class="back" href="Rese Wellness Site v2.html">← Main site</a>
   </nav>
 </header>
 
@@ -80,10 +83,8 @@
     <span><strong>It starts with labs.</strong> Your provider orders bloodwork first, then builds your plan from real numbers — never from symptoms alone.</span>
   </div>
 
-  <!-- KARPA INTEGRATION: set data-capture-endpoint on this form to your email-capture URL.
-       The script POSTs JSON {email, source:"hormone-waitlist"} to it.
-       Leave it empty and submissions fall back to a pre-addressed email instead. -->
-  <form class="capture" id="waitlist" data-capture-endpoint="">
+  <!-- Submissions POST JSON {email, interest, source} to the GoHighLevel webhook in data-capture-endpoint below. -->
+  <form class="capture" id="waitlist" data-capture-endpoint="https://services.leadconnectorhq.com/hooks/oFuiF9qRRKClmSU8ZeH0/webhook-trigger/ad9f37de-8b4d-4e66-84fc-b49b9de2efbd">
     <h2>Get first access when it opens.</h2>
     <p>Leave your email and you'll hear the day it opens — plus early access before the public. No spam, unsubscribe anytime.</p>
     <div class="row" style="margin-bottom:10px">
@@ -104,6 +105,14 @@
 </main>
 
 <footer>
+  <div style="border-top:1px solid #eee3d6;margin-top:16px;padding-top:14px;font-size:13px;color:#444">
+    <p><strong>Medical questions</strong> go to your patient portal, where a licensed provider will respond. <strong>Billing, shipping, and account questions</strong> come to us at <a href="mailto:support@resewellness.com" style="color:#72744E">support@resewellness.com</a> — not a patient yet? <a href="mailto:hello@resewellness.com" style="color:#72744E">hello@resewellness.com</a>.</p>
+    <p style="margin-top:8px">If you're having trouble breathing, severe abdominal pain, or any symptom that feels like an emergency, call 911 or go to your nearest emergency room — don't wait for us and don't wait for the portal.</p>
+    <div style="display:flex;align-items:center;gap:14px;margin-top:14px">
+      <a href="https://www.legitscript.com/websites/?checker_keywords=resewellness.com" target="_blank" rel="noopener" title="Verify LegitScript Approval for www.resewellness.com"><img src="https://static.legitscript.com/seals/51444018.png" alt="Verify LegitScript Approval for www.resewellness.com" width="73" height="79" style="display:block;flex:none"></a>
+      <p style="font-size:12.5px;color:#666">LegitScript certified · Licensed providers in all 50 states · Gary A. Smith, MD, MMM, DABFM — Chairman &amp; Chief Medical Officer · Secure checkout</p>
+    </div>
+  </div>
   <p style="font-size:12px;color:#777">If you are experiencing a medical emergency, call 911 or go to the nearest emergency room immediately. This service is not for emergencies. All treatments require a licensed provider consultation and prescription. Results vary by individual. These services are not intended to diagnose, treat, cure, or prevent any disease. Statements on this page have not been evaluated by the Food and Drug Administration. This is not medical advice. Consult your healthcare provider before starting any treatment program.</p>
   <p style="margin-top:10px">© 2026 Rese Wellness, LLC · Gilbert, AZ · Digital-first, never digital-only</p>
 </footer>
@@ -115,12 +124,14 @@
     const email=document.getElementById('wlEmail').value.trim();
     const endpoint=form.dataset.captureEndpoint;
     if(endpoint){
+      const payload=JSON.stringify({email,interest:document.getElementById('wlWho').value,source:'hormone-waitlist',page:location.href});
       try{
-        await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,interest:document.getElementById('wlWho').value,source:'hormone-waitlist'})});
-        done.textContent="You're on the list. We'll email you the day hormone care opens.";
+        await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:payload});
       }catch(err){
-        done.textContent="Something went wrong — email us at support@resewellness.com and we'll add you by hand.";
+        // cross-origin responses can be opaque; resend without CORS so the hook still fires
+        try{await fetch(endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:payload});}catch(e2){}
       }
+      done.textContent="You're on the list. We'll email you the day hormone care opens.";
     } else {
       location.href='mailto:support@resewellness.com?subject='+encodeURIComponent('Hormone care waitlist')+'&body='+encodeURIComponent('Please add me to the hormone interest list ('+document.getElementById('wlWho').value+'): '+email);
       done.textContent="Your email app should have opened — hit send and you're on the list.";

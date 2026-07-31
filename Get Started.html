@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>document.documentElement.classList.add("js")</script>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started | Choose Your Program | Rese Wellness</title>
+<meta name="description" content="Pick the program you're here for and begin your assessment. You're never charged unless a licensed provider approves you — usually within about 36 hours.">
+<meta name="theme-color" content="#FFFAF5">
+<!-- GOOGLE ANALYTICS 4 -->
+<!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rese Wellness">
+<meta property="og:title" content="Get Started | Rese Wellness">
+<meta property="og:description" content="Choose your program and begin. Not charged unless a licensed provider approves you.">
+<style>
+  :root{
+    --cream:#FFFAF5; --olive:#72744E; --olive-deep:#5C5E3E; --ink:#141410; --sage:#E9ECDD; --sand:#EEE3D6;
+    --serif:'Lora',Georgia,'Times New Roman',serif;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+  a{color:var(--olive)}
+  a:hover{color:var(--olive-deep)}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.3;z-index:1;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.44 0 0 0 0 0.36 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+  header,main,footer{position:relative;z-index:2}
+  header{position:sticky;top:0;background:rgba(255,250,245,.95);backdrop-filter:blur(8px);border-bottom:1px solid #eee3d6;z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;max-width:640px;margin:0 auto}
+  .logo{display:flex;text-decoration:none}
+  .nav .back{color:var(--olive);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+  main{flex:1;max-width:640px;margin:0 auto;width:100%;padding:40px 20px 60px}
+  .kicker{font-size:13.5px;letter-spacing:.3em;text-transform:uppercase;color:#F7F4E8;font-weight:600;display:inline-block;background:var(--olive);border:1px solid var(--olive-deep);padding:6px 13px;border-radius:100px;margin-bottom:12px}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(30px,7.4vw,40px);line-height:1.16;margin-bottom:12px}
+  .sub{font-size:16px;color:#3a3a34;max-width:50ch}
+  .hold{background:var(--sage);border-radius:12px;padding:18px 20px;margin:22px 0 26px;display:flex;gap:12px;align-items:flex-start}
+  .hold svg{flex:none;margin-top:3px}
+  .hold b{font-family:var(--serif);font-weight:500;font-size:17px;display:block;margin-bottom:4px}
+  .hold p{font-size:15px;color:#2c2f1d}
+  .choices{display:grid;gap:12px}
+  .ch{display:block;background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:20px 22px;text-decoration:none;color:var(--ink);transition:transform .18s ease,border-color .18s ease}
+  .ch:hover{transform:translateY(-2px);border-color:#d8d2be;color:var(--ink)}
+  .ch .cat{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--olive-deep);font-weight:700}
+  .ch h2{font-family:var(--serif);font-weight:500;font-size:22px;margin:4px 0 6px}
+  .ch p{font-size:15px;color:#444;margin-bottom:12px}
+  .ch .go{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--olive);white-space:nowrap}
+  .rx{font-size:13.5px;color:#777;margin-top:22px}
+  .support{background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:20px 22px;margin-top:26px}
+  .support h3{font-family:var(--serif);font-weight:500;font-size:19px;margin-bottom:8px}
+  .support p{font-size:14.5px;color:#444;margin-bottom:8px}
+  .emerg{border-top:1px solid #f2ead9;margin-top:12px;padding-top:12px;font-size:14px;color:#3a3a34}
+  footer{padding:26px 20px 44px;font-size:13px;color:#555;max-width:640px;margin:0 auto;width:100%;border-top:1px solid #eee3d6}
+  h1,h2,h3{text-wrap:balance}
+  p,li,.sub{text-wrap:pretty}
+</style>
+
+<template id="__bundler_thumbnail" data-bg-color="#FFFAF5">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FFFAF5"/>
+    <text x="600" y="430" text-anchor="middle" font-family="Georgia,serif" font-size="150" fill="#141410">Rese</text>
+    <text x="600" y="510" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="30" letter-spacing="12" fill="#72744E">GET STARTED</text>
+  </svg>
+</template>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Main">
+    <a class="logo" href="Rese Wellness Site v2.html" aria-label="Rese Wellness home">
+      <img src="assets/rese-logo.png" alt="Rese Wellness" style="display:block;height:36px;width:auto">
+    </a>
+    <a class="back" href="Rese Wellness Site v2.html">← Main site</a>
+  </nav>
+</header>
+
+<main>
+  <p class="kicker">Get started</p>
+  <h1>Which program brings you here?</h1>
+  <p class="sub">Pick one and your assessment opens — about ten minutes, all of it read by a licensed provider. If both apply, start with the one that matters most; you can add the other afterward.</p>
+
+  <div class="hold">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+    <div>
+      <b>You're not charged unless a licensed provider approves you.</b>
+      <p>We place a temporary hold when you complete your assessment. It becomes a charge only after a provider reviews your intake and approves your program — usually within about 36 hours.</p>
+    </div>
+  </div>
+
+      <div style="background:var(--olive);color:#FFF;border-radius:14px;padding:20px 22px;margin-bottom:16px">
+        <p style="font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:#E9ECDD;margin-bottom:6px">Founding pricing</p>
+        <p style="font-family:var(--serif);font-weight:500;font-size:clamp(24px,6.2vw,30px);line-height:1.2;margin-bottom:6px">15% off your first program</p>
+        <p style="font-size:15px;color:#EDEFE2">For anyone who starts before September 1. Applied automatically at checkout — no code to enter. Applies to your first 3-month program.</p>
+      </div>
+
+  <div class="choices">
+    <a class="ch" href="https://start.resewellness.com">
+      <div class="cat">Weight management</div>
+      <h2>Compounded semaglutide or tirzepatide</h2>
+      <p>Physician-reviewed GLP-1 care at a flat price that never rises with your dose. First program is three months, then order one month at a time.</p>
+      <span class="go">Start my assessment&nbsp;→</span>
+    </a>
+    <a class="ch" href="https://start.resewellness.com/peptide-therapy">
+      <div class="cat">Peptides &amp; NAD+</div>
+      <h2>Energy, recovery, and repair</h2>
+      <p>The full shelf with every price in plain sight — sermorelin for sleep and recovery, NAD+, glutathione, and PT-141 for desire.</p>
+      <span class="go">Start my assessment&nbsp;→</span>
+    </a>
+  </div>
+
+  <p class="rx">Prescription required. Available only if an independent licensed provider determines it's appropriate for you. Licensed providers in all 50 states. A licensed provider reviews your case before treatment begins, and again every 90 days. No subscription, no auto-billing, nothing to cancel.</p>
+
+  <div class="support">
+    <h3>Where questions go</h3>
+    <p><strong>Medical questions</strong> go to your patient portal, where a licensed provider will respond.</p>
+    <p><strong>Billing, shipping, and account questions</strong> come to us at <a href="mailto:support@resewellness.com">support@resewellness.com</a>. Not a patient yet? <a href="mailto:hello@resewellness.com">hello@resewellness.com</a>.</p>
+    <p class="emerg">If you're having trouble breathing, severe abdominal pain, or any symptom that feels like an emergency, call 911 or go to your nearest emergency room — don't wait for us and don't wait for the portal.</p>
+  </div>
+</main>
+
+<footer>
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+    <a href="https://www.legitscript.com/websites/?checker_keywords=resewellness.com" target="_blank" rel="noopener" title="Verify LegitScript Approval for www.resewellness.com"><img src="https://static.legitscript.com/seals/51444018.png" alt="Verify LegitScript Approval for www.resewellness.com" width="73" height="79" style="display:block;flex:none"></a>
+    <p style="font-size:12.5px;color:#666">LegitScript certified · Licensed providers in all 50 states · Gary A. Smith, MD, MMM, DABFM — Chairman &amp; Chief Medical Officer · Secure checkout</p>
+  </div>
+  <nav aria-label="Legal" style="display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;margin-bottom:12px">
+    <a href="FAQ.html" style="color:#555">FAQ</a>
+    <a href="Contact.html" style="color:#555">Contact</a>
+    <a href="Legal.html#privacy" style="color:#555">Privacy Policy</a>
+    <a href="Legal.html#terms" style="color:#555">Terms of Service</a>
+    <a href="Legal.html#refunds" style="color:#555">Refund &amp; Shipping Policy</a>
+  </nav>
+  <p style="font-size:12.5px;color:#777">If you are experiencing a medical emergency, call 911 or go to the nearest emergency room immediately. This service is not for emergencies. All treatments require a licensed provider review and prescription. Results vary by individual. These services are not intended to diagnose, treat, cure, or prevent any disease. Statements on this page have not been evaluated by the Food and Drug Administration. This is not medical advice.</p>
+  <p style="margin-top:10px">© 2026 Rese Wellness, LLC · Gilbert, AZ · Digital-first, never digital-only</p>
+</footer>
+
+</body>
+</html>

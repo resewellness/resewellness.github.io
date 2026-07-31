@@ -7,6 +7,9 @@
 <title>Rese Wellness | Physician-Guided Weight &amp; Hormone Care for Women</title>
 <meta name="description" content="Physician-guided weight and hormone care for women in midlife. Transparent flat pricing, no dose-based increases, no medication charge unless approved. Gilbert, AZ.">
 <meta name="theme-color" content="#FFFAF5">
+<!-- GOOGLE ANALYTICS 4 -->
+<!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
+<!-- META PIXEL - MARKETING PAGES ONLY -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -118,6 +121,7 @@
   .prog p{font-size:15px;color:#444}
   .prog .amt{font-family:var(--serif);font-size:30px;font-weight:500;display:block;margin-top:12px}
   .prog .amt small{font-family:var(--sans);font-size:13px;color:#555}
+  .prog .term{display:block;font-size:13.5px;color:#555;margin-top:5px}
   .prog .flat{display:inline-block;background:var(--sage);border-radius:100px;font-size:13px;letter-spacing:.04em;padding:5px 12px;color:#2e2f22;margin-top:8px}
   .prog ul{list-style:none;margin-top:14px;border-top:1px solid #eee3d6;padding-top:6px}
   .prog ul li{font-size:14px;color:#333;padding:7px 0 7px 26px;position:relative}
@@ -270,12 +274,12 @@
 
 <header>
   <nav class="nav" aria-label="Main">
-    <a class="logo" href="index.html" aria-label="Rese Wellness home">
+    <a class="logo" href="Rese Wellness Site v2.html" aria-label="Rese Wellness home">
       <img src="assets/rese-logo.png" alt="Rese Wellness" style="display:block;height:42px;width:auto">
     </a>
     <div class="nav-right">
       <a class="fr" href="Program - Mens Health.html">For Men</a>
-      <a class="btn nav-cta" href="Assessment.html">Explore your options</a>
+      <a class="btn nav-cta" href="Get Started.html">Explore your options</a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><span></span><span></span></button>
     </div>
   </nav>
@@ -296,7 +300,7 @@
     <a class="pg" href="Journal.html">Learn <small>The Journal</small></a>
     <a class="pg" href="FAQ.html">FAQ</a>
     <a class="pg" href="Contact.html">Contact</a>
-    <a class="btn" href="Assessment.html">Explore your options</a>
+    <a class="btn" href="Get Started.html">Explore your options</a>
   </div>
 </div>
 
@@ -306,9 +310,9 @@
     <!-- 1. HERO -->
     <section class="hero" aria-labelledby="h1">
       <h1 id="h1" class="rv">Your body changed.<br>Your care should too.</h1>
-      <p class="sub rv d1">Physician-guided weight and hormone care designed for women. Personalized treatment options, transparent pricing, and ongoing support — all from home.</p>
+      <p class="sub rv d1">Physician-guided weight and hormone care designed for women. Provider-reviewed treatment options, transparent pricing, and ongoing support — all from home.</p>
       <div class="cta-wrap rv d1">
-        <a class="btn" href="Assessment.html">Explore your options</a>
+        <a class="btn" href="Get Started.html">Explore your options</a>
       </div>
       <p class="reassure rv d1">About 10 minutes · Exact price before purchase<br>No medication charge unless approved.</p>
       <p class="reassure rv d1" style="margin-top:8px"><a href="#pricing" style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;text-decoration:none">Compare treatments&nbsp;↓</a></p>
@@ -356,7 +360,7 @@
       <p class="eyebrow rv">Why Rese</p>
       <h2 class="big rv d1" id="why">Online care should still feel personal.</h2>
       <div class="diff rv d2">
-        <div class="d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Transparent monthly pricing</b>Every price is public, and your total is confirmed before you pay.</span></div>
+        <div class="d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Transparent pricing, monthly and total</b>Every price is public — your monthly rate and your 3-month total, confirmed before you pay.</span></div>
         <div class="d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>No dose-based increases</b>Your monthly price doesn't rise simply because your prescribed dose changes.</span></div>
         <div class="d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>No medication charge unless approved</b>If treatment isn't right for you, the hold on your card is simply released.</span></div>
         <div class="d"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Weight and hormones, considered&nbsp;together</b>Built from women's-health experience — the full picture, not one number.</span></div>
@@ -367,20 +371,36 @@
     <section aria-labelledby="pricing">
       <p class="eyebrow rv">Pricing</p>
       <h2 class="big rv d1" id="pricing">Two programs. Two prices. Nothing hidden.</h2>
+      <div class="rv d1" style="background:var(--sage);border:1px solid #d8d2be;border-radius:14px;padding:22px;margin:0 0 18px">
+        <p style="font-family:var(--serif);font-weight:500;font-size:clamp(19px,4.6vw,23px);line-height:1.28;margin-bottom:8px">You're not charged unless a licensed provider approves you.</p>
+        <p style="font-size:15.5px;color:#2c2f1d">We place a temporary hold when you complete your assessment. It becomes a charge only after a provider reviews your intake and approves your program — usually within about 36 hours.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
+          <span style="background:#FFF;border:1px solid #d8d2be;border-radius:100px;font-size:13px;padding:5px 12px">LegitScript certified</span>
+          <span style="background:#FFF;border:1px solid #d8d2be;border-radius:100px;font-size:13px;padding:5px 12px">Licensed providers in all 50 states</span>
+          <span style="background:#FFF;border:1px solid #d8d2be;border-radius:100px;font-size:13px;padding:5px 12px">Gary A. Smith, MD — Chairman &amp; CMO</span>
+          <span style="background:#FFF;border:1px solid #d8d2be;border-radius:100px;font-size:13px;padding:5px 12px">Secure checkout</span>
+        </div>
+      </div>
+      <div class="rv d1" style="background:var(--olive);color:#FFF;border-radius:14px;padding:20px 22px;margin-bottom:16px">
+        <p style="font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:#E9ECDD;margin-bottom:6px">Founding pricing</p>
+        <p style="font-family:var(--serif);font-weight:500;font-size:clamp(24px,6.2vw,30px);line-height:1.2;margin-bottom:6px">15% off your first program</p>
+        <p style="font-size:15px;color:#EDEFE2">For anyone who starts before September 1. Applied automatically at checkout — no code to enter. Applies to your first 3-month program.</p>
+      </div>
       <div class="progs">
         <div class="prog rv d2">
           <div class="med">Weight management</div>
           <h3>Rese Compounded Semaglutide Program</h3>
-          <p>The most-studied GLP-1 medication, titrated gradually by your provider.</p>
+          <p>The most-studied GLP-1 medication, titrated on a standard schedule set by your provider.</p>
           <span class="amt">$185<small>/mo</small></span>
+          <span class="term">$555 paid upfront — 3-month program, one shipment</span>
           <span class="flat">Flat — never rises with your dose</span>
           <ul>
-            <li>Medication, if prescribed</li>
+            <li>3 months of medication, if prescribed — one shipment</li>
             <li>Licensed provider review</li>
             <li>Injection supplies &amp; discreet shipping</li>
             <li>Dose-adjustment &amp; plateau review</li>
-            <li>Side-effect guidance &amp; clinical messaging</li>
-            <li>No separate membership fee</li>
+            <li>Side-effect guidance &amp; provider messaging in your portal</li>
+            <li>No membership fee — and no subscription</li>
           </ul>
           <a href="Program - Weight.html" style="display:inline-block;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600;margin-top:14px">Explore weight care&nbsp;→</a>
         </div>
@@ -389,21 +409,22 @@
           <h3>Rese Compounded Tirzepatide Program</h3>
           <p>A dual-action medication some patients respond to more strongly.</p>
           <span class="amt">$299<small>/mo</small></span>
+          <span class="term">$897 paid upfront — 3-month program, one shipment</span>
           <span class="flat">Flat — never rises with your dose</span>
           <ul>
-            <li>Medication, if prescribed</li>
+            <li>3 months of medication, if prescribed — one shipment</li>
             <li>Licensed provider review</li>
             <li>Injection supplies &amp; discreet shipping</li>
             <li>Dose-adjustment &amp; plateau review</li>
-            <li>Side-effect guidance &amp; clinical messaging</li>
-            <li>No separate membership fee</li>
+            <li>Side-effect guidance &amp; provider messaging in your portal</li>
+            <li>No membership fee — and no subscription</li>
           </ul>
           <a href="Program - Weight.html" style="display:inline-block;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600;margin-top:14px">Explore weight care&nbsp;→</a>
         </div>
       </div>
       <div class="prov-note rv d2">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5C5E3E" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        <span><strong>Billed monthly, with an initial three-month care period</strong> — giving your provider time to evaluate your response, tolerability, and treatment plan thoughtfully. After the initial three months, continue month to month and cancel in one step. No medication charge unless a licensed provider approves and prescribes treatment.</span>
+        <span><strong>Your first program is three months, paid upfront — and all three months ship at once.</strong> Your first order covers three months of medication in a single shipment, so you aren't chasing refills during the titration window. After that, you have the option to order one month at a time — no subscription, no auto-billing, nothing to cancel. No medication charge unless a licensed provider approves and prescribes treatment.</span>
       </div>
     </section>
 
@@ -411,7 +432,7 @@
     <section aria-labelledby="d90">
       <p class="eyebrow rv">The care experience</p>
       <h2 class="big rv d1" id="d90">Your first 90 days with Rese</h2>
-      <p class="support rv d1">The first three months give your provider time to start treatment safely, evaluate your response, adjust thoughtfully, and help you build a plan that can last.</p>
+      <p class="support rv d1"><strong style="font-family:var(--serif);font-weight:500">A licensed provider reviews your case before treatment begins, and again every 90 days.</strong> We don't think anyone should be on a medication for a year without a physician looking at how it's going. Your first program covers all three months in one shipment — a full titration schedule set by your provider at the start, so your dose steps up safely and predictably. We stay with you through all twelve weeks, and your provider is in your portal whenever you have a medical question.</p>
       <div class="m90">
         <div class="mo rv d1">
           <span class="tag">Month 1</span>
@@ -420,13 +441,13 @@
         </div>
         <div class="mo rv d2">
           <span class="tag">Month 2</span>
-          <h3>Adjust thoughtfully</h3>
-          <ul><li>Progress and symptom review</li><li>Dose decision by your provider</li><li>Nutrition and strength guidance</li><li>Your questions, answered</li></ul>
+          <h3>Settle in</h3>
+          <ul><li>Moving to your month 2 dose</li><li>Managing side effects as they change</li><li>Nutrition and strength guidance</li><li>Message your provider with any question</li></ul>
         </div>
         <div class="mo rv d2">
           <span class="tag">Month 3</span>
           <h3>Plan what comes next</h3>
-          <ul><li>Plateau review</li><li>Muscle-preservation check</li><li>Continued-treatment discussion</li><li>Maintenance or transition plan</li></ul>
+          <ul><li>What to expect if progress slows</li><li>Protecting muscle while you lose weight</li><li>Your 90-day provider review</li><li>Maintenance or transition planning</li></ul>
         </div>
       </div>
     </section>
@@ -466,10 +487,33 @@
           </div>
         </div>
       </div>
-      <div class="rv d2" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
-        <span style="background:#FFF;border:1px solid #d8d2be;border-radius:100px;font-size:12.5px;padding:7px 13px;color:#3a3a34">Licensed providers · all 50 states</span>
-        <span style="background:#FFF;border:1px solid #d8d2be;border-radius:100px;font-size:12.5px;padding:7px 13px;color:#3a3a34">Licensed U.S. pharmacies</span>
-        <span style="background:#FFF;border:1px solid #d8d2be;border-radius:100px;font-size:12.5px;padding:7px 13px;color:#777">[LegitScript seal — once certified]</span>
+      <div class="rv d2" style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:14px">
+        <a href="https://www.legitscript.com/websites/?checker_keywords=resewellness.com" target="_blank" rel="noopener" title="Verify LegitScript Approval for www.resewellness.com" style="display:block;flex:none"><img src="https://static.legitscript.com/seals/51444018.png" alt="Verify LegitScript Approval for www.resewellness.com" width="73" height="79" style="display:block"></a>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="background:#FFF;border:1px solid #d8d2be;border-radius:100px;font-size:12.5px;padding:7px 13px;color:#3a3a34">LegitScript certified</span>
+          <span style="background:#FFF;border:1px solid #d8d2be;border-radius:100px;font-size:12.5px;padding:7px 13px;color:#3a3a34">Licensed providers · all 50 states</span>
+          <span style="background:#FFF;border:1px solid #d8d2be;border-radius:100px;font-size:12.5px;padding:7px 13px;color:#3a3a34">Licensed U.S. pharmacies</span>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="w3">
+      <p class="eyebrow rv">Why three months</p>
+      <h2 class="big rv d1" id="w3">Why the first program is three months.</h2>
+      <p class="support rv d1" style="max-width:54ch">The medication titrates over roughly twelve weeks — that's how it's designed to work. Buying that window at once means all three months arrive in a single shipment, so nothing stalls halfway through while you wait on a refill.</p>
+      <div class="rv d2" style="display:grid;gap:12px;margin-top:16px">
+        <div style="background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:18px 20px">
+          <p style="font-family:var(--serif);font-weight:500;font-size:18px;margin-bottom:4px">One shipment, three months</p>
+          <p style="font-size:15px;color:#444">Paid upfront, delivered together, in discreet packaging.</p>
+        </div>
+        <div style="background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:18px 20px">
+          <p style="font-family:var(--serif);font-weight:500;font-size:18px;margin-bottom:4px">After that, it's your call</p>
+          <p style="font-size:15px;color:#444">Once your first program is complete, you have the option to order one month at a time.</p>
+        </div>
+        <div style="background:var(--sage);border:1px solid #d8d2be;border-radius:14px;padding:18px 20px">
+          <p style="font-family:var(--serif);font-weight:500;font-size:18px;margin-bottom:4px">Nothing recurring</p>
+          <p style="font-size:15px;color:#2c2f1d">No subscription, no auto-billing, nothing to cancel. You order again only when you want to.</p>
+        </div>
       </div>
     </section>
 
@@ -524,7 +568,7 @@
       <p class="eyebrow rv">Support</p>
       <h2 class="big rv d1" id="sup">You'll know exactly who to contact.</h2>
       <div class="who">
-        <div class="w rv d1"><b>Clinical questions</b><p>Treatment, side effects, or dose concerns go to your clinical care team — answered by your prescribing provider's team, not a call center.</p></div>
+        <div class="w rv d1"><b>Clinical questions</b><p>Message your prescribing provider directly in your patient portal — treatment, side effects, or dose concerns, answered by the clinician who wrote your prescription.</p></div>
         <div class="w rv d2"><b>Orders &amp; billing</b><p>Shipping, account, and billing questions go to Rese support. <a href="Contact.html">Contact us&nbsp;→</a></p></div>
         <div class="w rv d2"><b>Urgent symptoms</b><p>If you're experiencing a medical&nbsp;emergency, call 911 or go to the nearest emergency room. Telehealth is not for emergencies.</p></div>
       </div>
@@ -548,7 +592,7 @@
         </a>
         <a class="path rv d2" href="Program - Mens Health.html">
           <span class="cat">Open now</span><h3>Men's Health</h3>
-          <p>Sexual health and hair-loss care, handled by a physician — testosterone evaluation coming soon.</p>
+          <p>Sexual health and peptide care, handled by a physician — testosterone evaluation coming soon.</p>
           <span class="go">Explore men's health&nbsp;→</span>
         </a>
         <a class="path rv d2" href="First Responders.html">
@@ -565,8 +609,8 @@
       <h2 class="big rv d1" id="faq">Asked and answered</h2>
       <div class="rv d2 faq-wrap">
         <details><summary>Is a prescription guaranteed?</summary><p>No. A licensed provider reviews your health history and decides — and if the answer is no, they'll say so plainly and your card's preauthorization is released. You're never charged for medication that isn't approved.</p></details>
-        <details><summary>What will I pay today?</summary><p>Nothing is charged unless a licensed provider approves and prescribes treatment. At checkout your card is preauthorized for your program's flat monthly price — $185/mo compounded semaglutide, $299/mo compounded tirzepatide — and you see that exact number first. You may see a temporary pending authorization from your bank; that is not a completed charge. If treatment isn't approved, the authorization is released — timing varies by bank. [Confirm final wording with payment processor.]</p></details>
-        <details><summary>Why is there a three-month care period?</summary><p>It gives your provider time to start treatment safely, evaluate your response and tolerability, and adjust thoughtfully. You're billed monthly, and after three months it's month-to-month with one-step cancellation.</p></details>
+        <details><summary>What will I pay today?</summary><p>Nothing is charged unless a licensed provider approves and prescribes treatment. Programs are sold as a 3-month program, so at checkout your card is preauthorized for that total — $555 for compounded semaglutide ($185/mo) or $897 for compounded tirzepatide ($299/mo) — and you see that exact number first. You may see a temporary pending authorization from your bank; that is not a completed charge. If treatment isn't approved, the authorization is released — timing varies by bank. </p></details>
+        <details><summary>Why is the first program three months?</summary><p>Because that's the window your provider needs to start treatment safely, evaluate your response, and adjust thoughtfully — and it means one shipment with all three months of medication instead of monthly refill scrambles. After your first program you have the option to order one month at a time.</p></details>
         <details><summary>Who reviews my information?</summary><p>A licensed provider in your state — a real clinician, not an algorithm. All clinical decisions are made by our licensed provider network.</p></details>
         <p style="margin-top:14px"><a href="FAQ.html" style="font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:600">See every question, answered&nbsp;→</a></p>
       </div>
@@ -604,7 +648,7 @@
   <section class="final">
     <h2>You don't have to figure this out alone.</h2>
     <p>Tell us what has changed. A licensed provider will review your health history and determine whether one of our treatment pathways may be appropriate.</p>
-    <a class="btn" href="Assessment.html">Explore my options</a>
+    <a class="btn" href="Get Started.html">Explore my options</a>
     <p class="reassure" style="margin-top:14px;text-align:center">About 10 minutes · Exact pricing shown before purchase · No medication charge unless approved</p>
   </section>
 </main>
@@ -617,15 +661,23 @@
     <a href="Legal.html#terms" style="color:#555">Terms of Service</a>
     <a href="Legal.html#telehealth" style="color:#555">Telehealth Consent</a>
     <a href="Legal.html#hipaa" style="color:#555">HIPAA Notice</a>
-    <a href="Legal.html#cancellation" style="color:#555">Cancellation Policy</a>
+    <a href="Legal.html#refunds" style="color:#555">Refund &amp; Shipping Policy</a>
   </nav>
+  <div style="border-top:1px solid #eee3d6;margin-top:16px;padding-top:14px;font-size:13px;color:#444">
+    <p><strong>Medical questions</strong> go to your patient portal, where a licensed provider will respond. <strong>Billing, shipping, and account questions</strong> come to us at <a href="mailto:support@resewellness.com" style="color:#72744E">support@resewellness.com</a> — not a patient yet? <a href="mailto:hello@resewellness.com" style="color:#72744E">hello@resewellness.com</a>.</p>
+    <p style="margin-top:8px">If you're having trouble breathing, severe abdominal pain, or any symptom that feels like an emergency, call 911 or go to your nearest emergency room — don't wait for us and don't wait for the portal.</p>
+    <div style="display:flex;align-items:center;gap:14px;margin-top:14px">
+      <a href="https://www.legitscript.com/websites/?checker_keywords=resewellness.com" target="_blank" rel="noopener" title="Verify LegitScript Approval for www.resewellness.com"><img src="https://static.legitscript.com/seals/51444018.png" alt="Verify LegitScript Approval for www.resewellness.com" width="73" height="79" style="display:block;flex:none"></a>
+      <p style="font-size:12.5px;color:#666">LegitScript certified · Licensed providers in all 50 states · Gary A. Smith, MD, MMM, DABFM — Chairman &amp; Chief Medical Officer · Secure checkout</p>
+    </div>
+  </div>
   <p style="margin-top:14px;font-size:12px;color:#777">If you are experiencing a medical emergency, call 911 or go to the nearest emergency room immediately. This service is not for emergencies. All treatments require a licensed provider consultation and prescription. Results vary by individual. These services are not intended to diagnose, treat, cure, or prevent any disease. Statements on this page have not been evaluated by the Food and Drug Administration. This is not medical advice. Consult your healthcare provider before starting any treatment program.</p>
   <p style="margin-top:12px">© 2026 Rese Wellness, LLC · Gilbert, AZ · Digital-first, never digital-only</p>
 </footer>
 
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
   <span><strong style="font-family:var(--serif);font-weight:400">Ready when you&nbsp;are.</strong><br>Exact price before you&nbsp;pay.</span>
-  <a class="btn" href="Assessment.html">Explore your options</a>
+  <a class="btn" href="Get Started.html">Explore your options</a>
 </div>
 
 <script>

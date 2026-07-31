@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://resewellness.com/sitemap.xml

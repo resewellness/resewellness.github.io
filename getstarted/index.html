@@ -46,7 +46,7 @@
   .logo{display:flex;text-decoration:none}
   .nav .back{color:var(--olive);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
   main{flex:1;max-width:640px;margin:0 auto;width:100%;padding:24px 20px 56px}
-  .kicker{font-size:13.5px;letter-spacing:.3em;text-transform:uppercase;color:#F7F4E8;font-weight:600;display:inline-block;background:var(--olive);border:1px solid var(--olive-deep);padding:6px 13px;border-radius:100px;margin-bottom:12px}
+  .kicker{font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive-deep);font-weight:700;display:block;margin-bottom:10px}
   h1{font-family:var(--serif);font-weight:500;font-size:clamp(26px,6.2vw,36px);line-height:1.15;margin-bottom:8px}
   .sub{font-size:15px;color:#3a3a34;max-width:50ch;margin-bottom:18px}
   .hold{background:var(--sage);border-radius:12px;padding:16px 18px;margin:16px 0 0;display:flex;gap:12px;align-items:flex-start}
@@ -56,10 +56,11 @@
   .choices{display:grid;gap:12px}
   .ch{display:block;background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:16px 18px;text-decoration:none;color:var(--ink);transition:transform .18s ease,border-color .18s ease}
   .ch:hover{transform:translateY(-2px);border-color:#d8d2be;color:var(--ink)}
-  .ch .cat{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--olive-deep);font-weight:700}
-  .ch h2{font-family:var(--serif);font-weight:500;font-size:19px;line-height:1.25;margin:3px 0 4px}
-  .ch p{font-size:14px;color:#444;margin-bottom:10px}
-  .ch .go{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--olive);white-space:nowrap}
+  .ch .cat{font-family:var(--serif);font-size:clamp(24px,6vw,27px);font-weight:500;color:var(--ink);line-height:1.15;letter-spacing:0}
+  .ch h2{font-family:var(--sans);font-weight:600;font-size:15.5px;color:#5a5c48;line-height:1.35;margin:5px 0 5px}
+  .ch p{font-size:15px;color:#4a4a42;margin-bottom:14px}
+  .ch .go{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:#f4f3e6;color:var(--olive-deep);font-size:14.5px;letter-spacing:.04em;font-weight:700;padding:11px 20px;border:1.5px solid #d9d8bd;border-radius:100px;min-height:46px;white-space:nowrap}
+  .ch:hover .go{background:var(--olive);color:#FFFDF7;border-color:var(--olive)}
   .rx{font-size:13px;color:#777;margin-top:16px}
   .support{background:#FFF;border:1px solid #eee3d6;border-radius:14px;padding:20px 22px;margin-top:26px}
   .support h3{font-family:var(--serif);font-weight:500;font-size:19px;margin-bottom:8px}
@@ -90,33 +91,33 @@
 </header>
 
 <main>
-  <p class="kicker">Get started</p>
+  <p class="kicker">Choose your program</p>
   <h1>Which program brings you here?</h1>
   <p class="sub">Pick one and your assessment opens — about ten minutes, read by a licensed provider.</p>
 
   <div class="choices">
     <a class="ch" href="https://start.resewellness.com">
       <div class="cat">Weight management</div>
-      <h2>Compounded semaglutide or tirzepatide</h2>
-      <p>Flat price, never rises with your dose.<br>$185–299/mo.</p>
+      <h2>Weight loss with compounded semaglutide or tirzepatide</h2>
+      <p>$185–299/mo. One flat price that never rises with your dose.</p>
       <span class="go">Start my assessment&nbsp;→</span>
     </a>
     <a class="ch" href="https://start.resewellness.com/peptide-therapy">
       <div class="cat">Peptides &amp; NAD+</div>
       <h2>Energy, recovery, and repair</h2>
-      <p>Sleep, recovery, energy, desire.<br>From $129/mo.</p>
+      <p>From $129/mo. Peptides and NAD+ for sleep, energy, and libido.</p>
       <span class="go">Start my assessment&nbsp;→</span>
     </a>
     <a class="ch" href="https://start.resewellness.com/erectile-dysfunction">
       <div class="cat">Sexual health</div>
       <h2>Performance, handled discreetly</h2>
-      <p>Tadalafil, sildenafil, troches.<br>From $5 per dose.</p>
+      <p>From $5 per dose. Tadalafil, sildenafil, and troches.</p>
       <span class="go">Start my assessment&nbsp;→</span>
     </a>
     <a class="ch" href="https://start.resewellness.com/hair-loss">
       <div class="cat">Hair loss</div>
       <h2>Keep the hair you have</h2>
-      <p>Finasteride, minoxidil, topicals.<br>From $2 per dose.</p>
+      <p>From $2 per dose. Finasteride, minoxidil, and topical treatments.</p>
       <span class="go">Start my assessment&nbsp;→</span>
     </a>
   </div>

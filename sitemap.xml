@@ -7,100 +7,106 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/getstarted</loc>
+    <loc>https://resewellness.com/Get%20Started.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/weightmanagement</loc>
+    <loc>https://resewellness.com/Program%20-%20Weight.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/peptides</loc>
+    <loc>https://resewellness.com/Program%20-%20Peptides.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/menshealth</loc>
+    <loc>https://resewellness.com/Program%20-%20Mens%20Health.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/hormones</loc>
+    <loc>https://resewellness.com/Program%20-%20Womens%20Hormones.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/hormonesupport</loc>
+    <loc>https://resewellness.com/Hormone%20Support.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/hormonewaitlist</loc>
+    <loc>https://resewellness.com/Hormone%20Waitlist.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/firstresponders</loc>
+    <loc>https://resewellness.com/First%20Responders.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/about</loc>
+    <loc>https://resewellness.com/Our%20Story.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/journal</loc>
+    <loc>https://resewellness.com/Journal.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/journal/week-eight-plateau</loc>
+    <loc>https://resewellness.com/Journal%20-%20Week%20Eight%20Plateau.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/journal/food-noise</loc>
+    <loc>https://resewellness.com/Journal%20-%20Food%20Noise.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/journal/protein-first</loc>
+    <loc>https://resewellness.com/Journal%20-%20Protein%20First.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/faq</loc>
+    <loc>https://resewellness.com/FAQ.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/contact</loc>
+    <loc>https://resewellness.com/Contact.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://resewellness.com/legal</loc>
+    <loc>https://resewellness.com/Legal.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://resewellness.com/journal/semaglutide-and-the-heart</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://resewellness.com/journal/titration-explained</loc>

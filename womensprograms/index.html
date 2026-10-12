@@ -93,6 +93,7 @@
     section{padding:76px 0 8px}
     .hero{display:grid;grid-template-columns:1.05fr .95fr;column-gap:64px;align-items:center;padding:64px 0 8px}
     .hero > *{grid-column:1}
+    .hero > .eyebrow{justify-self:start}
     .hero-frame{grid-column:2;grid-row:1/7;margin:0;align-self:center}
     .hero h1{font-size:40px}
     .big{font-size:34px}
@@ -149,6 +150,10 @@
     .routes{grid-template-columns:1fr 1fr;align-items:start}
     .member,.shelf{max-width:760px}
   }
+  .gate{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+  @media(min-width:1000px){.gate{justify-content:flex-start}}
+
+  /*eqcards*/@media(min-width:720px){.routes{align-items:stretch!important}.route{display:flex;flex-direction:column}.route ol{flex:1}.route .cta{margin-top:4px}.route .cta a{display:flex!important;align-items:center;justify-content:center;width:100%;min-height:58px;padding:14px 18px!important;font-size:13px!important;letter-spacing:.12em;font-weight:600;white-space:normal!important;text-align:center;box-sizing:border-box;line-height:1.35}}
 </style>
 
 <template id="__bundler_thumbnail" data-bg-color="#FFFAF5">
@@ -178,8 +183,11 @@
       <h1 id="h1" class="rv">Your body changed the rules. Let's change them back.</h1>
       <p class="sub rv d1">Physician-guided hormone replacement for perimenopause and menopause — built from your labs, reviewed with you on a video consult, and priced in the open.</p>
       <div class="rv d1 cta-zone">
-        <a class="btn" href="https://start.resewellness.com/hrt/questionnaire">Start my HRT assessment</a>
-        <p class="reassure">No recent labs? <a href="https://start.resewellness.com/lab-order">Order your HRT panel first&nbsp;→</a></p>
+        <p style="font-size:15px;font-weight:600;color:var(--olive-deep);margin:0 0 12px">Step 1: lab results from the last 90&nbsp;days.</p>
+        <div class="gate">
+          <a class="btn" href="https://start.resewellness.com/lab-order">No labs? Order them&nbsp;first</a>
+          <a class="btn" href="https://start.resewellness.com/hrt/questionnaire" style="background:transparent;color:var(--olive-deep);border:1.5px solid var(--olive);box-shadow:none">I have recent labs&nbsp;→</a>
+        </div>
         <div class="tiles">
           <a class="tile" href="#membership"><strong>$149 · 3 months</strong>Consult &amp; lab review&nbsp;↓</a>
           <a class="tile" href="#meds"><strong>From $26.16/mo</strong>Every medication priced&nbsp;↓</a>
@@ -217,7 +225,7 @@
             <li>On your consult, your provider reviews your questionnaire and labs with you and recommends a prescription plan.</li>
             <li>Choose the medications you want and pay for them — they ship straight to your door.</li>
           </ol>
-          <div class="cta"><a class="btn" href="https://start.resewellness.com/hrt/questionnaire">Start my HRT assessment</a></div>
+          <div class="cta"><a class="btn" href="https://start.resewellness.com/hrt/questionnaire">I have labs — start my HRT&nbsp;assessment</a></div>
         </div>
         <div class="route alt rv d2">
           <span class="tag">No recent labs?</span>
@@ -281,9 +289,12 @@
 
   <section class="final">
     <h2>Ready when you are.</h2>
-    <p>Have your labs ready to upload — or order a panel first.</p>
-    <a class="btn" href="https://start.resewellness.com/hrt/questionnaire">Start my HRT assessment</a>
-    <p style="margin:14px 0 0;font-size:14px"><a href="https://start.resewellness.com/lab-order" style="color:#FFF">No recent labs? Order a panel&nbsp;→</a></p>
+    <p>Every HRT plan starts with lab work. Pick where you are.</p>
+    <p style="font-size:15px;font-weight:600;color:#FFF;margin:0 0 12px;text-align:center">Step 1: lab results from the last 90&nbsp;days.</p>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px">
+          <a class="btn" href="https://start.resewellness.com/lab-order">No labs? Order them&nbsp;first</a>
+          <a class="btn" href="https://start.resewellness.com/hrt/questionnaire" style="background:transparent;color:#FFF;border:1.5px solid #FFF">I have recent labs&nbsp;→</a>
+        </div>
   </section>
 </main>
 
@@ -309,8 +320,8 @@
 </footer>
 
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
-  <span><strong style="font-family:var(--serif);font-weight:400">$149 · 3-month membership</strong><br>Consult and lab review included.</span>
-  <a class="btn" href="https://start.resewellness.com/hrt/questionnaire">Start assessment</a>
+  <span><strong style="font-family:var(--serif);font-weight:400">Labs come first</strong><br>From the last 90 days.</span>
+  <a class="btn" href="#how">See how to start</a>
 </div>
 
 <script>

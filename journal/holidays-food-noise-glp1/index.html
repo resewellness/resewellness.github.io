@@ -51,13 +51,16 @@
   a{color:var(--olive)}
 
   main{max-width:680px;margin:0 auto;padding:38px 20px 0}
+  .kicker{font-size:13.5px;letter-spacing:.3em;text-transform:uppercase;color:#F7F4E8;font-weight:600;display:inline-block;background:var(--olive);border:1px solid var(--olive-deep);padding:6px 13px;border-radius:100px;margin-bottom:10px}
   h1{font-family:var(--serif);font-weight:500;font-size:clamp(30px,7.4vw,42px);line-height:1.16;letter-spacing:-.01em;margin-bottom:16px;text-wrap:pretty}
   .standfirst{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.55;color:#3a3a34;margin-bottom:22px;text-wrap:pretty}
 
-  .meta{border-top:1px solid #eee3d6;border-bottom:1px solid #eee3d6;margin:0 0 30px;padding:14px 0;display:grid;gap:10px}
-  .meta div{display:grid;grid-template-columns:7.6rem 1fr;gap:12px;align-items:baseline}
-  .meta dt{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8a8467;font-weight:600}
-  .meta dd{margin:0;font-size:15px;line-height:1.45;color:#26261f}
+  .byline{display:flex;align-items:center;gap:13px;padding:16px 0;border-top:1px solid #eee3d6;border-bottom:1px solid #eee3d6;margin-bottom:30px}
+  .byline img{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:center 20%}
+  .byline .who{font-size:14.5px;line-height:1.45}
+  .byline .who strong{font-weight:600}
+  .byline .who span{color:#666;font-size:13.5px;display:block}
+  .byline time{margin-left:auto;font-size:13px;color:#8a8467;letter-spacing:.06em;text-transform:uppercase;flex:none}
 
   article p{font-size:16.5px;line-height:1.75;color:#26261f;margin-bottom:20px;text-wrap:pretty}
   article h2{font-family:var(--serif);font-weight:500;font-size:24px;line-height:1.3;margin:34px 0 12px}
@@ -89,14 +92,21 @@
   .signoff{font-family:var(--serif);font-size:18px;margin-bottom:8px}
 
   article hr{border:0;border-top:1px solid #eee3d6;margin:36px 0 4px}
-  .disclaimer{font-size:13.5px;line-height:1.6;color:#666;margin-top:18px}
+  .disclaimer{font-size:13px;color:#888;border-top:1px solid #eee3d6;padding-top:16px;margin:34px 0 0}
+
+  .next{padding:44px 0 8px}
+  .next h3{font-family:var(--serif);font-weight:500;font-size:22px;margin-bottom:14px}
+  .post{border-top:1px solid #eee3d6;padding:16px 0}
+  .post time{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8a8467}
+  .post h4{font-family:var(--serif);font-weight:500;font-size:18px;margin:4px 0 2px}
+  .post a{font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;font-weight:600}
 
   footer{padding:30px 20px 44px;font-size:13px;color:#555;max-width:680px;margin:0 auto}
+  img[src*="drsmith"]{object-position:center 22%}
   h1,h2,h3{text-wrap:balance}
-  p,li{text-wrap:pretty}
+  p,li,summary,.sub,.support{text-wrap:pretty}
 
   @media (max-width:640px){
-    .meta div{grid-template-columns:1fr;gap:2px}
     .table-scroll{overflow:visible}
     table.meds,table.meds tbody,table.meds tr,table.meds td{display:block;width:100%}
     table.meds{border:0;background:transparent}
@@ -134,23 +144,15 @@
 
 <main>
   <article>
+    <p class="kicker">The Rese Journal · Weight</p>
     <h1>The holidays, food noise, and GLP-1 medicines</h1>
     <p class="standfirst">What the research really says about holiday weight, why it isn't about willpower, and how to care for yourself through the season.</p>
 
-    <dl class="meta">
-      <div>
-        <dt>By</dt>
-        <dd>Gary A. Smith, MD, MMM, DABFM, Chief Medical Officer</dd>
-      </div>
-      <div>
-        <dt>Published in</dt>
-        <dd>The Rese Journal, November 2026</dd>
-      </div>
-      <div>
-        <dt>Reading time</dt>
-        <dd>About 6 minutes</dd>
-      </div>
-    </dl>
+    <div class="byline">
+      <img src="../../assets/founder-drsmith.jpg?v=2" alt="Dr. Gary A. Smith">
+      <div class="who"><strong>Gary A. Smith, MD,&nbsp;MMM,&nbsp;DABFM</strong><span>Chief Medical Officer · About 6 minutes</span></div>
+      <time datetime="2026-11">November 2026</time>
+    </div>
 
     <p>The stretch from Halloween candy to New Year's toasts is one of the most predictable times of year for weight to creep up. Every January, I hear some version of the same thing: "I was doing fine until the holidays."</p>
     <p>If that sounds like you, you're in good company, and it isn't a willpower problem. This year, I want to get ahead of that conversation. Here's what the research actually shows, why holiday weight tends to stick, and where today's GLP-1 medicines fit for the right patient.</p>
@@ -283,6 +285,20 @@
     </ul>
     <p class="disclaimer">This article is for general education and is not a substitute for individual medical advice. Talk with your provider before starting or changing any medication.</p>
   </article>
+
+  <section class="next" aria-label="More from the Journal">
+    <h3>More notes from our clinicians</h3>
+    <article class="post">
+      <time datetime="2026-09-28">September 28, 2026</time>
+      <h4>Semaglutide helps the heart at any age or fitness level</h4>
+      <a href="/journal/semaglutide-and-the-heart/">Read the note&nbsp;→</a>
+    </article>
+    <article class="post">
+      <time datetime="2026-09-07">September 7, 2026</time>
+      <h4>How dose titration actually works</h4>
+      <a href="/journal/titration-explained/">Read the note&nbsp;→</a>
+    </article>
+  </section>
 </main>
 
 <footer>

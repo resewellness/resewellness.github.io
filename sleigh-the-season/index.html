@@ -115,21 +115,11 @@
   .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:10px}
   .hero{position:relative;background:var(--cream);color:var(--ink);padding:8px 0 4px}
   .hero-frame{position:relative;margin:4px 16px 0;border-radius:22px;overflow:hidden;aspect-ratio:16/9;background:#F3E6D4;border:1px solid rgba(196,163,90,.5);box-shadow:0 12px 28px rgba(92,69,32,.1)}
-  .hero-poster,.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
-  .hero-video{opacity:0}
-  .hero-video.is-on{opacity:1;transition:opacity .6s ease}
-  .snow{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-  .snow i{position:absolute;top:-8px;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 6px rgba(255,236,196,.9);opacity:.8;animation:snow 10s linear infinite}
-  .snow i:nth-child(1){left:8%;animation-duration:9s;animation-delay:-1s}
-  .snow i:nth-child(2){left:18%;width:2px;height:2px;animation-duration:12s;animation-delay:-4s;background:#F8E7C4}
-  .snow i:nth-child(3){left:29%;animation-duration:8.5s;animation-delay:-2s}
-  .snow i:nth-child(4){left:41%;width:4px;height:4px;animation-duration:13s;animation-delay:-6s;opacity:.55}
-  .snow i:nth-child(5){left:52%;width:2px;height:2px;animation-duration:11s;animation-delay:-3s;background:#F8E7C4}
-  .snow i:nth-child(6){left:63%;animation-duration:9.5s;animation-delay:-7s}
-  .snow i:nth-child(7){left:74%;width:2px;height:2px;animation-duration:14s;animation-delay:-2.5s}
-  .snow i:nth-child(8){left:84%;animation-duration:10.5s;animation-delay:-5s;background:#F8E7C4}
-  .snow i:nth-child(9){left:92%;width:2px;height:2px;animation-duration:8s;animation-delay:-1.5s}
-  @keyframes snow{to{transform:translate3d(10px,240px,0);opacity:.15}}
+  .hero-still{position:absolute;inset:0;transform-origin:50% 0;animation:ken 48s ease-in-out infinite alternate}
+  .hero-still.is-paused{animation-play-state:paused}
+  @keyframes ken{from{transform:scale(1)}to{transform:scale(1.04)}}
+  .hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+  .hero-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
   .hero-copy{padding:18px 20px 8px}
   .hero .eyebrow{display:flex;align-items:center;gap:8px;color:var(--gold)}
   .spark{flex:none;animation:twinkle 2.8s ease-in-out infinite;transform-origin:center}
@@ -217,9 +207,7 @@
   html.js .rv.in{opacity:1;transform:none}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
-    .rv,.hero-video,.spark,.snow i{opacity:1;transform:none;transition:none;animation:none}
-    .hero-video{display:none}
-    .snow{display:none}
+    .rv,.spark,.hero-still{opacity:1;transform:none;transition:none;animation:none}
     .sticky{transition:none}
   }
   @media (min-width:900px){
@@ -228,7 +216,7 @@
     .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:36px;max-width:1120px;margin:0 auto;padding:32px 28px 12px}
     .hero-copy{order:1;padding:8px 0}
     .hero-frame{order:2;margin:0;aspect-ratio:4/3}
-    .hero-poster,.hero-video{object-position:62% 42%}
+    .hero-poster{object-position:62% 42%}
     .hero .btn{width:auto}
     .hero + section{padding-top:56px}
     .feature{display:grid;grid-template-columns:1.15fr .85fr;align-items:stretch}
@@ -270,9 +258,10 @@
 <main id="main">
   <section class="hero" aria-labelledby="h1">
     <div class="hero-frame">
-      <img class="hero-poster" id="heroPoster" src="media/hero-poster.webp" width="1280" height="720" alt="A woman in her late thirties wraps herself in a knit blanket by a frosted window, holding a warm mug as holiday lights glow outside." fetchpriority="high" decoding="async">
-      <video class="hero-video" id="heroVideo" muted autoplay loop playsinline preload="metadata" poster="media/hero-poster.webp" width="1280" height="720" aria-hidden="true" tabindex="-1"></video>
-      <div class="snow" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="hero-still" id="heroStill">
+        <img class="hero-poster" id="heroPoster" src="media/hero-poster-720.webp" srcset="media/hero-poster-720.webp 720w, media/hero-poster.webp 1280w" sizes="(min-width: 900px) 560px, calc(100vw - 32px)" width="1280" height="720" alt="A woman in her late thirties wraps herself in a knit blanket by a frosted window, holding a warm mug as holiday lights glow outside." fetchpriority="high" decoding="async">
+        <canvas class="hero-fx" id="heroFx" aria-hidden="true"></canvas>
+      </div>
     </div>
     <div class="hero-copy">
       <p class="eyebrow">Sleigh the Season <svg class="spark" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="#C4A35A" d="M8 0 9.1 6.1 16 8 9.1 9.9 8 16 6.9 9.9 0 8 6.9 6.1Z"/></svg></p>
@@ -285,40 +274,173 @@
   </section>
   <script>
   (function () {
-    var video = document.getElementById("heroVideo");
-    var poster = document.getElementById("heroPoster");
-    if (!video || !poster) return;
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var saveData = navigator.connection && navigator.connection.saveData;
-    if (reduce || saveData) {
-      video.removeAttribute("autoplay");
-      video.preload = "none";
-      return;
+    var frame = document.querySelector(".hero-frame");
+    var still = document.getElementById("heroStill");
+    var canvas = document.getElementById("heroFx");
+    var img = document.getElementById("heroPoster");
+    if (!frame || !still || !canvas || !img) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    var ctx = canvas.getContext("2d", { alpha: true });
+    var running = false;
+    var raf = 0;
+    var last = 0;
+    var clock = 0;
+    var mapPoint = function (x, y) { return { x: 0, y: 0 }; };
+
+    /* Measured on the 1280x720 still. Rim is the top lip of the mug.
+       Her mouth sits near y 0.37, so steam is not allowed above y 0.455. */
+    var MUG_X = 0.548;
+    var MUG_Y = 0.502;
+    var STEAM_CEILING = 0.455;
+    var WINDOW = { x0: 0.02, y0: 0.02, x1: 0.46, y1: 0.66 };
+    var LIGHTS = [
+      [0.09, 0.30], [0.15, 0.46], [0.07, 0.56],
+      [0.22, 0.38], [0.31, 0.34], [0.37, 0.50], [0.42, 0.28]
+    ];
+
+    function unit(value) {
+      if (!value || value === "center") return 0.5;
+      if (value === "left" || value === "top") return 0;
+      if (value === "right" || value === "bottom") return 1;
+      if (value.indexOf("%") >= 0) return parseFloat(value) / 100;
+      return 0.5;
     }
-    function addSource(src, type) {
-      var source = document.createElement("source");
-      source.src = src;
-      source.type = type;
-      video.appendChild(source);
+
+    function resize() {
+      var rect = frame.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = Math.max(1, Math.round(rect.width * dpr));
+      canvas.height = Math.max(1, Math.round(rect.height * dpr));
+      var pos = getComputedStyle(img).objectPosition.split(/\s+/);
+      var px = unit(pos[0]);
+      var py = unit(pos[1] || "center");
+      var iw = 1280;
+      var ih = 720;
+      var scale = Math.max(canvas.width / iw, canvas.height / ih);
+      var dw = iw * scale;
+      var dh = ih * scale;
+      var left = (canvas.width - dw) * px;
+      var top = (canvas.height - dh) * py;
+      mapPoint = function (ix, iy) {
+        return { x: left + ix * dw, y: top + iy * dh };
+      };
     }
-    function start() {
-      var mobile = window.matchMedia("(max-width: 767px)").matches;
-      if (mobile) {
-        addSource("media/hero-720.mp4", "video/mp4");
-      } else {
-        addSource("media/hero.webm", "video/webm");
-        addSource("media/hero.mp4", "video/mp4");
+
+    function wave(seed, time) {
+      return Math.sin(seed + time * 2.3) * 0.55 + Math.sin(seed * 1.7 + time * 1.1) * 0.45;
+    }
+
+    var wisps = [];
+    function spawnWisp() {
+      wisps.push({
+        age: 0,
+        life: 1.3 + Math.random() * 1.1,
+        x: MUG_X + (Math.random() - 0.42) * 0.055,
+        y: MUG_Y + Math.random() * 0.01,
+        rise: 0.02 + Math.random() * 0.012,
+        drift: 0.028 + Math.random() * 0.03,
+        seed: Math.random() * 80
+      });
+    }
+
+    var flakes = [];
+    function makeFlake(scatter) {
+      return {
+        x: WINDOW.x0 + Math.random() * (WINDOW.x1 - WINDOW.x0),
+        y: scatter ? WINDOW.y0 + Math.random() * (WINDOW.y1 - WINDOW.y0) : WINDOW.y0 - Math.random() * 0.04,
+        vy: 0.018 + Math.random() * 0.04,
+        r: 0.0012 + Math.random() * 0.0028,
+        sway: Math.random() * 8 + 1
+      };
+    }
+    for (var n = 0; n < 26; n++) flakes.push(makeFlake(true));
+
+    function draw(now) {
+      if (!running) return;
+      var dt = last ? Math.min(0.05, (now - last) / 1000) : 0.016;
+      last = now;
+      clock += dt;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      var i, p, u, a, pt, rad, grd, k, sample, sx, sy, alpha;
+      for (i = 0; i < LIGHTS.length; i++) {
+        pt = mapPoint(LIGHTS[i][0], LIGHTS[i][1]);
+        u = 0.45 + 0.55 * (0.5 + 0.5 * Math.sin(clock * (0.6 + (i * 0.37)) + i * 1.7));
+        rad = (4 + u * 7) * (canvas.width / 400);
+        grd = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, rad);
+        grd.addColorStop(0, "rgba(255, 228, 170, " + (0.45 * u) + ")");
+        grd.addColorStop(1, "rgba(255, 228, 170, 0)");
+        ctx.fillStyle = grd;
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, rad, 0, Math.PI * 2);
+        ctx.fill();
       }
-      video.muted = true;
-      video.playsInline = true;
-      video.preload = "metadata";
-      video.addEventListener("playing", function () { video.classList.add("is-on"); });
-      video.load();
-      var playAttempt = video.play();
-      if (playAttempt && playAttempt.catch) playAttempt.catch(function () {});
+
+      for (i = 0; i < flakes.length; i++) {
+        p = flakes[i];
+        p.y += p.vy * dt;
+        p.x += Math.sin(clock * 0.65 + p.sway) * 0.012 * dt;
+        if (p.y > WINDOW.y1 || p.x < WINDOW.x0 - 0.02 || p.x > WINDOW.x1 + 0.02) flakes[i] = makeFlake(false);
+        pt = mapPoint(flakes[i].x, flakes[i].y);
+        ctx.fillStyle = "rgba(255,255,255,0.8)";
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, Math.max(0.7, flakes[i].r * canvas.width), 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      if (Math.random() < dt * 8) spawnWisp();
+      for (i = wisps.length - 1; i >= 0; i--) {
+        p = wisps[i];
+        p.age += dt;
+        if (p.age > p.life) { wisps.splice(i, 1); continue; }
+        u = p.age / p.life;
+        for (k = 0; k < 5; k++) {
+          sample = p.age * (k / 4);
+          sy = p.y - p.rise * sample;
+          if (sy < STEAM_CEILING) continue;
+          sx = p.x - p.drift * sample + wave(p.seed + k, clock) * 0.012;
+          if (sy < 0.47 && sx > 0.50) continue;
+          alpha = Math.sin(Math.min(1, sample / p.life) * Math.PI) * 0.16 * (k / 4);
+          alpha *= (sy - STEAM_CEILING) / (p.y - STEAM_CEILING);
+          if (alpha <= 0.01) continue;
+          pt = mapPoint(sx, sy);
+          rad = (7 + (sample / p.life) * 16) * (canvas.width / 390);
+          grd = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, rad);
+          grd.addColorStop(0, "rgba(255, 250, 244, " + alpha + ")");
+          grd.addColorStop(1, "rgba(255, 250, 244, 0)");
+          ctx.fillStyle = grd;
+          ctx.beginPath();
+          ctx.ellipse(pt.x, pt.y, rad, rad * 0.62, wave(p.seed, clock) * 0.4, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      raf = requestAnimationFrame(draw);
     }
-    if (poster.complete) start();
-    else poster.addEventListener("load", start, { once: true });
+
+    function play() {
+      if (running) return;
+      running = true;
+      last = 0;
+      raf = requestAnimationFrame(draw);
+      still.classList.remove("is-paused");
+    }
+    function pause() {
+      running = false;
+      cancelAnimationFrame(raf);
+      still.classList.add("is-paused");
+    }
+
+    resize();
+    window.addEventListener("resize", resize);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) play();
+        else pause();
+      }, { threshold: 0.08 }).observe(frame);
+    } else {
+      play();
+    }
   })();
   </script>
 

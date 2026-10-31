@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sleigh the Season: the Support Kit for the holidays | Rese Wellness</title>
+<title>Sleigh the Season: 3 months of tirzepatide and real support | Rese Wellness</title>
 <meta name="description" content="Sleigh the Season is a 3-month program from Rese Wellness. Weekly check-ins with Sabrina, a welcome call in week 1, a week 8 Plateau Protocol check-in, and a simple starter guide. Queen Creek, AZ.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="canonical" href="https://resewellness.com/sleigh-the-season/">
@@ -18,8 +18,8 @@
 <meta property="og:url" content="https://resewellness.com/sleigh-the-season/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rese Wellness">
-<meta property="og:title" content="Sleigh the Season: the Support Kit for the holidays">
-<meta property="og:description" content="We'll carry you through the holidays and into the new year. A 3-month program from Rese Wellness in Queen Creek, AZ.">
+<meta property="og:title" content="Sleigh the Season: 3 months of tirzepatide and real support">
+<meta property="og:description" content="15% off with code SLEIGH through December 31, 2026. HSA/FSA and Klarna accepted. A 3-month program from Rese Wellness.">
 <meta property="og:image" content="media/hero-poster.webp">
 <!--
   OFFER CONFIG
@@ -103,17 +103,17 @@
   .btn.light{background:var(--cream);color:var(--cranberry-deep)}
   .btn.light:hover{background:#fff}
   .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:10px}
-  .hero{position:relative;min-height:calc(100svh - var(--header));display:flex;align-items:flex-end;color:#F7F1E8;isolation:isolate}
+  .hero{position:relative;min-height:calc(100svh - var(--header));min-height:calc(100dvh - var(--header));display:flex;align-items:flex-end;color:#F7F1E8;isolation:isolate}
   .hero-media{position:absolute;inset:0;z-index:0}
-  .hero-poster,.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 42%}
+  .hero-poster,.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:76% 42%}
   .hero-video{opacity:0}
   .hero-video.is-on{opacity:1;transition:opacity .6s ease}
-  .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,8,12,.2) 0%,rgba(20,8,12,.05) 24%,rgba(12,5,8,.78) 46%,rgba(12,5,8,.94) 62%,#12060A 100%)}
-  .hero-copy{position:relative;z-index:2;width:100%;background:#14080C;padding:32px 20px 36px}
-  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,8.4vw,64px);line-height:1.08;letter-spacing:-.015em;max-width:14ch;margin-bottom:12px}
-  .hero .hook{font-family:var(--serif);font-style:italic;font-size:clamp(18px,4.4vw,26px);line-height:1.35;max-width:22em;margin-bottom:12px;color:#F7F1E8}
-  .hero .intro{font-size:16px;line-height:1.55;max-width:38em;margin-bottom:20px;color:#F3E6D4}
-  .hero .reassure{margin-top:12px;font-size:13.5px;color:#E7D7C4;max-width:36em}
+  .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,8,10,.18) 0%,rgba(18,8,10,.08) 28%,rgba(12,5,8,.55) 52%,rgba(12,5,8,.9) 72%,#12060A 100%)}
+  .hero-copy{position:relative;z-index:2;width:100%;background:linear-gradient(180deg,rgba(12,5,8,0) 0%,rgba(12,5,8,.92) 36px,#12060A 72px);padding:28px 20px max(24px, env(safe-area-inset-bottom))}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(30px,7.4vw,56px);line-height:1.12;letter-spacing:-.015em;max-width:16em;margin-bottom:10px}
+  .hero .hook{font-family:var(--serif);font-style:italic;font-size:clamp(17px,4.2vw,24px);line-height:1.35;max-width:22em;margin-bottom:10px;color:#F7F1E8}
+  .hero .intro{font-size:15.5px;line-height:1.5;max-width:36em;margin-bottom:16px;color:#F3E6D4}
+  .hero .reassure{margin-top:12px;font-size:13.5px;line-height:1.45;color:#E7D7C4;max-width:36em}
   .hero .eyebrow{color:#E4C98A}
   .hero :focus-visible{outline-color:#F7F1E8}
   section{padding:56px 0 8px}
@@ -199,9 +199,11 @@
   @media (min-width:900px){
     .nav .nav-cta{display:inline-flex}
     section{padding:84px 0 12px}
-    .hero{min-height:1080px}
-    .hero-copy{padding:48px max(28px, calc((100% - 1120px) / 2 + 28px)) 56px}
-    .hero h1{max-width:12ch}
+    .hero{min-height:calc(100svh - var(--header));min-height:calc(100dvh - var(--header))}
+    .hero-shade{background:linear-gradient(90deg,rgba(12,5,8,.94) 0%,rgba(12,5,8,.9) 38%,rgba(12,5,8,.55) 58%,rgba(12,5,8,.12) 76%),linear-gradient(180deg,rgba(18,8,10,.18) 0%,rgba(18,8,10,0) 42%,rgba(12,5,8,.35) 100%)}
+    .hero-poster,.hero-video{object-position:58% 42%}
+    .hero-copy{width:min(640px, calc(100% - 56px));margin:0 0 0 max(28px, calc((100% - 1120px) / 2));padding:36px 8px 48px 0;background:transparent}
+    .hero h1{max-width:14em}
     .feature{display:grid;grid-template-columns:1.15fr .85fr;align-items:stretch}
     .feature .copy{padding:40px 40px 40px 36px;display:flex;flex-direction:column;justify-content:center}
     .feature img{height:100%;aspect-ratio:auto;min-height:520px}
@@ -247,11 +249,11 @@
     </div>
     <div class="hero-copy">
       <p class="eyebrow">A 3-month program</p>
-      <h1 id="h1">Sleigh the Season: the Support Kit for the holidays.</h1>
-      <p class="hook">We'll carry you through the holidays and into the new year</p>
+      <h1 id="h1">Sleigh the Season: 3 months of tirzepatide and real support</h1>
+      <p class="hook"><span data-sleigh="percent">15</span>% off with code <span data-sleigh="code">SLEIGH</span> through <span data-sleigh="ends">December 31, 2026</span>. HSA/FSA and Klarna accepted.</p>
       <p class="intro">Someone who starts now is supported through the end of January, not left alone when the decorations come down.</p>
       <a class="btn" href="/getstarted/">Start your assessment</a>
-      <p class="reassure">About 10 minutes. A licensed provider decides whether medication is right for you.</p>
+      <p class="reassure">About 10 minutes. Compounded medications are not FDA-approved. A licensed provider decides whether medication is right for you.</p>
     </div>
   </section>
   <script>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>document.documentElement.classList.add("js")</script>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sleigh the Season: the Support Kit for the holidays | Rese Wellness</title>
+<meta name="description" content="Sleigh the Season is a 3-month program from Rese Wellness. Weekly check-ins with Sabrina, a welcome call in week 1, a week 8 Plateau Protocol check-in, and a simple starter guide. Queen Creek, AZ.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://resewellness.com/sleigh-the-season/">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<meta name="theme-color" content="#FBF3E8">
+<link rel="preload" as="image" href="media/hero-poster.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://resewellness.com/sleigh-the-season/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rese Wellness">
+<meta property="og:title" content="Sleigh the Season: the Support Kit for the holidays">
+<meta property="og:description" content="We'll carry you through the holidays and into the new year. A 3-month program from Rese Wellness in Queen Creek, AZ.">
+<meta property="og:image" content="media/hero-poster.webp">
+<!--
+  OFFER CONFIG
+  Edit only this block. Every price, discount, code, end date, and the
+  Klarna line on this page is filled from these values.
+  The sale price is computed in cents: priceMonthly * (100 - discountPercent).
+  At 299 and 15 percent off, that is 25415 cents, formatted as $254.15.
+  klarnaConfirmed true shows "Pay over time with Klarna" with no tag.
+  Set klarnaConfirmed to false to show a Pending confirmation tag on that line.
+-->
+<script>
+(function () {
+  var offer = {
+    priceMonthly: 299,
+    discountPercent: 15,
+    code: "SLEIGH",
+    endsLabel: "December 31, 2026",
+    klarnaConfirmed: true
+  };
+  window.SLEIGH_OFFER = offer;
+
+  function money(monthly, percentOff) {
+    var cents = Math.round(monthly * (100 - percentOff));
+    var whole = Math.floor(cents / 100);
+    var frac = cents % 100;
+    if (frac === 0) return "$" + whole;
+    var fracText = frac < 10 ? "0" + frac : String(frac);
+    return "$" + whole + "." + fracText;
+  }
+
+  window.applySleighOffer = function () {
+    var sale = money(offer.priceMonthly, offer.discountPercent);
+    var regular = money(offer.priceMonthly, 0);
+    var map = {
+      sale: sale,
+      regular: regular,
+      code: offer.code,
+      ends: offer.endsLabel,
+      percent: String(offer.discountPercent)
+    };
+    var nodes = document.querySelectorAll("[data-sleigh]");
+    for (var i = 0; i < nodes.length; i++) {
+      var key = nodes[i].getAttribute("data-sleigh");
+      if (map[key] != null) nodes[i].textContent = map[key];
+    }
+    var klarnaBlocks = document.querySelectorAll("[data-klarna]");
+    for (var k = 0; k < klarnaBlocks.length; k++) {
+      var tag = klarnaBlocks[k].querySelector(".pending");
+      if (tag) tag.hidden = !!offer.klarnaConfirmed;
+    }
+  };
+})();
+</script>
+<style>
+  :root{
+    --cream:#FBF3E8; --cream-deep:#F3E6D4; --ink:#1C1412; --muted:#3E342E;
+    --cranberry:#6E2433; --cranberry-deep:#4E1524; --evergreen:#1B3D32; --evergreen-mid:#234E40;
+    --gold:#5C4520; --line:#E4D3B8; --white:#FFFCF7;
+    --serif:'Lora',Georgia,'Times New Roman',serif;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+    --header:68px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img,video{max-width:100%;display:block}
+  a{color:var(--cranberry-deep)}
+  .skip{position:absolute;left:12px;top:-40px;background:#fff;color:var(--ink);padding:8px 12px;z-index:80;border-radius:4px}
+  .skip:focus{top:12px}
+  :focus-visible{outline:3px solid var(--cranberry-deep);outline-offset:3px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;z-index:20;background:rgba(251,243,232,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:var(--header);max-width:1120px;margin:0 auto;padding:0 20px;gap:16px}
+  .logo{display:flex;text-decoration:none}
+  .logo img{height:40px;width:auto}
+  .nav .nav-cta{display:none}
+  h1,h2,h3{text-wrap:balance}
+  p,li{text-wrap:pretty}
+  .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--cranberry);color:#FFFCF7;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:16px 28px;border-radius:2px;min-height:52px;border:none;cursor:pointer}
+  .btn:hover{background:var(--cranberry-deep)}
+  .btn.light{background:var(--cream);color:var(--cranberry-deep)}
+  .btn.light:hover{background:#fff}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:10px}
+  .hero{position:relative;min-height:calc(100svh - var(--header));display:flex;align-items:flex-end;color:#F7F1E8;isolation:isolate}
+  .hero-media{position:absolute;inset:0;z-index:0}
+  .hero-poster,.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 42%}
+  .hero-video{opacity:0}
+  .hero-video.is-on{opacity:1;transition:opacity .6s ease}
+  .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,8,12,.2) 0%,rgba(20,8,12,.05) 24%,rgba(12,5,8,.78) 46%,rgba(12,5,8,.94) 62%,#12060A 100%)}
+  .hero-copy{position:relative;z-index:2;width:100%;background:#14080C;padding:32px 20px 36px}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,8.4vw,64px);line-height:1.08;letter-spacing:-.015em;max-width:14ch;margin-bottom:12px}
+  .hero .hook{font-family:var(--serif);font-style:italic;font-size:clamp(18px,4.4vw,26px);line-height:1.35;max-width:22em;margin-bottom:12px;color:#F7F1E8}
+  .hero .intro{font-size:16px;line-height:1.55;max-width:38em;margin-bottom:20px;color:#F3E6D4}
+  .hero .reassure{margin-top:12px;font-size:13.5px;color:#E7D7C4;max-width:36em}
+  .hero .eyebrow{color:#E4C98A}
+  .hero :focus-visible{outline-color:#F7F1E8}
+  section{padding:56px 0 8px}
+  .big{font-family:var(--serif);font-weight:500;font-size:clamp(28px,6.4vw,44px);line-height:1.15;margin-bottom:12px}
+  .lede{font-size:17px;color:var(--muted);max-width:42em}
+  .feature{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .feature .copy{padding:22px 20px 8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--cranberry);margin-bottom:8px}
+  .feature h3{font-family:var(--serif);font-weight:500;font-size:clamp(26px,6vw,36px);line-height:1.15;margin-bottom:10px}
+  .feature p,.card p,.note p,.included li,.steps li{font-size:16px;color:var(--muted)}
+  .feature p+p,.card p+p,.note p+p{margin-top:12px}
+  .feature img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center 20%}
+  .split{display:grid;gap:14px;margin-top:14px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .card .copy{padding:22px 20px}
+  .card h3{font-family:var(--serif);font-weight:500;font-size:clamp(22px,5vw,28px);line-height:1.2;margin-bottom:8px}
+  .card.welcome{background:var(--evergreen);color:#F7F1E8;border-color:var(--evergreen)}
+  .card.welcome .kicker{color:#E4C98A}
+  .card.welcome p{color:#E7E1D4}
+  .card img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+  .guide{display:grid;gap:0;margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .guide img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center 40%}
+  .guide .copy{padding:22px 20px}
+  .guide h3{font-family:var(--serif);font-weight:500;font-size:clamp(22px,5vw,30px);line-height:1.2;margin-bottom:8px}
+  .band{margin-top:28px}
+  .band img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
+  .band p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,4.6vw,28px);line-height:1.35;margin-top:14px;max-width:22em}
+  .included{list-style:none;margin-top:18px;display:grid;gap:10px}
+  .included li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 16px 16px 48px;position:relative;color:var(--ink)}
+  .included li strong{display:block;font-family:var(--serif);font-weight:500;font-size:18px;color:var(--ink);margin-bottom:4px}
+  .included li::before{content:"";position:absolute;left:16px;top:18px;width:18px;height:18px;border-radius:50%;background:var(--evergreen) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F7F1E8' stroke-width='2.4'><path d='M20 6 9 17l-5-5'/></svg>") center/12px no-repeat}
+  .included li.lead{border-color:#E7C9A4;background:#FFF9F2}
+  .steps{list-style:none;margin-top:16px;display:grid;gap:10px;counter-reset:step}
+  .steps li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 58px;position:relative;color:var(--ink)}
+  .steps li::before{counter-increment:step;content:counter(step);position:absolute;left:14px;top:14px;width:32px;height:32px;border-radius:50%;background:var(--cream-deep);color:var(--cranberry-deep);font-family:var(--serif);display:flex;align-items:center;justify-content:center}
+  .note-grid{margin-top:8px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .note img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+  .portrait{width:84px;height:112px;border-radius:12px;object-fit:cover;object-position:center 15%;float:left;margin:0 14px 8px 0;aspect-ratio:auto}
+  .note .copy{padding:22px 20px 26px}
+  .note h2{margin-bottom:12px}
+  .sign{margin-top:16px;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink)}
+  .sign span{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-top:2px}
+  .price-card{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 20px 24px;box-shadow:0 16px 40px rgba(78,21,36,.06)}
+  .price-sale{font-family:var(--serif);font-weight:500;font-size:clamp(48px,12vw,72px);line-height:1;color:var(--cranberry-deep);letter-spacing:-.02em}
+  .price-sale .per{font-family:var(--sans);font-size:18px;color:var(--muted);letter-spacing:0;margin-left:4px}
+  .price-regular{margin-top:6px;color:var(--muted);font-size:16px}
+  .price-regular s{color:#6A5E54}
+  .code-line{margin-top:14px;font-size:16px;color:var(--ink)}
+  .code{display:inline-block;border:1.5px dashed #C4A35A;border-radius:100px;padding:2px 10px;letter-spacing:.14em;font-weight:600;color:var(--cranberry-deep)}
+  .klarna{margin-top:14px;font-size:16px;font-weight:600;color:var(--ink)}
+  .pending{margin-left:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--cranberry-deep);background:var(--cream-deep);border:1px solid #C4A35A;border-radius:100px;padding:4px 8px;vertical-align:middle}
+  .pending[hidden]{display:none}
+  .fine{margin-top:14px;font-size:14.5px;color:var(--muted)}
+  .safety{margin-top:16px;background:var(--cream-deep);border-radius:12px;padding:14px 16px;font-size:14.5px;color:#2A211C}
+  .faq{margin-top:8px;border-top:1px solid var(--line)}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{cursor:pointer;list-style:none;font-family:var(--serif);font-size:18px;line-height:1.35;padding:16px 36px 16px 0;position:relative}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";position:absolute;right:0;top:14px;color:var(--cranberry);font-family:var(--sans);font-size:22px;line-height:1;transition:transform .2s ease}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{padding:0 0 16px;color:var(--muted);max-width:65ch}
+  .final{background:var(--evergreen);color:#F7F1E8;text-align:center;padding:64px 20px;margin-top:48px}
+  .final h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,7vw,46px);line-height:1.15;margin-bottom:10px}
+  .final p{max-width:38em;margin:0 auto 22px;color:#E7E1D4}
+  .final :focus-visible{outline-color:#F7F1E8}
+  footer{padding:32px 20px 108px;font-size:13.5px;color:#4A403A;max-width:1120px;margin:0 auto}
+  footer a{color:#4E1524}
+  footer nav{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px}
+  footer .safety{margin-top:0}
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(251,243,232,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .35s ease}
+  .sticky.show{transform:none}
+  .sticky span{font-size:13px;line-height:1.35;color:var(--muted)}
+  .sticky strong{font-family:var(--serif);font-weight:500;font-size:16px;color:var(--ink)}
+  .sticky .btn{padding:12px 16px;min-height:46px;font-size:12px}
+  html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  html.js .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .rv,.hero-video{opacity:1;transform:none;transition:none}
+    .hero-video{display:none}
+    .sticky{transition:none}
+  }
+  @media (min-width:900px){
+    .nav .nav-cta{display:inline-flex}
+    section{padding:84px 0 12px}
+    .hero{min-height:1080px}
+    .hero-copy{padding:48px max(28px, calc((100% - 1120px) / 2 + 28px)) 56px}
+    .hero h1{max-width:12ch}
+    .feature{display:grid;grid-template-columns:1.15fr .85fr;align-items:stretch}
+    .feature .copy{padding:40px 40px 40px 36px;display:flex;flex-direction:column;justify-content:center}
+    .feature img{height:100%;aspect-ratio:auto;min-height:520px}
+    .split{grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
+    .card{display:flex;flex-direction:column}
+    .card.welcome .copy{flex:1;display:flex;flex-direction:column;justify-content:center;padding:32px}
+    .guide{grid-template-columns:1.05fr .95fr;align-items:stretch}
+    .guide .copy{padding:36px;display:flex;flex-direction:column;justify-content:center}
+    .guide img{height:100%;aspect-ratio:auto;min-height:420px}
+    .band{display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:end}
+    .band img{aspect-ratio:16/10}
+    .included{grid-template-columns:1fr 1fr}
+    .included li.lead{grid-column:1 / -1}
+    .steps{grid-template-columns:1fr 1fr}
+    .note-grid{display:grid;grid-template-columns:.9fr 1.1fr}
+    .note img.scene{height:100%;aspect-ratio:auto;min-height:100%;object-fit:cover}
+    .note .copy{padding:40px 40px 40px 36px}
+    .price-card{padding:36px 40px}
+    .faq summary{font-size:20px}
+    .final{padding:88px 22px}
+    .sticky{display:none}
+    footer{padding-bottom:48px}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <nav class="nav" aria-label="Sleigh the Season">
+    <a class="logo" href="/" aria-label="Rese Wellness home">
+      <img src="../assets/rese-logo.png" alt="Rese Wellness" width="160" height="40">
+    </a>
+    <a class="btn nav-cta" href="/getstarted/">Start your assessment</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="h1">
+    <div class="hero-media">
+      <img class="hero-poster" id="heroPoster" src="media/hero-poster.webp" width="1280" height="720" alt="A woman in her late thirties wraps herself in a knit blanket by a frosted window, holding a warm mug as holiday lights glow outside." fetchpriority="high" decoding="async">
+      <video class="hero-video" id="heroVideo" muted autoplay loop playsinline preload="metadata" poster="media/hero-poster.webp" width="1280" height="720" aria-hidden="true" tabindex="-1"></video>
+      <div class="hero-shade" aria-hidden="true"></div>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow">A 3-month program</p>
+      <h1 id="h1">Sleigh the Season: the Support Kit for the holidays.</h1>
+      <p class="hook">We'll carry you through the holidays and into the new year</p>
+      <p class="intro">Someone who starts now is supported through the end of January, not left alone when the decorations come down.</p>
+      <a class="btn" href="/getstarted/">Start your assessment</a>
+      <p class="reassure">About 10 minutes. A licensed provider decides whether medication is right for you.</p>
+    </div>
+  </section>
+  <script>
+  (function () {
+    var video = document.getElementById("heroVideo");
+    var poster = document.getElementById("heroPoster");
+    if (!video || !poster) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var saveData = navigator.connection && navigator.connection.saveData;
+    if (reduce || saveData) {
+      video.removeAttribute("autoplay");
+      video.preload = "none";
+      return;
+    }
+    function addSource(src, type) {
+      var source = document.createElement("source");
+      source.src = src;
+      source.type = type;
+      video.appendChild(source);
+    }
+    function start() {
+      var mobile = window.matchMedia("(max-width: 767px)").matches;
+      if (mobile) {
+        addSource("media/hero-720.mp4", "video/mp4");
+      } else {
+        addSource("media/hero.webm", "video/webm");
+        addSource("media/hero.mp4", "video/mp4");
+      }
+      video.muted = true;
+      video.playsInline = true;
+      video.preload = "metadata";
+      video.addEventListener("playing", function () { video.classList.add("is-on"); });
+      video.load();
+      var playAttempt = video.play();
+      if (playAttempt && playAttempt.catch) playAttempt.catch(function () {});
+    }
+    if (poster.complete) start();
+    else poster.addEventListener("load", start, { once: true });
+  })();
+  </script>
+
+  <section aria-labelledby="hurdles">
+    <div class="wrap">
+      <p class="eyebrow rv">The Support Kit</p>
+      <h2 class="big rv" id="hurdles">The season asks a lot. This is what answers it.</h2>
+      <p class="lede rv">The holidays ask a lot of the people who hold everything together. The lists, the kids, the gatherings, the quiet work no one sees. Sleigh the Season is Rese's holiday program. The Support Kit is the value.</p>
+
+      <article class="feature rv">
+        <div class="copy">
+          <p class="kicker">When there is no time</p>
+          <h3>Weekly check-ins with Sabrina</h3>
+          <p>Weekly check-ins with Sabrina are short, supportive messages of encouragement. They are not clinical advice. Treatment questions go to your patient portal, where a real person answers.</p>
+          <p>You do not have to find another hour to feel someone on the other end. The weekly check-ins meet you in the week you are already living. You also get a welcome call in week 1. At week 8, Sabrina reaches out for the Plateau Protocol check-in, by call or text.</p>
+        </div>
+        <img src="media/couch-checkin-800.webp" srcset="media/couch-checkin-800.webp 800w, media/couch-checkin-1600.webp 1600w" sizes="(min-width: 900px) 460px, 92vw" width="1600" height="2133" alt="A mom smiles at a text on her phone while curled up on the couch near a Christmas tree." loading="lazy" decoding="async">
+      </article>
+
+      <div class="split">
+        <article class="card welcome rv">
+          <div class="copy">
+            <p class="kicker">The first week</p>
+            <h3>A welcome call in week 1</h3>
+            <p>A welcome call in week 1 with a nurse, so the start is a real conversation. The calendar is already full. You should not have to decode the first days alone.</p>
+          </div>
+        </article>
+        <article class="card rv">
+          <img src="media/winter-walk-800.webp" srcset="media/winter-walk-800.webp 800w, media/winter-walk-1600.webp 1600w" sizes="(min-width: 900px) 540px, 92vw" width="1600" height="1200" alt="Two friends walk a golden retriever down a snowy neighborhood street." loading="lazy" decoding="async">
+          <div class="copy">
+            <p class="kicker">The January cliff</p>
+            <h3>A week 8 Plateau Protocol check-in with Sabrina</h3>
+            <p>At week 8, Sabrina Mortensen, RN reaches out for the Plateau Protocol check-in, by call or text. It is there so you are not figuring out the last stretch alone.</p>
+            <p>Around week 10 to 12, you and your provider review how things are going and decide on a next step together. Support runs through the end of January, not only while the lights are up.</p>
+          </div>
+        </article>
+      </div>
+
+      <article class="guide rv">
+        <img src="media/kitchen-kids-800.webp" srcset="media/kitchen-kids-800.webp 800w, media/kitchen-kids-1600.webp 1600w" sizes="(min-width: 900px) 560px, 92vw" width="1600" height="1200" alt="A mom laughs while baking holiday cookies with her two kids in a warm kitchen." loading="lazy" decoding="async">
+        <div class="copy">
+          <p class="kicker">Food everywhere</p>
+          <h3>A simple starter guide with family-friendly meals</h3>
+          <p>Dinner still has to happen. The starter guide is a tool, not a second job. Family-friendly meals, shortcuts you can actually use, and real-life ideas for the holiday table. No dieting rules. Same kitchen. Same plates.</p>
+          <p>It also holds a few simple ideas many patients find supportive: a little more water through the day, a wind-down that protects whatever sleep the season allows, and one small reset you can actually do, like a short walk or two quiet minutes outside.</p>
+        </div>
+      </article>
+
+      <figure class="band rv">
+        <img src="media/holiday-dinner-800.webp" srcset="media/holiday-dinner-800.webp 800w, media/holiday-dinner-1600.webp 1600w" sizes="(min-width: 900px) 680px, 92vw" width="1600" height="1200" alt="A family laughs together around a candlelit holiday dinner table." loading="lazy" decoding="async">
+        <p>You are still at the table with your people. No off-limits list. No separate plate.</p>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="included">
+    <div class="wrap">
+      <p class="eyebrow rv">What's included</p>
+      <h2 class="big rv" id="included">The Support Kit, then the rest of the program.</h2>
+      <p class="lede rv">Value first. These are the pieces that carry the season. Medication is one tool inside the kit, and only if a licensed provider determines it is appropriate.</p>
+      <ul class="included">
+        <li class="lead rv"><strong>Weekly check-ins with Sabrina</strong>Short, supportive messages of encouragement through the season. Not clinical advice.</li>
+        <li class="rv"><strong>A welcome call in week 1</strong>A welcome call with a nurse, so the first week starts with a person.</li>
+        <li class="rv"><strong>A week 8 Plateau Protocol check-in with Sabrina</strong>Sabrina Mortensen, RN reaches out at week 8, by call or text.</li>
+        <li class="rv"><strong>A simple starter guide with family-friendly meals</strong>Practical meals and shortcuts for real weeks. No dieting rules.</li>
+        <li class="rv"><strong>The holiday table</strong>Inside the starter guide. Real-life strategies for gatherings, with no dieting rules.</li>
+        <li class="rv"><strong>Portal messaging</strong>Message your care team in the patient portal. Real people answer. Treatment questions belong here.</li>
+        <li class="rv"><strong>Medication and supplies, if prescribed</strong>3 months of tirzepatide, plus the supplies that go with it, shipped to your home only if a licensed provider determines it's appropriate.</li>
+      </ul>
+      <h3 class="big rv" style="font-size:clamp(24px,5vw,32px);margin-top:36px">How it starts</h3>
+      <ol class="steps">
+        <li class="rv">Complete a 10-minute online assessment. About ten minutes, with no pressure. It is a clear next step.</li>
+        <li class="rv">A licensed provider reviews your information and decides whether medication is right for you. A prescription happens only if your provider decides it is right for you.</li>
+        <li class="rv">If approved, your program medication and supplies ship to your home.</li>
+        <li class="rv">You get weekly check-ins with Sabrina, a welcome call in week 1, and a week 8 Plateau Protocol check-in with Sabrina, by call or text. You can message the care team in the portal. Around week 10 to 12, you and your provider decide on a next step together.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="note">
+    <div class="wrap">
+      <div class="note-grid note rv">
+        <img class="scene" src="media/wrapping-gifts-800.webp" srcset="media/wrapping-gifts-800.webp 800w, media/wrapping-gifts-1600.webp 1600w" sizes="(min-width: 900px) 480px, 92vw" width="1600" height="1200" alt="A woman wraps gifts at the kitchen table with coffee and soft holiday lights." loading="lazy" decoding="async">
+        <div class="copy">
+          <p class="eyebrow">A note from Sabrina</p>
+          <h2 class="big" id="note">The one thing on your list that's for you.</h2>
+          <img class="portrait" src="../assets/founder-sabrina.jpg" width="900" height="1200" alt="Sabrina Mortensen, RN" loading="lazy" decoding="async">
+          <p>As a nurse and a mom of 4, I know how easy it is to put yourself last from November through the new year. The one thing on your list that's for you.</p>
+          <p>Taking care of yourself is part of taking care of your family. This program is built so you don't have to disappear into everyone else's list.</p>
+          <p>Sleigh the Season is a full support program. Tirzepatide is one tool inside the Support Kit, not the whole story. Many of my patients say the constant food chatter gets quieter. That bit of headspace can make the season feel more manageable.</p>
+          <p>A licensed provider decides whether medication is right for you.</p>
+          <p>Gary A. Smith, MD, is Co-founder &amp; Chief Medical Officer.</p>
+          <p class="sign">Sabrina Mortensen, RN<span>Co-founder</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="pricing">
+    <div class="wrap">
+      <p class="eyebrow rv">Pricing</p>
+      <h2 class="big rv" id="pricing">One monthly amount for the 3-month program.</h2>
+      <p class="lede rv">The Support Kit comes first. Then the number. Code <span data-sleigh="code">SLEIGH</span> takes <span data-sleigh="percent">15</span>% off through <span data-sleigh="ends">December 31, 2026</span>.</p>
+      <div class="price-card rv">
+        <p class="price-sale"><span data-sleigh="sale">$254.15</span><span class="per">/month</span></p>
+        <p class="price-regular">Regular price <s><span data-sleigh="regular">$299</span>/month</s> for the 3-month program</p>
+        <p class="code-line">Use code <span class="code" data-sleigh="code">SLEIGH</span> at checkout. <span data-sleigh="percent">15</span>% off through <span data-sleigh="ends">December 31, 2026</span>.</p>
+        <p class="klarna" data-klarna>Pay over time with Klarna <span class="pending" hidden>Pending confirmation</span></p>
+        <p class="fine">One monthly amount covers the program, with no program fee and no surprise add-ons. Have FSA dollars left this year? You can use them here. Many FSA balances reset at the end of the year, so check with your benefits provider. HSA/FSA accepted.</p>
+        <p class="fine">Rese Wellness is in Queen Creek, AZ. Care is by telehealth where available.</p>
+        <p class="safety">Compounded medications are prepared by a licensed compounding pharmacy and are not FDA-approved as finished drug products. Medication is prescribed only if a licensed provider determines it's appropriate.</p>
+        <p style="margin-top:18px"><a class="btn" href="/getstarted/">Start your assessment</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq">
+    <div class="wrap">
+      <p class="eyebrow rv">Questions</p>
+      <h2 class="big rv" id="faq">Before you start</h2>
+      <div class="faq rv">
+        <details>
+          <summary>What is Sleigh the Season?</summary>
+          <p>It is Rese's 3-month holiday program. The Support Kit is the value: weekly check-ins with Sabrina, a welcome call in week 1, a week 8 Plateau Protocol check-in with Sabrina, and a simple starter guide with family-friendly meals. Tirzepatide is one tool inside that kit, not the whole story. A licensed provider decides whether medication is right for you.</p>
+        </details>
+        <details>
+          <summary>Are the weekly check-ins medical advice?</summary>
+          <p>No. Weekly check-ins with Sabrina are short, supportive messages and encouragement. They are not clinical advice. Treatment questions go to your patient portal, where a licensed provider responds.</p>
+        </details>
+        <details>
+          <summary>What happens in week 1?</summary>
+          <p>You get a welcome call in week 1 with a nurse. The assessment itself is about 10 minutes. After that, a licensed provider reviews your information and decides whether medication is right for you.</p>
+        </details>
+        <details>
+          <summary>What is the week 8 Plateau Protocol check-in?</summary>
+          <p>At week 8, Sabrina Mortensen, RN reaches out for the Plateau Protocol check-in, by call or text. That check-in names what is working, what feels stuck, and what you want the end of month 3 to look like, so the week 10 to 12 decision with your provider is informed, not rushed.</p>
+        </details>
+        <details>
+          <summary>What happens after month 3?</summary>
+          <p>Around week 10 to 12, you and your provider review how things are going and decide together what comes next. There is no surprise cliff. If you and your provider decide continuing is right, the next stretch of care is lined up under your provider's direction. If you and your provider decide stepping off is right, you get a provider-guided transition off the medication. How that looks is individual. Your provider sets the path.</p>
+          <p>Many people ask whether the weight comes back. It is a fair question, and it is one we answer with you, not for you, in that week 10 to 12 conversation with your provider, using your own story so far.</p>
+        </details>
+        <details>
+          <summary>What does the program cost?</summary>
+          <p>The 3-month program is <span data-sleigh="regular">$299</span> per month. With code <span data-sleigh="code">SLEIGH</span>, <span data-sleigh="percent">15</span>% off, it is <span data-sleigh="sale">$254.15</span> per month through <span data-sleigh="ends">December 31, 2026</span>. One monthly amount covers the program, with no program fee and no surprise add-ons. You are not charged for medication unless a licensed provider approves you.</p>
+        </details>
+        <details>
+          <summary>Can I pay over time?</summary>
+          <p data-klarna>Pay over time with Klarna. <span class="pending" hidden>Pending confirmation</span></p>
+        </details>
+        <details>
+          <summary>Can I use HSA or FSA funds?</summary>
+          <p>HSA/FSA accepted. Have FSA dollars left this year? You can use them here. Many FSA balances reset at the end of the year, so check with your benefits provider.</p>
+        </details>
+        <details>
+          <summary>Is a prescription guaranteed?</summary>
+          <p>No. Payment does not buy a prescription. A licensed provider decides what is medically appropriate. If the answer is no, you are not charged for medication.</p>
+        </details>
+        <details>
+          <summary>Are compounded medications FDA-approved?</summary>
+          <p>Compounded medications are prepared by a licensed compounding pharmacy and are not FDA-approved as finished drug products. Medication is prescribed only if a licensed provider determines it's appropriate.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <h2>We'll carry you through the holidays and into the new year.</h2>
+    <p>Start with a 10-minute assessment. A licensed provider takes it from there. Queen Creek, AZ, with care by telehealth where available.</p>
+    <a class="btn light" href="/getstarted/">Start your assessment</a>
+  </section>
+</main>
+
+<footer>
+  <p class="safety">Compounded medications are prepared by a licensed compounding pharmacy and are not FDA-approved as finished drug products. Medication is prescribed only if a licensed provider determines it's appropriate.</p>
+  <p style="margin-top:14px">HSA/FSA accepted. Rese Wellness, Queen Creek, AZ.</p>
+  <p style="margin-top:8px">Medical questions go to your patient portal, where a licensed provider will respond. Billing, shipping, and account questions come to us at <a href="mailto:support@resewellness.com">support@resewellness.com</a>, Monday to Friday, 8am to 5pm Arizona time (MST). Not a patient yet? <a href="mailto:hello@resewellness.com">hello@resewellness.com</a>.</p>
+  <p style="margin-top:8px">If you are having trouble breathing, severe abdominal pain, or any symptom that feels like an emergency, call 911 or go to the nearest emergency room. Do not wait for a message back.</p>
+  <nav aria-label="Legal">
+    <a href="/faq/">FAQ</a>
+    <a href="/legal/#privacy">Privacy Policy</a>
+    <a href="/legal/#terms">Terms of Service</a>
+    <a href="/legal/#telehealth">Telehealth Consent</a>
+    <a href="/legal/#hipaa">HIPAA Notice</a>
+    <a href="/legal/#refunds">Refund and Shipping Policy</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <p style="margin-top:14px">© 2026 Rese Wellness, LLC · Queen Creek, AZ</p>
+</footer>
+
+<div class="sticky" id="stickyCta" aria-hidden="true" inert>
+  <span><strong><span data-sleigh="sale">$254.15</span>/mo</strong> with code <span data-sleigh="code">SLEIGH</span><br>3-month program</span>
+  <a class="btn" href="/getstarted/">Start your assessment</a>
+</div>
+
+<script>
+applySleighOffer();
+(function () {
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var blocks = document.querySelectorAll(".rv");
+  if (reduced || !("IntersectionObserver" in window)) {
+    blocks.forEach(function (el) { el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    blocks.forEach(function (el) { io.observe(el); });
+    var reveal = function () {
+      var line = window.innerHeight * 0.92;
+      blocks.forEach(function (el) {
+        if (el.classList.contains("in")) return;
+        var rect = el.getBoundingClientRect();
+        if (rect.top < line && rect.bottom > 0) el.classList.add("in");
+      });
+    };
+    reveal();
+    window.addEventListener("scroll", reveal, { passive: true });
+  }
+
+  var heroBtn = document.querySelector(".hero .btn");
+  var sticky = document.getElementById("stickyCta");
+  if (heroBtn && sticky && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      var visible = entries[0].isIntersecting;
+      sticky.classList.toggle("show", !visible);
+      sticky.setAttribute("aria-hidden", visible ? "true" : "false");
+      if (visible) sticky.setAttribute("inert", "");
+      else sticky.removeAttribute("inert");
+    }, { threshold: 0 }).observe(heroBtn);
+  }
+})();
+</script>
+</body>
+</html>

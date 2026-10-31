@@ -137,7 +137,8 @@
   .kit-glance{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 18px 10px}
   .kit-glance h3{font-family:var(--serif);font-weight:500;font-size:22px;margin-bottom:12px}
   .kit-glance ul{list-style:none;display:grid;gap:10px}
-  .kit-glance li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.4;color:var(--ink)}
+  .kit-glance li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.45;color:var(--ink)}
+  .kit-glance li strong{font-family:var(--serif);font-weight:500;font-size:17px}
   .kit-glance svg{flex:none;margin-top:2px}
   .feature{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
   .feature .copy{padding:22px 20px 8px}
@@ -235,8 +236,7 @@
     .guide img{height:100%;aspect-ratio:auto;min-height:420px}
     .band{display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:end}
     .band img{aspect-ratio:16/10}
-    .kit-glance ul{grid-template-columns:1fr 1fr}
-    .kit-glance li.wide{grid-column:1 / -1}
+    .kit-glance ul{grid-template-columns:1fr}
     .included{grid-template-columns:1fr 1fr}
     .included li.lead{grid-column:1 / -1}
     .steps{grid-template-columns:1fr 1fr}
@@ -471,20 +471,19 @@
       <div class="kit-glance rv">
         <h3>What's included</h3>
         <ul>
-          <li class="wide"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The 3-month program, <span data-sleigh="regular">$299</span>/month (<span data-sleigh="sale">$254.15</span>/month with code <span data-sleigh="code">SLEIGH</span> through <span data-sleigh="ends-short">Dec 31</span>)</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Weekly check-ins with Sabrina</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A welcome call in week 1</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A week 8 Plateau Protocol check-in with Sabrina, by call or text</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A simple starter guide with family-friendly meals</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>A simple starter guide with family-friendly meals.</strong> Shortcuts you can actually use, and real-life ideas for the holiday table. No dieting rules. Same kitchen. Same plates.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Patient portal access.</strong> Treatment questions go to your patient portal, where a real person answers.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Check-ins with Sabrina by text, so they fit your week.</strong> A welcome call in week 1, and a Plateau Protocol check-in by call or text at week 8.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The 3-month program, <span data-sleigh="regular">$299</span>/month (<span data-sleigh="sale">$254.15</span>/month with code <span data-sleigh="code">SLEIGH</span> through <span data-sleigh="ends-short">Dec 31</span>)</span></li>
         </ul>
       </div>
 
       <article class="feature rv">
         <div class="copy">
           <p class="kicker">When there is no time</p>
-          <h3>Weekly check-ins with Sabrina</h3>
-          <p>Weekly check-ins with Sabrina are short, supportive messages of encouragement. They are not clinical advice. Treatment questions go to your patient portal, where a real person answers.</p>
-          <p>Support that fits your busy week. You'll get a welcome call in week 1, weekly check-ins with Sabrina, and a Plateau Protocol check-in by call or text at week 8.</p>
+          <h3>Short texts from Sabrina</h3>
+          <p>Short, supportive texts. No extra appointment to fit in. They are not clinical advice. Treatment questions go to your patient portal, where a real person answers.</p>
+          <p>Support that fits your busy week. Sabrina checks in by text, with a welcome call in week 1 and a Plateau Protocol check-in at week 8.</p>
         </div>
         <img src="media/couch-checkin-800.webp" srcset="media/couch-checkin-800.webp 800w, media/couch-checkin-1600.webp 1600w" sizes="(min-width: 900px) 460px, 92vw" width="1600" height="2133" alt="A mom smiles at a text on her phone while curled up on the couch near a Christmas tree." loading="lazy" decoding="async">
       </article>
@@ -501,8 +500,8 @@
           <img src="media/winter-walk-800.webp" srcset="media/winter-walk-800.webp 800w, media/winter-walk-1600.webp 1600w" sizes="(min-width: 900px) 540px, 92vw" width="1600" height="1200" alt="Two friends walk a golden retriever down a snowy neighborhood street." loading="lazy" decoding="async">
           <div class="copy">
             <p class="kicker">The January cliff</p>
-            <h3>A week 8 Plateau Protocol check-in with Sabrina</h3>
-            <p>At week 8, Sabrina Mortensen, RN reaches out for the Plateau Protocol check-in, by call or text. It is there so you are not figuring out the last stretch alone.</p>
+            <h3>The Plateau Protocol at week 8</h3>
+            <p>At week 8, Sabrina Mortensen, RN reaches out, by call or text. It is there so you are not figuring out the last stretch alone.</p>
             <p>Around week 10 to 12, you and your provider review how things are going and decide on a next step together. Support runs through the end of January, not only while the lights are up.</p>
           </div>
         </article>
@@ -529,14 +528,12 @@
     <div class="wrap">
       <p class="eyebrow rv">What's included</p>
       <h2 class="big rv" id="included">Here is what you get.</h2>
-      <p class="lede rv">Weekly check-ins, a welcome call in week 1, a week 8 check-in, and a simple starter guide. Medication is prescribed only if a licensed provider determines it is appropriate.</p>
+      <p class="lede rv">A simple starter guide, texts from Sabrina, and the patient portal when a question is about treatment. Medication is prescribed only if a licensed provider determines it is appropriate.</p>
       <ul class="included">
-        <li class="lead rv"><strong>Weekly check-ins with Sabrina</strong>Short, supportive messages of encouragement through the season. Not clinical advice.</li>
-        <li class="rv"><strong>A welcome call in week 1</strong>A welcome call with a nurse, so the first week starts with a person.</li>
-        <li class="rv"><strong>A week 8 Plateau Protocol check-in with Sabrina</strong>Sabrina Mortensen, RN reaches out at week 8, by call or text.</li>
-        <li class="rv"><strong>A simple starter guide with family-friendly meals</strong>Practical meals and shortcuts for real weeks. No dieting rules.</li>
+        <li class="lead rv"><strong>A simple starter guide with family-friendly meals</strong>Shortcuts you can actually use, and real-life ideas for the holiday table. No dieting rules. Same kitchen. Same plates.</li>
+        <li class="rv"><strong>Patient portal access</strong>Treatment questions go to your patient portal, where a real person answers.</li>
+        <li class="rv"><strong>Check-ins with Sabrina by text</strong>They fit the week. A welcome call in week 1, and a Plateau Protocol check-in by call or text at week 8.</li>
         <li class="rv"><strong>The holiday table</strong>Inside the starter guide. Real-life strategies for gatherings, with no dieting rules.</li>
-        <li class="rv"><strong>Portal messaging</strong>Message your care team in the patient portal. Real people answer. Treatment questions belong here.</li>
         <li class="rv"><strong>Medication and supplies, if prescribed</strong>3 months of tirzepatide, plus the supplies that go with it, shipped to your home only if a licensed provider determines it's appropriate.</li>
       </ul>
       <h3 class="big rv" style="font-size:clamp(24px,5vw,32px);margin-top:36px">How it starts</h3>
@@ -544,7 +541,7 @@
         <li class="rv">Complete a 10-minute online assessment. About ten minutes, with no pressure. It is a clear next step.</li>
         <li class="rv">A licensed provider reviews your information and decides whether medication is right for you. A prescription happens only if your provider decides it is right for you.</li>
         <li class="rv">If approved, your program medication and supplies ship to your home.</li>
-        <li class="rv">You get weekly check-ins with Sabrina, a welcome call in week 1, and a week 8 Plateau Protocol check-in with Sabrina, by call or text. You can message the care team in the portal. Around week 10 to 12, you and your provider decide on a next step together.</li>
+        <li class="rv">Sabrina checks in by text, with a welcome call in week 1 and a Plateau Protocol check-in at week 8. You can message the care team in the portal. Around week 10 to 12, you and your provider review how things are going and decide on a next step together.</li>
       </ol>
     </div>
   </section>

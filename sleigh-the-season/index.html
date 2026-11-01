@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>document.documentElement.classList.add("js")</script>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sleigh the Season: 3 months of weight care support | Rese Wellness</title>
+<meta name="description" content="Sleigh the Season is Rese Wellness's nurse-supported 3-month weight care program. A licensed provider decides if a weekly GLP-1 medicine is right for you. Queen Creek, AZ.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://resewellness.com/sleigh-the-season/">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<meta name="theme-color" content="#FBF3E8">
+<link rel="preload" as="image" href="media/hero-poster.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://resewellness.com/sleigh-the-season/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rese Wellness">
+<meta property="og:title" content="Sleigh the Season: 3 months of weight care support">
+<meta property="og:description" content="$762.45 for all 3 months with code SLEIGH. Regular price $897. Your card is held until you are approved. Or about $254.15/mo with Klarna (buy now, pay later).">
+<meta property="og:image" content="media/hero-poster.webp">
+<!--
+  OFFER CONFIG
+  Edit only this block. Prices, the code, the end date, and the Klarna
+  line are filled from these values.
+  The program total is priceMonthly times programMonths. The card is
+  held at checkout and charged only after approval. It is not a Rese
+  payment schedule. Klarna is a checkout option, about the sale rate
+  per month, and Klarna's own terms apply.
+  At 299 for 3 months the total is $897. At 15 percent off, $762.45,
+  or about $254.15/mo with Klarna.
+  endsLabel is the only date format on the page.
+  KLARNA_MONTHLY_COPY is the Klarna sentence, built here.
+  klarnaConfirmed true shows that line with no tag.
+  Set klarnaConfirmed to false to show a Pending confirmation tag.
+-->
+<script>
+(function () {
+  var offer = {
+    priceMonthly: 299,
+    programMonths: 3,
+    discountPercent: 15,
+    code: "SLEIGH",
+    endsLabel: "Dec 31, 2026",
+    klarnaConfirmed: true
+  };
+  offer.regularMonthlyCents = offer.priceMonthly * 100;
+  offer.saleMonthlyCents = Math.round(offer.priceMonthly * (100 - offer.discountPercent));
+  offer.regularTotalCents = offer.regularMonthlyCents * offer.programMonths;
+  offer.saleTotalCents = offer.saleMonthlyCents * offer.programMonths;
+  window.SLEIGH_OFFER = offer;
+
+  function shortEnds(label) {
+    var names = {january:"Jan",february:"Feb",march:"Mar",april:"Apr",may:"May",june:"Jun",july:"Jul",august:"Aug",september:"Sep",october:"Oct",november:"Nov",december:"Dec"};
+    var parts = String(label).split(/[\s,]+/);
+    var month = names[(parts[0] || "").toLowerCase()];
+    var day = parts[1] || "";
+    if (!month || !day) return label;
+    return month + " " + day;
+  }
+
+  function moneyFromCents(cents) {
+    var whole = Math.floor(cents / 100);
+    var frac = cents % 100;
+    if (frac === 0) return "$" + whole;
+    var fracText = frac < 10 ? "0" + frac : String(frac);
+    return "$" + whole + "." + fracText;
+  }
+
+  window.applySleighOffer = function () {
+    var regularTotal = moneyFromCents(offer.regularTotalCents);
+    var saleTotal = moneyFromCents(offer.saleTotalCents);
+    var regularMonth = moneyFromCents(offer.regularMonthlyCents);
+    var saleMonth = moneyFromCents(offer.saleMonthlyCents);
+    var monthlyCopy = "Or choose Klarna (buy now, pay later) at checkout for about " + saleMonth + "/mo, subject to Klarna approval and terms.";
+    offer.KLARNA_MONTHLY_COPY = monthlyCopy;
+    window.KLARNA_MONTHLY_COPY = monthlyCopy;
+    var map = {
+      "regular-total": regularTotal,
+      "sale-total": saleTotal,
+      "regular-month": regularMonth,
+      "sale-month": saleMonth,
+      code: offer.code,
+      ends: offer.endsLabel,
+      "ends-short": shortEnds(offer.endsLabel),
+      percent: String(offer.discountPercent)
+    };
+    var priceLine = saleTotal + " for all " + offer.programMonths + " months with code " + offer.code + ". Regular price " + regularTotal + ". Your card is held until you are approved. " + monthlyCopy;
+    var og = document.querySelector('meta[property="og:description"]');
+    if (og) og.setAttribute("content", priceLine);
+    var nodes = document.querySelectorAll("[data-sleigh]");
+    for (var i = 0; i < nodes.length; i++) {
+      var key = nodes[i].getAttribute("data-sleigh");
+      if (map[key] != null) nodes[i].textContent = map[key];
+    }
+    var klarnaBlocks = document.querySelectorAll("[data-klarna]");
+    for (var k = 0; k < klarnaBlocks.length; k++) {
+      var tag = klarnaBlocks[k].querySelector(".pending");
+      if (tag) tag.hidden = !!offer.klarnaConfirmed;
+    }
+    var slots = document.querySelectorAll("[data-klarna-monthly]");
+    for (var s = 0; s < slots.length; s++) {
+      slots[s].textContent = monthlyCopy;
+      slots[s].hidden = !monthlyCopy;
+    }
+  };
+})();
+</script>
+<style>
+  :root{
+    --cream:#FBF3E8; --cream-deep:#F3E6D4; --ink:#1C1412; --muted:#3E342E;
+    --cranberry:#6E2433; --cranberry-deep:#4E1524; --evergreen:#1B3D32; --evergreen-mid:#234E40;
+    --gold:#5C4520; --line:#E4D3B8; --white:#FFFCF7;
+    --serif:'Lora',Georgia,'Times New Roman',serif;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+    --header:68px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img,video{max-width:100%;display:block}
+  a{color:var(--cranberry-deep)}
+  .skip{position:absolute;left:12px;top:-40px;background:#fff;color:var(--ink);padding:8px 12px;z-index:80;border-radius:4px}
+  .skip:focus{top:12px}
+  :focus-visible{outline:3px solid var(--cranberry-deep);outline-offset:3px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;z-index:20;background:rgba(251,243,232,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:var(--header);max-width:1120px;margin:0 auto;padding:0 20px;gap:16px}
+  .logo{display:flex;text-decoration:none}
+  .logo img{height:40px;width:auto}
+  .nav .nav-cta{display:none}
+  h1,h2,h3{text-wrap:balance}
+  p,li{text-wrap:pretty}
+  .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--cranberry);color:#FFFCF7;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:16px 28px;border-radius:2px;min-height:52px;border:none;cursor:pointer}
+  .btn:hover{background:var(--cranberry-deep)}
+  .btn.light{background:var(--cream);color:var(--cranberry-deep)}
+  .btn.light:hover{background:#fff}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:10px}
+  .hero{position:relative;background:var(--cream);color:var(--ink);padding:8px 0 4px}
+  .hero-frame{position:relative;margin:4px 16px 0;border-radius:22px;overflow:hidden;aspect-ratio:16/9;background:#F3E6D4;border:1px solid rgba(196,163,90,.5);box-shadow:0 12px 28px rgba(92,69,32,.1)}
+  .hero-still{position:absolute;inset:0;transform-origin:50% 0;animation:ken 20s ease-in-out infinite alternate}
+  .hero-still.is-paused{animation-play-state:paused}
+  @keyframes ken{from{transform:scale(1)}to{transform:scale(1.14)}}
+  .hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:1}
+  .hero-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+  .hero-copy{container-type:inline-size;padding:12px 20px 8px}
+  .hero .eyebrow{display:block;color:var(--gold);margin-bottom:8px;white-space:nowrap;letter-spacing:.12em;font-size:11px}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(30px,calc((100cqi - 8px) / 8.2),84px);line-height:.95;letter-spacing:-.02em;margin:0 0 4px;color:var(--ink);white-space:nowrap}
+  .hero .subhead{font-family:var(--serif);font-weight:500;font-size:clamp(20px,4.6vw,28px);line-height:1.2;margin:2px 0 10px;color:var(--ink)}
+  @keyframes titleIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  html.js .hero h1{animation:titleIn .7s ease both}
+  .hero .warm{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.35;color:var(--cranberry-deep);max-width:22em;margin:0 0 8px}
+  .hero .sub{font-size:15px;line-height:1.4;color:var(--ink);max-width:36em;margin:0 0 12px}
+  .chips{display:flex;flex-wrap:nowrap;gap:6px;margin:0 0 14px;padding:0;list-style:none}
+  .chips li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 8px;font-size:11px;line-height:1.3;color:var(--ink);white-space:nowrap}
+  @keyframes chipIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  html.js .chips li{animation:chipIn .55s ease both}
+  html.js .chips li:nth-child(2){animation-delay:.07s}
+  html.js .chips li:nth-child(3){animation-delay:.14s}
+  html.js .chips li:nth-child(4){animation-delay:.21s}
+  html.js .chips li:nth-child(5){animation-delay:.28s}
+  html.js .chips li:nth-child(6){animation-delay:.35s}
+  .hero .hook{font-family:var(--serif);font-style:italic;font-size:clamp(16px,4vw,22px);line-height:1.35;max-width:24em;margin-bottom:8px;color:var(--cranberry-deep)}
+  .hero .intro{font-size:15px;line-height:1.45;max-width:38em;margin:12px 0 0;color:#3E342E}
+  .hero .btn{width:100%;letter-spacing:.05em;padding:14px 12px;font-size:13px;min-height:48px}
+  .hero .reassure{margin-top:10px;font-size:12px;line-height:1.4;color:#5C534C;max-width:40em}
+  .hero :focus-visible{outline-color:var(--cranberry-deep)}
+  .hero + section{padding-top:28px}
+  section{padding:56px 0 8px}
+  .big{font-family:var(--serif);font-weight:500;font-size:clamp(26px,5.2vw,36px);line-height:1.15;margin-bottom:12px}
+  .lede{font-size:17px;color:var(--muted);max-width:42em}
+  .kit-glance{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 18px 10px}
+  .kit-glance h3{font-family:var(--serif);font-weight:500;font-size:22px;margin-bottom:12px}
+  .kit-glance ul{list-style:none;display:grid;gap:10px}
+  .kit-glance li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.45;color:var(--ink)}
+  .kit-glance li strong{font-family:var(--serif);font-weight:500;font-size:17px}
+  .kit-glance svg{flex:none;margin-top:2px}
+  .feature{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .feature .copy{padding:22px 20px 8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--cranberry);margin-bottom:8px}
+  .feature h3{font-family:var(--serif);font-weight:500;font-size:clamp(26px,6vw,36px);line-height:1.15;margin-bottom:10px}
+  .feature p,.card p,.note p,.included li,.steps li{font-size:16px;color:var(--muted)}
+  .feature p+p,.card p+p,.note p+p{margin-top:12px}
+  .feature img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center 20%}
+  .split{display:grid;gap:14px;margin-top:14px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .card .copy{padding:22px 20px}
+  .card h3{font-family:var(--serif);font-weight:500;font-size:clamp(22px,5vw,28px);line-height:1.2;margin-bottom:8px}
+  .card.welcome{background:var(--evergreen);color:#F7F1E8;border-color:var(--evergreen)}
+  .card.welcome .kicker{color:#E4C98A}
+  .card.welcome p{color:#E7E1D4}
+  .card img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+  .guide{display:grid;gap:0;margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .guide img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center 40%}
+  .guide .copy{padding:22px 20px}
+  .guide h3{font-family:var(--serif);font-weight:500;font-size:clamp(22px,5vw,30px);line-height:1.2;margin-bottom:8px}
+  .band{margin-top:28px}
+  .band img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
+  .band p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,4.6vw,28px);line-height:1.35;margin-top:14px;max-width:22em}
+  .included{list-style:none;margin-top:18px;display:grid;gap:10px}
+  .included li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 16px 16px 48px;position:relative;color:var(--ink)}
+  .included li strong{display:block;font-family:var(--serif);font-weight:500;font-size:18px;color:var(--ink);margin-bottom:4px}
+  .included li::before{content:"";position:absolute;left:16px;top:18px;width:18px;height:18px;border-radius:50%;background:var(--evergreen) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F7F1E8' stroke-width='2.4'><path d='M20 6 9 17l-5-5'/></svg>") center/12px no-repeat}
+  .included li.lead{border-color:#E7C9A4;background:#FFF9F2}
+  .steps{list-style:none;margin-top:16px;display:grid;gap:10px;counter-reset:step}
+  .steps li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 58px;position:relative;color:var(--ink)}
+  .steps li::before{counter-increment:step;content:counter(step);position:absolute;left:14px;top:14px;width:32px;height:32px;border-radius:50%;background:var(--cream-deep);color:var(--cranberry-deep);font-family:var(--serif);display:flex;align-items:center;justify-content:center}
+  .note-grid{margin-top:8px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .note img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+  .portrait{width:84px;height:112px;border-radius:12px;object-fit:cover;object-position:center 15%;float:left;margin:0 14px 8px 0;aspect-ratio:auto}
+  .note .copy{padding:22px 20px 26px}
+  .note h2{margin-bottom:12px}
+  .sign{margin-top:16px;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink)}
+  .sign span{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-top:2px}
+  .price-card{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 20px 24px;box-shadow:0 16px 40px rgba(78,21,36,.06)}
+  .price-sale{font-family:var(--serif);font-weight:500;font-size:clamp(22px,6vw,40px);line-height:1;color:var(--cranberry-deep);letter-spacing:-.02em}
+  .price-lead{margin-top:10px;font-size:17px;line-height:1.45;color:var(--ink);max-width:28em}
+  .price-regular{margin-top:10px;color:var(--muted);font-size:16px}
+  .price-regular s{color:#6A5E54}
+  .klarna-terms{margin-top:8px;font-size:13.5px;line-height:1.45;color:var(--muted)}
+  .code-line{margin-top:14px;font-size:16px;color:var(--ink)}
+  .code{display:inline-block;border:1.5px dashed #C4A35A;border-radius:100px;padding:2px 10px;letter-spacing:.14em;font-weight:600;color:var(--cranberry-deep)}
+  .klarna{margin-top:14px;font-size:16px;font-weight:600;color:var(--ink)}
+  .klarna-monthly:not([hidden]){font-weight:600;color:var(--ink)}
+  .price-card .klarna-monthly:not([hidden]),
+  .faq .klarna-monthly:not([hidden]){display:block;margin-top:8px;font-size:16px}
+  .klarna-monthly[hidden]{display:none}
+  .pending{margin-left:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--cranberry-deep);background:var(--cream-deep);border:1px solid #C4A35A;border-radius:100px;padding:4px 8px;vertical-align:middle}
+  .pending[hidden]{display:none}
+  .fine{margin-top:14px;font-size:14.5px;color:var(--muted)}
+  .safety{margin-top:16px;background:var(--cream-deep);border-radius:12px;padding:14px 16px;font-size:14.5px;color:#2A211C}
+  .faq{margin-top:8px;border-top:1px solid var(--line)}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{cursor:pointer;list-style:none;font-family:var(--serif);font-size:18px;line-height:1.35;padding:16px 36px 16px 0;position:relative}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";position:absolute;right:0;top:14px;color:var(--cranberry);font-family:var(--sans);font-size:22px;line-height:1;transition:transform .2s ease}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{padding:0 0 16px;color:var(--muted);max-width:65ch}
+  .final{background:var(--evergreen);color:#F7F1E8;text-align:center;padding:64px 20px;margin-top:48px}
+  .final h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,5.2vw,36px);line-height:1.15;margin-bottom:10px}
+  .final p{max-width:38em;margin:0 auto 22px;color:#E7E1D4}
+  .final :focus-visible{outline-color:#F7F1E8}
+  .facts{list-style:none;margin-top:14px;display:grid;gap:8px}
+  .facts li{font-size:14.5px;line-height:1.4;color:var(--ink);padding-left:22px;position:relative}
+  .facts li::before{content:"";position:absolute;left:0;top:6px;width:10px;height:10px;border-radius:50%;background:var(--evergreen)}
+  footer{padding:32px 20px 160px;font-size:13.5px;color:#4A403A;max-width:1120px;margin:0 auto}
+  footer a{color:#4E1524}
+  footer nav{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px}
+  footer .safety{margin-top:0}
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(251,243,232,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .35s ease}
+  .sticky.show{transform:none}
+  .sticky-copy{display:flex;flex-direction:column;gap:1px;min-width:0;font-size:11.5px;line-height:1.25;color:var(--muted)}
+  .sticky-line{white-space:nowrap}
+  .sticky strong{font-family:var(--serif);font-weight:500;font-size:13.5px;color:var(--ink)}
+  .sticky .btn{padding:10px 6px;min-height:44px;font-size:10px;letter-spacing:0;flex:none}
+  html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  html.js .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .rv,.spark,.hero-still,.chips li,.hero h1{opacity:1;transform:none;transition:none;animation:none}
+    .sticky{transition:none}
+  }
+  @media (min-width:900px){
+    .nav .nav-cta{display:inline-flex}
+    section{padding:84px 0 12px}
+    .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:36px;max-width:1120px;margin:0 auto;padding:32px 28px 12px}
+    .hero-copy{order:1;padding:8px 0}
+    .hero-frame{order:2;margin:0;aspect-ratio:4/3}
+    .hero-poster{object-position:62% 42%}
+    .hero .btn{width:auto}
+    .hero + section{padding-top:56px}
+    .feature{display:grid;grid-template-columns:1.15fr .85fr;align-items:stretch}
+    .feature .copy{padding:40px 40px 40px 36px;display:flex;flex-direction:column;justify-content:center}
+    .feature img{height:100%;aspect-ratio:auto;min-height:520px}
+    .split{grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
+    .card{display:flex;flex-direction:column}
+    .card.welcome .copy{flex:1;display:flex;flex-direction:column;justify-content:center;padding:32px}
+    .guide{grid-template-columns:1.05fr .95fr;align-items:stretch}
+    .guide .copy{padding:36px;display:flex;flex-direction:column;justify-content:center}
+    .guide img{height:100%;aspect-ratio:auto;min-height:420px}
+    .band{display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:end}
+    .band img{aspect-ratio:16/10}
+    .kit-glance ul{grid-template-columns:1fr}
+    .included{grid-template-columns:1fr 1fr}
+    .included li.lead{grid-column:1 / -1}
+    .steps{grid-template-columns:1fr 1fr}
+    .note-grid{display:grid;grid-template-columns:.9fr 1.1fr}
+    .note img.scene{height:100%;aspect-ratio:auto;min-height:100%;object-fit:cover}
+    .note .copy{padding:40px 40px 40px 36px}
+    .price-card{padding:36px 40px}
+    .faq summary{font-size:20px}
+    .final{padding:88px 22px}
+    .sticky{display:none}
+    footer{padding-bottom:48px}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <nav class="nav" aria-label="Sleigh the Season">
+    <a class="logo" href="/" aria-label="Rese Wellness home">
+      <img src="../assets/rese-logo.png" alt="Rese Wellness" width="160" height="40">
+    </a>
+    <a class="btn nav-cta" href="/getstarted/">See if this program is right for you</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="h1">
+    <div class="hero-frame">
+      <div class="hero-still" id="heroStill">
+        <img class="hero-poster" id="heroPoster" src="media/hero-poster-720.webp" srcset="media/hero-poster-720.webp 720w, media/hero-poster.webp 1280w" sizes="(min-width: 900px) 560px, calc(100vw - 32px)" width="1280" height="720" alt="A woman in her late thirties wraps herself in a knit blanket by a frosted window, holding a warm mug as holiday lights glow outside." fetchpriority="high" decoding="async">
+        <canvas class="hero-fx" id="heroFx" aria-hidden="true"></canvas>
+      </div>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow">Nurse-supported weight care</p>
+      <h1 id="h1">Sleigh the Season</h1>
+      <p class="subhead">3 months of weight care support</p>
+      <p class="warm">You carry everyone this season. Let us help carry your health.</p>
+      <p class="sub">Weekly GLP-1 medicine, if a licensed provider says it's right for you.</p>
+      <a class="btn" href="/getstarted/">See if this program is right for you</a>
+      <p class="reassure">Compounded medications are not FDA-approved.</p>
+    </div>
+  </section>
+  <script>
+  (function () {
+    var frame = document.querySelector(".hero-frame");
+    var still = document.getElementById("heroStill");
+    var canvas = document.getElementById("heroFx");
+    var img = document.getElementById("heroPoster");
+    if (!frame || !still || !canvas || !img) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    var ctx = canvas.getContext("2d", { alpha: true });
+    var running = false;
+    var raf = 0;
+    var last = 0;
+    var clock = 0;
+    var mapPoint = function (x, y) { return { x: 0, y: 0 }; };
+
+    /* Measured on the 1280x720 still. Snow stays in the window.
+       Steam is not drawn. A visible wisp read as smoke near her face. */
+    var WINDOW = { x0: 0.02, y0: 0.02, x1: 0.46, y1: 0.66 };
+    var LIGHTS = [
+      [0.09, 0.30], [0.15, 0.46], [0.07, 0.56],
+      [0.22, 0.38], [0.31, 0.34], [0.37, 0.50], [0.42, 0.28]
+    ];
+
+    function unit(value) {
+      if (!value || value === "center") return 0.5;
+      if (value === "left" || value === "top") return 0;
+      if (value === "right" || value === "bottom") return 1;
+      if (value.indexOf("%") >= 0) return parseFloat(value) / 100;
+      return 0.5;
+    }
+
+    function resize() {
+      var rect = frame.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = Math.max(1, Math.round(rect.width * dpr));
+      canvas.height = Math.max(1, Math.round(rect.height * dpr));
+      var pos = getComputedStyle(img).objectPosition.split(/\s+/);
+      var px = unit(pos[0]);
+      var py = unit(pos[1] || "center");
+      var iw = 1280;
+      var ih = 720;
+      var scale = Math.max(canvas.width / iw, canvas.height / ih);
+      var dw = iw * scale;
+      var dh = ih * scale;
+      var left = (canvas.width - dw) * px;
+      var top = (canvas.height - dh) * py;
+      mapPoint = function (ix, iy) {
+        return { x: left + ix * dw, y: top + iy * dh };
+      };
+    }
+
+    var flakes = [];
+    function makeFlake(scatter) {
+      return {
+        x: WINDOW.x0 + Math.random() * (WINDOW.x1 - WINDOW.x0),
+        y: scatter ? WINDOW.y0 + Math.random() * (WINDOW.y1 - WINDOW.y0) : WINDOW.y0 - Math.random() * 0.04,
+        vy: 0.03 + Math.random() * 0.045,
+        r: 0.7 + Math.random() * 1.5,
+        sway: Math.random() * 8 + 1,
+        alpha: 0.55 + Math.random() * 0.4
+      };
+    }
+    for (var n = 0; n < 42; n++) flakes.push(makeFlake(true));
+
+    function draw(now) {
+      if (!running) return;
+      var dt = last ? Math.min(0.05, (now - last) / 1000) : 0.016;
+      last = now;
+      clock += dt;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      var i, p, u, pt, rad, grd;
+      for (i = 0; i < LIGHTS.length; i++) {
+        pt = mapPoint(LIGHTS[i][0], LIGHTS[i][1]);
+        u = 0.15 + 0.85 * (0.5 + 0.5 * Math.sin(clock * (1.4 + (i * 0.37)) + i * 1.7));
+        rad = (7 + u * 9) * (canvas.width / 400);
+        grd = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, rad);
+        grd.addColorStop(0, "rgba(255, 236, 180, " + (0.85 * u) + ")");
+        grd.addColorStop(0.45, "rgba(255, 210, 120, " + (0.35 * u) + ")");
+        grd.addColorStop(1, "rgba(255, 210, 120, 0)");
+        ctx.fillStyle = grd;
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, rad, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      for (i = 0; i < flakes.length; i++) {
+        p = flakes[i];
+        p.y += p.vy * dt;
+        p.x += Math.sin(clock * 0.65 + p.sway) * 0.012 * dt;
+        if (p.y > WINDOW.y1 || p.x < WINDOW.x0 - 0.02 || p.x > WINDOW.x1 + 0.02) flakes[i] = makeFlake(false);
+        pt = mapPoint(flakes[i].x, flakes[i].y);
+        var flakeR = flakes[i].r * (canvas.width / Math.max(1, frame.getBoundingClientRect().width));
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, flakeR, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255,255,255," + flakes[i].alpha + ")";
+        ctx.fill();
+      }
+
+      raf = requestAnimationFrame(draw);
+    }
+
+    function play() {
+      if (running) return;
+      running = true;
+      last = 0;
+      raf = requestAnimationFrame(draw);
+      still.classList.remove("is-paused");
+    }
+    function pause() {
+      running = false;
+      cancelAnimationFrame(raf);
+      still.classList.add("is-paused");
+    }
+
+    resize();
+    window.addEventListener("resize", resize);
+    if (frame.getBoundingClientRect().bottom > 0) play();
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) play();
+        else pause();
+      }, { threshold: 0.02 }).observe(frame);
+    }
+  })();
+  </script>
+
+  <section aria-labelledby="included">
+    <div class="wrap">
+      <p class="eyebrow rv">What's included</p>
+      <h2 class="big rv" id="included">The Support Kit</h2>
+      <p class="lede rv">Rese Wellness's holiday program.</p>
+      <div class="kit-glance rv">
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>A simple starter guide.</strong> Family-friendly meals for the holiday table. No dieting rules.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Patient portal.</strong> Message the care team about treatment.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>A weekly text from your nurse, Sabrina Mortensen, RN.</strong> Reply when it suits you.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>A plan for after month 3.</strong> Continued treatment, or a way to maintain the habits you've built. Your provider decides with you.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="note">
+    <div class="wrap">
+      <div class="note-grid note rv">
+        <img class="scene" src="media/wrapping-gifts-800.webp" srcset="media/wrapping-gifts-800.webp 800w, media/wrapping-gifts-1600.webp 1600w" sizes="(min-width: 900px) 480px, 92vw" width="1600" height="1200" alt="A woman wraps gifts at the kitchen table with coffee and soft holiday lights." loading="lazy" decoding="async">
+        <div class="copy">
+          <p class="eyebrow">A note from Sabrina Mortensen, RN</p>
+          <h2 class="big" id="note">The one thing on your list that's for you.</h2>
+          <img class="portrait" src="../assets/founder-sabrina.jpg" width="900" height="1200" alt="Sabrina Mortensen, RN" loading="lazy" decoding="async">
+          <p>As a nurse and a mom of 4, I know this season can put you last. A licensed provider decides whether medication is right for you.</p>
+          <p class="sign">Sabrina Mortensen, RN<span>Co-founder</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="pricing">
+    <div class="wrap">
+      <p class="eyebrow rv">Pricing</p>
+      <h2 class="big rv" id="pricing">What you pay</h2>
+      <p class="lede rv">Rese Wellness. Telehealth from Queen Creek, AZ.</p>
+      <div class="price-card rv">
+        <p class="price-sale"><span data-sleigh="sale-total">$762.45</span></p>
+        <p class="price-lead">for all 3 months with code <span class="code" data-sleigh="code">SLEIGH</span>.</p>
+        <p class="price-regular">Regular price <s><span data-sleigh="regular-total">$897</span></s>. <span data-sleigh="code">SLEIGH</span> is good through <span data-sleigh="ends">Dec 31, 2026</span>.</p>
+        <p>Your card is held at checkout and charged only once you are approved. If not, you are not charged.</p>
+        <p class="klarna" data-klarna>Or Klarna (buy now, pay later) at checkout: about <span data-sleigh="sale-month">$254.15</span>/mo, subject to Klarna approval and terms. <span class="pending" hidden>Pending confirmation</span></p>
+        <p class="fine">HSA/FSA cards accepted. This is self-pay. We do not bill insurance.</p>
+        <ul class="facts">
+          <li>The medication is a weekly at-home injection. Rese provides education on how to do it.</li>
+          <li>Labs are not required. They are available on request for an additional charge.</li>
+          <li>If approved, medication ships in 2 to 3 days.</li>
+        </ul>
+        <p class="safety">Compounded medications are not FDA-approved. A licensed provider decides if medication is right for you.</p>
+        <p style="margin-top:18px"><a class="btn" href="/getstarted/">See if this program is right for you</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq">
+    <div class="wrap">
+      <p class="eyebrow rv">Questions</p>
+      <h2 class="big rv" id="faq">Before you start</h2>
+      <div class="faq rv">
+        <details>
+          <summary>What is Sleigh the Season?</summary>
+          <p>Rese Wellness's 3-month holiday weight care program, with nurse support from Sabrina Mortensen, RN. A licensed provider decides if tirzepatide, a weekly GLP-1 medicine, is right for you.</p>
+        </details>
+        <details>
+          <summary>Is it a shot?</summary>
+          <p>Yes. The medication is a weekly at-home injection. Rese provides education on how to do it.</p>
+        </details>
+        <details>
+          <summary>Do I need labs?</summary>
+          <p>No. Labs are not required. They are available on request for an additional charge.</p>
+        </details>
+        <details>
+          <summary>Does insurance cover it?</summary>
+          <p>No. This is self-pay. We do not bill insurance. HSA/FSA cards are accepted. Klarna (buy now, pay later) is an option at checkout.</p>
+        </details>
+        <details>
+          <summary>How soon can I start?</summary>
+          <p>The assessment is about 10 minutes. If a licensed provider approves you, medication ships within 2 to 3 days.</p>
+        </details>
+        <details>
+          <summary>What if I'm not approved?</summary>
+          <p>You are not charged. Rese holds the card and runs the charge only once you are approved. If not, the hold is released.</p>
+        </details>
+        <details>
+          <summary>What does the program cost?</summary>
+          <p><span data-sleigh="sale-total">$762.45</span> for all 3 months with code <span data-sleigh="code">SLEIGH</span>, through <span data-sleigh="ends">Dec 31, 2026</span>. Regular price <span data-sleigh="regular-total">$897</span>. Or about <span data-sleigh="sale-month">$254.15</span>/mo with Klarna (buy now, pay later), subject to Klarna approval and terms. The card is only charged once you are approved.</p>
+        </details>
+        <details>
+          <summary>What happens after 3 months?</summary>
+          <p>We help you move to continued treatment, or a plan to maintain the habits you've built. Your provider sets the path.</p>
+        </details>
+        <details>
+          <summary>Are compounded medications FDA-approved?</summary>
+          <p>No. Compounded medications are not FDA-approved as finished drug products. A licensed provider decides if medication is right for you.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <h2>We'll carry you into the new year.</h2>
+    <p>Rese Wellness. Telehealth from Queen Creek, AZ.</p>
+    <a class="btn light" href="/getstarted/">See if this program is right for you</a>
+  </section>
+</main>
+
+<footer>
+  <p class="safety">Compounded medications are prepared by a licensed compounding pharmacy and are not FDA-approved as finished drug products. Medication is prescribed only if a licensed provider determines it's appropriate.</p>
+  <p style="margin-top:14px">HSA/FSA accepted. Rese Wellness, Queen Creek, AZ.</p>
+  <p style="margin-top:8px">Medical questions go to your patient portal. A licensed provider responds. Billing, shipping, and account questions: <a href="mailto:support@resewellness.com">support@resewellness.com</a>, Monday to Friday, 8am to 5pm Arizona time (MST). Not a patient yet? <a href="mailto:hello@resewellness.com">hello@resewellness.com</a>.</p>
+  <p style="margin-top:8px">Trouble breathing, severe abdominal pain, or anything that feels like an emergency: dial 911 or go to the nearest emergency room. Do not wait for a message back.</p>
+  <nav aria-label="Legal">
+    <a href="/faq/">FAQ</a>
+    <a href="/legal/#privacy">Privacy Policy</a>
+    <a href="/legal/#terms">Terms of Service</a>
+    <a href="/legal/#telehealth">Telehealth Consent</a>
+    <a href="/legal/#hipaa">HIPAA Notice</a>
+    <a href="/legal/#refunds">Refund and Shipping Policy</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <p style="margin-top:14px">© 2026 Rese Wellness, LLC · Queen Creek, AZ</p>
+</footer>
+
+<div class="sticky" id="stickyCta" aria-hidden="true" inert>
+  <span class="sticky-copy">
+    <span class="sticky-line"><strong><span data-sleigh="sale-total">$762.45</span></strong> with code <span data-sleigh="code">SLEIGH</span></span>
+    <span class="sticky-line">or about <strong><span data-sleigh="sale-month">$254.15</span>/mo</strong> with Klarna</span>
+  </span>
+  <a class="btn" href="/getstarted/">See if it's right for me</a>
+</div>
+
+<script>
+applySleighOffer();
+(function () {
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var blocks = document.querySelectorAll(".rv");
+  if (reduced || !("IntersectionObserver" in window)) {
+    blocks.forEach(function (el) { el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    blocks.forEach(function (el) { io.observe(el); });
+    var reveal = function () {
+      var line = window.innerHeight * 0.92;
+      blocks.forEach(function (el) {
+        if (el.classList.contains("in")) return;
+        var rect = el.getBoundingClientRect();
+        if (rect.top < line && rect.bottom > 0) el.classList.add("in");
+      });
+    };
+    reveal();
+    window.addEventListener("scroll", reveal, { passive: true });
+  }
+
+  var heroBtn = document.querySelector(".hero .btn");
+  var sticky = document.getElementById("stickyCta");
+  if (heroBtn && sticky && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      var visible = entries[0].isIntersecting;
+      sticky.classList.toggle("show", !visible);
+      sticky.setAttribute("aria-hidden", visible ? "true" : "false");
+      if (visible) sticky.setAttribute("inert", "");
+      else sticky.removeAttribute("inert");
+    }, { threshold: 0 }).observe(heroBtn);
+  }
+})();
+</script>
+</body>
+</html>

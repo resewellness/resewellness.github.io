@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /sleigh-the-season/starter-guide.pdf
 
 Sitemap: https://resewellness.com/sitemap.xml

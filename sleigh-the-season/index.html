@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sleigh the Season: 3 months of tirzepatide and real support | Rese Wellness</title>
-<meta name="description" content="Sleigh the Season is a 3-month program from Rese Wellness. Weekly check-ins with Sabrina, a welcome call in week 1, a week 8 Plateau Protocol check-in, and a simple starter guide. Queen Creek, AZ.">
+<meta name="description" content="Sleigh the Season is Rese Wellness's nurse-led 3-month weight care program. Text check-ins with Sabrina Mortensen, RN, a starter guide, and a prescribing provider. Queen Creek, AZ.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="canonical" href="https://resewellness.com/sleigh-the-season/">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
@@ -19,7 +19,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rese Wellness">
 <meta property="og:title" content="Sleigh the Season: 3 months of tirzepatide and real support">
-<meta property="og:description" content="$762.45 for the 3-month program with code SLEIGH, paid up front. Regular price $897. Klarna is available at checkout.">
+<meta property="og:description" content="$762.45 for the 3-month program with code SLEIGH, paid up front. Or $254.15/mo for 3 months with Klarna (buy now, pay later), subject to Klarna approval and terms.">
 <meta property="og:image" content="media/hero-poster.webp">
 <!--
   OFFER CONFIG
@@ -28,13 +28,11 @@
   Rese charges the 3-month program up front. priceMonthly is the list
   rate used to compute that total. It is not a Rese payment schedule.
   regular total = priceMonthly * programMonths.
-  sale total applies discountPercent, rounded to the cent, then times
-  programMonths. At 299 for 3 months the total is $897. At 15 percent
-  off, that is $762.45.
-  KLARNA_MONTHLY_COPY is the only Klarna installment sentence. Leave it
-  as an empty string until the plan wording is confirmed. Empty keeps
-  every [data-klarna-monthly] slot hidden. Klarna Pay in 4 is biweekly,
-  so do not add a schedule or other plan terms that are not confirmed.
+  The sale rate is rounded to the cent, then times programMonths.
+  At 299 for 3 months the total is $897, or $299/mo with Klarna.
+  At 15 percent off, that is $762.45, or $254.15/mo with Klarna.
+  KLARNA_MONTHLY_COPY is built here and fills every [data-klarna-monthly]
+  slot. It always names Klarna and sits next to the up-front total.
   klarnaConfirmed true shows Klarna as available at checkout, with no tag.
   Set klarnaConfirmed to false to show a Pending confirmation tag.
 -->
@@ -46,13 +44,13 @@
     discountPercent: 15,
     code: "SLEIGH",
     endsLabel: "December 31, 2026",
-    klarnaConfirmed: true,
-    KLARNA_MONTHLY_COPY: ""
+    klarnaConfirmed: true
   };
-  offer.regularTotalCents = offer.priceMonthly * offer.programMonths * 100;
-  offer.saleTotalCents = Math.round(offer.priceMonthly * (100 - offer.discountPercent)) * offer.programMonths;
+  offer.regularMonthlyCents = offer.priceMonthly * 100;
+  offer.saleMonthlyCents = Math.round(offer.priceMonthly * (100 - offer.discountPercent));
+  offer.regularTotalCents = offer.regularMonthlyCents * offer.programMonths;
+  offer.saleTotalCents = offer.saleMonthlyCents * offer.programMonths;
   window.SLEIGH_OFFER = offer;
-  window.KLARNA_MONTHLY_COPY = offer.KLARNA_MONTHLY_COPY;
 
   function shortEnds(label) {
     var names = {january:"Jan",february:"Feb",march:"Mar",april:"Apr",may:"May",june:"Jun",july:"Jul",august:"Aug",september:"Sep",october:"Oct",november:"Nov",december:"Dec"};
@@ -74,18 +72,22 @@
   window.applySleighOffer = function () {
     var regularTotal = moneyFromCents(offer.regularTotalCents);
     var saleTotal = moneyFromCents(offer.saleTotalCents);
+    var regularMonth = moneyFromCents(offer.regularMonthlyCents);
+    var saleMonth = moneyFromCents(offer.saleMonthlyCents);
+    var monthlyCopy = "Or " + saleMonth + "/mo for " + offer.programMonths + " months with Klarna (buy now, pay later), subject to Klarna approval and terms.";
+    offer.KLARNA_MONTHLY_COPY = monthlyCopy;
+    window.KLARNA_MONTHLY_COPY = monthlyCopy;
     var map = {
       "regular-total": regularTotal,
       "sale-total": saleTotal,
+      "regular-month": regularMonth,
+      "sale-month": saleMonth,
       code: offer.code,
       ends: offer.endsLabel,
       "ends-short": shortEnds(offer.endsLabel),
       percent: String(offer.discountPercent)
     };
-    var monthlyCopy = String(offer.KLARNA_MONTHLY_COPY || "").trim();
-    window.KLARNA_MONTHLY_COPY = monthlyCopy;
-    var priceLine = saleTotal + " for the " + offer.programMonths + "-month program with code " + offer.code + ", paid up front. Regular price " + regularTotal + ". Prefer to split it? Klarna is available at checkout.";
-    if (monthlyCopy) priceLine += " " + monthlyCopy;
+    var priceLine = saleTotal + " for the " + offer.programMonths + "-month program with code " + offer.code + ", paid up front. Regular price " + regularTotal + " up front, or " + regularMonth + "/mo with Klarna. " + monthlyCopy;
     var og = document.querySelector('meta[property="og:description"]');
     if (og) og.setAttribute("content", priceLine);
     var nodes = document.querySelectorAll("[data-sleigh]");
@@ -143,13 +145,20 @@
   @keyframes ken{from{transform:scale(1)}to{transform:scale(1.14)}}
   .hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:1}
   .hero-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
-  .hero-copy{padding:18px 20px 8px}
-  .hero .eyebrow{display:flex;align-items:center;gap:8px;color:var(--gold)}
-  .spark{flex:none;animation:twinkle 2.8s ease-in-out infinite;transform-origin:center}
-  @keyframes twinkle{50%{opacity:.4;transform:scale(.82)}}
-  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(30px,8vw,52px);line-height:1.14;letter-spacing:-.015em;max-width:14em;margin-bottom:8px;color:var(--ink)}
-  .hero .hook{font-family:var(--serif);font-style:italic;font-size:clamp(17px,4.4vw,23px);line-height:1.35;max-width:24em;margin-bottom:10px;color:var(--cranberry-deep)}
-  .hero .intro{font-size:15.5px;line-height:1.5;max-width:38em;margin-bottom:16px;color:#3E342E}
+  .hero-copy{padding:12px 20px 8px}
+  .hero .eyebrow{display:flex;align-items:center;gap:8px;color:var(--gold);margin-bottom:6px}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(28px,7.2vw,48px);line-height:1.12;letter-spacing:-.015em;max-width:14em;margin-bottom:6px;color:var(--ink)}
+  .hero .sub{font-size:15px;line-height:1.4;color:var(--ink);max-width:40em;margin:0 0 10px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px;padding:0;list-style:none}
+  .chips li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:12.5px;line-height:1.3;color:var(--ink)}
+  @keyframes chipIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  html.js .chips li{animation:chipIn .55s ease both}
+  html.js .chips li:nth-child(2){animation-delay:.07s}
+  html.js .chips li:nth-child(3){animation-delay:.14s}
+  html.js .chips li:nth-child(4){animation-delay:.21s}
+  html.js .chips li:nth-child(5){animation-delay:.28s}
+  .hero .hook{font-family:var(--serif);font-style:italic;font-size:clamp(16px,4vw,22px);line-height:1.35;max-width:24em;margin-bottom:8px;color:var(--cranberry-deep)}
+  .hero .intro{font-size:15px;line-height:1.45;max-width:38em;margin:12px 0 0;color:#3E342E}
   .hero .btn{width:100%}
   .hero .reassure{margin-top:12px;font-size:13.5px;line-height:1.45;color:#3E342E;max-width:40em}
   .hero :focus-visible{outline-color:var(--cranberry-deep)}
@@ -209,7 +218,9 @@
   .code-line{margin-top:14px;font-size:16px;color:var(--ink)}
   .code{display:inline-block;border:1.5px dashed #C4A35A;border-radius:100px;padding:2px 10px;letter-spacing:.14em;font-weight:600;color:var(--cranberry-deep)}
   .klarna{margin-top:14px;font-size:16px;font-weight:600;color:var(--ink)}
-  .klarna-monthly:not([hidden]){display:block;margin-top:8px;font-size:16px;font-weight:600;color:var(--ink)}
+  .klarna-monthly:not([hidden]){font-weight:600;color:var(--ink)}
+  .price-card .klarna-monthly:not([hidden]),
+  .faq .klarna-monthly:not([hidden]){display:block;margin-top:8px;font-size:16px}
   .klarna-monthly[hidden]{display:none}
   .pending{margin-left:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--cranberry-deep);background:var(--cream-deep);border:1px solid #C4A35A;border-radius:100px;padding:4px 8px;vertical-align:middle}
   .pending[hidden]{display:none}
@@ -232,14 +243,15 @@
   footer .safety{margin-top:0}
   .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(251,243,232,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .35s ease}
   .sticky.show{transform:none}
-  .sticky span{font-size:13px;line-height:1.3;color:var(--muted)}
-  .sticky strong{font-family:var(--serif);font-weight:500;font-size:16px;color:var(--ink)}
-  .sticky .btn{padding:12px 14px;min-height:46px;font-size:11px;letter-spacing:.08em;flex:none}
+  .sticky-copy{display:flex;flex-direction:column;gap:1px;min-width:0;font-size:12px;line-height:1.25;color:var(--muted)}
+  .sticky-line{white-space:nowrap}
+  .sticky strong{font-family:var(--serif);font-weight:500;font-size:14px;color:var(--ink)}
+  .sticky .btn{padding:10px 8px;min-height:44px;font-size:10px;letter-spacing:.04em;flex:none}
   html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
   html.js .rv.in{opacity:1;transform:none}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
-    .rv,.spark,.hero-still{opacity:1;transform:none;transition:none;animation:none}
+    .rv,.spark,.hero-still,.chips li{opacity:1;transform:none;transition:none;animation:none}
     .sticky{transition:none}
   }
   @media (min-width:900px){
@@ -297,12 +309,19 @@
       </div>
     </div>
     <div class="hero-copy">
-      <p class="eyebrow">Sleigh the Season <svg class="spark" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="#C4A35A" d="M8 0 9.1 6.1 16 8 9.1 9.9 8 16 6.9 9.9 0 8 6.9 6.1Z"/></svg></p>
+      <p class="eyebrow">Nurse-led weight care program</p>
       <h1 id="h1">3 months of tirzepatide and real support</h1>
-      <p class="hook"><span data-sleigh="percent">15</span>% off with code <span data-sleigh="code">SLEIGH</span> through <span data-sleigh="ends-short">Dec 31</span>. HSA/FSA and Klarna accepted.</p>
-      <p class="intro">Someone who starts now is supported through the end of January, not left alone when the decorations come down.</p>
+      <p class="sub">Sleigh the Season is a 3-month GLP-1 weight care program with a prescribing provider, a simple starter guide, and text check-ins with your nurse, Sabrina Mortensen, RN.</p>
+      <ul class="chips">
+        <li>Led by Sabrina Mortensen, RN</li>
+        <li><span data-sleigh="sale-total">$762.45</span> up front, code <span data-sleigh="code">SLEIGH</span></li>
+        <li><span data-sleigh="sale-month">$254.15</span>/mo with Klarna (buy now, pay later)</li>
+        <li>A plan for after month 3</li>
+        <li>HSA/FSA accepted</li>
+      </ul>
       <a class="btn" href="/getstarted/">Start your assessment</a>
-      <p class="reassure">About 10 minutes. Compounded medications are not FDA-approved. A licensed provider decides whether medication is right for you.</p>
+      <p class="hook"><span data-sleigh="percent">15</span>% off with code <span data-sleigh="code">SLEIGH</span> through <span data-sleigh="ends-short">Dec 31</span>. SLEIGH is the code you enter at checkout.</p>
+      <p class="reassure">About 10 minutes. A licensed provider decides whether medication is right for you. Compounded medications are not FDA-approved. Care is by telehealth where available.</p>
     </div>
   </section>
   <script>
@@ -321,11 +340,8 @@
     var clock = 0;
     var mapPoint = function (x, y) { return { x: 0, y: 0 }; };
 
-    /* Measured on the 1280x720 still. Rim is the top lip of the mug.
-       Her mouth sits near y 0.37, so steam is not allowed above y 0.455. */
-    var MUG_X = 0.548;
-    var MUG_Y = 0.502;
-    var STEAM_CEILING = 0.468;
+    /* Measured on the 1280x720 still. Snow stays in the window.
+       Steam is not drawn. A visible wisp read as smoke near her face. */
     var WINDOW = { x0: 0.02, y0: 0.02, x1: 0.46, y1: 0.66 };
     var LIGHTS = [
       [0.09, 0.30], [0.15, 0.46], [0.07, 0.56],
@@ -360,16 +376,6 @@
       };
     }
 
-    function wave(seed, time) {
-      return Math.sin(seed + time * 2.3) * 0.55 + Math.sin(seed * 1.7 + time * 1.1) * 0.45;
-    }
-
-    var ribbons = [
-      { x: MUG_X - 0.012, phase: 0.6, freq: 16, amp: 0.014, drift: 0.07, speed: 1.15 },
-      { x: MUG_X + 0.004, phase: 2.4, freq: 11, amp: 0.018, drift: 0.09, speed: 1.55 },
-      { x: MUG_X + 0.02, phase: 4.1, freq: 21, amp: 0.01, drift: 0.055, speed: 0.9 }
-    ];
-
     var flakes = [];
     function makeFlake(scatter) {
       return {
@@ -390,7 +396,7 @@
       clock += dt;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      var i, p, u, pt, rad, grd, k, sample, sx, sy, alpha, along;
+      var i, p, u, pt, rad, grd;
       for (i = 0; i < LIGHTS.length; i++) {
         pt = mapPoint(LIGHTS[i][0], LIGHTS[i][1]);
         u = 0.15 + 0.85 * (0.5 + 0.5 * Math.sin(clock * (1.4 + (i * 0.37)) + i * 1.7));
@@ -418,48 +424,6 @@
         ctx.fill();
       }
 
-      var scalePx = canvas.width / 390;
-      for (i = 0; i < ribbons.length; i++) {
-        p = ribbons[i];
-        var steps = 22;
-        var pts = [];
-        for (k = 0; k <= steps; k++) {
-          along = k / steps;
-          sy = MUG_Y - (MUG_Y - STEAM_CEILING) * along;
-          sx = p.x - p.drift * along + Math.sin(p.phase + sy * p.freq + clock * p.speed) * p.amp * along;
-          sx += Math.sin(p.phase * 1.6 + sy * 7 + clock * 0.55) * p.amp * 0.4 * along;
-          if (sy < 0.47 && sx > 0.53) sx = 0.53;
-          pts.push(mapPoint(sx, sy));
-          pts[pts.length - 1].along = along;
-        }
-        ctx.save();
-        ctx.lineCap = "butt";
-        ctx.lineJoin = "round";
-        ctx.filter = "blur(" + (5 * scalePx) + "px)";
-        ctx.strokeStyle = "rgba(255, 252, 248, 0.2)";
-        ctx.lineWidth = 14 * scalePx;
-        ctx.beginPath();
-        ctx.moveTo(pts[0].x, pts[0].y);
-        for (k = 1; k < pts.length; k++) ctx.lineTo(pts[k].x, pts[k].y);
-        ctx.stroke();
-        ctx.restore();
-        ctx.save();
-        ctx.lineCap = "butt";
-        ctx.lineJoin = "round";
-        ctx.shadowColor = "rgba(255, 252, 248, 0.45)";
-        ctx.shadowBlur = 10 * scalePx;
-        for (k = 0; k < pts.length - 1; k++) {
-          along = pts[k].along;
-          alpha = 0.22 * (1 - along) + 0.08;
-          ctx.strokeStyle = "rgba(255, 252, 248, " + alpha + ")";
-          ctx.lineWidth = (1.2 + along * 4.5) * scalePx;
-          ctx.beginPath();
-          ctx.moveTo(pts[k].x, pts[k].y);
-          ctx.lineTo(pts[k + 1].x, pts[k + 1].y);
-          ctx.stroke();
-        }
-        ctx.restore();
-      }
       raf = requestAnimationFrame(draw);
     }
 
@@ -492,24 +456,25 @@
     <div class="wrap">
       <p class="eyebrow rv">The Support Kit</p>
       <h2 class="big rv" id="hurdles">The season asks a lot. This is what answers it.</h2>
-      <p class="lede rv">The holidays ask a lot of the people who hold everything together. The lists, the kids, the gatherings, the quiet work no one sees. Sleigh the Season is Rese's holiday program. Here is how the Support Kit helps with each one.</p>
+      <p class="lede rv">The holidays ask a lot of the people who hold everything together. Sleigh the Season is Rese Wellness's nurse-led weight care program for this season, with your nurse, Sabrina Mortensen, RN. Here is the Support Kit.</p>
 
       <div class="kit-glance rv">
         <h3>What's included</h3>
         <ul>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>A simple starter guide with family-friendly meals.</strong> Shortcuts you can actually use, and real-life ideas for the holiday table. No dieting rules. Same kitchen. Same plates.</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Patient portal access.</strong> Treatment questions go to your patient portal, where a real person answers.</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Check-ins with Sabrina by text, so they fit your week.</strong> A welcome call in week 1, and a Plateau Protocol check-in by call or text at week 8.</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The 3-month program: <span data-sleigh="sale-total">$762.45</span> paid up front with code <span data-sleigh="code">SLEIGH</span> (regular <span data-sleigh="regular-total">$897</span>). <span class="klarna-monthly" data-klarna-monthly hidden></span></span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Patient portal access.</strong> A private place to message the care team about treatment. A real person answers.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>A plan for after month 3.</strong> As your program wraps up, we help you transition to continued treatment or a plan to maintain the habits you've built. Your provider decides that next step with you.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Check-ins with Sabrina, RN, by text, so they fit your week.</strong> A welcome call in week 1, and a week 8 Plateau Protocol check-in by call or text. That week 8 check-in is a planned pause to look at what is working and what feels stuck.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The 3-month program: <span data-sleigh="sale-total">$762.45</span> paid up front with code <span data-sleigh="code">SLEIGH</span>. <span class="klarna-monthly" data-klarna-monthly>Or $254.15/mo for 3 months with Klarna (buy now, pay later), subject to Klarna approval and terms.</span> Regular price <span data-sleigh="regular-total">$897</span> up front, or <span data-sleigh="regular-month">$299</span>/mo with Klarna.</span></li>
         </ul>
       </div>
 
       <article class="feature rv">
         <div class="copy">
           <p class="kicker">When there is no time</p>
-          <h3>Short texts from Sabrina</h3>
-          <p>Short, supportive texts. No extra appointment to fit in. They are not clinical advice. Treatment questions go to your patient portal, where a real person answers.</p>
-          <p>Support that fits your busy week. Sabrina checks in by text, with a welcome call in week 1 and a Plateau Protocol check-in at week 8.</p>
+          <h3>Short texts from your nurse</h3>
+          <p>Short texts from Sabrina, RN. They fit a busy week, with no extra appointment to add. These check-ins are support, not clinical advice. Treatment questions go to your patient portal, where you message the care team.</p>
+          <p>There is a welcome call in week 1 with a nurse, and a week 8 check-in with Sabrina, RN, by call or text.</p>
         </div>
         <img src="media/couch-checkin-800.webp" srcset="media/couch-checkin-800.webp 800w, media/couch-checkin-1600.webp 1600w" sizes="(min-width: 900px) 460px, 92vw" width="1600" height="2133" alt="A mom smiles at a text on her phone while curled up on the couch near a Christmas tree." loading="lazy" decoding="async">
       </article>
@@ -527,8 +492,8 @@
           <div class="copy">
             <p class="kicker">The January cliff</p>
             <h3>The Plateau Protocol at week 8</h3>
-            <p>At week 8, Sabrina Mortensen, RN reaches out, by call or text. It is there so you are not figuring out the last stretch alone.</p>
-            <p>Around week 10 to 12, you and your provider review how things are going and decide on a next step together. Support runs through the end of January, not only while the lights are up.</p>
+            <p>At week 8, Sabrina, RN reaches out, by call or text. The Plateau Protocol is that planned pause, so you are not figuring out the last stretch alone.</p>
+            <p>Around week 10 to 12, you and your provider review how things are going and choose the next step together. Support runs through the end of January.</p>
           </div>
         </article>
       </div>
@@ -554,20 +519,21 @@
     <div class="wrap">
       <p class="eyebrow rv">What's included</p>
       <h2 class="big rv" id="included">Here is what you get.</h2>
-      <p class="lede rv">A simple starter guide, texts from Sabrina, and the patient portal when a question is about treatment. Medication is prescribed only if a licensed provider determines it is appropriate.</p>
+      <p class="lede rv">A simple starter guide, text check-ins with your nurse, Sabrina Mortensen, RN, a patient portal for treatment questions, and a plan for after month 3. Medication is prescribed only if a licensed provider determines it is appropriate.</p>
       <ul class="included">
         <li class="lead rv"><strong>A simple starter guide with family-friendly meals</strong>Shortcuts you can actually use, and real-life ideas for the holiday table. No dieting rules. Same kitchen. Same plates.</li>
-        <li class="rv"><strong>Patient portal access</strong>Treatment questions go to your patient portal, where a real person answers.</li>
-        <li class="rv"><strong>Check-ins with Sabrina by text</strong>They fit the week. A welcome call in week 1, and a Plateau Protocol check-in by call or text at week 8.</li>
+        <li class="rv"><strong>Patient portal access</strong>A private place to message the care team about treatment. A real person answers.</li>
+        <li class="rv"><strong>A plan for after month 3</strong>As your program wraps up, we help you transition to continued treatment or a plan to maintain the habits you've built. Your provider decides that next step with you.</li>
+        <li class="rv"><strong>Check-ins with Sabrina, RN, by text</strong>They fit the week. A welcome call in week 1 with a nurse, and a week 8 Plateau Protocol check-in by call or text. That check-in is a planned pause to look at what is working and what feels stuck.</li>
         <li class="rv"><strong>The holiday table</strong>Inside the starter guide. Real-life strategies for gatherings, with no dieting rules.</li>
-        <li class="rv"><strong>Medication and supplies, if prescribed</strong>3 months of tirzepatide, plus the supplies that go with it, shipped to your home only if a licensed provider determines it's appropriate.</li>
+        <li class="rv"><strong>Medication and supplies, if prescribed</strong>3 months of tirzepatide, a GLP-1 medicine, plus the supplies that go with it. It ships to your home only if a licensed provider determines it's appropriate.</li>
       </ul>
       <h3 class="big rv" style="font-size:clamp(24px,5vw,32px);margin-top:36px">How it starts</h3>
       <ol class="steps">
-        <li class="rv">Complete a 10-minute online assessment. About ten minutes, with no pressure. It is a clear next step.</li>
-        <li class="rv">A licensed provider reviews your information and decides whether medication is right for you. A prescription happens only if your provider decides it is right for you.</li>
+        <li class="rv">Complete a 10-minute online assessment. No pressure. It is a clear next step.</li>
+        <li class="rv">A licensed provider reviews your information and decides whether medication is right for you.</li>
         <li class="rv">If approved, your program medication and supplies ship to your home.</li>
-        <li class="rv">Sabrina checks in by text, with a welcome call in week 1 and a Plateau Protocol check-in at week 8. You can message the care team in the portal. Around week 10 to 12, you and your provider review how things are going and decide on a next step together.</li>
+        <li class="rv">Sabrina, RN checks in by text, with a welcome call in week 1 and a week 8 check-in. You can message the care team in the patient portal. Around week 10 to 12, you and your provider choose the next step together.</li>
       </ol>
     </div>
   </section>
@@ -577,12 +543,12 @@
       <div class="note-grid note rv">
         <img class="scene" src="media/wrapping-gifts-800.webp" srcset="media/wrapping-gifts-800.webp 800w, media/wrapping-gifts-1600.webp 1600w" sizes="(min-width: 900px) 480px, 92vw" width="1600" height="1200" alt="A woman wraps gifts at the kitchen table with coffee and soft holiday lights." loading="lazy" decoding="async">
         <div class="copy">
-          <p class="eyebrow">A note from Sabrina</p>
+          <p class="eyebrow">A note from Sabrina Mortensen, RN</p>
           <h2 class="big" id="note">The one thing on your list that's for you.</h2>
           <img class="portrait" src="../assets/founder-sabrina.jpg" width="900" height="1200" alt="Sabrina Mortensen, RN" loading="lazy" decoding="async">
           <p>As a nurse and a mom of 4, I know how easy it is to put yourself last from November through the new year. The one thing on your list that's for you.</p>
           <p>Taking care of yourself is part of taking care of your family. This program is built so you don't have to disappear into everyone else's list.</p>
-          <p>Sleigh the Season is a full support program. Tirzepatide is one tool inside the Support Kit, not the whole story. Many of my patients say the constant food chatter gets quieter. That bit of headspace can make the season feel more manageable.</p>
+          <p>Sleigh the Season is a full support program. Tirzepatide is one tool inside the Support Kit, not the whole story.</p>
           <p>A licensed provider decides whether medication is right for you.</p>
           <p class="sign">Sabrina Mortensen, RN<span>Co-founder</span></p>
         </div>
@@ -594,15 +560,14 @@
     <div class="wrap">
       <p class="eyebrow rv">Pricing</p>
       <h2 class="big rv" id="pricing">The 3-month program is paid up front.</h2>
-      <p class="lede rv"><span data-sleigh="sale-total">$762.45</span> for the 3-month program with code <span data-sleigh="code">SLEIGH</span>, paid up front. Regular price <span data-sleigh="regular-total">$897</span>. The Support Kit is included.</p>
+      <p class="lede rv"><span data-sleigh="sale-total">$762.45</span> for the 3-month program with code <span data-sleigh="code">SLEIGH</span>, paid up front. SLEIGH is the code you enter at checkout. It takes <span data-sleigh="percent">15</span>% off through <span data-sleigh="ends">December 31, 2026</span>. The Support Kit is included.</p>
       <div class="price-card rv">
         <p class="price-sale"><span data-sleigh="sale-total">$762.45</span></p>
         <p class="price-lead">for the 3-month program with code <span class="code" data-sleigh="code">SLEIGH</span>, paid up front.</p>
-        <p class="price-regular">Regular price <s><span data-sleigh="regular-total">$897</span></s></p>
+        <p class="klarna-monthly" data-klarna-monthly>Or $254.15/mo for 3 months with Klarna (buy now, pay later), subject to Klarna approval and terms.</p>
+        <p class="price-regular">Regular price <s><span data-sleigh="regular-total">$897</span></s> up front, or <s><span data-sleigh="regular-month">$299</span>/mo</s> with Klarna.</p>
         <p class="code-line">Use code <span class="code" data-sleigh="code">SLEIGH</span> at checkout. <span data-sleigh="percent">15</span>% off through <span data-sleigh="ends">December 31, 2026</span>.</p>
-        <p class="klarna" data-klarna>Prefer to split it? Klarna is available at checkout. <span class="pending" hidden>Pending confirmation</span></p>
-        <p class="klarna-monthly" data-klarna-monthly hidden></p>
-        <p class="klarna-terms">Klarna payment plans are subject to Klarna's terms.</p>
+        <p class="klarna" data-klarna>Prefer to split it? Klarna (buy now, pay later) is available at checkout. <span class="pending" hidden>Pending confirmation</span></p>
         <p class="fine">Rese charges the 3-month program up front.</p>
         <p class="fine">Have FSA dollars left this year? You can use them here. Many FSA balances reset at the end of the year, so check with your benefits provider. HSA/FSA accepted.</p>
         <p class="fine">Rese Wellness is in Queen Creek, AZ. Care is by telehealth where available.</p>
@@ -619,11 +584,11 @@
       <div class="faq rv">
         <details>
           <summary>What is Sleigh the Season?</summary>
-          <p>It is Rese's 3-month holiday program. You get weekly check-ins with Sabrina, a welcome call in week 1, a week 8 Plateau Protocol check-in with Sabrina, and a simple starter guide with family-friendly meals. Tirzepatide is one tool inside that kit, not the whole story. A licensed provider decides whether medication is right for you.</p>
+          <p>Sleigh the Season is Rese Wellness's 3-month holiday weight care program, led by your nurse, Sabrina Mortensen, RN. Tirzepatide is the GLP-1 medicine in the program. A licensed provider decides whether it is right for you. You also get a simple starter guide, text check-ins, a welcome call in week 1, a week 8 check-in, and a plan for after month 3.</p>
         </details>
         <details>
-          <summary>Are the weekly check-ins medical advice?</summary>
-          <p>No. Weekly check-ins with Sabrina are short, supportive messages and encouragement. They are not clinical advice. Treatment questions go to your patient portal, where a licensed provider responds.</p>
+          <summary>Are the text check-ins medical advice?</summary>
+          <p>No. Text check-ins with Sabrina, RN are short, supportive messages. They are not clinical advice. Treatment questions go to your patient portal, where a licensed provider responds.</p>
         </details>
         <details>
           <summary>What happens in week 1?</summary>
@@ -631,23 +596,21 @@
         </details>
         <details>
           <summary>What is the week 8 Plateau Protocol check-in?</summary>
-          <p>At week 8, Sabrina Mortensen, RN reaches out for the Plateau Protocol check-in, by call or text. That check-in names what is working, what feels stuck, and what you want the end of month 3 to look like, so the week 10 to 12 decision with your provider is informed, not rushed.</p>
+          <p>At week 8, Sabrina, RN reaches out by call or text. The Plateau Protocol is a planned pause. It names what is working, what feels stuck, and what you want the end of month 3 to look like, so the later decision with your provider is not rushed.</p>
         </details>
         <details>
-          <summary>What happens after month 3?</summary>
-          <p>Around week 10 to 12, you and your provider review how things are going and decide together what comes next. There is no surprise cliff. If you and your provider decide continuing is right, the next stretch of care is lined up under your provider's direction. If you and your provider decide stepping off is right, you get a provider-guided transition off the medication. How that looks is individual. Your provider sets the path.</p>
-          <p>Many people ask whether the weight comes back. It is a fair question, and it is one we answer with you, not for you, in that week 10 to 12 conversation with your provider, using your own story so far.</p>
+          <summary>What happens after 3 months?</summary>
+          <p>As your program wraps up, we help you transition to continued treatment or a plan to maintain the habits you've built. Around week 10 to 12, you and your provider review how things are going and choose that next step together. Your provider sets the path.</p>
         </details>
         <details>
           <summary>What does the program cost?</summary>
-          <p><span data-sleigh="sale-total">$762.45</span> for the 3-month program with code <span data-sleigh="code">SLEIGH</span>, paid up front, through <span data-sleigh="ends">December 31, 2026</span>. Regular price <span data-sleigh="regular-total">$897</span>. Rese charges the program up front. You are not charged for medication unless a licensed provider approves you.</p>
-          <p class="klarna-monthly" data-klarna-monthly hidden></p>
+          <p><span data-sleigh="sale-total">$762.45</span> for the 3-month program with code <span data-sleigh="code">SLEIGH</span>, paid up front, through <span data-sleigh="ends">December 31, 2026</span>. <span class="klarna-monthly" data-klarna-monthly>Or $254.15/mo for 3 months with Klarna (buy now, pay later), subject to Klarna approval and terms.</span> Regular price <span data-sleigh="regular-total">$897</span> up front, or <span data-sleigh="regular-month">$299</span>/mo with Klarna. Rese charges the program up front. You are not charged for medication unless a licensed provider approves you.</p>
         </details>
         <details>
           <summary>Can I pay over time?</summary>
-          <p data-klarna>Prefer to split it? Klarna is available at checkout. <span class="pending" hidden>Pending confirmation</span></p>
-          <p class="klarna-monthly" data-klarna-monthly hidden></p>
-          <p>Klarna payment plans are subject to Klarna's terms. Without Klarna, the 3-month program is paid up front.</p>
+          <p><span data-sleigh="sale-total">$762.45</span> paid up front with code <span data-sleigh="code">SLEIGH</span>. <span class="klarna-monthly" data-klarna-monthly>Or $254.15/mo for 3 months with Klarna (buy now, pay later), subject to Klarna approval and terms.</span></p>
+          <p data-klarna>Prefer to split it? Klarna (buy now, pay later) is available at checkout. <span class="pending" hidden>Pending confirmation</span></p>
+          <p>Regular price <span data-sleigh="regular-total">$897</span> up front, or <span data-sleigh="regular-month">$299</span>/mo with Klarna. Rese charges the 3-month program up front.</p>
         </details>
         <details>
           <summary>Can I use HSA or FSA funds?</summary>
@@ -667,7 +630,7 @@
 
   <section class="final">
     <h2>We'll carry you through the holidays and into the new year.</h2>
-    <p>Start with a 10-minute assessment. A licensed provider takes it from there. Queen Creek, AZ, with care by telehealth where available.</p>
+    <p>Start with a 10-minute assessment. A licensed provider takes it from there. Rese Wellness is in Queen Creek, AZ, with care by telehealth where available. HSA/FSA accepted.</p>
     <a class="btn light" href="/getstarted/">Start your assessment</a>
   </section>
 </main>
@@ -690,7 +653,11 @@
 </footer>
 
 <div class="sticky" id="stickyCta" aria-hidden="true" inert>
-  <span><strong><span data-sleigh="sale-total">$762.45</span> up front</strong><br>with code <span data-sleigh="code">SLEIGH</span></span>
+  <span class="sticky-copy">
+    <span class="sticky-line"><strong><span data-sleigh="sale-total">$762.45</span> up front</strong></span>
+    <span class="sticky-line">or <strong><span data-sleigh="sale-month">$254.15</span>/mo</strong> with Klarna</span>
+    <span class="sticky-line">code <span data-sleigh="code">SLEIGH</span></span>
+  </span>
   <a class="btn" href="/getstarted/">Start your assessment</a>
 </div>
 

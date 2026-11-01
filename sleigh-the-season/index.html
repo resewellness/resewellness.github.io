@@ -19,27 +19,40 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rese Wellness">
 <meta property="og:title" content="Sleigh the Season: 3 months of tirzepatide and real support">
-<meta property="og:description" content="15% off with code SLEIGH through December 31, 2026. HSA/FSA and Klarna accepted. A 3-month program from Rese Wellness.">
+<meta property="og:description" content="$762.45 for the 3-month program with code SLEIGH, paid up front. Regular price $897. Klarna is available at checkout.">
 <meta property="og:image" content="media/hero-poster.webp">
 <!--
   OFFER CONFIG
-  Edit only this block. Every price, discount, code, end date, and the
-  Klarna line on this page is filled from these values.
-  The sale price is computed in cents: priceMonthly * (100 - discountPercent).
-  At 299 and 15 percent off, that is 25415 cents, formatted as $254.15.
-  klarnaConfirmed true shows "Pay over time with Klarna" with no tag.
-  Set klarnaConfirmed to false to show a Pending confirmation tag on that line.
+  Edit only this block. Prices, the code, the end date, and the Klarna
+  line are filled from these values.
+  Rese charges the 3-month program up front. priceMonthly is the list
+  rate used to compute that total. It is not a Rese payment schedule.
+  regular total = priceMonthly * programMonths.
+  sale total applies discountPercent, rounded to the cent, then times
+  programMonths. At 299 for 3 months the total is $897. At 15 percent
+  off, that is $762.45.
+  KLARNA_MONTHLY_COPY is the only Klarna installment sentence. Leave it
+  as an empty string until the plan wording is confirmed. Empty keeps
+  every [data-klarna-monthly] slot hidden. Klarna Pay in 4 is biweekly,
+  so do not add a schedule or other plan terms that are not confirmed.
+  klarnaConfirmed true shows Klarna as available at checkout, with no tag.
+  Set klarnaConfirmed to false to show a Pending confirmation tag.
 -->
 <script>
 (function () {
   var offer = {
     priceMonthly: 299,
+    programMonths: 3,
     discountPercent: 15,
     code: "SLEIGH",
     endsLabel: "December 31, 2026",
-    klarnaConfirmed: true
+    klarnaConfirmed: true,
+    KLARNA_MONTHLY_COPY: ""
   };
+  offer.regularTotalCents = offer.priceMonthly * offer.programMonths * 100;
+  offer.saleTotalCents = Math.round(offer.priceMonthly * (100 - offer.discountPercent)) * offer.programMonths;
   window.SLEIGH_OFFER = offer;
+  window.KLARNA_MONTHLY_COPY = offer.KLARNA_MONTHLY_COPY;
 
   function shortEnds(label) {
     var names = {january:"Jan",february:"Feb",march:"Mar",april:"Apr",may:"May",june:"Jun",july:"Jul",august:"Aug",september:"Sep",october:"Oct",november:"Nov",december:"Dec"};
@@ -50,8 +63,7 @@
     return month + " " + day;
   }
 
-  function money(monthly, percentOff) {
-    var cents = Math.round(monthly * (100 - percentOff));
+  function moneyFromCents(cents) {
     var whole = Math.floor(cents / 100);
     var frac = cents % 100;
     if (frac === 0) return "$" + whole;
@@ -60,16 +72,22 @@
   }
 
   window.applySleighOffer = function () {
-    var sale = money(offer.priceMonthly, offer.discountPercent);
-    var regular = money(offer.priceMonthly, 0);
+    var regularTotal = moneyFromCents(offer.regularTotalCents);
+    var saleTotal = moneyFromCents(offer.saleTotalCents);
     var map = {
-      sale: sale,
-      regular: regular,
+      "regular-total": regularTotal,
+      "sale-total": saleTotal,
       code: offer.code,
       ends: offer.endsLabel,
       "ends-short": shortEnds(offer.endsLabel),
       percent: String(offer.discountPercent)
     };
+    var monthlyCopy = String(offer.KLARNA_MONTHLY_COPY || "").trim();
+    window.KLARNA_MONTHLY_COPY = monthlyCopy;
+    var priceLine = saleTotal + " for the " + offer.programMonths + "-month program with code " + offer.code + ", paid up front. Regular price " + regularTotal + ". Prefer to split it? Klarna is available at checkout.";
+    if (monthlyCopy) priceLine += " " + monthlyCopy;
+    var og = document.querySelector('meta[property="og:description"]');
+    if (og) og.setAttribute("content", priceLine);
     var nodes = document.querySelectorAll("[data-sleigh]");
     for (var i = 0; i < nodes.length; i++) {
       var key = nodes[i].getAttribute("data-sleigh");
@@ -79,6 +97,11 @@
     for (var k = 0; k < klarnaBlocks.length; k++) {
       var tag = klarnaBlocks[k].querySelector(".pending");
       if (tag) tag.hidden = !!offer.klarnaConfirmed;
+    }
+    var slots = document.querySelectorAll("[data-klarna-monthly]");
+    for (var s = 0; s < slots.length; s++) {
+      slots[s].textContent = monthlyCopy;
+      slots[s].hidden = !monthlyCopy;
     }
   };
 })();
@@ -179,12 +202,15 @@
   .sign span{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-top:2px}
   .price-card{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 20px 24px;box-shadow:0 16px 40px rgba(78,21,36,.06)}
   .price-sale{font-family:var(--serif);font-weight:500;font-size:clamp(48px,12vw,72px);line-height:1;color:var(--cranberry-deep);letter-spacing:-.02em}
-  .price-sale .per{font-family:var(--sans);font-size:18px;color:var(--muted);letter-spacing:0;margin-left:4px}
-  .price-regular{margin-top:6px;color:var(--muted);font-size:16px}
+  .price-lead{margin-top:10px;font-size:17px;line-height:1.45;color:var(--ink);max-width:28em}
+  .price-regular{margin-top:10px;color:var(--muted);font-size:16px}
   .price-regular s{color:#6A5E54}
+  .klarna-terms{margin-top:8px;font-size:13.5px;line-height:1.45;color:var(--muted)}
   .code-line{margin-top:14px;font-size:16px;color:var(--ink)}
   .code{display:inline-block;border:1.5px dashed #C4A35A;border-radius:100px;padding:2px 10px;letter-spacing:.14em;font-weight:600;color:var(--cranberry-deep)}
   .klarna{margin-top:14px;font-size:16px;font-weight:600;color:var(--ink)}
+  .klarna-monthly:not([hidden]){display:block;margin-top:8px;font-size:16px;font-weight:600;color:var(--ink)}
+  .klarna-monthly[hidden]{display:none}
   .pending{margin-left:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--cranberry-deep);background:var(--cream-deep);border:1px solid #C4A35A;border-radius:100px;padding:4px 8px;vertical-align:middle}
   .pending[hidden]{display:none}
   .fine{margin-top:14px;font-size:14.5px;color:var(--muted)}
@@ -206,9 +232,9 @@
   footer .safety{margin-top:0}
   .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(251,243,232,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .35s ease}
   .sticky.show{transform:none}
-  .sticky span{font-size:13px;line-height:1.35;color:var(--muted)}
+  .sticky span{font-size:13px;line-height:1.3;color:var(--muted)}
   .sticky strong{font-family:var(--serif);font-weight:500;font-size:16px;color:var(--ink)}
-  .sticky .btn{padding:12px 16px;min-height:46px;font-size:12px}
+  .sticky .btn{padding:12px 14px;min-height:46px;font-size:11px;letter-spacing:.08em;flex:none}
   html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
   html.js .rv.in{opacity:1;transform:none}
   @media (prefers-reduced-motion: reduce){
@@ -474,7 +500,7 @@
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>A simple starter guide with family-friendly meals.</strong> Shortcuts you can actually use, and real-life ideas for the holiday table. No dieting rules. Same kitchen. Same plates.</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Patient portal access.</strong> Treatment questions go to your patient portal, where a real person answers.</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Check-ins with Sabrina by text, so they fit your week.</strong> A welcome call in week 1, and a Plateau Protocol check-in by call or text at week 8.</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The 3-month program, <span data-sleigh="regular">$299</span>/month (<span data-sleigh="sale">$254.15</span>/month with code <span data-sleigh="code">SLEIGH</span> through <span data-sleigh="ends-short">Dec 31</span>)</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1B3D32"/><path d="M7.5 12.5 10.5 15.5 16.5 9" stroke="#F7F1E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The 3-month program: <span data-sleigh="sale-total">$762.45</span> paid up front with code <span data-sleigh="code">SLEIGH</span> (regular <span data-sleigh="regular-total">$897</span>). <span class="klarna-monthly" data-klarna-monthly hidden></span></span></li>
         </ul>
       </div>
 
@@ -558,7 +584,6 @@
           <p>Taking care of yourself is part of taking care of your family. This program is built so you don't have to disappear into everyone else's list.</p>
           <p>Sleigh the Season is a full support program. Tirzepatide is one tool inside the Support Kit, not the whole story. Many of my patients say the constant food chatter gets quieter. That bit of headspace can make the season feel more manageable.</p>
           <p>A licensed provider decides whether medication is right for you.</p>
-          <p>Gary A. Smith, MD, is Co-founder &amp; Chief Medical Officer.</p>
           <p class="sign">Sabrina Mortensen, RN<span>Co-founder</span></p>
         </div>
       </div>
@@ -568,14 +593,18 @@
   <section aria-labelledby="pricing">
     <div class="wrap">
       <p class="eyebrow rv">Pricing</p>
-      <h2 class="big rv" id="pricing">One monthly amount for the 3-month program.</h2>
-      <p class="lede rv">One simple monthly amount, with the Support Kit included. Code <span data-sleigh="code">SLEIGH</span> takes <span data-sleigh="percent">15</span>% off through <span data-sleigh="ends">December 31, 2026</span>.</p>
+      <h2 class="big rv" id="pricing">The 3-month program is paid up front.</h2>
+      <p class="lede rv"><span data-sleigh="sale-total">$762.45</span> for the 3-month program with code <span data-sleigh="code">SLEIGH</span>, paid up front. Regular price <span data-sleigh="regular-total">$897</span>. The Support Kit is included.</p>
       <div class="price-card rv">
-        <p class="price-sale"><span data-sleigh="sale">$254.15</span><span class="per">/month</span></p>
-        <p class="price-regular">Regular price <s><span data-sleigh="regular">$299</span>/month</s> for the 3-month program</p>
+        <p class="price-sale"><span data-sleigh="sale-total">$762.45</span></p>
+        <p class="price-lead">for the 3-month program with code <span class="code" data-sleigh="code">SLEIGH</span>, paid up front.</p>
+        <p class="price-regular">Regular price <s><span data-sleigh="regular-total">$897</span></s></p>
         <p class="code-line">Use code <span class="code" data-sleigh="code">SLEIGH</span> at checkout. <span data-sleigh="percent">15</span>% off through <span data-sleigh="ends">December 31, 2026</span>.</p>
-        <p class="klarna" data-klarna>Pay over time with Klarna <span class="pending" hidden>Pending confirmation</span></p>
-        <p class="fine">One monthly amount covers the program, with no program fee and no surprise add-ons. Have FSA dollars left this year? You can use them here. Many FSA balances reset at the end of the year, so check with your benefits provider. HSA/FSA accepted.</p>
+        <p class="klarna" data-klarna>Prefer to split it? Klarna is available at checkout. <span class="pending" hidden>Pending confirmation</span></p>
+        <p class="klarna-monthly" data-klarna-monthly hidden></p>
+        <p class="klarna-terms">Klarna payment plans are subject to Klarna's terms.</p>
+        <p class="fine">Rese charges the 3-month program up front.</p>
+        <p class="fine">Have FSA dollars left this year? You can use them here. Many FSA balances reset at the end of the year, so check with your benefits provider. HSA/FSA accepted.</p>
         <p class="fine">Rese Wellness is in Queen Creek, AZ. Care is by telehealth where available.</p>
         <p class="safety">Compounded medications are prepared by a licensed compounding pharmacy and are not FDA-approved as finished drug products. Medication is prescribed only if a licensed provider determines it's appropriate.</p>
         <p style="margin-top:18px"><a class="btn" href="/getstarted/">Start your assessment</a></p>
@@ -611,11 +640,14 @@
         </details>
         <details>
           <summary>What does the program cost?</summary>
-          <p>The 3-month program is <span data-sleigh="regular">$299</span> per month. With code <span data-sleigh="code">SLEIGH</span>, <span data-sleigh="percent">15</span>% off, it is <span data-sleigh="sale">$254.15</span> per month through <span data-sleigh="ends">December 31, 2026</span>. One monthly amount covers the program, with no program fee and no surprise add-ons. You are not charged for medication unless a licensed provider approves you.</p>
+          <p><span data-sleigh="sale-total">$762.45</span> for the 3-month program with code <span data-sleigh="code">SLEIGH</span>, paid up front, through <span data-sleigh="ends">December 31, 2026</span>. Regular price <span data-sleigh="regular-total">$897</span>. Rese charges the program up front. You are not charged for medication unless a licensed provider approves you.</p>
+          <p class="klarna-monthly" data-klarna-monthly hidden></p>
         </details>
         <details>
           <summary>Can I pay over time?</summary>
-          <p data-klarna>Pay over time with Klarna. <span class="pending" hidden>Pending confirmation</span></p>
+          <p data-klarna>Prefer to split it? Klarna is available at checkout. <span class="pending" hidden>Pending confirmation</span></p>
+          <p class="klarna-monthly" data-klarna-monthly hidden></p>
+          <p>Klarna payment plans are subject to Klarna's terms. Without Klarna, the 3-month program is paid up front.</p>
         </details>
         <details>
           <summary>Can I use HSA or FSA funds?</summary>
@@ -658,7 +690,7 @@
 </footer>
 
 <div class="sticky" id="stickyCta" aria-hidden="true" inert>
-  <span><strong><span data-sleigh="sale">$254.15</span>/mo</strong> with code <span data-sleigh="code">SLEIGH</span><br>3-month program</span>
+  <span><strong><span data-sleigh="sale-total">$762.45</span> up front</strong><br>with code <span data-sleigh="code">SLEIGH</span></span>
   <a class="btn" href="/getstarted/">Start your assessment</a>
 </div>
 

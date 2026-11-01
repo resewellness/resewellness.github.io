@@ -63,11 +63,22 @@
     #stem{display:none}
   }
 
+  .sleigh-banner{position:relative;z-index:4;display:block;background:#E9ECDD;color:#141410;text-decoration:none;text-align:center;padding:9px 18px;font-size:14px;line-height:1.4;border-bottom:1px solid #d4d8c4}
+  .sleigh-banner .short{display:none}
+  .sleigh-banner .go{font-weight:600;white-space:nowrap;text-decoration:underline;text-underline-offset:2px}
+  .sleigh-banner:hover{background:#E1E6D2}
+  .sleigh-banner:focus-visible{outline:3px solid #141410;outline-offset:-3px}
+  @media (max-width:430px){
+    .sleigh-banner{font-size:13.5px;padding:8px 14px}
+    .sleigh-banner .long{display:none}
+    .sleigh-banner .short{display:inline}
+  }
   header{position:sticky;top:0;background:rgba(255,250,245,.95);backdrop-filter:blur(8px);border-bottom:1px solid #eee3d6;z-index:10}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;max-width:520px;margin:0 auto}
   .logo{display:flex;text-decoration:none;color:var(--ink)}
   .nav-right{display:flex;align-items:center;gap:16px}
   .nav .fr{color:var(--olive);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+  .nav .sleigh-link{display:none;color:var(--olive);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;font-weight:600}
   .nav .nav-cta{display:none}
   .menu-btn{background:none;border:none;cursor:pointer;padding:8px;margin:-8px;display:flex;flex-direction:column;gap:5px;align-items:flex-end}
   .menu-btn span{display:block;height:1.8px;background:var(--ink);border-radius:2px;transition:transform .3s ease,opacity .3s ease,width .3s ease}
@@ -232,6 +243,7 @@
     section{padding:76px 0 8px}
     .nav{padding:14px 20px}
     .nav .nav-cta{display:inline-block;padding:11px 20px;font-size:12px}
+    .nav .sleigh-link{display:inline}
     .drawer{padding:120px 0 48px}
     .drawer .drawer-inner{max-width:520px;margin:0 auto;width:100%;padding:0 28px;display:flex;flex-direction:column;flex:1}
     .hero{display:grid;grid-template-columns:1.02fr .98fr;column-gap:64px;align-items:center;padding:40px 0 8px}
@@ -286,12 +298,18 @@
   <svg preserveAspectRatio="none" viewBox="0 0 22 1000"><path id="stemPath" d="M11 0 L11 1000"/></svg>
 </div>
 
+<a class="sleigh-banner" href="/sleigh-the-season/">
+  <span class="long">Sleigh the Season: 3 months of weight care support. $762.45 with code SLEIGH through Dec 31.</span>
+  <span class="short">Sleigh the Season: $762.45 with code SLEIGH through Dec 31.</span>
+  <span class="go">See the program</span>
+</a>
 <header>
   <nav class="nav" aria-label="Main">
     <a class="logo" href="/" aria-label="Rese Wellness home">
       <img src="assets/rese-logo.png" alt="Rese Wellness" style="display:block;height:42px;width:auto">
     </a>
     <div class="nav-right">
+      <a class="sleigh-link" href="/sleigh-the-season/">Sleigh the Season</a>
       <a class="fr" href="/menshealth/">For Men</a>
       <a class="btn nav-cta" href="/getstarted/">Explore your options</a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><span></span><span></span></button>
@@ -302,6 +320,7 @@
 <div class="drawer" id="drawer" aria-hidden="true">
   <div class="drawer-inner">
     <p class="grp">Treatments</p>
+    <a class="pg" href="/sleigh-the-season/">Sleigh the Season <small>Holiday program</small></a>
     <a class="pg" href="/weightmanagement/">Weight Management <small>Flat price</small></a>
     <a class="pg" href="/hormonesupport/">Hormone Therapy <small>HRT &amp; TRT</small></a>
       <a class="pg" href="/labtesting/">Lab Testing <small>From $149</small></a>

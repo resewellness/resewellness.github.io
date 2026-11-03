@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sleigh the Season: 3 months of weight care support | Rese Wellness</title>
-<meta name="description" content="Sleigh the Season is Rese Wellness's nurse-supported 3-month weight care program. A licensed provider decides if a weekly GLP-1 medicine is right for you. Queen Creek, AZ.">
+<meta name="description" content="$594.15 for all 3 months with code SLEIGH. Regular price $699. Your card is held until you are approved. Month-to-month option at $249 every 28 days.">
 <link rel="canonical" href="https://resewellness.com/sleigh-the-season/">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
@@ -18,37 +18,31 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rese Wellness">
 <meta property="og:title" content="Sleigh the Season: 3 months of weight care support">
-<meta property="og:description" content="$762.45 for all 3 months with code SLEIGH. Regular price $897. Your card is held until you are approved. Or about $254.15/mo with Klarna (buy now, pay later).">
+<meta property="og:description" content="$594.15 for all 3 months with code SLEIGH. Regular price $699. Your card is held until you are approved. Month-to-month option at $249 every 28 days.">
+<meta name="twitter:description" content="$594.15 for all 3 months with code SLEIGH. Regular price $699. Your card is held until you are approved. Month-to-month option at $249 every 28 days.">
 <meta property="og:image" content="media/hero-poster.webp">
 <!--
   OFFER CONFIG
-  Edit only this block. Prices, the code, the end date, and the Klarna
-  line are filled from these values.
-  The program total is priceMonthly times programMonths. The card is
-  held at checkout and charged only after approval. It is not a Rese
-  payment schedule. Klarna is a checkout option, about the sale rate
-  per month, and Klarna's own terms apply.
-  At 299 for 3 months the total is $897. At 15 percent off, $762.45,
-  or about $254.15/mo with Klarna.
+  Edit only this block. Prices, the code, and the end date are filled
+  from these values.
+  The 3-month program is $699 billed up front. Code SLEIGH takes 15
+  percent off that total. The card is held at checkout and charged only
+  after approval. It is not a Rese payment schedule.
+  Month to month is a separate option at $249 every 28 days. Code SLEIGH
+  applies only to the 3-month program.
   endsLabel is the only date format on the page.
-  KLARNA_MONTHLY_COPY is the Klarna sentence, built here.
-  klarnaConfirmed true shows that line with no tag.
-  Set klarnaConfirmed to false to show a Pending confirmation tag.
 -->
 <script>
 (function () {
   var offer = {
-    priceMonthly: 299,
+    regularTotalCents: 69900,
     programMonths: 3,
     discountPercent: 15,
     code: "SLEIGH",
     endsLabel: "Dec 31, 2026",
-    klarnaConfirmed: true
+    monthlyOption: "$249 every 28 days"
   };
-  offer.regularMonthlyCents = offer.priceMonthly * 100;
-  offer.saleMonthlyCents = Math.round(offer.priceMonthly * (100 - offer.discountPercent));
-  offer.regularTotalCents = offer.regularMonthlyCents * offer.programMonths;
-  offer.saleTotalCents = offer.saleMonthlyCents * offer.programMonths;
+  offer.saleTotalCents = Math.round(offer.regularTotalCents * (100 - offer.discountPercent) / 100);
   window.SLEIGH_OFFER = offer;
 
   function shortEnds(label) {
@@ -71,38 +65,28 @@
   window.applySleighOffer = function () {
     var regularTotal = moneyFromCents(offer.regularTotalCents);
     var saleTotal = moneyFromCents(offer.saleTotalCents);
-    var regularMonth = moneyFromCents(offer.regularMonthlyCents);
-    var saleMonth = moneyFromCents(offer.saleMonthlyCents);
-    var monthlyCopy = "Or choose Klarna (buy now, pay later) at checkout for about " + saleMonth + "/mo, subject to Klarna approval and terms.";
-    offer.KLARNA_MONTHLY_COPY = monthlyCopy;
-    window.KLARNA_MONTHLY_COPY = monthlyCopy;
     var map = {
       "regular-total": regularTotal,
       "sale-total": saleTotal,
-      "regular-month": regularMonth,
-      "sale-month": saleMonth,
+      "monthly-option": offer.monthlyOption,
       code: offer.code,
       ends: offer.endsLabel,
       "ends-short": shortEnds(offer.endsLabel),
       percent: String(offer.discountPercent)
     };
-    var priceLine = saleTotal + " for all " + offer.programMonths + " months with code " + offer.code + ". Regular price " + regularTotal + ". Your card is held until you are approved. " + monthlyCopy;
-    var og = document.querySelector('meta[property="og:description"]');
-    if (og) og.setAttribute("content", priceLine);
+    var priceLine = saleTotal + " for all " + offer.programMonths + " months with code " + offer.code + ". Regular price " + regularTotal + ". Your card is held until you are approved. Month-to-month option at " + offer.monthlyOption + ".";
+    var metas = [
+      document.querySelector('meta[name="description"]'),
+      document.querySelector('meta[property="og:description"]'),
+      document.querySelector('meta[name="twitter:description"]')
+    ];
+    for (var m = 0; m < metas.length; m++) {
+      if (metas[m]) metas[m].setAttribute("content", priceLine);
+    }
     var nodes = document.querySelectorAll("[data-sleigh]");
     for (var i = 0; i < nodes.length; i++) {
       var key = nodes[i].getAttribute("data-sleigh");
       if (map[key] != null) nodes[i].textContent = map[key];
-    }
-    var klarnaBlocks = document.querySelectorAll("[data-klarna]");
-    for (var k = 0; k < klarnaBlocks.length; k++) {
-      var tag = klarnaBlocks[k].querySelector(".pending");
-      if (tag) tag.hidden = !!offer.klarnaConfirmed;
-    }
-    var slots = document.querySelectorAll("[data-klarna-monthly]");
-    for (var s = 0; s < slots.length; s++) {
-      slots[s].textContent = monthlyCopy;
-      slots[s].hidden = !monthlyCopy;
     }
   };
 })();
@@ -218,16 +202,8 @@
   .price-lead{margin-top:10px;font-size:17px;line-height:1.45;color:var(--ink);max-width:28em}
   .price-regular{margin-top:10px;color:var(--muted);font-size:16px}
   .price-regular s{color:#6A5E54}
-  .klarna-terms{margin-top:8px;font-size:13.5px;line-height:1.45;color:var(--muted)}
   .code-line{margin-top:14px;font-size:16px;color:var(--ink)}
   .code{display:inline-block;border:1.5px dashed #C4A35A;border-radius:100px;padding:2px 10px;letter-spacing:.14em;font-weight:600;color:var(--cranberry-deep)}
-  .klarna{margin-top:14px;font-size:16px;font-weight:600;color:var(--ink)}
-  .klarna-monthly:not([hidden]){font-weight:600;color:var(--ink)}
-  .price-card .klarna-monthly:not([hidden]),
-  .faq .klarna-monthly:not([hidden]){display:block;margin-top:8px;font-size:16px}
-  .klarna-monthly[hidden]{display:none}
-  .pending{margin-left:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--cranberry-deep);background:var(--cream-deep);border:1px solid #C4A35A;border-radius:100px;padding:4px 8px;vertical-align:middle}
-  .pending[hidden]{display:none}
   .fine{margin-top:14px;font-size:14.5px;color:var(--muted)}
   .safety{margin-top:16px;background:var(--cream-deep);border-radius:12px;padding:14px 16px;font-size:14.5px;color:#2A211C}
   .faq{margin-top:8px;border-top:1px solid var(--line)}
@@ -490,11 +466,11 @@
       <h2 class="big rv" id="pricing">What you pay</h2>
       <p class="lede rv">Rese Wellness. Telehealth from Queen Creek, AZ.</p>
       <div class="price-card rv">
-        <p class="price-sale"><span data-sleigh="sale-total">$762.45</span></p>
+        <p class="price-sale"><span data-sleigh="sale-total">$594.15</span></p>
         <p class="price-lead">for all 3 months with code <span class="code" data-sleigh="code">SLEIGH</span>.</p>
-        <p class="price-regular">Regular price <s><span data-sleigh="regular-total">$897</span></s>. <span data-sleigh="code">SLEIGH</span> is good through <span data-sleigh="ends">Dec 31, 2026</span>.</p>
+        <p class="price-regular">Regular price <s><span data-sleigh="regular-total">$699</span></s>. <span data-sleigh="code">SLEIGH</span> is good through <span data-sleigh="ends">Dec 31, 2026</span>.</p>
+        <p class="price-regular">Prefer to go month to month? <span data-sleigh="monthly-option">$249 every 28 days</span>.</p>
         <p>Your card is held at checkout and charged only once you are approved. If not, you are not charged.</p>
-        <p class="klarna" data-klarna>Prefer to split your payments? Klarna is available (buy now, pay later, subject to Klarna approval and terms). Code SLEIGH can't be combined with Klarna for now. <span class="pending" hidden>Pending confirmation</span></p>
         <p class="fine">HSA/FSA cards accepted. This is self-pay. We do not bill insurance.</p>
         <ul class="facts">
           <li>The medication is a weekly at-home injection. Rese provides education on how to do it.</li>
@@ -526,7 +502,7 @@
         </details>
         <details>
           <summary>Does insurance cover it?</summary>
-          <p>No. This is self-pay. We do not bill insurance. HSA/FSA cards are accepted. Klarna (buy now, pay later) is an option at checkout.</p>
+          <p>No. This is self-pay. We do not bill insurance. HSA/FSA cards are accepted.</p>
         </details>
         <details>
           <summary>How soon can I start?</summary>
@@ -538,7 +514,7 @@
         </details>
         <details>
           <summary>What does the program cost?</summary>
-          <p><span data-sleigh="sale-total">$762.45</span> for all 3 months with code <span data-sleigh="code">SLEIGH</span>, through <span data-sleigh="ends">Dec 31, 2026</span>. Regular price <span data-sleigh="regular-total">$897</span>. Prefer to split your payments? Klarna is available (buy now, pay later, subject to Klarna approval and terms). Code SLEIGH can't be combined with Klarna for now. The card is only charged once you are approved.</p>
+          <p><span data-sleigh="sale-total">$594.15</span> for all 3 months with code <span data-sleigh="code">SLEIGH</span>, through <span data-sleigh="ends">Dec 31, 2026</span>. Regular price <span data-sleigh="regular-total">$699</span>. The card is only charged once you are approved. Prefer to go month to month? <span data-sleigh="monthly-option">$249 every 28 days</span>.</p>
         </details>
         <details>
           <summary>What happens after 3 months?</summary>
@@ -578,8 +554,8 @@
 
 <div class="sticky" id="stickyCta" aria-hidden="true" inert>
   <span class="sticky-copy">
-    <span class="sticky-line"><strong><span data-sleigh="sale-total">$762.45</span></strong> with code <span data-sleigh="code">SLEIGH</span></span>
-    <span class="sticky-line">Klarna (buy now, pay later)<br>available; can't be combined<br>with code SLEIGH.</span>
+    <span class="sticky-line"><strong><span data-sleigh="sale-total">$594.15</span></strong> with code <span data-sleigh="code">SLEIGH</span></span>
+    <span class="sticky-line">Or <span data-sleigh="monthly-option">$249 every 28 days</span>.</span>
   </span>
   <a class="btn" href="https://start.resewellness.com/weight-loss/questionnaire">See if it's right for me</a>
 </div>

@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sleigh the Season: 3 months of weight care support | Rese Wellness</title>
-<meta name="description" content="$594.15 for all 3 months with code SLEIGH. Regular price $699. Your card is held until you are approved. Month-to-month option at $249 every 28 days.">
+<meta name="description" content="$594.15 for all 3 months with code SLEIGH (regular $699), or $249 every 28 days month to month. Both include the Support Kit. Your card is held until you are approved.">
 <link rel="canonical" href="https://resewellness.com/sleigh-the-season/">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
@@ -18,8 +18,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rese Wellness">
 <meta property="og:title" content="Sleigh the Season: 3 months of weight care support">
-<meta property="og:description" content="$594.15 for all 3 months with code SLEIGH. Regular price $699. Your card is held until you are approved. Month-to-month option at $249 every 28 days.">
-<meta name="twitter:description" content="$594.15 for all 3 months with code SLEIGH. Regular price $699. Your card is held until you are approved. Month-to-month option at $249 every 28 days.">
+<meta property="og:description" content="$594.15 for all 3 months with code SLEIGH (regular $699), or $249 every 28 days month to month. Both include the Support Kit. Your card is held until you are approved.">
+<meta name="twitter:description" content="$594.15 for all 3 months with code SLEIGH (regular $699), or $249 every 28 days month to month. Both include the Support Kit. Your card is held until you are approved.">
 <meta property="og:image" content="media/hero-poster.webp">
 <!--
   OFFER CONFIG
@@ -29,7 +29,7 @@
   percent off that total. The card is held at checkout and charged only
   after approval. It is not a Rese payment schedule.
   Month to month is a separate option at $249 every 28 days. Code SLEIGH
-  applies only to the 3-month program.
+  applies only to the 3-month program. Both options include the Support Kit.
   endsLabel is the only date format on the page.
 -->
 <script>
@@ -74,7 +74,7 @@
       "ends-short": shortEnds(offer.endsLabel),
       percent: String(offer.discountPercent)
     };
-    var priceLine = saleTotal + " for all " + offer.programMonths + " months with code " + offer.code + ". Regular price " + regularTotal + ". Your card is held until you are approved. Month-to-month option at " + offer.monthlyOption + ".";
+    var priceLine = saleTotal + " for all " + offer.programMonths + " months with code " + offer.code + " (regular " + regularTotal + "), or " + offer.monthlyOption + " month to month. Both include the Support Kit. Your card is held until you are approved.";
     var metas = [
       document.querySelector('meta[name="description"]'),
       document.querySelector('meta[property="og:description"]'),
@@ -469,7 +469,8 @@
         <p class="price-sale"><span data-sleigh="sale-total">$594.15</span></p>
         <p class="price-lead">for all 3 months with code <span class="code" data-sleigh="code">SLEIGH</span>.</p>
         <p class="price-regular">Regular price <s><span data-sleigh="regular-total">$699</span></s>. <span data-sleigh="code">SLEIGH</span> is good through <span data-sleigh="ends">Dec 31, 2026</span>.</p>
-        <p class="price-regular">Prefer to go month to month? <span data-sleigh="monthly-option">$249 every 28 days</span>.</p>
+        <p class="price-regular">Or <span data-sleigh="monthly-option">$249 every 28 days</span>, month to month.</p>
+        <p class="price-regular">Both include the Support Kit: a weekly text from your nurse and a simple starter guide.</p>
         <p>Your card is held at checkout and charged only once you are approved. If not, you are not charged.</p>
         <p class="fine">HSA/FSA cards accepted. This is self-pay. We do not bill insurance.</p>
         <ul class="facts">
@@ -514,7 +515,7 @@
         </details>
         <details>
           <summary>What does the program cost?</summary>
-          <p><span data-sleigh="sale-total">$594.15</span> for all 3 months with code <span data-sleigh="code">SLEIGH</span>, through <span data-sleigh="ends">Dec 31, 2026</span>. Regular price <span data-sleigh="regular-total">$699</span>. The card is only charged once you are approved. Prefer to go month to month? <span data-sleigh="monthly-option">$249 every 28 days</span>.</p>
+          <p><span data-sleigh="sale-total">$594.15</span> for all 3 months with code <span data-sleigh="code">SLEIGH</span> (regular <span data-sleigh="regular-total">$699</span>), through <span data-sleigh="ends">Dec 31, 2026</span>, or <span data-sleigh="monthly-option">$249 every 28 days</span> month to month. Both include the Support Kit. The card is only charged once you are approved.</p>
         </details>
         <details>
           <summary>What happens after 3 months?</summary>
@@ -556,6 +557,7 @@
   <span class="sticky-copy">
     <span class="sticky-line"><strong><span data-sleigh="sale-total">$594.15</span></strong> with code <span data-sleigh="code">SLEIGH</span></span>
     <span class="sticky-line">Or <span data-sleigh="monthly-option">$249 every 28 days</span>.</span>
+    <span class="sticky-line">Both include the Support Kit.</span>
   </span>
   <a class="btn" href="https://start.resewellness.com/weight-loss/questionnaire">See if it's right for me</a>
 </div>

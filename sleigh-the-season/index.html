@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sleigh the Season: 3 months of weight care support | Rese Wellness</title>
-<meta name="description" content="$594.15 for all 3 months with code SLEIGH (regular $699), or $249 monthly. Both include the Support Kit. Your card is held until you are approved.">
+<meta name="description" content="$594.15 for all 3 months with code SLEIGH (regular $699), or $249 monthly. Both include the Sleigh Support Kit. Your card is held until you are approved.">
 <link rel="canonical" href="https://resewellness.com/sleigh-the-season/">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
@@ -18,8 +18,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rese Wellness">
 <meta property="og:title" content="Sleigh the Season: 3 months of weight care support">
-<meta property="og:description" content="$594.15 for all 3 months with code SLEIGH (regular $699), or $249 monthly. Both include the Support Kit. Your card is held until you are approved.">
-<meta name="twitter:description" content="$594.15 for all 3 months with code SLEIGH (regular $699), or $249 monthly. Both include the Support Kit. Your card is held until you are approved.">
+<meta property="og:description" content="$594.15 for all 3 months with code SLEIGH (regular $699), or $249 monthly. Both include the Sleigh Support Kit. Your card is held until you are approved.">
+<meta name="twitter:description" content="$594.15 for all 3 months with code SLEIGH (regular $699), or $249 monthly. Both include the Sleigh Support Kit. Your card is held until you are approved.">
 <meta property="og:image" content="media/hero-poster.webp">
 <!--
   OFFER CONFIG
@@ -29,7 +29,7 @@
   percent off that total. The card is held at checkout and charged only
   after approval. It is not a Rese payment schedule.
   The monthly option is $249. Code SLEIGH
-  applies only to the 3-month program. Both options include the Support Kit.
+  applies only to the 3-month program. Both options include the Sleigh Support Kit.
   endsLabel is the only date format on the page.
 -->
 <script>
@@ -74,7 +74,7 @@
       "ends-short": shortEnds(offer.endsLabel),
       percent: String(offer.discountPercent)
     };
-    var priceLine = saleTotal + " for all " + offer.programMonths + " months with code " + offer.code + " (regular " + regularTotal + "), or " + offer.monthlyOption + ". Both include the Support Kit. Your card is held until you are approved.";
+    var priceLine = saleTotal + " for all " + offer.programMonths + " months with code " + offer.code + " (regular " + regularTotal + "), or " + offer.monthlyOption + ". Both include the Sleigh Support Kit. Your card is held until you are approved.";
     var metas = [
       document.querySelector('meta[name="description"]'),
       document.querySelector('meta[property="og:description"]'),
@@ -227,7 +227,8 @@
   .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(251,243,232,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .35s ease}
   .sticky.show{transform:none}
   .sticky-copy{display:flex;flex-direction:column;gap:1px;min-width:0;font-size:11.5px;line-height:1.25;color:var(--muted)}
-  .sticky-line{white-space:nowrap}
+  .sticky-line{white-space:normal}
+  .sticky-line:last-child{max-width:10.6em}
   .sticky strong{font-family:var(--serif);font-weight:500;font-size:13.5px;color:var(--ink)}
   .sticky .btn{padding:10px 6px;min-height:44px;font-size:10px;letter-spacing:0;flex:none}
   html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
@@ -240,12 +241,12 @@
   @media (min-width:900px){
     .nav .nav-cta{display:inline-flex}
     section{padding:84px 0 12px}
-    .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:36px;max-width:1120px;margin:0 auto;padding:32px 28px 12px}
+    .hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;gap:22px;max-width:1120px;margin:0 auto;padding:8px 28px 0}
     .hero-copy{order:1;padding:8px 0}
-    .hero-frame{order:2;margin:0;aspect-ratio:4/3}
+    .hero-frame{order:2;margin:0;aspect-ratio:3/2}
     .hero-poster{object-position:62% 42%}
     .hero .btn{width:auto}
-    .hero + section{padding-top:56px}
+    section[aria-labelledby="included"]{padding-top:20px}
     .feature{display:grid;grid-template-columns:1.15fr .85fr;align-items:stretch}
     .feature .copy{padding:40px 40px 40px 36px;display:flex;flex-direction:column;justify-content:center}
     .feature img{height:100%;aspect-ratio:auto;min-height:520px}
@@ -432,7 +433,7 @@
   <section aria-labelledby="included">
     <div class="wrap">
       <p class="eyebrow rv">What's included</p>
-      <h2 class="big rv" id="included">The Support Kit</h2>
+      <h2 class="big rv" id="included">The Sleigh Support Kit</h2>
       <p class="lede rv">Rese Wellness's holiday program.</p>
       <div class="kit-glance rv">
         <ul>
@@ -470,7 +471,7 @@
         <p class="price-lead">for all 3 months with code <span class="code" data-sleigh="code">SLEIGH</span>.</p>
         <p class="price-regular">Regular price <s><span data-sleigh="regular-total">$699</span></s>. <span data-sleigh="code">SLEIGH</span> is good through <span data-sleigh="ends">Dec 31, 2026</span>.</p>
         <p class="price-regular">Or <span data-sleigh="monthly-option">$249 monthly</span>.</p>
-        <p class="price-regular">Both include the Support Kit: a weekly text from your nurse and a simple starter guide.</p>
+        <p class="price-regular">Both include the Sleigh Support Kit: a weekly text from your nurse and a simple starter guide.</p>
         <p>Your card is held at checkout and charged only once you are approved. If not, you are not charged.</p>
         <p class="fine">HSA/FSA cards accepted. This is self-pay. We do not bill insurance.</p>
         <ul class="facts">
@@ -515,7 +516,7 @@
         </details>
         <details>
           <summary>What does the program cost?</summary>
-          <p><span data-sleigh="sale-total">$594.15</span> for all 3 months with code <span data-sleigh="code">SLEIGH</span> (regular <span data-sleigh="regular-total">$699</span>), through <span data-sleigh="ends">Dec 31, 2026</span>, or <span data-sleigh="monthly-option">$249 monthly</span>. Both include the Support Kit. The card is only charged once you are approved.</p>
+          <p><span data-sleigh="sale-total">$594.15</span> for all 3 months with code <span data-sleigh="code">SLEIGH</span> (regular <span data-sleigh="regular-total">$699</span>), through <span data-sleigh="ends">Dec 31, 2026</span>, or <span data-sleigh="monthly-option">$249 monthly</span>. Both include the Sleigh Support Kit. The card is only charged once you are approved.</p>
         </details>
         <details>
           <summary>What happens after 3 months?</summary>
@@ -557,7 +558,7 @@
   <span class="sticky-copy">
     <span class="sticky-line"><strong><span data-sleigh="sale-total">$594.15</span></strong> with code <span data-sleigh="code">SLEIGH</span></span>
     <span class="sticky-line">Or <span data-sleigh="monthly-option">$249 monthly</span>.</span>
-    <span class="sticky-line">Both include the Support Kit.</span>
+    <span class="sticky-line">Both include the Sleigh Support Kit.</span>
   </span>
   <a class="btn" href="https://start.resewellness.com/weight-loss/questionnaire">See if it's right for me</a>
 </div>

@@ -200,6 +200,39 @@
     <text x="600" y="510" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="30" letter-spacing="12" fill="#72744E">MEN'S HEALTH</text>
   </svg>
 </template>
+<!-- Meta Pixel + ad tracking passthrough (rese-tracking v1) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '28622510034036332');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=28622510034036332&ev=PageView&noscript=1"/></noscript>
+<script>
+/* Carry ad tracking tags (utm_*, fbclid) from the ad click onto links to the
+   questionnaire/funnel, so the CRM can tell which ad each lead came from.
+   Only these tracking tags are passed; nothing about the visitor is collected. */
+(function(){
+  var KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'];
+  var store={};
+  try{store=JSON.parse(sessionStorage.getItem('rese_utm')||'{}');}catch(e){}
+  var q=new URLSearchParams(location.search);
+  KEYS.forEach(function(k){if(q.get(k))store[k]=q.get(k);});
+  try{sessionStorage.setItem('rese_utm',JSON.stringify(store));}catch(e){}
+  if(!Object.keys(store).length)return;
+  function tag(){
+    document.querySelectorAll('a[href*="start.resewellness.com"],a[href*="go.resewellness.com"]').forEach(function(a){
+      try{var u=new URL(a.href);
+        Object.keys(store).forEach(function(k){if(!u.searchParams.get(k))u.searchParams.set(k,store[k]);});
+        a.href=u.toString();}catch(e){}
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',tag);else tag();
+})();
+</script>
 </head>
 <body>
 

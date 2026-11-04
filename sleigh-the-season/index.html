@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sleigh the Season | Rese Wellness</title>
-<meta name="description" content="$249 monthly, or $594.15 for all 3 months with code SLEIGH (regular $699). Both include the Sleigh Support Kit. Your card is held until you are approved.">
+<meta name="description" content="$211.65 your first month with code SLEIGH, then $249 monthly. Or $594.15 for 3 months up front with code SLEIGH (regular $699). Choose monthly or 3 months. SLEIGH takes 15% off once. Both include the Sleigh Support Kit. Your card is held until you are approved.">
 <link rel="canonical" href="https://resewellness.com/sleigh-the-season/">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
@@ -18,17 +18,19 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rese Wellness">
 <meta property="og:title" content="Sleigh the Season">
-<meta property="og:description" content="$249 monthly, or $594.15 for all 3 months with code SLEIGH (regular $699). Both include the Sleigh Support Kit. Your card is held until you are approved.">
-<meta name="twitter:description" content="$249 monthly, or $594.15 for all 3 months with code SLEIGH (regular $699). Both include the Sleigh Support Kit. Your card is held until you are approved.">
+<meta property="og:description" content="$211.65 your first month with code SLEIGH, then $249 monthly. Or $594.15 for 3 months up front with code SLEIGH (regular $699). Choose monthly or 3 months. SLEIGH takes 15% off once. Both include the Sleigh Support Kit. Your card is held until you are approved.">
+<meta name="twitter:description" content="$211.65 your first month with code SLEIGH, then $249 monthly. Or $594.15 for 3 months up front with code SLEIGH (regular $699). Choose monthly or 3 months. SLEIGH takes 15% off once. Both include the Sleigh Support Kit. Your card is held until you are approved.">
 <meta property="og:image" content="media/hero-poster.webp">
 <!--
   OFFER CONFIG
   Edit only this block. Prices, the code, and the end date are filled
   from these values.
-  The page leads with the monthly price. Injectable tirzepatide is
-  $249 monthly. Code SLEIGH does not apply to the monthly option.
-  The 3-month program is $699 billed up front. Code SLEIGH takes 15
-  percent off that total. The card is held at checkout and charged only
+  The page leads with the monthly price. Choose monthly or 3 months
+  up front. SLEIGH takes 15 percent off once, not both.
+  Injectable tirzepatide monthly is $249. SLEIGH makes the first
+  month $211.65, then $249 monthly.
+  The 3-month program is $699 billed up front. SLEIGH makes that
+  total $594.15. The card is held at checkout and charged only
   after approval. It is not a Rese payment schedule.
   Both options include the Sleigh Support Kit.
   endsLabel is the only date format on the page.
@@ -37,13 +39,14 @@
 (function () {
   var offer = {
     regularTotalCents: 69900,
+    monthlyCents: 24900,
     programMonths: 3,
     discountPercent: 15,
     code: "SLEIGH",
-    endsLabel: "Dec 31, 2026",
-    monthlyOption: "$249 monthly"
+    endsLabel: "Dec 31, 2026"
   };
   offer.saleTotalCents = Math.round(offer.regularTotalCents * (100 - offer.discountPercent) / 100);
+  offer.firstMonthCents = Math.round(offer.monthlyCents * (100 - offer.discountPercent) / 100);
   window.SLEIGH_OFFER = offer;
 
   function shortEnds(label) {
@@ -66,16 +69,19 @@
   window.applySleighOffer = function () {
     var regularTotal = moneyFromCents(offer.regularTotalCents);
     var saleTotal = moneyFromCents(offer.saleTotalCents);
+    var firstMonth = moneyFromCents(offer.firstMonthCents);
+    var monthly = moneyFromCents(offer.monthlyCents);
     var map = {
       "regular-total": regularTotal,
       "sale-total": saleTotal,
-      "monthly-option": offer.monthlyOption,
+      "first-month": firstMonth,
+      "monthly-plain": monthly,
       code: offer.code,
       ends: offer.endsLabel,
       "ends-short": shortEnds(offer.endsLabel),
       percent: String(offer.discountPercent)
     };
-    var priceLine = offer.monthlyOption + ", or " + saleTotal + " for all " + offer.programMonths + " months with code " + offer.code + " (regular " + regularTotal + "). Both include the Sleigh Support Kit. Your card is held until you are approved.";
+    var priceLine = firstMonth + " your first month with code " + offer.code + ", then " + monthly + " monthly. Or " + saleTotal + " for " + offer.programMonths + " months up front with code " + offer.code + " (regular " + regularTotal + "). Choose monthly or 3 months. SLEIGH takes 15% off once. Both include the Sleigh Support Kit. Your card is held until you are approved.";
     var metas = [
       document.querySelector('meta[name="description"]'),
       document.querySelector('meta[property="og:description"]'),
@@ -201,7 +207,9 @@
   .sign span{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-top:2px}
   .price-card{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 20px 24px;box-shadow:0 16px 40px rgba(78,21,36,.06)}
   .price-sale{font-family:var(--serif);font-weight:500;font-size:clamp(32px,8vw,52px);line-height:1;color:var(--cranberry-deep);letter-spacing:-.02em}
-  .price-lead{margin-top:8px;font-size:16px;line-height:1.45;color:var(--muted);max-width:28em}
+  .price-lead{margin-top:8px;font-size:17px;line-height:1.45;color:var(--ink);max-width:32em}
+  .price-then{margin-top:8px;font-family:var(--serif);font-weight:500;font-size:clamp(18px,4.2vw,24px);line-height:1.2;color:var(--ink)}
+  .price-choice{margin-top:14px;font-size:16px;line-height:1.45;color:var(--ink)}
   .price-save{margin-top:18px;background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:14px 16px 16px}
   .price-save-kicker{font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--evergreen);margin-bottom:4px}
   .price-save-amt{font-family:var(--serif);font-weight:500;font-size:clamp(26px,6.2vw,36px);line-height:1.15;color:var(--evergreen);letter-spacing:-.02em}
@@ -236,8 +244,7 @@
   .sticky-copy{display:flex;flex-direction:column;justify-content:center;gap:2px;min-width:0;flex:1}
   .sticky-main{font-family:var(--serif);font-weight:500;font-size:20px;line-height:1.05;color:var(--cranberry-deep);letter-spacing:-.02em}
   .sticky-main strong{font-family:inherit;font-weight:500;font-size:inherit;color:inherit;letter-spacing:inherit}
-  .sticky-alt{font-size:12.5px;line-height:1.25;color:var(--ink)}
-  .sticky-alt .deal-price{font-family:var(--serif);font-weight:500;font-size:14px;color:var(--evergreen);white-space:nowrap}
+  .sticky-alt{font-size:12px;line-height:1.25;color:var(--ink);white-space:nowrap}
   .sticky .btn{padding:10px 10px;min-height:44px;font-size:11px;letter-spacing:.01em;line-height:1.15;flex:0 0 auto;max-width:9.6em;text-align:center;white-space:normal}
   html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
   html.js .rv.in{opacity:1;transform:none}
@@ -347,7 +354,7 @@ fbq('track', 'PageView');
       <p class="eyebrow">Nurse-supported weight care</p>
       <h1 id="h1">Sleigh the Season</h1>
       <p class="subhead hero-warm">You carry everyone this season. Let us help carry your health.</p>
-      <p class="subhead hero-start">Start at <span data-sleigh="monthly-option">$249 monthly</span></p>
+      <p class="subhead hero-start">Start at <span data-sleigh="first-month">$211.65</span> your first month with code <span data-sleigh="code">SLEIGH</span></p>
       <a class="btn" href="https://start.resewellness.com/weight-loss/questionnaire">See if this program is right for you</a>
     </div>
   </section>
@@ -516,14 +523,16 @@ fbq('track', 'PageView');
       <h2 class="big rv" id="pricing">What you pay</h2>
       <p class="lede rv">Rese Wellness. Telehealth from Queen Creek, AZ.</p>
       <div class="price-card rv">
-        <p class="price-sale"><span data-sleigh="monthly-option">$249 monthly</span></p>
-        <p class="price-lead">Injectable tirzepatide.</p>
+        <p class="price-sale"><span data-sleigh="first-month">$211.65</span></p>
+        <p class="price-lead">first month with code <span class="code" data-sleigh="code">SLEIGH</span></p>
+        <p class="price-then">Then <span data-sleigh="monthly-plain">$249</span> monthly.</p>
         <div class="price-save">
-          <p class="price-save-kicker">Or save with 3 months</p>
+          <p class="price-save-kicker">Or save with 3 months up front</p>
           <p class="price-save-amt"><span data-sleigh="sale-total">$594.15</span></p>
-          <p class="code-line">with code <span class="code" data-sleigh="code">SLEIGH</span></p>
-          <p class="price-regular">Regular price <s><span data-sleigh="regular-total">$699</span></s>. <span data-sleigh="code">SLEIGH</span> is good through <span data-sleigh="ends">Dec 31, 2026</span>, on the 3-month program only.</p>
+          <p class="code-line">with code <span class="code" data-sleigh="code">SLEIGH</span> (regular <s><span data-sleigh="regular-total">$699</span></s>)</p>
         </div>
+        <p class="price-choice">Choose monthly or 3 months. SLEIGH takes 15% off once.</p>
+        <p class="price-regular"><span data-sleigh="code">SLEIGH</span> is good through <span data-sleigh="ends">Dec 31, 2026</span> on injectable tirzepatide (first month of monthly, or the 3-month program).</p>
         <p class="price-regular">Both include the Sleigh Support Kit: a weekly text from your nurse and a simple starter guide.</p>
         <p>Your card is held at checkout and charged only once you are approved. If not, you are not charged.</p>
         <p class="fine">HSA/FSA cards accepted. This is self-pay. We do not bill insurance.</p>
@@ -569,7 +578,7 @@ fbq('track', 'PageView');
         </details>
         <details>
           <summary>What does the program cost?</summary>
-          <p><span data-sleigh="monthly-option">$249 monthly</span>, or <span data-sleigh="sale-total">$594.15</span> for all 3 months with code <span data-sleigh="code">SLEIGH</span> (regular <span data-sleigh="regular-total">$699</span>), through <span data-sleigh="ends">Dec 31, 2026</span>. Both include the Sleigh Support Kit. The card is only charged once you are approved.</p>
+          <p><span data-sleigh="first-month">$211.65</span> your first month with code <span data-sleigh="code">SLEIGH</span>, then <span data-sleigh="monthly-plain">$249</span> monthly. Or <span data-sleigh="sale-total">$594.15</span> for 3 months up front with code <span data-sleigh="code">SLEIGH</span> (regular <span data-sleigh="regular-total">$699</span>). Choose monthly or 3 months. SLEIGH takes 15% off once, through <span data-sleigh="ends">Dec 31, 2026</span>, on injectable tirzepatide (first month of monthly, or the 3-month program). Both include the Sleigh Support Kit. The card is only charged once you are approved.</p>
         </details>
         <details>
           <summary>What happens after 3 months?</summary>
@@ -610,8 +619,8 @@ fbq('track', 'PageView');
 
 <div class="sticky show" id="stickyCta">
   <span class="sticky-copy">
-    <span class="sticky-main"><strong><span data-sleigh="monthly-option">$249 monthly</span></strong></span>
-    <span class="sticky-alt">Or save with 3 months:<br><span class="deal-price"><span data-sleigh="sale-total">$594.15</span></span> with code <span data-sleigh="code">SLEIGH</span></span>
+    <span class="sticky-main"><strong><span data-sleigh="first-month">$211.65</span> first month</strong></span>
+    <span class="sticky-alt">with code <span data-sleigh="code">SLEIGH</span>. Then <span data-sleigh="monthly-plain">$249</span> monthly.</span>
   </span>
   <a class="btn" href="https://start.resewellness.com/weight-loss/questionnaire">See if it's right for me</a>
 </div>

@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sleigh the Season | Rese Wellness</title>
-<meta name="description" content="Injectable tirzepatide from $157/month ($469 billed up front for 3 months), or $189 month-to-month. Same price at every dose. The Sleigh Support Kit is included. Your card is held until you are approved.">
+<meta name="description" content="Injectable tirzepatide $157/mo, billed $469 for 3 months, or $189 month-to-month. Same price at every dose. The Sleigh Support Kit is included. Your card is held until you are approved.">
 <link rel="canonical" href="https://resewellness.com/sleigh-the-season/">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
@@ -18,14 +18,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rese Wellness">
 <meta property="og:title" content="Sleigh the Season">
-<meta property="og:description" content="Injectable tirzepatide from $157/month ($469 billed up front for 3 months), or $189 month-to-month. Same price at every dose. The Sleigh Support Kit is included. Your card is held until you are approved.">
-<meta name="twitter:description" content="Injectable tirzepatide from $157/month ($469 billed up front for 3 months), or $189 month-to-month. Same price at every dose. The Sleigh Support Kit is included. Your card is held until you are approved.">
+<meta property="og:description" content="Injectable tirzepatide $157/mo, billed $469 for 3 months, or $189 month-to-month. Same price at every dose. The Sleigh Support Kit is included. Your card is held until you are approved.">
+<meta name="twitter:description" content="Injectable tirzepatide $157/mo, billed $469 for 3 months, or $189 month-to-month. Same price at every dose. The Sleigh Support Kit is included. Your card is held until you are approved.">
 <meta property="og:image" content="media/hero-poster.webp">
 <!--
   OFFER CONFIG
   Edit only this block. Prices on the page are filled from these values.
   Injectable tirzepatide is the same price at every dose.
-  The lead price is the 3-month prepaid rate. Month-to-month sits beside it.
+  Two options: $157/mo billed $469 for 3 months, or $189 month-to-month.
   The card is held at checkout and charged only after approval.
   It is not a Rese payment schedule.
   Both options include the Sleigh Support Kit.
@@ -33,15 +33,15 @@
 <script>
 (function () {
   var offer = {
-    fromMonth: "from $157/month",
-    monthToMonth: "$189 month-to-month",
-    upfront: "$469 billed up front for 3 months",
+    prepaid: "$157/mo · billed $469 for 3 months",
+    monthly: "or $189 month-to-month",
+    sentence: "$157/mo, billed $469 for 3 months, or $189 month-to-month",
     programMonths: 3
   };
   window.SLEIGH_OFFER = offer;
 
   window.applySleighOffer = function () {
-    var priceLine = "Injectable tirzepatide " + offer.fromMonth + " (" + offer.upfront + "), or " + offer.monthToMonth + ". Same price at every dose. The Sleigh Support Kit is included. Your card is held until you are approved.";
+    var priceLine = "Injectable tirzepatide " + offer.sentence + ". Same price at every dose. The Sleigh Support Kit is included. Your card is held until you are approved.";
     var metas = [
       document.querySelector('meta[name="description"]'),
       document.querySelector('meta[property="og:description"]'),
@@ -51,9 +51,9 @@
       if (metas[m]) metas[m].setAttribute("content", priceLine);
     }
     var map = {
-      "from-month": offer.fromMonth,
-      "month-to-month": offer.monthToMonth,
-      upfront: offer.upfront
+      prepaid: offer.prepaid,
+      monthly: offer.monthly,
+      sentence: offer.sentence
     };
     var nodes = document.querySelectorAll("[data-sleigh]");
     for (var i = 0; i < nodes.length; i++) {
@@ -171,10 +171,9 @@
   .sign{margin-top:16px;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink)}
   .sign span{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-top:2px}
   .price-card{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 20px 24px;box-shadow:0 16px 40px rgba(78,21,36,.06)}
-  .price-pair{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);gap:8px 18px;align-items:end}
-  .price-sale{font-family:var(--serif);font-weight:500;font-size:clamp(26px,6.4vw,44px);line-height:1.05;color:var(--cranberry-deep);letter-spacing:-.02em}
+  .price-sale{font-family:var(--serif);font-weight:500;font-size:17px;line-height:1.3;color:var(--cranberry-deep);letter-spacing:-.01em}
   .price-lead{margin-top:8px;font-size:16px;line-height:1.4;color:var(--ink);max-width:32em}
-  .price-then{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(18px,4vw,26px);line-height:1.2;color:var(--ink)}
+  .price-then{margin-top:6px;font-family:var(--serif);font-weight:500;font-size:clamp(18px,4.2vw,24px);line-height:1.25;color:var(--ink)}
   .price-choice{margin-top:14px;font-size:16px;line-height:1.45;color:var(--ink)}
   .price-save{margin-top:18px;background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:14px 16px 16px}
   .price-save-kicker{font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--evergreen);margin-bottom:4px}
@@ -205,14 +204,12 @@
   footer a{color:#4E1524}
   footer nav{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px}
   footer .safety{margin-top:0}
-  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(251,243,232,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .35s ease}
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(251,243,232,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:8px;transform:translateY(110%);transition:transform .35s ease}
   .sticky.show{transform:none}
-  .sticky-copy{display:flex;flex-direction:column;justify-content:center;gap:2px;min-width:0;flex:1}
-  .sticky-main{font-family:var(--serif);font-weight:500;font-size:20px;line-height:1.05;color:var(--cranberry-deep);letter-spacing:-.02em}
-  .sticky-main strong{font-family:inherit;font-weight:500;font-size:inherit;color:inherit;letter-spacing:inherit}
-  .sticky-alt{font-size:12px;line-height:1.35;color:var(--ink)}
-  .sticky-alt span{display:block}
-  .sticky .btn{padding:10px 10px;min-height:44px;font-size:11px;letter-spacing:.01em;line-height:1.15;flex:0 0 auto;max-width:9.6em;text-align:center;white-space:normal}
+  .sticky-copy{display:flex;flex-direction:column;justify-content:center;gap:1px;min-width:0;flex:1}
+  .sticky-main{font-family:var(--sans);font-weight:600;font-size:12px;line-height:1.3;color:var(--cranberry-deep);letter-spacing:0;white-space:nowrap}
+  .sticky-alt{font-family:var(--sans);font-size:12px;line-height:1.3;color:var(--ink);white-space:nowrap}
+  .sticky .btn{padding:8px 8px;min-height:44px;font-size:11px;letter-spacing:0;line-height:1.15;flex:0 0 auto;width:8.6em;max-width:8.6em;text-align:center;white-space:normal}
   html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
   html.js .rv.in{opacity:1;transform:none}
   @media (prefers-reduced-motion: reduce){
@@ -251,6 +248,7 @@
     .note img.scene{height:100%;aspect-ratio:auto;min-height:100%;object-fit:cover}
     .note .copy{padding:40px 40px 40px 36px}
     .price-card{padding:36px 40px}
+    .price-sale{font-size:32px}
     .faq summary{font-size:20px}
     .final{padding:88px 22px}
     .sticky{display:none}
@@ -322,7 +320,7 @@ fbq('track', 'PageView');
       <p class="eyebrow">Nurse-supported weight care</p>
       <h1 id="h1">Sleigh the Season</h1>
       <p class="subhead hero-warm">You carry everyone this season. Let us help carry your health.</p>
-      <p class="subhead hero-start"><span data-sleigh="from-month">from $157/month</span>. <span data-sleigh="month-to-month">$189 month-to-month</span>.</p>
+      <p class="subhead hero-start"><span data-sleigh="prepaid">$157/mo · billed $469 for 3 months</span><br><span data-sleigh="monthly">or $189 month-to-month</span></p>
       <a class="btn" href="https://start.resewellness.com/weight-loss/questionnaire">See if this program is right for you</a>
     </div>
   </section>
@@ -491,14 +489,9 @@ fbq('track', 'PageView');
       <h2 class="big rv" id="pricing">What you pay</h2>
       <p class="lede rv">Rese Wellness. Telehealth from Queen Creek, AZ.</p>
       <div class="price-card rv">
-        <div class="price-pair">
-          <div>
-            <p class="price-sale"><span data-sleigh="from-month">from $157/month</span></p>
-            <p class="price-lead">3 months prepaid</p>
-          </div>
-          <p class="price-then"><span data-sleigh="month-to-month">$189 month-to-month</span></p>
-        </div>
-        <p class="price-choice"><span data-sleigh="upfront">$469 billed up front for 3 months</span>. Same price at every dose.</p>
+        <p class="price-sale"><span data-sleigh="prepaid">$157/mo · billed $469 for 3 months</span></p>
+        <p class="price-then"><span data-sleigh="monthly">or $189 month-to-month</span></p>
+        <p class="price-choice">Same price at every dose.</p>
         <p class="price-regular">Both include the Sleigh Support Kit: a weekly text from your nurse and a simple starter guide.</p>
         <p>Your card is held at checkout and charged only once you are approved. If not, you are not charged.</p>
         <p class="fine">HSA/FSA cards accepted. This is self-pay. We do not bill insurance.</p>
@@ -544,7 +537,7 @@ fbq('track', 'PageView');
         </details>
         <details>
           <summary>What does the program cost?</summary>
-          <p>Injectable tirzepatide is <span data-sleigh="from-month">from $157/month</span> (<span data-sleigh="upfront">$469 billed up front for 3 months</span>), or <span data-sleigh="month-to-month">$189 month-to-month</span>. Same price at every dose. Both include the Sleigh Support Kit. The card is only charged once you are approved.</p>
+          <p>Injectable tirzepatide is <span data-sleigh="sentence">$157/mo, billed $469 for 3 months, or $189 month-to-month</span>. Same price at every dose. Both include the Sleigh Support Kit. The card is only charged once you are approved.</p>
         </details>
         <details>
           <summary>What happens after 3 months?</summary>
@@ -585,8 +578,8 @@ fbq('track', 'PageView');
 
 <div class="sticky show" id="stickyCta">
   <span class="sticky-copy">
-    <span class="sticky-main"><strong><span data-sleigh="from-month">from $157/month</span></strong></span>
-    <span class="sticky-alt"><span data-sleigh="month-to-month">$189 month-to-month</span><span data-sleigh="upfront">$469 billed up front for 3 months</span></span>
+    <span class="sticky-main"><span data-sleigh="prepaid">$157/mo · billed $469 for 3 months</span></span>
+    <span class="sticky-alt"><span data-sleigh="monthly">or $189 month-to-month</span></span>
   </span>
   <a class="btn" href="https://start.resewellness.com/weight-loss/questionnaire">See if it's right for me</a>
 </div>
